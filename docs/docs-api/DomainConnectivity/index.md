@@ -18,6 +18,10 @@ tags:
 
 # DomainConnectivity
 
+This data type handles the connectivity between two domains.
+
+## All methods
+
 import DocCardList from '@theme/DocCardList';
 
 <DocCardList />
