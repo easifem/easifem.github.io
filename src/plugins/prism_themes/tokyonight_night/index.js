@@ -1,109 +1,110 @@
 module.exports = {
   plain: {
-    color: '#c0caf5',
+    color: "#c0caf5",
+    background: "#1a1b26",
   },
   styles: [
     {
-      types: ['comment'],
+      types: ["comment"],
       style: {
-        color: '#565f89',
-        fontStyle: 'italic',
+        color: "#565f89",
+        fontStyle: "italic",
       },
     },
     {
-      types: ['constant', 'boolean', 'number'],
+      types: ["constant", "boolean", "number"],
       style: {
-        color: '#ff9e64',
+        color: "#ff9e64",
       },
     },
     {
-      types: ['keywordTypes'],
+      types: ["keywordTypes"],
       style: {
-        color: '#7aa2f7',
+        color: "#7aa2f7",
       },
     },
     {
-      types: ['keywordEnd'],
+      types: ["keywordEnd"],
       style: {
-        color: '#2ac3de',
+        color: "#2ac3de",
       },
     },
     {
-      types: ['keywordExtra'],
+      types: ["keywordExtra"],
       style: {
-        color: '#bb9af7',
+        color: "#bb9af7",
       },
     },
     {
-      types: ['keywordTypes'],
+      types: ["keywordTypes"],
       style: {
-        color: '#89ddff',
+        color: "#89ddff",
       },
     },
     {
-      types: ['easifemMethods'],
+      types: ["easifemMethods"],
       style: {
-        color: '#f7768e',
+        color: "#f7768e",
       },
     },
     {
-      types: ['keyword'],
+      types: ["keyword"],
       style: {
-        color: '#9d7cd8',
+        color: "#9d7cd8",
       },
     },
     {
-      types: ['operator'],
+      types: ["operator"],
       style: {
-        color: '#89ddff',
+        color: "#89ddff",
       },
     },
     {
-      types: ['punctuation'],
+      types: ["punctuation"],
       style: {
-        color: '#bb9af7',
+        color: "#bb9af7",
       },
     },
     {
-      types: ['primitive'],
+      types: ["primitive"],
       style: {
-        color: '#ff9e64',
+        color: "#ff9e64",
       },
     },
     {
-      types: ['prolog', 'builtin'],
+      types: ["prolog", "builtin"],
       style: {
-        color: '#f7768e',
+        color: "#f7768e",
       },
     },
     {
-      types: ['function'],
+      types: ["function"],
       style: {
-        color: '#7aa2f7',
+        color: "#7aa2f7",
       },
     },
     {
-      types: ['symbol'],
+      types: ["symbol"],
       style: {
-        color: '#2ac3de',
+        color: "#2ac3de",
       },
     },
     {
-      types: ['string', 'char', 'tag', 'selector'],
+      types: ["string", "char", "tag", "selector"],
       style: {
-        color: '#9ece6a',
+        color: "#9ece6a",
       },
     },
     {
-      types: ['variable'],
+      types: ["variable"],
       style: {
-        color: '#c0caf5',
+        color: "#c0caf5",
       },
     },
     {
-      types: ['attr-name'],
+      types: ["attr-name"],
       style: {
-        color: 'rgb(241, 250, 140)',
+        color: "rgb(241, 250, 140)",
       },
     },
   ],

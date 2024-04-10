@@ -1,6 +1,7 @@
 // require('dotenv').config();
 // const math = require('remark-math');
 // const katex = require('rehype-katex');
+import { themes as prismThemes } from "prism-react-renderer";
 import katex from "rehype-katex";
 import math from "remark-math";
 
@@ -274,8 +275,7 @@ const config = {
       },
       prism: {
         additionalLanguages: ["fortran", "bash", "python", "toml"],
-        theme: require("./src/plugins/prism_themes/tokyonight_day"),
-        darkTheme: require("./src/plugins/prism_themes/tokyonight_night"),
+        theme: require("./src/plugins/prism_themes/tokyonight_night"),
         magicComments: [
           {
             className: "theme-code-block-highlighted-line",
