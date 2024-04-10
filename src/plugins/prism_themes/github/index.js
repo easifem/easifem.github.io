@@ -1,30 +1,30 @@
 var colors = {
-  forground: '#2E3440',
-  // background: "#ECEFF4",
-  char: '#2E3440',
-  comment: '#616E88',
-  boolean: '#D42C8F',
-  number: '#70641D',
-  keyword: '#5107E8',
-  keywordTypes: '#4089BD',
-  keywordEnd: '#789639',
-  keywordExtra: '#C9A53E',
-  easifemTypes: '#43BC7A',
-  easifemMethods: '#BD285E',
-  operator: '#BF616A',
-  punctuation: '#D08770',
-  primitive: '#D9882B',
-  string: '#2EACAB',
-  changed: '#2EACAB',
-  tag: '#A72ED9',
-  deleted: '#D8DEE9',
-  builtin: '#068DCC',
-  variable: '#D8DEE9',
-  function: '#DB40AA',
-  attr_name: '#BD8C31',
-  inserted: '#D08770',
-  className: '#C91F1E',
-  method: '#1919CD',
+  forground: "#2E3440",
+  background: "#d4d7db",
+  char: "#2E3440",
+  comment: "#616E88",
+  boolean: "#D42C8F",
+  number: "#70641D",
+  keyword: "#5107E8",
+  keywordTypes: "#4089BD",
+  keywordEnd: "#789639",
+  keywordExtra: "#C9A53E",
+  easifemTypes: "#43BC7A",
+  easifemMethods: "#BD285E",
+  operator: "#BF616A",
+  punctuation: "#D08770",
+  primitive: "#D9882B",
+  string: "#2EACAB",
+  changed: "#2EACAB",
+  tag: "#A72ED9",
+  deleted: "#D8DEE9",
+  builtin: "#068DCC",
+  variable: "#D8DEE9",
+  function: "#DB40AA",
+  attr_name: "#BD8C31",
+  inserted: "#D08770",
+  className: "#C91F1E",
+  method: "#1919CD",
 };
 
 module.exports = {
@@ -34,79 +34,79 @@ module.exports = {
   },
   styles: [
     {
-      types: ['comment'],
+      types: ["comment"],
       style: {
         color: colors.comment,
       },
     },
     {
-      types: ['boolean'],
+      types: ["boolean"],
       style: {
         color: colors.boolean,
       },
     },
     {
-      types: ['number'],
+      types: ["number"],
       style: {
         color: colors.number,
       },
     },
     {
-      types: ['keywordTypes'],
+      types: ["keywordTypes"],
       style: {
         color: colors.keywordTypes,
       },
     },
     {
-      types: ['keywordEnd'],
+      types: ["keywordEnd"],
       style: {
         color: colors.keywordEnd,
       },
     },
     {
-      types: ['keywordExtra'],
+      types: ["keywordExtra"],
       style: {
         color: colors.keywordExtra,
       },
     },
     {
-      types: ['easifemTypes'],
+      types: ["easifemTypes"],
       style: {
         color: colors.easifemTypes,
       },
     },
     {
-      types: ['easifemMethods'],
+      types: ["easifemMethods"],
       style: {
         color: colors.easifemMethods,
       },
     },
     {
-      types: ['keyword'],
+      types: ["keyword"],
       style: {
         color: colors.keyword,
       },
     },
     {
-      types: ['operator'],
+      types: ["operator"],
       style: {
         color: colors.operator,
       },
     },
     {
-      types: ['punctuation'],
+      types: ["punctuation"],
       style: {
         color: colors.punctuation,
       },
     },
     {
-      types: ['primitive'],
+      types: ["primitive"],
       style: {
         color: colors.primitive,
       },
     },
     {
-      types: ['string'],
+      types: ["string"],
       style: {
         color: colors.string,
       },

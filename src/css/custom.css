@@ -183,7 +183,7 @@ body {
   --docs-color-text-100: #646464;
 
   /* Color from prism themes */
-  --docs-color-code-background: #f6f8fa;
+  --docs-color-code-background: #dddfe1;
   --docs-color-android: #44db85;
   --docs-color-apple: var(--docs-color-text) !important;
 }

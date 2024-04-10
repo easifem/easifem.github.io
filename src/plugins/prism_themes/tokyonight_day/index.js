@@ -1,4 +1,4 @@
-module.exports =  {
+module.exports = {
   plain: {
     color: "#3760bf",
     backgroundColor: "#e1e2e7",

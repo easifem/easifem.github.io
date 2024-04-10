@@ -274,7 +274,7 @@ const config = {
       },
       prism: {
         additionalLanguages: ["fortran", "bash", "python", "toml"],
-        theme: require("./src/plugins/prism_themes/github"),
+        theme: require("./src/plugins/prism_themes/tokyonight_day"),
         darkTheme: require("./src/plugins/prism_themes/tokyonight_night"),
         magicComments: [
           {
