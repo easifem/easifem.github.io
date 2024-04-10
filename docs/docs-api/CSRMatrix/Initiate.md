@@ -51,13 +51,13 @@ END INTERFACE
 If user has information about the number of rows `nrow`, number of columns `ncol` of sparse matrix, then the above interface can be used to initiate an instance of `CSRMatrix_`.
 
 - `dof` and `matrixProp` are optional.
-- `dof` is [DOF](../DOF/DOF_.md) object, and it is used to initiate `obj%csr`, [CSRSparsity](../CSRSparsity/CSRSparsity_.md) field.
+    - `dof` is DOF object, and it is used to initiate `obj%csr`, CSRSparsity field.
 
 </TabItem>
 
 <TabItem value="example" label="️܀ Example 1">
 
-import EXAMPLE52 from "./_Initiate_test_1.md";
+import EXAMPLE52 from "./examples/_Initiate_test_1.md";
 
 <EXAMPLE52 />
 
@@ -65,7 +65,7 @@ import EXAMPLE52 from "./_Initiate_test_1.md";
 
 <TabItem value="example2" label="️܀ Example 2">
 
-import EXAMPLE53 from "./_Initiate_test_2.md";
+import EXAMPLE53 from "./examples/_Initiate_test_2.md";
 
 <EXAMPLE53 />
 
@@ -81,7 +81,7 @@ import EXAMPLE53 from "./_Initiate_test_2.md";
 
 <TabItem value="iface2" label="Initiate(obj, csr, matrixProp)">
 
-We can also initiate the sparse matrix by providing an instance of [CSRSparsity](../CSRSparsity/CSRSparsity_.md).
+We can also initiate the sparse matrix by providing an instance of [CSRSparsity](../CSRSparsity/CSRSparsity_).
 
 ```fortran
 INTERFACE
@@ -100,7 +100,7 @@ INTERFACE
 END INTERFACE
 ```
 
-In the above call, [CSRSparsity](../CSRSparsity/CSRSparsity_.md) object, `csr`, should be initiated by the user before passing it to the routine. This is because `initiate` uses information such as `ncol, nrow, nnz` stored inside `csr`.
+In the above call, [CSRSparsity](../CSRSparsity/CSRSparsity_) object, `csr`, should be initiated by the user before passing it to the routine. This is because `initiate` uses information such as `ncol, nrow, nnz` stored inside `csr`.
 
 </TabItem>
 
@@ -132,7 +132,7 @@ INTERFACE
 END INTERFACE
 ```
 
-This subroutine will allocate memory for `csr`, which is an instance of [CSRSparsity](../CSRSparsity/CSRSparsity_.md).
+This subroutine will allocate memory for `csr`, which is an instance of [CSRSparsity](../CSRSparsity/CSRSparsity_).
 
 </TabItem>
 

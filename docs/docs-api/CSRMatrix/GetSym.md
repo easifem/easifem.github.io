@@ -31,7 +31,7 @@ END INTERFACE
 
 <TabItem value="2" label="️܀ See example 1">
 
-import EXAMPLE34 from "./_GetSym_test_1.md";
+import EXAMPLE34 from "./examples/_GetSym_test_1.md";
 
 <EXAMPLE34 />
 
@@ -39,7 +39,7 @@ import EXAMPLE34 from "./_GetSym_test_1.md";
 
 <TabItem value="3" label="️܀ See example 2">
 
-import EXAMPLE44 from "./_GetSym_test_2.md";
+import EXAMPLE44 from "./examples/_GetSym_test_2.md";
 
 <EXAMPLE44 />
 

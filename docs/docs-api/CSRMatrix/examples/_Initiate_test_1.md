@@ -6,7 +6,7 @@ PROGRAM main
   TYPE( DOF_ ) :: dofobj
 ```
 
-- First, we initiate [DOF](../DOF/DOF_.md), which contains the structure of Degrees of freedom
+- First, we initiate DOF, which contains the structure of Degrees of freedom
 - The degrees of freedom has:
   - 1 physical variable
   - 1 space component

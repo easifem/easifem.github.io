@@ -7,14 +7,14 @@ PROGRAM main
     REAL( DFP ), ALLOCATABLE :: m2(:,:)
 ```
 
-Initiate degrees of freedom object [DOF](../DOF/DOF_.md)
+Initiate degrees of freedom object DOF
 
 ```fortran
     CALL Initiate( obj=dofobj, tNodes=[4, 2], names=['V', 'P'], &
       & spaceCompo=[2, 1], timeCompo=[1,1], storageFMT=FMT_DOF )
 ```
 
-Initiate [CSRMatrix_](CSRMatrix_.md)
+Initiate CSRMatrix
 
 ```fortran
     CALL Initiate( obj, &

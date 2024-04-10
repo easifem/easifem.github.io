@@ -2,42 +2,73 @@
 
 Add values to CSRMatrix.
 
+Symbolically we perform following operations.
+
+$$
+A = A + B
+$$
+
 Calling example: 
 
 ```fortran
 ADD(obj, nodenum(:), value(:,:), scale)
-
-ADD(obj, nodenum(:), value(:,:), scale, storageFMT)
-
-ADD(obj, value, scale)
-
-ADD(obj, irow, icolumn, value, scale)
-
-ADD(obj, inodenum, jnodenum, idof, jdof, value, scale)
-
-ADD(obj, nodenum(:), value, scale)
-
-ADD(obj, inodenum(:), jnodenum(:), ivar, jvar, value(:,:), scale)
-
-ADD(obj, inodenum, jnodenum, ivar, jvar, idof, jdof, value, scale)
-
-ADD(obj, inodenum(:), jnodenum(:), ivar, jvar, idof, jdof, value(:,:), scale)
-
-ADD(obj, inodenum, jnodenum, ivar, jvar, ispacecompo, itimecompo, jspacecompo, jtimecompo, value, scale)
-
-ADD(obj, inodenum(:), jnodenum(:), ivar, jvar, value, scale)
-
-ADD(obj, inodenum(:), jnodenum(:), ivar, jvar, idof, jdof, value, scale)
-
-ADD(obj, inodenum(:), jnodenum(:), ivar, jvar, ispacecompo, itimecompo, jspacecompo, jtimecompo, value, scale)
-
-ADD(obj, inodenum(:), jnodenum(:), ivar, jvar, ispacecompo, itimecompo(:), jspacecompo, jtimecompo(:), value, scale)
-
-ADD(obj, inodenum(:), jnodenum(:), ivar, jvar, ispacecompo(:), itimecompo, jspacecompo(:), jtimecompo, value, scale)
 ```
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+```fortran
+ADD(obj, nodenum(:), value(:,:), scale, storageFMT)
+```
+
+```fortran
+ADD(obj, value, scale)
+```
+
+```fortran
+ADD(obj, irow, icolumn, value, scale)
+```
+
+```fortran
+ADD(obj, inodenum, jnodenum, idof, jdof, value, scale)
+```
+
+```fortran
+ADD(obj, nodenum(:), value, scale)
+```
+
+```fortran
+ADD(obj, inodenum(:), jnodenum(:), ivar, jvar, value(:,:), scale)
+```
+
+```fortran
+ADD(obj, inodenum, jnodenum, ivar, jvar, idof, jdof, value, scale)
+```
+
+```fortran
+ADD(obj, inodenum(:), jnodenum(:), ivar, jvar, idof, jdof, value(:,:), scale)
+```
+
+```fortran
+ADD(obj, inodenum, jnodenum, ivar, jvar, ispacecompo, itimecompo, jspacecompo, jtimecompo, value, scale)
+```
+
+```fortran
+ADD(obj, inodenum(:), jnodenum(:), ivar, jvar, value, scale)
+```
+
+```fortran
+ADD(obj, inodenum(:), jnodenum(:), ivar, jvar, idof, jdof, value, scale)
+```
+
+```fortran
+ADD(obj, inodenum(:), jnodenum(:), ivar, jvar, ispacecompo, itimecompo, jspacecompo, jtimecompo, value, scale)
+```
+
+```fortran
+ADD(obj, inodenum(:), jnodenum(:), ivar, jvar, ispacecompo, itimecompo(:), jspacecompo, jtimecompo(:), value, scale)
+```
+
+```fortran
+ADD(obj, inodenum(:), jnodenum(:), ivar, jvar, ispacecompo(:), itimecompo, jspacecompo(:), jtimecompo, value, scale)
+```
 
 ## Interface 1
 
