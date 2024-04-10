@@ -1,5 +1,3 @@
-This example shows how to get the node to element connectivity data in the mesh.
-
 ```fortran
 PROGRAM main
   USE easifemBase
@@ -21,7 +19,7 @@ PROGRAM main
   CALL obj%DisplayMeshInfo(filename)
   ! Display the mesh data
 
-  block 
+  block
     INTEGER( I4B ), ALlOCATABLE :: ans(:), exact_ans(:)
     INTEGER( I4B ), PARAMETER :: globalNode = 10
 
@@ -32,11 +30,21 @@ PROGRAM main
   end block
 
 
-  block 
+  block
     INTEGER( I4B ), ALlOCATABLE :: ans(:), exact_ans(:)
     INTEGER( I4B ), PARAMETER :: globalNode = 5
 
     ans = obj%GetNodeToElements(globalNode)
+    ans = sort(ans)
+    exact_ans = [15, 17, 24]
+    CALL OK(ALL(exact_ans .eq. ans), "GetNodeToElements: " )
+  end block
+
+  block
+    INTEGER( I4B ), ALlOCATABLE :: ans(:), exact_ans(:)
+    INTEGER( I4B ), PARAMETER :: globalNode = 5
+
+    ans = obj%GetNodeToElements(globalNode, islocal=.true.)
     ans = sort(ans)
     exact_ans = [15, 17, 24]
     CALL OK(ALL(exact_ans .eq. ans), "GetNodeToElements: " )

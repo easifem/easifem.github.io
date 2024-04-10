@@ -5,7 +5,7 @@ PROGRAM main
   IMPLICIT NONE
   TYPE( FEMesh_ ) :: obj
   TYPE( HDF5File_ ) :: meshfile
-  CHARACTER(*), PARAMETER :: filename="./meshdata/small_mesh.h5"
+  CHARACTER(*), PARAMETER :: filename="../../Mesh/examples/meshdata/small_mesh.h5"
 
   CALL meshfile%Initiate( FileName=filename, MODE="READ" )
 
