@@ -1,4 +1,4 @@
-Testing initiate method for 2D mesh.
+Testing for triangle mesh two regions.
 
 ```fortran
 PROGRAM main
@@ -9,7 +9,7 @@ IMPLICIT NONE
 TYPE(FEDomain_) :: dom
 TYPE(HDF5File_) :: meshfile
 CHARACTER(*), PARAMETER :: filename = &
-  & "../../Mesh/examples/meshdata/small_mesh.h5"
+  & "../../Mesh/examples/meshdata/small_tri3_mesh_two_region.h5"
 
 CALL meshfile%Initiate(filename, mode="READ")
 CALL meshfile%OPEN()

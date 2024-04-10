@@ -17,20 +17,11 @@ CALL meshfile%OPEN()
 CALL obj%Initiate(meshfile, '')
 
 BLOCK
-  INTEGER(I4B), PARAMETER :: globalnode = 28
+  INTEGER(I4B), PARAMETER :: globalnode(2) = [3,38]
   INTEGER(I4B), ALLOCATABLE :: exact(:), val(:)
 
   val = SORT(obj%GetNodeToElements(globalnode))
-  exact = [36, 37, 38, 43, 44, 45]
-  CALL OK(ALL(val .EQ. exact), "GetNodeToElements: ")
-END BLOCK
-
-BLOCK
-  INTEGER(I4B), PARAMETER :: globalnode = 3
-  INTEGER(I4B), ALLOCATABLE :: exact(:), val(:)
-
-  val = SORT(obj%GetNodeToElements(globalnode))
-  exact = [91, 92]
+  exact = [36, 37, 38, 43, 44, 45, 91, 92]
   CALL OK(ALL(val .EQ. exact), "GetNodeToElements: ")
 END BLOCK
 
