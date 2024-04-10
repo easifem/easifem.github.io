@@ -142,7 +142,6 @@ build/*
 *.pdf 
 *.msh 
 *.geo
-*.F90
 *.txt
 *.gp
 *.ps
