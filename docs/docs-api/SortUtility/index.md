@@ -1,9 +1,9 @@
 ---
 sidebar_position: 1
 date: 2022-12-22
-update: 2022-12-22
-status: InProgress
-docs: InProgress
+update: 2024-04-10 
+status: Done
+docs: Done
 extpkgs: none
 category:
   - Utility
@@ -12,7 +12,7 @@ category:
   - Sort
 tags:
   - utility
-  - SortUtility
+  - sort
   - matrix
   - vector
 ---
@@ -32,7 +32,7 @@ This module contains routines for sorting the matrix and vectors. Currently, thi
 - [x] Sort
 - [x] ArgSort
 
-## Methods
+## All Methods
 
 import DocCardList from '@theme/DocCardList';
 

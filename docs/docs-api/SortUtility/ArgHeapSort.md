@@ -14,9 +14,6 @@ Then, `array(arg)` will be sorted in increasing order.
 
 ## Interface
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 <Tabs>
 <TabItem value="interface" label="܀ Interface" default>
 
@@ -35,7 +32,7 @@ import TabItem from '@theme/TabItem';
 
 <TabItem value="example" label="️܀ See example">
 
-import EXAMPLE20 from "./_ArgHeapSort_test_1.md";
+import EXAMPLE20 from "./examples/_ArgSort_test_1.md";
 
 <EXAMPLE20 />
 
