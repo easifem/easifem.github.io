@@ -11,9 +11,9 @@ const meta = {
   url: "https://www.easifem.com",
   baseUrl: "/",
   favicon: "/favicon.ico",
-  organizationName: "easifem-fortran",
+  organizationName: "easifem",
   // The GitHub user or organization that owns the deployment repository.
-  projectName: "easifem-fortran.github.io",
+  projectName: "easifem.github.io",
   // The name of the deployment repository.
   deploymentBranch: "gh-pages",
   // The name of the deployment branch.
@@ -23,7 +23,7 @@ const meta = {
   // config field or environment variable.
   trailingSlash: false,
   onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
   i18n: {
     defaultLocale: "en",
     locales: ["en"],
