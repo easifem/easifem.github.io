@@ -14,9 +14,11 @@ tags:
 
 # AppendUtility
 
+<!-- markdownlint-disable MD041 MD013 MD033 -->
+
 This module defines methods for appending fortran arrays of real and integer types. Following routines are described in this module.
 
-## Methods
+## All Methods
 
 import DocCardList from '@theme/DocCardList';
 

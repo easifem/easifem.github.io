@@ -1,5 +1,7 @@
 # RowConcat
 
+<!-- markdownlint-disable MD041 MD013 MD033 -->
+
 This function concates the rows of array (of rank 1 or 2).
 
 Calling example:
@@ -20,18 +22,18 @@ import TabItem from '@theme/TabItem';
 <TabItem value="interface" label="܀ Interface" default>
 
 ```fortran
-  MODULE PURE FUNCTION rowConcat(a, b) RESULT(ans)
-    REAL(REAL32), INTENT(IN) :: a(:)
-    REAL(REAL32), INTENT(IN) :: b(:)
-    REAL(REAL32), ALLOCATABLE :: ans(:, :)
-  END FUNCTION rowConcat
+MODULE PURE FUNCTION rowConcat(a, b) RESULT(ans)
+  REAL(REAL32), INTENT(IN) :: a(:)
+  REAL(REAL32), INTENT(IN) :: b(:)
+  REAL(REAL32), ALLOCATABLE :: ans(:, :)
+END FUNCTION rowConcat
 ```
 
 </TabItem>
 
 <TabItem value="example" label="️܀ See example">
 
-import EXAMPLE16 from "./_RowConcat_test_1.md";
+import EXAMPLE16 from "./examples/_RowConcat_test_1.md";
 
 <EXAMPLE16 />
 
@@ -48,18 +50,18 @@ import EXAMPLE16 from "./_RowConcat_test_1.md";
 <TabItem value="interface" label="܀ Interface" default>
 
 ```fortran
-  MODULE PURE FUNCTION rowConcat(a, b) RESULT(ans)
-    REAL(REAL32), INTENT(IN) :: a(:, :)
-    REAL(REAL32), INTENT(IN) :: b(:)
-    REAL(REAL32), ALLOCATABLE :: ans(:, :)
-  END FUNCTION rowConcat
+MODULE PURE FUNCTION rowConcat(a, b) RESULT(ans)
+  REAL(REAL32), INTENT(IN) :: a(:, :)
+  REAL(REAL32), INTENT(IN) :: b(:)
+  REAL(REAL32), ALLOCATABLE :: ans(:, :)
+END FUNCTION rowConcat
 ```
 
 </TabItem>
 
 <TabItem value="example" label="️܀ See example">
 
-import EXAMPLE41 from "./_RowConcat_test_2.md";
+import EXAMPLE41 from "./examples/_RowConcat_test_2.md";
 
 <EXAMPLE41 />
 
@@ -76,18 +78,18 @@ import EXAMPLE41 from "./_RowConcat_test_2.md";
 <TabItem value="interface" label="܀ Interface" default>
 
 ```fortran
-  MODULE PURE FUNCTION rowConcat(a, b) RESULT(ans)
-    REAL(REAL32), INTENT(IN) :: a(:)
-    REAL(REAL32), INTENT(IN) :: b(:, :)
-    REAL(REAL32), ALLOCATABLE :: ans(:, :)
-  END FUNCTION rowConcat
+MODULE PURE FUNCTION rowConcat(a, b) RESULT(ans)
+  REAL(REAL32), INTENT(IN) :: a(:)
+  REAL(REAL32), INTENT(IN) :: b(:, :)
+  REAL(REAL32), ALLOCATABLE :: ans(:, :)
+END FUNCTION rowConcat
 ```
 
 </TabItem>
 
 <TabItem value="example" label="️܀ See example">
 
-import EXAMPLE66 from "./_RowConcat_test_2.md";
+import EXAMPLE66 from "./examples/_RowConcat_test_2.md";
 
 <EXAMPLE66 />
 
@@ -104,11 +106,11 @@ import EXAMPLE66 from "./_RowConcat_test_2.md";
 <TabItem value="interface" label="܀ Interface" default>
 
 ```fortran
-  MODULE PURE FUNCTION rowConcat(a, b) RESULT(ans)
-    REAL(REAL32), INTENT(IN) :: a(:, :)
-    REAL(REAL32), INTENT(IN) :: b(:, :)
-    REAL(REAL32), ALLOCATABLE :: ans(:, :)
-  END FUNCTION rowConcat
+MODULE PURE FUNCTION rowConcat(a, b) RESULT(ans)
+  REAL(REAL32), INTENT(IN) :: a(:, :)
+  REAL(REAL32), INTENT(IN) :: b(:, :)
+  REAL(REAL32), ALLOCATABLE :: ans(:, :)
+END FUNCTION rowConcat
 ```
 
 </TabItem>

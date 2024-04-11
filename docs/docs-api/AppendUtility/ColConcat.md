@@ -1,5 +1,7 @@
 # ColConcat
 
+<!-- markdownlint-disable MD041 MD013 MD033 -->
+
 This function concatenates the columns of array (of rank 1 or 2).
 
 Calling examples:
@@ -31,7 +33,7 @@ END FUNCTION colConcat
 
 <TabItem value="example" label="️܀ See example">
 
-import EXAMPLE16 from "./_ColConcat_test_1.md";
+import EXAMPLE16 from "./examples/_ColConcat_test_1.md";
 
 <EXAMPLE16 />
 
@@ -59,7 +61,7 @@ END FUNCTION colConcat
 
 <TabItem value="example" label="️܀ See example">
 
-import EXAMPLE47 from "./_ColConcat_test_2.md";
+import EXAMPLE47 from "./examples/_ColConcat_test_2.md";
 
 <EXAMPLE47 />
 
@@ -87,7 +89,7 @@ END FUNCTION colConcat
 
 <TabItem value="example" label="️܀ See example">
 
-import EXAMPLE75 from "./_ColConcat_test_2.md";
+import EXAMPLE75 from "./examples/_ColConcat_test_2.md";
 
 <EXAMPLE75 />
 
@@ -115,7 +117,7 @@ END FUNCTION colConcat
 
 <TabItem value="example" label="️܀ See example">
 
-import EXAMPLE103 from "./_ColConcat_test_3.md";
+import EXAMPLE103 from "./examples/_ColConcat_test_3.md";
 
 <EXAMPLE103 />
 

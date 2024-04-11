@@ -1,4 +1,10 @@
+---
+sidebar_position: 2
+---
+
 # Structure
+
+<!-- markdownlint-disable MD013 MD024 -->
 
 A `BoundingBox_` datatype contains `[x_min, y_min, z_min, x_max, y_max, z_max` and `NSD` to represents a bounding box.
 
@@ -19,5 +25,6 @@ TYPE :: BoundingBox_
     !!- `Box(2, 2)` is y_max
     !!- `Box(1, 3)` is z_min
     !!- `Box(2, 3)` is z_max
+  REAL(DFP) :: l(3)
 END TYPE BoundingBox_
 ```

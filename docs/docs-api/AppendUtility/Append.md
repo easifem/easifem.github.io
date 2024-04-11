@@ -1,5 +1,7 @@
 # Append
 
+<!-- markdownlint-disable MD041 MD013 MD033 -->
+
 Append is a generic subroutine to append entries to vector of real or integer.
 
 import Tabs from '@theme/Tabs';
@@ -53,7 +55,7 @@ A = A .append. entry
 
 <TabItem value="example" label="Example 1">
 
-import EXAMPLE62 from "./_Append_test_1.md";
+import EXAMPLE62 from "./examples/_Append_test_1.md";
 
 <EXAMPLE62 />
 
@@ -61,7 +63,7 @@ import EXAMPLE62 from "./_Append_test_1.md";
 
 <TabItem value="example2" label="Example 2">
 
-import EXAMPLE64 from "./_Append_test_2.md";
+import EXAMPLE64 from "./examples/_Append_test_2.md";
 
 <EXAMPLE64 />
 
@@ -105,7 +107,7 @@ We can:
 
 <TabItem value="example" label="See example">
 
-import EXAMPLE104 from "./_Append_test_3.md";
+import EXAMPLE104 from "./examples/_Append_test_3.md";
 
 <EXAMPLE104 />
 
@@ -123,7 +125,7 @@ import EXAMPLE104 from "./_Append_test_3.md";
 <TabItem value="append" label="Append (3)">
 
 ```fortran
-  CALL Append(A, entry, mask)
+CALL Append(A, entry, mask)
 ```
 
 here,
@@ -147,7 +149,7 @@ We can:
 
 <TabItem value="example" label="See example">
 
-import EXAMPLE149 from "./_Append_test_4.md";
+import EXAMPLE149 from "./examples/_Append_test_4.md";
 
 <EXAMPLE149 />
 
@@ -166,7 +168,7 @@ import EXAMPLE149 from "./_Append_test_4.md";
 <TabItem value="append" label="Append (4)">
 
 ```fortran
-  CALL Append(C, A, B, mask)
+CALL Append(C, A, B, mask)
 ```
 
 where,
@@ -190,7 +192,7 @@ We can:
 
 <TabItem value="example" label="See example">
 
-import EXAMPLE193 from "./_Append_test_5.md";
+import EXAMPLE193 from "./examples/_Append_test_5.md";
 
 <EXAMPLE193 />
 
