@@ -183,7 +183,7 @@ body {
   --docs-color-text-100: #646464;
 
   /* Color from prism themes */
-  --docs-color-code-background: #dddfe1;
+  --docs-color-code-background: #181825;
   --docs-color-android: #44db85;
   --docs-color-apple: var(--docs-color-text) !important;
 }
@@ -197,7 +197,6 @@ body {
   --docs-color-text-100: #BAC2DE;
   --docs-color-border: #11111b;
   --docs-table-color-border: var(--rosewater);
-  --docs-color-code-background: #181825;
 }
 
 /* Docusaurus Theming */
@@ -1033,13 +1032,13 @@ img[src$='#terminal'] {
 details {
   font-size: 14px;
   font-weight: 500;
-  color: var(--docs-color-text-100) !important;
-  background: var(--docs-color-background-100) !important;
+  color: var(--docs-color-primary) !important;
+  background: var(--docs-color-code-background) !important;
   border: solid 2px var(--docs-color-code-background) !important;
 }
 
 details code {
-  background-color: var(--docs-color-background);
+  background-color: var(--docs-color-code-background);
 }
 
 details p {
