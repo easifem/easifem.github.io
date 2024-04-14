@@ -117,7 +117,7 @@ END FUNCTION rowConcat
 
 <TabItem value="example" label="️܀ See example">
 
-import EXAMPLE103 from "./_RowConcat_test_3.md";
+import EXAMPLE103 from "./examples/_RowConcat_test_3.md";
 
 <EXAMPLE103 />
 

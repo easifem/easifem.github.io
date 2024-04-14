@@ -17,7 +17,9 @@ tags:
 
 `FEMesh_` datatype handles the finite element mesh.
 
-- You can learn about the structure of `Mesh` [Here](./FEMesh_.md)
+import EXAMPLE26 from "./FEMesh_.md";
+
+<EXAMPLE26 />
 
 ## All methods
 

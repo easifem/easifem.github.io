@@ -1,9 +1,8 @@
 # Repeat
 
-Repeat a vector.
+<!-- markdownlint-disable MD041 MD013 MD033 -->
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+Repeat a vector.
 
 ## Interface
 
@@ -22,7 +21,7 @@ END FUNCTION Repeat
 
 <TabItem value="example" label="️܀ See example">
 
-import EXAMPLE5 from "./_Repeat_test_1.md";
+import EXAMPLE5 from "./examples/_Repeat_test_1.md";
 
 <EXAMPLE5 />
 

@@ -1,5 +1,7 @@
 # In
 
+<!-- markdownlint-disable MD041 MD013 MD033 -->
+
 This routine returns true if an integer set is a subset of another integer set.
 
 Calling example:
@@ -7,9 +9,6 @@ Calling example:
 ```fortran
 abool = [1,2,3] .in. [1,3,4,5,2]
 ```
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 ## Interface 1
 
@@ -28,7 +27,7 @@ END FUNCTION In
 
 <TabItem value="example" label="️܀ See example">
 
-import EXAMPLE14 from "./_In_test_1.md";
+import EXAMPLE14 from "./examples/_In_test_1.md";
 
 <EXAMPLE14 />
 
@@ -56,7 +55,7 @@ END FUNCTION In
 
 <TabItem value="example" label="️܀ See example">
 
-import EXAMPLE44 from "./_In_test_2.md";
+import EXAMPLE44 from "./examples/_In_test_2.md";
 
 <EXAMPLE44 />
 

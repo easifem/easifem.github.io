@@ -20,6 +20,8 @@ CALL Display(dom%GetBoundingBox(), "Box : ")
 
 CALL Display(dom%GetBoundingBox(dim=dom%GetNSD()), "Box:")
 
+CALL Display(dom%GetBoundingBox(dim=1_I4B), "Box:")
+
 CALL dom%DEALLOCATE()
 CALL meshfile%CLOSE()
 CALL meshfile%DEALLOCATE()

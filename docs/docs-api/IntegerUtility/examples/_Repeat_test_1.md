@@ -1,5 +1,3 @@
-In this example we test Repeat function.
-
 ```fortran
 program main
 use easifemBase

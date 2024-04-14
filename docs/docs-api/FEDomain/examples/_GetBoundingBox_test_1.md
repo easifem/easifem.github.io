@@ -1,4 +1,4 @@
-This example show how to get bounding box of a domain.
+<!-- markdownlint-disable MD041 MD013 MD033 -->
 
 ```fortran
 PROGRAM main
@@ -22,6 +22,8 @@ CALL dom%Initiate(meshfile, '')
 CALL Display(dom%GetBoundingBox(), "Box : ")
 
 CALL Display(dom%GetBoundingBox(dim=dom%GetNSD()), "Box:")
+
+CALL Display(dom%GetBoundingBox(dim=1_I4B), "Box:")
 
 CALL dom%DEALLOCATE()
 CALL meshfile%CLOSE()

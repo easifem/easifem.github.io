@@ -1,9 +1,8 @@
 # Size
 
-Returns the number of tuples.
+<!-- markdownlint-disable MD041 MD013 MD033 -->
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+Returns the number of tuples.
 
 ## Interface 1
 
@@ -24,7 +23,7 @@ END INTERFACE
 
 <TabItem value="example" label="️܀ See example">
 
-import EXAMPLE5 from "./_Size_test_1.md";
+import EXAMPLE5 from "./examples/_Size_test_1.md";
 
 <EXAMPLE5 />
 
@@ -54,7 +53,7 @@ END INTERFACE
 
 <TabItem value="example" label="️܀ See example">
 
-import EXAMPLE41 from "./_Size_test_2.md";
+import EXAMPLE41 from "./examples/_Size_test_2.md";
 
 <EXAMPLE41 />
 

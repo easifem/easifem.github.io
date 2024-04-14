@@ -1,4 +1,4 @@
-This example shows the usage of `isIn` method which is defined in  `IntegerUtility` module.
+This example shows the usage of `isIn` method which is defined in `IntegerUtility` module.
 
 ```fortran
 program main
@@ -21,5 +21,5 @@ test(1)=
 test(2)=
 --------
    T    
-   T    
+   T
 ```
