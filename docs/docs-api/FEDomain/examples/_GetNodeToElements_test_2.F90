@@ -13,11 +13,17 @@ CALL meshfile%OPEN()
 ! Initiates an instance of [[Domain_]].
 CALL obj%Initiate(meshfile, '')
 BLOCK
-  INTEGER(I4B), PARAMETER :: globalnode(2) = [3,38]
+  INTEGER(I4B), PARAMETER :: globalnode(2) = [3,28]
   INTEGER(I4B), ALLOCATABLE :: exact(:), val(:)
+LOGICAL( LGT ) :: isok
   val = SORT(obj%GetNodeToElements(globalnode))
   exact = [36, 37, 38, 43, 44, 45, 91, 92]
-  CALL OK(ALL(val .EQ. exact), "GetNodeToElements: ")
+  isok = ALL(val .EQ. exact)
+    CALL OK(isok, "GetNodeToElements: ")
+  if(.not. isok) then
+  CALL Display(val, "got: ")
+  CALL Display(exact, "want: ")
+  end if
 END BLOCK
 CALL meshfile%DEALLOCATE()
 CALL obj%DEALLOCATE()

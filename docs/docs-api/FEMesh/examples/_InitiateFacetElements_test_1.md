@@ -4,19 +4,23 @@
 PROGRAM main
 USE easifemBase
 USE easifemClasses
-USE FEDomain_Class
+
 IMPLICIT NONE
-TYPE(FEDomain_) :: dom
+
+TYPE(FEMesh_) :: obj
 TYPE(HDF5File_) :: meshfile
-CHARACTER(*), PARAMETER :: filename = &
+CHARACTER(LEN=*), PARAMETER :: filename = &
   & "../../Mesh/examples/meshdata/small_mesh.h5"
 
-CALL meshfile%Initiate(filename, mode="READ")
-CALL meshfile%OPEN()
-CALL dom%Initiate(meshfile, '')
-CALL dom%Display("domain:")
+CALL meshfile%Initiate(FileName=filename, MODE="READ")
 
-CALL dom%DEALLOCATE()
+CALL meshfile%OPEN()
+
+CALL obj%Initiate(hdf5=meshfile, dim=2)
+
+CALL obj%InitiateFacetElements()
+
+CALL obj%DEALLOCATE()
 CALL meshfile%DEALLOCATE()
 END PROGRAM main
 ```

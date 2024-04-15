@@ -1,6 +1,3 @@
-<!-- markdownlint-disable MD041 MD013 MD033 -->
-
-```fortran
 PROGRAM main
 USE easifemBase
 USE easifemClasses
@@ -20,9 +17,6 @@ CALL obj%Initiate(hdf5=meshfile, dim=2)
 
 CALL obj%InitiateFacetElements()
 
-CALL obj%DisplayInternalFacetData(msg="internal facet data of "//filename)
-
 CALL obj%DEALLOCATE()
 CALL meshfile%DEALLOCATE()
 END PROGRAM main
-```

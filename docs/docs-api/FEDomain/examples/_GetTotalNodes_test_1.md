@@ -1,4 +1,6 @@
-``` fortran
+<!-- markdownlint-disable MD041 MD013 MD033 -->
+
+```fortran
 PROGRAM main
 USE easifemBase
 USE easifemClasses
