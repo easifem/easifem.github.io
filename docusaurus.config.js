@@ -58,7 +58,7 @@ const docs = [
 /** @type {import('@docusaurus/plugin-content-docs').Options} */
 const defaultSettings = {
   breadcrumbs: true,
-  editUrl: "https://github.com/easifem-fortran/easifem-fortran.github.io/tree/main/",
+  editUrl: "https://github.com/easifem/easifem.github.io/tree/main/",
   showLastUpdateTime: true,
   sidebarPath: require.resolve("./sidebars-default.js"),
   remarkPlugins: [math],
