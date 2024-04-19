@@ -6,7 +6,7 @@ PROGRAM main
   TYPE(Domain_) :: dom
   TYPE(HDF5File_) :: meshfile
   CHARACTER(*), PARAMETER :: filename= &
-  & "../../Mesh/examples/meshdata/small_mesh_3d.h5"
+   "../../Mesh/examples/meshdata/small_mesh_3d.h5"
   CALL meshfile%Initiate(filename, mode="READ")
   CALL meshfile%Open()
   CALL dom%Initiate(meshfile, '')

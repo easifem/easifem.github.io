@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD041 MD013 MD033 -->
+
 This example shows how to convert the mesh generated from `Gmsh`
 `MSHFile_` format into the `HDF5File_` format.
 
@@ -14,7 +16,7 @@ Initiate an instance of `MSHFile_` which is created by Gmsh
 
 ```fortran
 CALL mshFile%Initiate( filename="./meshdata/small_mesh.msh",  &
-& STATUS="OLD", ACTION="READ" )
+ STATUS="OLD", ACTION="READ" )
 ```
 
 Open the mesh file.
