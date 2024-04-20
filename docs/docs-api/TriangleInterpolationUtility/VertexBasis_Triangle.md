@@ -1,4 +1,4 @@
-# VertexBasis
+# VertexBasis_Triangle
 
 Returns value of vertex function on triangle.
 

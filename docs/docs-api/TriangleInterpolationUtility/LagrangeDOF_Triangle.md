@@ -1,6 +1,8 @@
 # LagrangeDOF
 
-Returns the total number of degree of freedom for a lagrange polynomial on triangle.
+<!-- markdownlint-disable MD041 MD013 MD033 MD012 -->
+
+Returns the total number of degree of freedom for a Lagrange polynomial on triangle.
 
 The total DOF is given by:
 
@@ -9,9 +11,6 @@ $$
 $$
 
 ## Interface
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 <Tabs>
 <TabItem value="interface" label="܀ Interface" default>
@@ -29,7 +28,7 @@ END INTERFACE
 
 <TabItem value="example" label="️܀ See example">
 
-import EXAMPLE26 from "./_LagrangeDOF_Triangle_test_1.md";
+import EXAMPLE26 from "./examples/_LagrangeDOF_Triangle_test_1.md";
 
 <EXAMPLE26 />
 

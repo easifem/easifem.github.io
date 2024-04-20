@@ -1,7 +1,4 @@
 ---
-id: "index"
-aliases:
-  - "EASIFEM"
 tags:
   - "easifemBase"
   - "easifemClasses"
@@ -9,6 +6,8 @@ sidebar_position: 1
 ---
 
 # EASIFEM
+
+<!-- markdownlint-disable MD041 MD013 MD033 -->
 
 Expandable And Scalable Infrastructure for Finite Element Methods, EASIFEM, is [Modern FORTRAN](https://fortran-lang.org) framework for solving partial differential equations (PDEs) using finite element methods. EASIFEM “eases” the efforts to develop scientific programs in FORTRAN. It is meant for researchers, scientists, and engineers using FORTRAN to implement numerical methods for solving the initial-boundary-value problems (IBVPs). EASIFEM is equipped with both low- and high-level datatype and classes for implementing finite element methods.
 
@@ -26,7 +25,7 @@ Currently, EASIFEM focuses on finite element methods. Eventually, the library wi
 
 ## Structure of EASIFEM
 
-![](/img/what-is-easifem.svg)
+![easifem structure](/img/what-is-easifem.svg)
 
 EASIFEM consists following three hierarchical components:
 
@@ -76,7 +75,6 @@ Currently, `easifemBase` has interface with `HDF5`, `Gmsh`, `PlPlot`, `GTK4`, `P
   </div>
   </div>
 </div>
-
 
 ## Kernels
 

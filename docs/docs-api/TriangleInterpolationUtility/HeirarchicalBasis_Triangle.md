@@ -1,8 +1,10 @@
-# HeirarchicalBasis
+# HeirarchicalBasis_Triangle
+
+<!-- markdownlint-disable MD041 MD013 MD033 MD012 -->
 
 Evaluate all modal basis (heirarchical polynomial) on Triangle.
 
-# Interface
+## Interface
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -3,13 +3,15 @@ title: easifemBase
 sidebar_position: 5
 ---
 
+<!-- markdownlint-disable MD041 MD013 MD033 MD012 -->
+
 `easifemBase` (henceforth read as Base) library is the lowest (or, base) level component of EASIFEM. All other components are built upon `easifemBase`.
 
-It contains a lot of valuable routines and derived types. 
+It contains a lot of valuable routines and derived types.
 
 ## Programming paradigm
 
-The programming paradigm of `easifemBase` is [Multiple dispatch approach](https://en.wikipedia.org/wiki/Multiple_dispatch) and Procedural programming. 
+The programming paradigm of `easifemBase` is [Multiple dispatch approach](https://en.wikipedia.org/wiki/Multiple_dispatch) and Procedural programming.
 
 :::note
 The base library do not use the object-oriented programming concepts. In the Base library `String_Class` is the only exception wherein Object-oriented paradigm has been used.
@@ -22,14 +24,14 @@ import TabItem from '@theme/TabItem';
 
 ## Key features
 
-Currently, easifemBase has interface with 
+Currently, easifemBase has interface with
 
-- `BLAS95` 
-- `Lapack95` 
-- `Sparsekit` 
-- `Metis` 
-- `PlPlot` 
-- `SuperLU` 
+- `BLAS95`
+- `Lapack95`
+- `Sparsekit`
+- `Metis`
+- `PlPlot`
+- `SuperLU`
 - `ARPACK`
 
 - [ ] TODO Add key features in `easifemBase.md`.
@@ -53,11 +55,11 @@ The `easifemBase` library exposes three main modules.
 
 1. `BaseType`, which contains the user-defined data-type
 2. `BaseMethods`, contains the modules (each module defines the routines for data-types defined in `BaseType.F90`.)
-3. `easifemBase` 
+3. `easifemBase`
 
 The structure of source directory is shown in the following figure.
 
-![](./figures/figure-2.svg)
+![easifem-base-design](/img/svg/easifem-base-design.svg)
 
 The source directory has two directories
 
@@ -244,5 +246,3 @@ import {basemethods_columns, basemethods_articles} from "./BaseMethods.table.js"
   columns={basemethods_columns}
   data={basemethods_articles}
 />
-
-###

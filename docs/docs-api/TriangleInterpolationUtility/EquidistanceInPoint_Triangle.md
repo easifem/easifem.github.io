@@ -1,4 +1,6 @@
-# EquidistanceInPoint
+# EquidistanceInPoint_Triangle
+
+<!-- markdownlint-disable MD041 MD013 MD033 MD012 -->
 
 This function returns the equidistance points in triangle.
 
@@ -6,9 +8,6 @@ This function returns the equidistance points in triangle.
 :::
 
 ## Interface
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 <Tabs>
 <TabItem value="interface" label="܀ Interface" default>
@@ -32,7 +31,7 @@ END INTERFACE
 
 <TabItem value="example" label="️܀ See example">
 
-import EXAMPLE35 from "./_EquidistancePoint_Triangle_test_1.md";
+import EXAMPLE35 from "./examples/_EquidistanceInPoint_Triangle_test_1.md";
 
 <EXAMPLE35 />
 

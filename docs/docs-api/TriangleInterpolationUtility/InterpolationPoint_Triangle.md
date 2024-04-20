@@ -1,12 +1,10 @@
-# InterpolationPoint
+# InterpolationPoint_Triangle
+
+<!-- markdownlint-disable MD041 MD013 MD033 MD012 -->
 
 This routine returns the interpolation points on triangle.
 
-
 ## Interface
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 <Tabs>
 <TabItem value="interface" label="܀ Interface" default>
@@ -34,6 +32,7 @@ END INTERFACE
 - `xij` contains nodal coordinates of triangle in `xij` format.
 - `SIZE(xij,1) = nsd`, and `SIZE(xij,2)=3`
 - If `xij` is absent then unit triangle is assumed
+
 :::
 
 :::info ipType
@@ -52,36 +51,14 @@ END INTERFACE
 - [ ] `ChenBabuska` TODO
 - [ ] `Hesthaven` TODO
 - [ ] `Feket` TODO
+
 :::
 
 :::info `layout`
 
 - `layout` specifies the arrangement of points. The nodes are always returned in “VEFC” format (vertex, edge, face, cell). 1:3 are vertex points, then edge, and then internal nodes. The internal nodes also follow the same convention. Please read Gmsh manual on this topic.
+
 :::
-
-</TabItem>
-
-<TabItem value="Equidistance" label="️܀ Equidistance">
-
-import EXAMPLE63 from "./_InterpolationPoint_Triangle_test_1.md";
-
-<EXAMPLE63 />
-
-</TabItem>
-
-<TabItem value="BlythPozChebyshev" label="BlythPozChebyshev">
-
-import EXAMPLE71 from "./_InterpolationPoint_Triangle_test_2.md";
-
-<EXAMPLE71 />
-
-</TabItem>
-
-<TabItem value="BlythPozLegendre" label="BlythPozLegendre">
-
-import EXAMPLE79 from "./_InterpolationPoint_Triangle_test_3.md";
-
-<EXAMPLE79 />
 
 </TabItem>
 
@@ -90,24 +67,67 @@ import EXAMPLE79 from "./_InterpolationPoint_Triangle_test_3.md";
 </TabItem>
 </Tabs>
 
-<Tabs>
-<TabItem value="IsaacChebyshev" label="IsaacChebyshev">
+## Example of Equidistance points
 
-import EXAMPLE87 from "./_InterpolationPoint_Triangle_test_4.md";
+<details>
+<summary>Click here to see example</summary>
+<div>
+
+import EXAMPLE63 from "./examples/_InterpolationPoint_Triangle_test_1.md";
+
+<EXAMPLE63 />
+
+</div>
+</details>
+
+## BlythPozChebyshev
+
+<details>
+<summary>Click here to see example</summary>
+<div>
+
+import EXAMPLE71 from "./examples/_InterpolationPoint_Triangle_test_2.md";
+
+<EXAMPLE71 />
+
+</div>
+</details>
+
+## BlythPozLegendre
+
+<details>
+<summary>Click here to see example</summary>
+<div>
+
+import EXAMPLE79 from "./examples/_InterpolationPoint_Triangle_test_3.md";
+
+<EXAMPLE79 />
+
+</div>
+</details>
+
+## IsaacChebyshev
+
+<details>
+<summary>Click here to see example</summary>
+<div>
+
+import EXAMPLE87 from "./examples/_InterpolationPoint_Triangle_test_4.md";
 
 <EXAMPLE87 />
 
-</TabItem>
+</div>
+</details>
 
-<TabItem value="IsaacLegendre" label="IsaacLegendre">
+## IssacLegendre
 
-import EXAMPLE95 from "./_InterpolationPoint_Triangle_test_5.md";
+<details>
+<summary>Click here to see example</summary>
+<div>
+
+import EXAMPLE95 from "./examples/_InterpolationPoint_Triangle_test_5.md";
 
 <EXAMPLE95 />
 
-</TabItem>
-
-<TabItem value="close" label="↢ " default>
-
-</TabItem>
-</Tabs>
+</div>
+</details>

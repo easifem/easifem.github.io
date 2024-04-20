@@ -1,4 +1,10 @@
-# LagrangeDegree
+---
+sidebar_position: 2
+---
+
+# LagrangeDegree_Triangle
+
+<!-- markdownlint-disable MD041 MD013 MD033 MD012 -->
 
 Returns the polynomial space for constructing the Lagrange polynomials.
 
@@ -8,10 +14,10 @@ $$
 p(x,y) = \sum_{a=0}\sum_{b=0} x^{a} y^{b}
 $$
 
-Here span of $x^{a}y^{b}$ is called the LagrangeDegree.
+Here span of $x^{a}y^{b}$ is called the Lagrange degrees.
 
-- as are given by first column of ans.
-- bs are given by second column of ans.
+- The exponents `a` are given by first column of ans, `ans(:,1)`.
+- The exponents `b` are given by second column of ans, `ans(:, 2)`.
 
 For example for order = 3, we have the following degrees:
 
@@ -21,23 +27,20 @@ $$
 
 which is representd by:
 
-| a  |  b |
-|----|----|
-| 0  | 0  |
-| 1  | 0  |
-| 2  | 0  |
-| 3  | 0  |
-| 0  | 1  |
-| 1  | 1  |
-| 2  | 1  |
-| 0  | 2  |
-| 1  | 2  |
-| 0  | 3  |
+| a | b |
+| - | - |
+| 0 | 0 |
+| 1 | 0 |
+| 2 | 0 |
+| 3 | 0 |
+| 0 | 1 |
+| 1 | 1 |
+| 2 | 1 |
+| 0 | 2 |
+| 1 | 2 |
+| 0 | 3 |
 
 ## Interface
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 <Tabs>
 <TabItem value="interface" label="܀ Interface" default>
@@ -59,13 +62,14 @@ Order of Lagrange polynomial
 
 - The first col of `ans` denotes the exponent of `x`
 - The second col of `ans` denotes the exponent of `y`
+
 :::
 
 </TabItem>
 
 <TabItem value="example" label="️܀ See example">
 
-import EXAMPLE26 from "./_LagrangeDegree_Triangle_test_1.md";
+import EXAMPLE26 from "./examples/_LagrangeDegree_Triangle_test_1.md";
 
 <EXAMPLE26 />
 
