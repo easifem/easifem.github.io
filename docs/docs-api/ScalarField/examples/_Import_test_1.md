@@ -1,4 +1,6 @@
-In this example we test [Set](./Set.md) method.
+<!-- markdownlint-disable MD041 MD013 MD033 MD012 -->
+
+In this example we initiate an instance of Scalar field by importing data from HDF5 file.
 
 ```fortran
 PROGRAM main
@@ -9,40 +11,35 @@ PROGRAM main
   TYPE( HDF5File_ ) :: meshfile, resultFile
   TYPE( ParameterList_ ) :: param
   INTEGER( I4B ) :: ierr
-  REAL( DFP ), ALLOCATABLE :: realVec( : )
-  CHARACTER( LEN = * ), PARAMETER :: engine = "NATIVE_SERIAL"
 ```
 
 ```fortran title="Open file for import"
-  CALL FPL_INIT()
-  CALL param%initiate()
-  CALL resultFile%initiate( filename="./result.h5", mode="READ" )
-  CALL resultFile%open()
+CALL FPL_INIT()
+CALL param%initiate()
+CALL resultFile%initiate( filename="./result.h5", mode="READ" )
+CALL resultFile%open()
 ```
 
-```fortran title="read domain"  
-  !> start creating domain
-  CALL meshfile%initiate( filename="./mesh.h5", mode="READ" )
-  CALL meshfile%open()
-  CALL dom%initiate( hdf5=meshfile, group="" )
-  !> end creating domain
+```fortran title="read domain"
+!> start creating domain
+CALL meshfile%initiate( filename="./mesh.h5", mode="READ" )
+CALL meshfile%open()
+CALL dom%initiate( hdf5=meshfile, group="" )
+!> end creating domain
 ```
 
-```fortran title="initiate scalar field"
-  CALL SetScalarFieldParam( param=param, &
-    & fieldType=FIELD_TYPE_NORMAL, &
-    & name="U", &
-    & engine=engine)
-  CALL obj%initiate( param, dom )
+```fortran title="import"
+!> start import
+CALL obj%import( hdf5=resultFile, group="/scalarField1", dom=dom )
+!> end start import
 ```
 
-```fortran title="Setting multiple values"
- call obj%set(globalNode=[1,2,5], value=1.0_DFP )
- call obj%display( "scalar field = ")
+```fortran
+CALL obj%Display("obj = ")
 ```
 
 ```txt title="results"
-#scalar field =
+#obj =
 # isInitiated : TRUE
 # name :U
 # fieldType : NORMAL
@@ -72,12 +69,12 @@ PROGRAM main
 # VAR :U
  DOF-1 ,   
 -------,   
-1.00000,   
-1.00000,   
 0.00000,   
 0.00000,   
-1.00000,   
 0.00000,   
+0.00000,   
+0.00000,   
+0.00000,
 ```
 
 ```fortran title="Cleanup"
@@ -85,6 +82,5 @@ PROGRAM main
   CALL meshfile%Deallocate()
   CALL resultFile%Deallocate()
   CALL param%Deallocate(); CALL FPL_FINALIZE()
-  if(allocated(realVec) ) deallocate(realVec)
 END PROGRAM main
 ```

@@ -1,6 +1,8 @@
 # Norm2
 
-Norm2 of node field.
+<!-- markdownlint-disable MD041 MD013 MD033 MD012 -->
+
+L2 norm of node field.
 
 :::note
 This method has been implemented for NATIVE engine.
@@ -16,3 +18,4 @@ INTERFACE
   END FUNCTION Norm2
 END INTERFACE
 ```
+

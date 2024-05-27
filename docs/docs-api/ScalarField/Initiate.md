@@ -1,9 +1,8 @@
 # Initiate
 
-This method constructs an instance of AbstractField.
+<!-- markdownlint-disable MD041 MD013 MD033 MD012 -->
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+This method constructs an instance of AbstractField.
 
 ## Interface 1
 
@@ -25,7 +24,7 @@ END INTERFACE
 
 <TabItem value="example" label="️܀ See example">
 
-import EXAMPLE45 from "./_ScalarField_test_1.md";
+import EXAMPLE45 from "./examples/_Initiate_test_1.md";
 
 <EXAMPLE45 />
 

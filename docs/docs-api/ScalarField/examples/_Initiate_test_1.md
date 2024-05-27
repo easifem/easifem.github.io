@@ -1,8 +1,4 @@
-In this example we test following methods:
-
-- [SetScalarFieldParam](./SetScalarFieldParam.md)
-- [Initiate](./Initiate.md)
-- [Export](./Export.md)
+<!-- markdownlint-disable MD041 MD013 MD033 MD012 -->
 
 ```fortran
 PROGRAM main
@@ -16,26 +12,26 @@ PROGRAM main
   CHARACTER(*), PARAMETER :: engine = "NATIVE_SERIAL"
 ```
 
-```fortran title="setScalarFieldParam"  
-  CALL FPL_INIT()
-  CALL param%initiate()
-  CALL SetScalarFieldParam( param=param, &
-    & fieldType=FIELD_TYPE_NORMAL, &
-    & name="U", &
-    & engine=engine)
+```fortran title="setScalarFieldParam"
+CALL FPL_INIT()
+CALL param%initiate()
+CALL SetScalarFieldParam( param=param, &
+  & fieldType=FIELD_TYPE_NORMAL, &
+  & name="U", &
+  & engine=engine)
 ```
 
 ```fortran title="Initiate"
-  CALL meshfile%initiate( filename="./mesh.h5", mode="READ" )
-  CALL meshfile%open()
-  CALL dom%initiate( hdf5=meshfile, group="" )
-  CALL obj%initiate( param, dom )
+CALL meshfile%initiate( filename="./mesh.h5", mode="READ" )
+CALL meshfile%open()
+CALL dom%initiate( hdf5=meshfile, group="" )
+CALL obj%initiate( param, dom )
 ```
 
 Let's display the scalar field.
 
 ```fortran
-  CALL obj%Display("obj = ")
+CALL obj%Display("obj = ")
 ```
 
 ```txt title="Results"
@@ -81,9 +77,9 @@ Let's display the scalar field.
 ```
 
 ```fortran title="Export"
-  CALL resultFile%initiate( filename="./result.h5", mode="NEW" )
-  CALL resultFile%open()
-  CALL obj%export( hdf5=resultFile, group="/scalarField1")
+CALL resultFile%initiate( filename="./result.h5", mode="NEW" )
+CALL resultFile%open()
+CALL obj%export( hdf5=resultFile, group="/scalarField1")
 ```
 
 ```fortran title="Cleanup"

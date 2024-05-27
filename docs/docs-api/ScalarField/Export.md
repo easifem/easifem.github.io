@@ -1,11 +1,10 @@
 # Export
 
+<!-- markdownlint-disable MD041 MD013 MD033 MD012 -->
+
 Export the abstract field to an external file.
 
 Inherited from [AbstractField_](../AbstractField/Export.md)
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 ## Interface
 
@@ -26,7 +25,7 @@ END INTERFACE
 
 <TabItem value="example" label="️܀ See example">
 
-import EXAMPLE9 from "./_ScalarField_test_1.md";
+import EXAMPLE9 from "./examples/_Export_test_1.md";
 
 <EXAMPLE9 />
 

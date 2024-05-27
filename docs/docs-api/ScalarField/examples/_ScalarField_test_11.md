@@ -1,5 +1,3 @@
-In this example we test [Get](./Set.md) method.
-
 ```fortran
 PROGRAM main
   USE easifemBase
@@ -15,33 +13,33 @@ PROGRAM main
 ```
 
 ```fortran title="Open file for import"
-  CALL FPL_INIT()
-  CALL param%initiate()
-  CALL resultFile%initiate( filename="./result.h5", mode="READ" )
-  CALL resultFile%open()
+CALL FPL_INIT()
+CALL param%initiate()
+CALL resultFile%initiate( filename="./result.h5", mode="READ" )
+CALL resultFile%open()
 ```
 
-```fortran title="read domain"  
-  !> start creating domain
-  CALL meshfile%initiate( filename="./mesh.h5", mode="READ" )
-  CALL meshfile%open()
-  CALL dom%initiate( hdf5=meshfile, group="" )
-  !> end creating domain
+```fortran title="read domain"
+!> start creating domain
+CALL meshfile%initiate( filename="./mesh.h5", mode="READ" )
+CALL meshfile%open()
+CALL dom%initiate( hdf5=meshfile, group="" )
+!> end creating domain
 ```
 
 ```fortran title="initiate scalar field"
-  CALL SetScalarFieldParam( param=param, &
-    & fieldType=FIELD_TYPE_NORMAL, &
-    & name="U", &
-    & engine=engine)
-  CALL obj%initiate( param, dom )
+CALL SetScalarFieldParam( param=param, &
+  & fieldType=FIELD_TYPE_NORMAL, &
+  & name="U", &
+  & engine=engine)
+CALL obj%initiate( param, dom )
 ```
 
 ```fortran title="setting all values using vector"
-  CALL reallocate( realVec, dom%getTotalNodes() )
-  CALL RANDOM_NUMBER( realVec )
-  CALL obj%set(realVec)
-  CALL obj%display( "scalar field = ")
+CALL reallocate( realVec, dom%getTotalNodes() )
+CALL RANDOM_NUMBER( realVec )
+CALL obj%set(realVec)
+CALL obj%display( "scalar field = ")
 ```
 
 ```txt title="results"
@@ -80,12 +78,12 @@ PROGRAM main
 0.398595,   
 0.418203,   
 0.195654,   
-0.874868,   
+0.874868,
 ```
 
 ```fortran
-  CALL obj%get( value=avar, globalNode=2)
-  CALL Display(avar, "avar = ")
+CALL obj%get( value=avar, globalNode=2)
+CALL Display(avar, "avar = ")
 ```
 
 ```txt title="results"

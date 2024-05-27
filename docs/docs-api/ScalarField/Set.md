@@ -1,6 +1,8 @@
 # Set
 
-Set the entries in the ScalarField.
+<!-- markdownlint-disable MD041 MD013 MD033 MD012 -->
+
+Set the entries in the `ScalarField`.
 
 Calling example:
 
@@ -142,9 +144,6 @@ CALL Set(
 )
 ```
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 ## Interface 1
 
 <Tabs>
@@ -169,7 +168,7 @@ END INTERFACE
 
 <TabItem value="example" label="️܀ See example">
 
-import EXAMPLE127 from "./_ScalarField_test_3.md";
+import EXAMPLE127 from "./examples/_Set_test_1.md";
 
 <EXAMPLE127 />
 
@@ -202,7 +201,7 @@ END INTERFACE
 
 <TabItem value="example" label="️܀ See example">
 
-import EXAMPLE198 from "./_ScalarField_test_4.md";
+import EXAMPLE198 from "./examples/_Set_test_2.md";
 
 <EXAMPLE198 />
 
@@ -236,7 +235,7 @@ END INTERFACE
 
 <TabItem value="example" label="️܀ See example">
 
-import EXAMPLE334 from "./_ScalarField_test_5.md";
+import EXAMPLE334 from "./examples/_Set_test_3.md";
 
 <EXAMPLE334 />
 
@@ -271,7 +270,7 @@ Set multiple values to a scalar value.
 
 <TabItem value="example" label="️܀ See example">
 
-import EXAMPLE253 from "./_ScalarField_test_6.md";
+import EXAMPLE253 from "./examples/_Set_test_4.md";
 
 <EXAMPLE253 />
 
@@ -305,7 +304,7 @@ Set multiple values of scalar field.
 
 <TabItem value="example" label="️܀ See example">
 
-import EXAMPLE287 from "./_ScalarField_test_7.md";
+import EXAMPLE287 from "./examples/_Set_test_5.md";
 
 <EXAMPLE287 />
 
@@ -342,7 +341,7 @@ Set multiple values by using triplets `istart:iend:stride`
 
 <TabItem value="example" label="️܀ See example">
 
-import EXAMPLE321 from "./_ScalarField_test_8.md";
+import EXAMPLE321 from "./examples/_Set_test_6.md";
 
 <EXAMPLE321 />
 
@@ -379,7 +378,7 @@ Set multiple values using triplets.
 
 <TabItem value="example" label="️܀ See example">
 
-import EXAMPLE358 from "./_ScalarField_test_9.md";
+import EXAMPLE358 from "./examples/_Set_test_7.md";
 
 <EXAMPLE358 />
 
@@ -408,7 +407,7 @@ END INTERFACE
 
 <TabItem value="example" label="️܀ See example">
 
-import EXAMPLE395 from "./_ScalarField_test_10.md";
+import EXAMPLE395 from "./examples/_Set_test_8.md";
 
 <EXAMPLE395 />
 

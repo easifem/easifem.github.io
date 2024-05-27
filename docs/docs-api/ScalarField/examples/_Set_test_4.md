@@ -1,5 +1,3 @@
-In this example we test [Set](./Set.md) method.
-
 ```fortran
 PROGRAM main
   USE easifemBase
@@ -14,33 +12,31 @@ PROGRAM main
 ```
 
 ```fortran title="Open file for import"
-  CALL FPL_INIT()
-  CALL param%initiate()
-  CALL resultFile%initiate( filename="./result.h5", mode="READ" )
-  CALL resultFile%open()
+CALL FPL_INIT()
+CALL param%initiate()
+CALL resultFile%initiate( filename="./result.h5", mode="READ" )
+CALL resultFile%open()
 ```
 
-```fortran title="read domain"  
-  !> start creating domain
-  CALL meshfile%initiate( filename="./mesh.h5", mode="READ" )
-  CALL meshfile%open()
-  CALL dom%initiate( hdf5=meshfile, group="" )
-  !> end creating domain
+```fortran title="read domain"
+!> start creating domain
+CALL meshfile%initiate( filename="./mesh.h5", mode="READ" )
+CALL meshfile%open()
+CALL dom%initiate( hdf5=meshfile, group="" )
+!> end creating domain
 ```
 
 ```fortran title="initiate scalar field"
-
-  CALL SetScalarFieldParam( param=param, &
-    & fieldType=FIELD_TYPE_NORMAL, &
-    & name="U", &
-    & engine=engine)
-
-   CALL obj%initiate( param, dom )
+CALL SetScalarFieldParam( param=param, &
+  & fieldType=FIELD_TYPE_NORMAL, &
+  & name="U", &
+  & engine=engine)
+CALL obj%initiate( param, dom )
 ```
 
-```fortran title="set single value"
-   CALL obj%set( globalnode = 10, value= 100.0_dfp )
-   CALL obj%display( "scalar field = ")
+```fortran title="Setting multiple values"
+call obj%set(globalNode=[1,2,5], value=1.0_DFP )
+call obj%display( "scalar field = ")
 ```
 
 ```txt title="results"
@@ -74,17 +70,12 @@ PROGRAM main
 # VAR :U
  DOF-1 ,   
 -------,   
-  0.000,   
-  0.000,   
-  0.000,   
-  0.000,   
-  0.000,   
-  0.000,   
-  0.000,   
-  0.000,   
-  0.000,   
-100.000,   
-  0.000,   
+1.00000,   
+1.00000,   
+0.00000,   
+0.00000,   
+1.00000,   
+0.00000,
 ```
 
 ```fortran title="Cleanup"

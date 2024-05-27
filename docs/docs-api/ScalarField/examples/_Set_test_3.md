@@ -1,5 +1,3 @@
-In this example we initiate an instance of Scalar field by importing data from HDF5 file.
-
 ```fortran
 PROGRAM main
   USE easifemBase
@@ -9,35 +7,42 @@ PROGRAM main
   TYPE( HDF5File_ ) :: meshfile, resultFile
   TYPE( ParameterList_ ) :: param
   INTEGER( I4B ) :: ierr
+  REAL( DFP ), ALLOCATABLE :: realVec( : )
+  CHARACTER( LEN = * ), PARAMETER :: engine = "NATIVE_SERIAL"
 ```
 
 ```fortran title="Open file for import"
-  CALL FPL_INIT()
-  CALL param%initiate()
-  CALL resultFile%initiate( filename="./result.h5", mode="READ" )
-  CALL resultFile%open()
+CALL FPL_INIT()
+CALL param%initiate()
+CALL resultFile%initiate( filename="./result.h5", mode="READ" )
+CALL resultFile%open()
 ```
 
-```fortran title="read domain"  
-  !> start creating domain
-  CALL meshfile%initiate( filename="./mesh.h5", mode="READ" )
-  CALL meshfile%open()
-  CALL dom%initiate( hdf5=meshfile, group="" )
-  !> end creating domain
+```fortran title="read domain"
+!> start creating domain
+CALL meshfile%initiate( filename="./mesh.h5", mode="READ" )
+CALL meshfile%open()
+CALL dom%initiate( hdf5=meshfile, group="" )
+!> end creating domain
 ```
 
-```fortran title="import"
-  !> start import
-  CALL obj%import( hdf5=resultFile, group="/scalarField1", dom=dom )
-  !> end start import
+```fortran title="initiate scalar field"
+CALL SetScalarFieldParam( param=param, &
+  & fieldType=FIELD_TYPE_NORMAL, &
+  & name="U", &
+  & engine=engine)
+CALL obj%initiate( param, dom )
 ```
 
-```fortran
-  CALL obj%Display("obj = ")
+```fortran title="setting all values using vector"
+call reallocate( realVec, dom%getTotalNodes() )
+call RANDOM_NUMBER( realVec )
+call obj%set(realVec)
+call obj%display( "scalar field = ")
 ```
 
 ```txt title="results"
-#obj =
+#scalar field =
 # isInitiated : TRUE
 # name :U
 # fieldType : NORMAL
@@ -65,14 +70,13 @@ PROGRAM main
        1      
      103      
 # VAR :U
- DOF-1 ,   
--------,   
-0.00000,   
-0.00000,   
-0.00000,   
-0.00000,   
-0.00000,   
-0.00000,   
+  DOF-1 ,   
+--------,   
+0.923530,   
+0.907865,   
+0.845755,   
+0.622522,   
+0.536255,
 ```
 
 ```fortran title="Cleanup"
@@ -80,5 +84,6 @@ PROGRAM main
   CALL meshfile%Deallocate()
   CALL resultFile%Deallocate()
   CALL param%Deallocate(); CALL FPL_FINALIZE()
+  if(allocated(realVec) ) deallocate(realVec)
 END PROGRAM main
 ```

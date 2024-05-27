@@ -1,20 +1,10 @@
 ---
-sidebar_position: 1
-date:  2023-03-21 
-update: 2023-03-21  
-status: stable 
-docs: done
-extpkgs: none
-category: 
-  - LinearAlgebra
-  - Field
-  - Vector
-tags:
-  - ScalarField
-  - easifemClasses
+sidebar_position: 2
 ---
 
-# ScalarField
+# Structure
+
+<!-- markdownlint-disable MD041 MD013 MD033 MD012 -->
 
 ScalarField represents the field of scalar variable.
 
@@ -27,4 +17,4 @@ TYPE, EXTENDS(AbstractNodeField_) :: ScalarField_
 END TYPE
 ```
 
-![](./figures/ScalarField1.svg)
+![ScalarField](./figures/ScalarField1.svg)

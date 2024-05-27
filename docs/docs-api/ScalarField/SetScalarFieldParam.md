@@ -1,9 +1,8 @@
 # SetScalarFieldParam
 
-Set the parameter for constructing a scalar field.
+<!-- markdownlint-disable MD041 MD013 MD033 MD012 -->
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+Set the parameter for constructing a scalar field.
 
 ## Interface
 
@@ -26,7 +25,7 @@ END INTERFACE
 
 <TabItem value="example" label="️See example">
 
-import EXAMPLE7 from "./_ScalarField_test_1.md";
+import EXAMPLE7 from "./examples/_Initiate_test_1.md";
 
 <EXAMPLE7 />
 
