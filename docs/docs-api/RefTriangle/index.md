@@ -20,6 +20,10 @@ tags:
 
 # RefTriangle
 
+<!-- markdownlint-disable MD041 MD013 MD033 MD012 -->
+
+## Methods
+
 import DocCardList from '@theme/DocCardList';
 
 <DocCardList />
