@@ -136,6 +136,7 @@ dist
 
 build
 build/*
+**/build
 
 *.mtx
 *.eps 
