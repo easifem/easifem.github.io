@@ -3,6 +3,8 @@ sidebar_position: 2
 title: Structure
 ---
 
+<!-- markdownlint-disable MD041 MD013 MD033 MD012 -->
+
 `AbstractNodeField_` is an abstract class which represents the field of nodal variables in finite element method.
 
 `AbstractNodeField_` is a child of [AbstractField\_](../AbstractField/AbstractField_.md).
@@ -35,15 +37,12 @@ Total length of the nodal field = `tdof * tNodes`
 :::note `realVec`
 :::
 
-Real vector, it contains the value. 
+Real vector, it contains the value.
 
 :::note `dof`
 :::
 
 Degree of freedom object. Read more about it [here](../DOF/DOF_).
-
-
-
 
 ![AbstractNodeField1](./figures/AbstractNodeField1.svg)
 
