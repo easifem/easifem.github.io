@@ -1,9 +1,11 @@
 # tNodes
 
+<!-- markdownlint-disable MD041 MD013 MD033 MD012 -->
+
 This method returns the total number of nodes in DOF object.
 
 :::info
-This method is also avaiable as the generic method called `SIZE`
+You can also use the generic method called `SIZE`
 :::
 
 Calling examples:
@@ -36,46 +38,46 @@ ans= obj .tNodes. "U"
 
 ```fortran
 INTERFACE
-  MODULE PURE FUNCTION dof_tNodes1(obj) RESULT(ans)
+  MODULE PURE FUNCTION Size(obj) RESULT(ans)
     CLASS(DOF_), INTENT(IN) :: obj
     INTEGER(I4B) :: ans
-  END FUNCTION dof_tNodes1
+  END FUNCTION Size
 END INTERFACE
 ```
 
 :::note
-This method is also avaiable as the generic method called `SIZE`
+This method is also available as the generic method called `SIZE`
 :::
 
 ## Interface 2
 
 ```fortran
 INTERFACE
-  MODULE PURE FUNCTION dof_tNodes2(obj, idof) RESULT(ans)
+  MODULE PURE FUNCTION Size(obj, idof) RESULT(ans)
     CLASS(DOF_), INTENT(IN) :: obj
     INTEGER(I4B), INTENT(IN) :: idof
     INTEGER(I4B) :: ans
-  END FUNCTION dof_tNodes2
+  END FUNCTION Size
 END INTERFACE
 ```
 
 - This function returns the total number of nodes for a given degree of freedom number
-`idof`
+  `idof`
 - `idof` should be lesser than the total degree of freedom.
 
 :::note
-This method is also avaiable as the generic method called `SIZE`
+This method is also available as the generic method called `SIZE`
 :::
 
 ## Interface 3
 
 ```fortran
 INTERFACE
-  MODULE PURE FUNCTION dof_tNodes3(obj, varname) RESULT(ans)
+  MODULE PURE FUNCTION Size(obj, varname) RESULT(ans)
     CLASS(DOF_), INTENT(IN) :: obj
     CHARACTER(*), INTENT(IN) :: varname
     INTEGER(I4B) :: ans
-  END FUNCTION dof_tNodes3
+  END FUNCTION Size
 END INTERFACE
 ```
 
@@ -83,30 +85,30 @@ END INTERFACE
 - The physical variable is given by its name.
 
 :::note
-This method is also avaiable as the generic method called `SIZE`
+This method is also available as the generic method called `SIZE`
 :::
 
 ## Interface 4
 
 ```fortran
 INTERFACE
-  MODULE PURE FUNCTION dof_tNodes4(obj, idof) RESULT(ans)
+  MODULE PURE FUNCTION Size(obj, idof) RESULT(ans)
     CLASS(DOF_), INTENT(IN) :: obj
     INTEGER(I4B), INTENT(IN) :: idof(:)
     INTEGER(I4B) :: ans
-  END FUNCTION dof_tNodes4
+  END FUNCTION Size
 END INTERFACE
 ```
 
 - This function returns the total number of nodes in multiple degrees of freedom number.
-- All degrees of freedom specified in idof should be lesser than the total degree of freedom.
+- All degrees of freedom specified in `idof` should be lesser than the total degree of freedom.
 
 :::note
-This method is also avaiable as the generic method called `SIZE`
+This method is also available as the generic method called `SIZE`
 :::
 
 ## Examples
 
-import EXAMPLE106 from "./_DOF_test_9.md";
+import EXAMPLE106 from "./examples/_tNodes_test_1.md";
 
 <EXAMPLE106 />

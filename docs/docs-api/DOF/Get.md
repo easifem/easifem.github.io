@@ -6,7 +6,7 @@ Get the entries from fortran vector or realvector using DOf object.
 
 ```fortran
  INTERFACE
-  MODULE PURE FUNCTION dof_get1(val, obj, idof, StorageFMT, nodenum, &
+  MODULE PURE FUNCTION Get(val, obj, idof, StorageFMT, nodenum, &
     & Force3D) RESULT(ans)
     REAL(DFP), INTENT(IN) :: val(:)
     CLASS(DOF_), INTENT(IN) :: obj
@@ -15,7 +15,7 @@ Get the entries from fortran vector or realvector using DOf object.
     INTEGER(I4B), INTENT(IN) :: nodenum(:)
     LOGICAL(LGT), OPTIONAL, INTENT(IN) :: force3D
     REAL(DFP), ALLOCATABLE :: ans(:)
-  END FUNCTION dof_get1
+  END FUNCTION Get
 END INTERFACE
 ```
 
@@ -23,7 +23,7 @@ END INTERFACE
 
 ```fortran
 INTERFACE
-  MODULE PURE FUNCTION dof_get2(val, obj, idof, StorageFMT, &
+  MODULE PURE FUNCTION Get(val, obj, idof, StorageFMT, &
     & Force3D) RESULT(ans)
     REAL(DFP), INTENT(IN) :: val(:)
     CLASS(DOF_), INTENT(IN) :: obj
@@ -31,6 +31,6 @@ INTERFACE
     INTEGER(I4B), INTENT(IN) :: StorageFMT
     LOGICAL(LGT), OPTIONAL, INTENT(IN) :: force3D
     REAL(DFP), ALLOCATABLE :: ans(:)
-  END FUNCTION dof_get2
+  END FUNCTION Get
 END INTERFACE
 ```

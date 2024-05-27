@@ -6,19 +6,19 @@ This function returns the TimeComponents in degree of freedom object.
 
 ```fortran
  INTERFACE
-  MODULE PURE FUNCTION dof_timecomponents1(obj) RESULT(ans)
+  MODULE PURE FUNCTION timecomponents(obj) RESULT(ans)
     CLASS(DOF_), INTENT(IN) :: obj
     INTEGER(I4B), ALLOCATABLE :: ans(:)
-  END FUNCTION dof_timecomponents1
+  END FUNCTION imecomponents
 END INTERFACE
 ```
 
 ```fortran
 INTERFACE
-  MODULE PURE FUNCTION dof_timecomponents2(obj, ivar) RESULT(ans)
+  MODULE PURE FUNCTION timecomponents(obj, ivar) RESULT(ans)
     CLASS(DOF_), INTENT(IN) :: obj
     INTEGER(I4B), INTENT(IN) :: ivar
     INTEGER(I4B) :: ans
-  END FUNCTION dof_timecomponents2
+  END FUNCTION timecomponents
 END INTERFACE
 ```

@@ -1,22 +1,37 @@
+---
+sidebar_position: 4
+---
+
 # GetIndex
+
+<!-- markdownlint-disable MD041 MD013 MD033 MD012 -->
 
 Get index of node number.
 
 Calling example:
 
-- `getIndex(obj, nodenum)`
-- `getIndex(obj, nodenum, ivar)`
-- `getIndex(obj, nodenum, varname)`
-- `getIndex(obj, nodenum(:) )`
-- `getIndex(obj, nodenum(:), ivar)`
-- `getIndex(obj, nodenum(:), varname)`
-- `getIndex(obj, nodenum, ivar, idof)`
-- `getIndex(obj, nodenum(:), ivar, idof)`
-- `getIndex(obj, nodenum, ivar, spacecompo, timecompo)`
-- `getIndex(obj, nodenum(:), ivar, spacecompo, timecompo)`
+- `GetIndex(obj, nodenum)` [Interface 1](#interface-1)
+- `GetIndex(obj, nodenum, ivar)` [Interface 2](#interface-2)
+- `GetIndex(obj, nodenum, varname)` [Interface 3](#interface-3)
+- `GetIndex(obj, nodenum(:) )` [Interface 4](#interface-4)
+- `GetIndex(obj, nodenum(:), ivar)` [Interface 5](#interface-5)
+- `GetIndex(obj, nodenum(:), varname)` [Interface 6](#interface-6)
+- `GetIndex(obj, nodenum, ivar, idof)` [Interface 7](#interface-7)
+- `GetIndex(obj, nodenum(:), ivar, idof)` [Interface 8](#interface-8)
+- `GetIndex(obj, nodenum, ivar, spacecompo, timecompo)` [Interface 9](#interface-9)
+- `GetIndex(obj, nodenum(:), ivar, spacecompo, timecompo)` [Interface 10](#interface-10)
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+:::note
+`nodenum` should be lesser than the total number of nodes defined for dof number `idof`.
+:::
+
+:::info
+`idof`s are continuously numbered, so if there are two or more physical variables, then idof of the second or later physical variables does not start from 1.
+:::
+
+## What is an index
+
+Index is a location of a nodal degree of freedom. For example, consider `velocity` variable with 3 space and 2 time components. Now what is the location of velocity (space component 1, and time component 2) at node number 3. This location is called index.
 
 ## Interface 1
 
@@ -31,14 +46,13 @@ END INTERFACE
 ```
 
 - This function returns indices, representing the location of all degrees of freedom define on a given node number.
-- The size of these indices is equal to the total number of DOF in obj
-- In this way, ans(ii) represents the location of ii dof at node number nodenum
+- The size of these indices is equal to the total number of `DOF` in obj
+- In this way, `ans(ii)` represents the location of `ii` `dof` at node number `nodenum`
 - It is user's responsibility to ensure that for every physical variable the `nodenumber` is lesser than the total number of nodes defined for that physical variable.
-- The returned indiced can be used to extract values from an instance of
-[RealVector](../RealVector/RealVector_.md) or fortran vector of real numbers.
+- The returned indices can be used to extract values from an instance of `RealVector` or Fortran vector.
 
 :::note
-The size of returned vector `ans` will be the total number of degrees of freedom in the DOF object.
+The size of returned vector `ans` will be the total number of degrees of freedom in the `DOF` object.
 :::
 
 ## Interface 2
@@ -102,9 +116,9 @@ INTERFACE
 END INTERFACE
 ```
 
-- This function returns indices, representing the location of all the degrees of freedom of physical variable given by ivar, at nodes given in nodenum.
+- This function returns indices, representing the location of all the degrees of freedom of physical variable given by `ivar`, at nodes given in `nodenum`.
 - The physical variable is defined by `ivar`
-- The size of these indices is equal to the total number of DOF defined for the `ivar` physical variable times the size of nodenum.
+- The size of these indices is equal to the total number of `DOF` defined for the `ivar` physical variable times the size of `nodenum`.
 
 ## Interface 6
 
@@ -130,56 +144,44 @@ END INTERFACE
 ## Interface 7
 
 ```fortran
-INTERFACE getIndex
+INTERFACE GetIndex
   MODULE PROCEDURE dof_getNodeLoc5
-END INTERFACE getIndex
+END INTERFACE GetIndex
 ```
 
 ## Interface 8
 
 ```fortran
-INTERFACE getIndex
+INTERFACE GetIndex
   MODULE PROCEDURE dof_getNodeLoc6
-END INTERFACE getIndex
+END INTERFACE GetIndex
 ```
 
 ## Interface 9
 
 ```fortran
-INTERFACE getIndex
+INTERFACE GetIndex
   MODULE PROCEDURE dof_getNodeLoc7
-END INTERFACE getIndex
+END INTERFACE GetIndex
 ```
 
 ## Interface 10
 
 ```fortran
-INTERFACE getIndex
+INTERFACE GetIndex
   MODULE PROCEDURE dof_getNodeLoc8
-END INTERFACE getIndex
+END INTERFACE GetIndex
 ```
 
 ## Examples
 
-<Tabs>
+<details>
+<summary>See examples</summary>
+<div>
 
-<TabItem value="example1" label="️܀ Example 1">
-
-import EXAMPLE164 from "./_DOF_test_11.md";
+import EXAMPLE164 from "./examples/_GetIndex_test_1.md";
 
 <EXAMPLE164 />
 
-</TabItem>
-
-<TabItem value="example2" label="️܀ Example 2">
-
-import EXAMPLE177 from "./_DOF_test_16.md";
-
-<EXAMPLE177 />
-
-</TabItem>
-
-<TabItem value="close" label="↢ " default>
-
-</TabItem>
-</Tabs>
+</div>
+</details>

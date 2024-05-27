@@ -1,4 +1,10 @@
+---
+sidebar_position: 6
+---
+
 # Initiate
+
+<!-- markdownlint-disable MD041 MD013 MD033 MD012 -->
 
 Initiate an instance of [DOF](./DOF_.md).
 
@@ -26,8 +32,6 @@ END SUBROUTINE Initiate
 END INTERFACE
 ```
 
-where,
-
 - `tNodes` denotes the total number of nodes in each physical variables
 - `Names` is the name of each physical variables
 - `SpaceCompo` is the number of spatial components in each physical variable, if a physical variable is scalar then one can use also use -1 instead of 1 for the total number of space components
@@ -38,13 +42,10 @@ where,
 The size of `tNodes`, `Names`, `SpaceCompo`, `TimeCompo` vectors should be equal to the total number of physical variables.
 :::
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 <Tabs>
 <TabItem value="example" label="܀ See example">
 
-import EXAMPLE137 from "./_DOF_test_1.md";
+import EXAMPLE137 from "./examples/_Initiate_test_1.md";
 
 <EXAMPLE137 />
 
@@ -85,7 +86,7 @@ END INTERFACE
 
 <TabItem value="example" label="܀ See example">
 
-import EXAMPLE184 from "./_DOF_test_2.md";
+import EXAMPLE184 from "./examples/_Initiate_test_2.md";
 
 <EXAMPLE184 />
 
@@ -101,15 +102,11 @@ import EXAMPLE184 from "./_DOF_test_2.md";
 <Tabs>
 <TabItem value="interface" label="܀ Interface" default>
 
-```fortran
- 
-```
-
 </TabItem>
 
 <TabItem value="example" label="️܀ See example">
 
-import EXAMPLE112 from "./_DOF_test_3.md";
+import EXAMPLE112 from "./examples/_Initiate_test_3.md";
 
 <EXAMPLE112 />
 
@@ -125,15 +122,11 @@ import EXAMPLE112 from "./_DOF_test_3.md";
 <Tabs>
 <TabItem value="interface" label="܀ Interface" default>
 
-```fortran
- 
-```
-
 </TabItem>
 
 <TabItem value="example" label="️܀ See example">
 
-import EXAMPLE136 from "./_DOF_test_4.md";
+import EXAMPLE136 from "./examples/_Initiate_test_4.md";
 
 <EXAMPLE136 />
 
@@ -151,7 +144,7 @@ We can use an assignment operator to copy the contents of one `DOF_` object into
 <Tabs>
 <TabItem value="example" label="܀ See example">
 
-import EXAMPLE155 from "./_DOF_test_5.md";
+import EXAMPLE155 from "./examples/_Initiate_test_5.md";
 
 <EXAMPLE155 />
 
@@ -169,7 +162,7 @@ We can also use `DOF()` function for the constructing the DOF object.
 <Tabs>
 <TabItem value="example" label="܀ See example">
 
-import EXAMPLE173 from "./_DOF_test_6.md";
+import EXAMPLE173 from "./examples/_Initiate_test_6.md";
 
 <EXAMPLE173 />
 
@@ -187,7 +180,7 @@ We can also use `DOF_Pointer()` function for get a pointer to a newly created an
 <Tabs>
 <TabItem value="example" label="܀ See example">
 
-import EXAMPLE191 from "./_DOF_test_7.md";
+import EXAMPLE191 from "./examples/_Initiate_test_7.md";
 
 <EXAMPLE191 />
 

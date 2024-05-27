@@ -17,6 +17,12 @@ tags:
 
 # DOF
 
+<!-- markdownlint-disable MD041 MD013 MD033 MD012 -->
+
+`DOF_` stores the degrees of freedom in finite element methods.
+
+## All methods
+
 import DocCardList from '@theme/DocCardList';
 
 <DocCardList />

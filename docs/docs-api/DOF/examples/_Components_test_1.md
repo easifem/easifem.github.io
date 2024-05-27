@@ -5,7 +5,6 @@ This example shows the usage of following methods.
 - `.SpaceComponents.`
 - `.TimeComponents.`
 
-
 ```fortran
 PROGRAM main
     USE easifemBase

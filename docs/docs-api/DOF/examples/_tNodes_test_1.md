@@ -1,4 +1,4 @@
-This example shows the usage of `.tNodes.`  to get total number of nodes of degree of freedom.
+This example shows the usage of `.tNodes.` to get total number of nodes of degree of freedom.
 
 ```fortran
 PROGRAM main

@@ -1,4 +1,10 @@
+---
+sidebar_position: 2
+---
+
 # Structure
+
+<!-- markdownlint-disable MD041 MD013 MD033 MD012 -->
 
 `DOF_` data type contains the information of degrees of freedom in finite element method. It mainly includes the information regarding the storage pattern of degrees of freedom.
 
@@ -39,8 +45,6 @@ In this case degrees of freedom are stored as shown in above figure.
 :::note `FMT_Nodes` vs `FMT_DOF`
 In the case of `FMT_Nodes` all physical variables should have same order of interpolation in space and time domain. However, in the case of `FMT_DOF`, they can have different order of interpolation.
 :::
-
-## Structure
 
 The structure of `DOF_` is given below.
 

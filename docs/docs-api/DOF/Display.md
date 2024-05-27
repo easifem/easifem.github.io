@@ -1,5 +1,7 @@
 # Display
 
+<!-- markdownlint-disable MD041 MD013 MD033 MD012 -->
+
 Display the content of DOF object.
 
 If you want to see the content of `DOF_` object on terminal screen or in an external file, then you can use `Display` function as shown below.
@@ -17,9 +19,6 @@ CALL Display( Real::Vec(:), DOF_::obj, CHAR::"some message", INT::unitNo )
 ```fortran
 CALL Display( RealVector_::Vec, DOF_::obj, CHAR::"some message", INT::unitNo )
 ```
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 ## Interface 1
 
