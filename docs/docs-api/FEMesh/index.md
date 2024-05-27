@@ -15,6 +15,8 @@ tags:
 
 # FEMesh
 
+<!-- markdownlint-disable MD041 MD013 MD033 MD012 -->
+
 `FEMesh_` datatype handles the finite element mesh.
 
 import EXAMPLE26 from "./FEMesh_.md";

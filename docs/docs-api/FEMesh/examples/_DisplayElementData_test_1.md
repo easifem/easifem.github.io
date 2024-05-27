@@ -12,7 +12,7 @@ PROGRAM main
   CHARACTER( LEN=* ), PARAMETER :: filename="./meshdata/small_mesh.h5"
 ```
 
-Initiate and open the mesh file which is in HDF5File format. 
+Initiate and open the mesh file which is in HDF5File format.
 Then, create an instance of mesh.
 
 ```fortran

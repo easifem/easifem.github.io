@@ -1,23 +1,22 @@
-
 PROGRAM main
-  USE easifemBase
-  USE easifemClasses
-  IMPLICIT NONE
-  TYPE( MSHFile_ ) :: mshFile
-  TYPE( HDF5File_ ) :: hdf5file
+USE easifemBase
+USE easifemClasses
+IMPLICIT NONE
+TYPE(MSHFile_) :: mshFile
+TYPE(HDF5File_) :: hdf5file
 
 CALL mshFile%Initiate( filename="./meshdata/small_mesh.msh", STATUS="OLD", ACTION="READ" )
 
-CALL mshFile%Open()
+CALL mshFile%OPEN()
 
-CALL mshFile%Read()
+CALL mshFile%READ()
 
-CALL hdf5file%Initiate( "./meshdata/small_mesh.h5", MODE="NEW" )
+CALL hdf5file%Initiate("./meshdata/small_mesh.h5", MODE="NEW")
 
-CALL hdf5file%Open()
+CALL hdf5file%OPEN()
 
-CALL mshFile%Export( hdf5=hdf5file, group="" )
+CALL mshFile%Export(hdf5=hdf5file, group="")
 
-  CALL mshFile%Deallocate()
-  CALL hdf5file%Deallocate()
+CALL mshFile%DEALLOCATE()
+CALL hdf5file%DEALLOCATE()
 END PROGRAM main
