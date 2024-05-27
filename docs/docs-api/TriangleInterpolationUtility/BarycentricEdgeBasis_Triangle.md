@@ -1,5 +1,7 @@
 # BarycentricEdgeBasis
 
+<!-- markdownlint-disable MD041 MD013 MD033 MD012 -->
+
 Returns the edge basis functions on reference Triangle.
 
 ## Interface
@@ -32,7 +34,7 @@ END INTERFACE
 
 <TabItem value="example" label="️܀ See example">
 
-import EXAMPLE32 from "./_BarycentricEdgeBasis_Triangle_test_1.md";
+import EXAMPLE32 from "./examples/_BarycentricEdgeBasis_Triangle_test_1.md";
 
 <EXAMPLE32 />
 

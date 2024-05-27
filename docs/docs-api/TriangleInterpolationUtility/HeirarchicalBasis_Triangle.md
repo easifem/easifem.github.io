@@ -6,9 +6,6 @@ Evaluate all modal basis (heirarchical polynomial) on Triangle.
 
 ## Interface
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 <Tabs>
 <TabItem value="interface" label="܀ Interface" default>
 
@@ -38,39 +35,60 @@ END INTERFACE
 
 </TabItem>
 
-<TabItem value="example" label="️܀ See example">
-
-import EXAMPLE41 from "./_HeirarchicalBasis_Triangle_test_1.md";
-
-<EXAMPLE41 />
-
-</TabItem>
-
-<TabItem value="example2" label="Example 2">
-
-import EXAMPLE49 from "./_HeirarchicalBasis_Triangle_test_2.md";
-
-<EXAMPLE49 />
-
-</TabItem>
-
-<TabItem value="example3" label="Example 3">
-
-import EXAMPLE57 from "./_HeirarchicalBasis_Triangle_test_3.md";
-
-<EXAMPLE57 />
-
-</TabItem>
-
-<TabItem value="example4" label="Example 4">
-
-import EXAMPLE65 from "./_HeirarchicalBasis_Triangle_test_4.md";
-
-<EXAMPLE65 />
-
-</TabItem>
-
 <TabItem value="close" label="↢ ">
 
 </TabItem>
+
 </Tabs>
+
+## example 1
+
+<details>
+<summary>Example 1</summary>
+<div>
+
+import EXAMPLE41 from "./examples/_HeirarchicalBasis_Triangle_test_1.md";
+
+<EXAMPLE41 />
+
+</div>
+</details>
+
+## Example 2
+
+<details>
+<summary>Example 2</summary>
+<div>
+
+import EXAMPLE49 from "./examples/_HeirarchicalBasis_Triangle_test_2.md";
+
+<EXAMPLE49 />
+
+</div>
+</details>
+
+## Example 3
+
+<details>
+<summary>Example 3</summary>
+<div>
+
+import EXAMPLE57 from "./examples/_HeirarchicalBasis_Triangle_test_3.md";
+
+<EXAMPLE57 />
+
+</div>
+</details>
+
+## Example 4
+
+<details>
+<summary>Title</summary>
+<div>
+
+import EXAMPLE65 from "./examples/_HeirarchicalBasis_Triangle_test_4.md";
+
+<EXAMPLE65 />
+
+</div>
+</details>

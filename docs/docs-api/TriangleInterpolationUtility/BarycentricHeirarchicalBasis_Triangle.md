@@ -1,11 +1,10 @@
 # BarycentricHeirarchicalBasis
 
-Evaluate all modal basis (heirarchical polynomials) on Triangle.
+<!-- markdownlint-disable MD041 MD013 MD033 MD012 -->
+
+Evaluate all modal basis (Heirarchical polynomials) on Triangle.
 
 ## Interface
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 <Tabs>
 <TabItem value="interface" label="܀ Interface" default>
@@ -38,18 +37,23 @@ END INTERFACE
 
 </TabItem>
 
-<TabItem value="example" label="️܀ See example">
-
-import EXAMPLE41 from "./_BarycentricHeirarchicalBasis_Triangle_test_1.md";
-
-<EXAMPLE41 />
-
-</TabItem>
-
 <TabItem value="close" label="↢ ">
 
 </TabItem>
 </Tabs>
+
+### Example 1
+
+<details>
+<summary>See example</summary>
+<div>
+
+import EXAMPLE41 from "./examples/_BarycentricHeirarchicalBasis_Triangle_test_1.md";
+
+<EXAMPLE41 />
+
+</div>
+</details>
 
 ## Interface 2
 
@@ -78,15 +82,20 @@ END INTERFACE
 
 </TabItem>
 
-<TabItem value="example" label="️܀ See example">
-
-import EXAMPLE79 from "./_BarycentricHeirarchicalBasis_Triangle_test_2.md";
-
-<EXAMPLE79 />
-
-</TabItem>
-
 <TabItem value="close" label="↢ ">
 
 </TabItem>
 </Tabs>
+
+### Example 2
+
+<details>
+<summary>See example</summary>
+<div>
+
+import EXAMPLE79 from "./examples/_BarycentricHeirarchicalBasis_Triangle_test_2.md";
+
+<EXAMPLE79 />
+
+</div>
+</details>

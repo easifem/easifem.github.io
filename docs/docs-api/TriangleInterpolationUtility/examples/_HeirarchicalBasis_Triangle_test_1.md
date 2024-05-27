@@ -1,5 +1,4 @@
-:::note "order=1; pe1=1; pe2=1; pe3=1"
-:::
+<!-- markdownlint-disable MD041 MD013 MD033 MD012 -->
 
 ```fortran
 program main
@@ -49,9 +48,3 @@ program main
 
 end program main
 ```
-
-<!-- Results: -->
-<!---->
-<!-- | | | | -->
-<!-- |:---: | :---: | :---: | -->
-<!-- | ![](./Ph111/Ph111-1.png) | ![](./Ph111/Ph111-2.png) | ![](./Ph111/Ph111-3.png) | -->
