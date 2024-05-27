@@ -1,6 +1,10 @@
+---
+sidebar_position: 2
+---
+
 # Structure
 
-RealVector is a data type for real fortran arrays of rank 1.
+`RealVector` is a data type for real Fortran arrays of rank 1.
 
 ```fortran
 TYPE :: RealVector_

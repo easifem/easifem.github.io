@@ -1,14 +1,17 @@
+---
+sidebar_position: 3
+---
+
 # Initiate
 
-Initiate an instance of RealVector.
+<!-- markdownlint-disable MD041 MD013 MD033 MD012 -->
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+Initiate an instance of `RealVector`.
 
 ## Interface 1
 
 <Tabs>
-<TabItem value="interface" label="܀ Interface" default>
+<TabItem value="interface" label="Interface" default>
 
 ```fortran
 INTERFACE
@@ -21,15 +24,15 @@ END INTERFACE
 
 </TabItem>
 
-<TabItem value="example" label="️܀ See example">
+<TabItem value="example" label="️See example">
 
-import EXAMPLE7 from "./_Initiate_test_1.md";
+import EXAMPLE7 from "./examples/Initiate_test_1.md";
 
 <EXAMPLE7 />
 
 </TabItem>
 
-<TabItem value="close" label="↢ ">
+<TabItem value="close" label="↢ close">
 
 </TabItem>
 </Tabs>
@@ -37,7 +40,7 @@ import EXAMPLE7 from "./_Initiate_test_1.md";
 ## Interface 2
 
 <Tabs>
-<TabItem value="interface" label="܀ Interface" default>
+<TabItem value="interface" label="Interface" default>
 
 ```fortran
 INTERFACE
@@ -45,20 +48,20 @@ INTERFACE
     TYPE(RealVector_), ALLOCATABLE, INTENT(INOUT) :: obj(:)
     INTEGER(I4B), INTENT(IN) :: tSize(:)
   END SUBROUTINE Initiate
-END INTERFACE 
+END INTERFACE
 ```
 
 </TabItem>
 
-<TabItem value="example" label="️܀ See example">
+<TabItem value="example" label="️See example">
 
-import EXAMPLE36 from "./_Initiate_test_2.md";
+import EXAMPLE36 from "./examples/Initiate_test_2.md";
 
 <EXAMPLE36 />
 
 </TabItem>
 
-<TabItem value="close" label="↢ ">
+<TabItem value="close" label="↢  close">
 
 </TabItem>
 </Tabs>
@@ -66,7 +69,7 @@ import EXAMPLE36 from "./_Initiate_test_2.md";
 ## Interface 3
 
 <Tabs>
-<TabItem value="interface" label="܀ Interface" default>
+<TabItem value="interface" label="Interface" default>
 
 ```fortran
 INTERFACE
@@ -79,17 +82,15 @@ END INTERFACE
 
 </TabItem>
 
-<TabItem value="example" label="️܀ See example">
+<TabItem value="example" label="️See example">
 
-
-import EXAMPLE81 from "./_Initiate_test_3.md";
+import EXAMPLE81 from "./examples/Initiate_test_3.md";
 
 <EXAMPLE81 />
 
-
 </TabItem>
 
-<TabItem value="close" label="↢ ">
+<TabItem value="close" label="↢ close">
 
 </TabItem>
 </Tabs>
@@ -97,7 +98,7 @@ import EXAMPLE81 from "./_Initiate_test_3.md";
 ## Interface 4
 
 <Tabs>
-<TabItem value="interface" label="܀ Interface" default>
+<TabItem value="interface" label="Interface" default>
 
 ```fortran
 INTERFACE
@@ -105,20 +106,20 @@ INTERFACE
     CLASS(RealVector_), INTENT(INOUT) :: obj
     CLASS(DOF_), INTENT(IN) :: dofobj
   END SUBROUTINE Initiate
-END INTERFACE 
+END INTERFACE
 ```
 
 </TabItem>
 
-<TabItem value="example" label="️܀ See example">
+<TabItem value="example" label="️See example">
 
-import EXAMPLE96 from "./_Initiate_test_4.md";
+import EXAMPLE96 from "./examples/Initiate_test_4.md";
 
 <EXAMPLE96 />
 
 </TabItem>
 
-<TabItem value="close" label="↢ ">
+<TabItem value="close" label="↢ Close">
 
 </TabItem>
 </Tabs>
@@ -126,7 +127,7 @@ import EXAMPLE96 from "./_Initiate_test_4.md";
 ## Interface 5
 
 <Tabs>
-<TabItem value="interface" label="܀ Interface" default>
+<TabItem value="interface" label="Interface" default>
 
 ```fortran
 INTERFACE
@@ -139,15 +140,15 @@ END INTERFACE
 
 </TabItem>
 
-<TabItem value="example" label="️܀ See example">
+<TabItem value="example" label="️See example">
 
-import EXAMPLE125 from "./_Initiate_test_5.md";
+import EXAMPLE125 from "./examples/Initiate_test_5.md";
 
 <EXAMPLE125 />
 
 </TabItem>
 
-<TabItem value="close" label="↢ ">
+<TabItem value="close" label="↢ close">
 
 </TabItem>
 </Tabs>
