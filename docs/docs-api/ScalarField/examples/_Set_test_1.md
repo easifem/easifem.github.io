@@ -1,94 +1,105 @@
 ```fortran
 PROGRAM main
-  USE easifemBase
-  USE easifemClasses
-  TYPE( Domain_ ) :: dom
-  TYPE( ScalarField_ ) :: obj
-  TYPE( HDF5File_ ) :: meshfile, resultFile
-  TYPE( ParameterList_ ) :: param
-  INTEGER( I4B ) :: ierr
-  REAL( DFP ), ALLOCATABLE :: realVec( : )
-  CHARACTER( LEN = * ), PARAMETER :: engine = "NATIVE_SERIAL"
-```
+USE FEDomain_Class
+USE HDF5File_Class
+USE AbstractMesh_Class
+USE AbstractField_Class, ONLY: TypeField
+USE ScalarField_Class
+USE FPL, ONLY: FPL_Init, FPL_FINALIZE, ParameterList_
+USE GlobalData
+USE Test_Method
+USE FEDOF_Class
+USE ExceptionHandler_Class, ONLY: e, EXCEPTION_INFORMATION
+USE ApproxUtility
 
-```fortran title="Open file for import"
-CALL FPL_INIT()
-CALL param%initiate()
-CALL resultFile%initiate( filename="./result.h5", mode="READ" )
-CALL resultFile%open()
-```
+TYPE(FEDomain_) :: dom
+CLASS(AbstractMesh_), POINTER :: mesh
+TYPE(ScalarField_) :: obj
+TYPE(HDF5File_) :: meshfile
+TYPE(ParameterList_) :: param
+TYPE(FEDOF_) :: fedof
+REAL(DFP), ALLOCATABLE :: realVec(:)
+CHARACTER(LEN=*), PARAMETER :: engine = "NATIVE_SERIAL"
+CHARACTER(*), PARAMETER :: meshfilename = &
+                           "../../Mesh/examples/meshdata/small_mesh.h5"
+INTEGER(I4B), PARAMETER :: nsd = 2, order = 1
+CHARACTER(*), PARAMETER :: baseContinuity="H1" , baseInterpolation="Lagrange"
+CHARACTER(:), ALLOCATABLE :: msg
 
-```fortran title="read domain"
+CALL e%setQuietMode(EXCEPTION_INFORMATION, .TRUE.)
+
+CALL FPL_Init()
+CALL param%Initiate()
+
 !> start creating domain
-CALL meshfile%initiate( filename="./mesh.h5", mode="READ" )
-CALL meshfile%open()
-CALL dom%initiate( hdf5=meshfile, group="" )
+CALL meshfile%Initiate(filename=meshfilename, mode="READ")
+CALL meshfile%OPEN()
+CALL dom%Initiate(hdf5=meshfile, group="")
 !> end creating domain
-```
 
-```fortran title="initiate scalar field"
-  CALL SetScalarFieldParam( param=param, &
-    & fieldType=FIELD_TYPE_NORMAL, &
-    & name="U", &
-    & engine=engine)
+mesh => dom%GetMeshPointer(dim=nsd)
 
-   CALL obj%initiate( param, dom )
-```
+CALL fedof%Initiate(baseContinuity=baseContinuity, &
+                  baseInterpolation=baseInterpolation, order=order, mesh=mesh)
 
-```fortran title="set single value"
-CALL obj%set( globalnode = 10, value= 100.0_dfp )
-CALL obj%display( "scalar field = ")
-```
+CALL SetScalarFieldParam(param=param, &
+                         fieldType=TypeField%normal, &
+                         name="U", &
+                         engine=engine)
 
-```txt title="results"
-#scalar field =
-# isInitiated : TRUE
-# name :U
-# fieldType : NORMAL
-# engine :NATIVE_SERIAL
-# comm: 0
-# myRank: 0
-# numProcs: 1
-# global_n: 0
-# local_n: 0
-# is: 0
-# ie: 0
-# lis_ptr: 0
-# domain : ASSOCIATED
-# domains : NOT ALLOCATED
-# tSize : 102
-# # DOF data :
-# Total Physical Variables :1
-# Name : U
-# Space Components : 1
-# Time Components : 1
-# Total Nodes : 102
-# Storage Format : Nodes
-# Value Map : 
---------------
-       1      
-     103      
-# VAR :U
- DOF-1 ,   
--------,   
-  0.000,   
-  0.000,   
-  0.000,   
-  0.000,   
-  0.000,   
-  0.000,   
-  0.000,   
-  0.000,   
-  0.000,   
-100.000,   
-  0.000,
-```
+CALL obj%Initiate(param, fedof)
 
-```fortran title="Cleanup"
-  CALL obj%Deallocate(); CALL dom%Deallocate()
-  CALL meshfile%Deallocate()
-  CALL resultFile%Deallocate()
-  CALL param%Deallocate(); CALL FPL_FINALIZE()
-  if(allocated(realVec) ) deallocate(realVec)
+CALL OK(.TRUE., "ScalarField Initiate")
+
+BLOCK
+  INTEGER(I4B) :: localNode
+  REAL(DFP) :: VALUE, tol
+  LOGICAL(LGT) :: isok
+
+  msg = "Setting a scalar value (localNode): "
+  localNode = 1
+  CALL obj%Set(globalnode=localNode, VALUE=100.0_DFP, islocal=.TRUE.)
+  CALL obj%Get(globalnode=localNode, VALUE=VALUE, islocal=.TRUE.)
+  tol = 1.0E-5
+  isok = SOFTEQ(100.0_DFP, VALUE, tol)
+  CALL OK(isok, msg)
+END BLOCK
+
+BLOCK
+  INTEGER(I4B) :: globalNode, localNode
+  REAL(DFP) :: VALUE, tol
+  LOGICAL(LGT) :: isok
+
+  msg = "Setting a scalar value (globalNode): "
+  localNode = 1
+  globalNode = mesh%GetGlobalNodeNumber(localNode)
+  CALL obj%Set(globalNode=globalNode, VALUE=100.0_DFP, islocal=.FALSE.)
+  CALL obj%Get(globalnode=globalNode, VALUE=VALUE, islocal=.FALSE.)
+  tol = 1.0E-5
+  isok = SOFTEQ(100.0_DFP, VALUE, tol)
+  CALL OK(isok, msg)
+END BLOCK
+
+BLOCK
+  INTEGER(I4B) :: localNode(2), tsize
+  REAL(DFP) :: found(2), want(2), tol
+  LOGICAL(LGT) :: isok
+
+  msg = "Setting many values to a scalar value (localNode): "
+  localNode = [1, 2]
+  CALL obj%Set(globalnode=localNode, VALUE=100.0_DFP, islocal=.TRUE.)
+  CALL obj%Get(globalnode=localNode, VALUE=found, islocal=.TRUE., tsize=tsize)
+  tol = 1.0E-5
+  want = 100.0_DFP
+  isok = ALL(SOFTEQ(found, want, tol))
+  CALL OK(isok, msg)
+END BLOCK
+
+mesh => NULL()
+CALL obj%DEALLOCATE()
+CALL dom%DEALLOCATE()
+CALL meshfile%DEALLOCATE()
+CALL param%DEALLOCATE()
+CALL FPL_FINALIZE()
 END PROGRAM main
 ```

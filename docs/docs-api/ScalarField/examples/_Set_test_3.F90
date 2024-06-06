@@ -1,6 +1,6 @@
 !> author: Vikas Sharma, Ph. D.
 ! date: 2024-06-05
-! summary: Set1
+! summary: Set3
 
 PROGRAM main
 USE FEDomain_Class
@@ -14,20 +14,16 @@ USE Test_Method
 USE FEDOF_Class
 USE ExceptionHandler_Class, ONLY: e, EXCEPTION_INFORMATION
 USE ApproxUtility
+USE ArangeUtility
 
 TYPE(FEDomain_) :: dom
 CLASS(AbstractMesh_), POINTER :: mesh
 TYPE(HDF5File_) :: meshfile
 TYPE(ParameterList_) :: param
-REAL(DFP), ALLOCATABLE :: realVec(:)
 CHARACTER(LEN=*), PARAMETER :: engine = "NATIVE_SERIAL"
 CHARACTER(*), PARAMETER :: meshfilename = &
                            "../../Mesh/examples/meshdata/small_mesh.h5"
 INTEGER(I4B), PARAMETER :: nsd = 2
-CHARACTER(:), ALLOCATABLE :: msg
-INTEGER(I4B) :: localNode
-REAL(DFP) :: VALUE, tol
-LOGICAL(LGT) :: isok
 
 CALL e%setQuietMode(EXCEPTION_INFORMATION, .TRUE.)
 
@@ -48,6 +44,10 @@ BLOCK
   CHARACTER(*), PARAMETER :: baseInterpolation = "Lagrange"
   TYPE(FEDOF_) :: fedof
   TYPE(ScalarField_) :: obj
+  REAL(DFP) :: found(100), want(100), VALUE(100), tol
+  INTEGER(I4B) :: tsize
+  CHARACTER(:), ALLOCATABLE :: msg
+  LOGICAL(LGT) :: isok
 
   CALL fedof%Initiate(baseContinuity=baseContinuity, &
                   baseInterpolation=baseInterpolation, order=order, mesh=mesh)
@@ -59,19 +59,29 @@ BLOCK
 
   CALL obj%Initiate(param, fedof)
 
-  msg = "Set1 "
-  localNode = 1
-  CALL obj%Set(globalnode=localNode, VALUE=100.0_DFP, islocal=.TRUE.)
-  CALL obj%Get(globalnode=localNode, VALUE=VALUE, islocal=.TRUE.)
+  msg = "Set3 "
+  tsize = obj%SIZE()
+  VALUE(1:tsize) = arange(1, tsize)
+  CALL obj%Set(VALUE=VALUE(1:tsize))
+  CALL obj%Get(VALUE=found, tsize=tsize)
+
+  want(1:tsize) = VALUE(1:tsize)
   tol = 1.0E-5
-  isok = SOFTEQ(100.0_DFP, VALUE, tol)
+  isok = ALL(SOFTEQ(found(1:tsize), want(1:tsize), tol))
   CALL OK(isok, msg)
 
-  localNode = 2
-  CALL obj%Set(globalnode=localNode, VALUE=200.0_DFP, islocal=.TRUE.)
-  CALL obj%Get(globalnode=localNode, VALUE=VALUE, islocal=.TRUE.)
+  CALL obj%Set(VALUE=VALUE(1:tsize), scale=2.0_DFP, addContribution=.TRUE.)
+  CALL obj%Get(VALUE=found, tsize=tsize)
+  want(1:tsize) = 3.0_DFP * VALUE(1:tsize)
   tol = 1.0E-5
-  isok = SOFTEQ(200.0_DFP, VALUE, tol)
+  isok = ALL(SOFTEQ(found(1:tsize), want(1:tsize), tol))
+  CALL OK(isok, msg)
+
+  CALL obj%Set(VALUE=VALUE(1:tsize), addContribution=.TRUE.)
+  CALL obj%Get(VALUE=found, tsize=tsize)
+  want(1:tsize) = 4.0_DFP * VALUE
+  tol = 1.0E-5
+  isok = ALL(SOFTEQ(found(1:tsize), want(1:tsize), tol))
   CALL OK(isok, msg)
 
   CALL obj%DEALLOCATE()
@@ -83,6 +93,10 @@ BLOCK
   CHARACTER(*), PARAMETER :: baseInterpolation = "Heirarchical"
   TYPE(FEDOF_) :: fedof
   TYPE(ScalarField_) :: obj
+  REAL(DFP) :: found(100), want(100), VALUE, tol
+  INTEGER(I4B) :: tsize
+  CHARACTER(:), ALLOCATABLE :: msg
+  LOGICAL(LGT) :: isok
 
   CALL fedof%Initiate(baseContinuity=baseContinuity, &
                   baseInterpolation=baseInterpolation, order=order, mesh=mesh)
@@ -94,12 +108,28 @@ BLOCK
 
   CALL obj%Initiate(param, fedof)
 
-  msg = "Set1 "
-  localNode = 3
-  CALL obj%Set(globalnode=localNode, VALUE=100.0_DFP, islocal=.TRUE.)
-  CALL obj%Get(globalnode=localNode, VALUE=VALUE, islocal=.TRUE.)
+  msg = "Set3 "
+  VALUE = 100.0_DFP
+  CALL obj%Set(VALUE=VALUE)
+  CALL obj%Get(VALUE=found, tsize=tsize)
+
+  want(1:tsize) = VALUE
   tol = 1.0E-5
-  isok = SOFTEQ(100.0_DFP, VALUE, tol)
+  isok = ALL(SOFTEQ(found(1:tsize), want(1:tsize), tol))
+  CALL OK(isok, msg)
+
+  CALL obj%Set(VALUE=VALUE, scale=2.0_DFP, addContribution=.TRUE.)
+  CALL obj%Get(VALUE=found, tsize=tsize)
+  want(1:tsize) = 3.0_DFP * VALUE
+  tol = 1.0E-5
+  isok = ALL(SOFTEQ(found(1:tsize), want(1:tsize), tol))
+  CALL OK(isok, msg)
+
+  CALL obj%Set(VALUE=VALUE, addContribution=.TRUE.)
+  CALL obj%Get(VALUE=found, tsize=tsize)
+  want(1:tsize) = 4.0_DFP * VALUE
+  tol = 1.0E-5
+  isok = ALL(SOFTEQ(found(1:tsize), want(1:tsize), tol))
   CALL OK(isok, msg)
 
   CALL obj%DEALLOCATE()

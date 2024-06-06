@@ -30,15 +30,15 @@ INTEGER(I4B), PARAMETER :: order = 1
 CALL e%setQuietMode(EXCEPTION_INFORMATION, .TRUE.)
 
 CALL FPL_INIT()
-CALL param%initiate()
+CALL param%Initiate()
 CALL SetScalarFieldParam(param=param, &
                          fieldType=TypeField%normal, &
                          name="U", &
                          engine=engine)
 
-CALL meshfile%initiate(filename=meshfilename, mode="READ")
+CALL meshfile%Initiate(filename=meshfilename, mode="READ")
 CALL meshfile%OPEN()
-CALL dom%initiate(hdf5=meshfile, group="")
+CALL dom%Initiate(hdf5=meshfile, group="")
 
 mesh => dom%GetMeshPointer(dim=nsd)
 
