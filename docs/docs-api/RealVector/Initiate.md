@@ -26,7 +26,7 @@ END INTERFACE
 
 <TabItem value="example" label="️See example">
 
-import EXAMPLE7 from "./examples/Initiate_test_1.md";
+import EXAMPLE7 from "./examples/_Initiate_test_1.md";
 
 <EXAMPLE7 />
 
@@ -55,7 +55,7 @@ END INTERFACE
 
 <TabItem value="example" label="️See example">
 
-import EXAMPLE36 from "./examples/Initiate_test_2.md";
+import EXAMPLE36 from "./examples/_Initiate_test_2.md";
 
 <EXAMPLE36 />
 
@@ -84,7 +84,7 @@ END INTERFACE
 
 <TabItem value="example" label="️See example">
 
-import EXAMPLE81 from "./examples/Initiate_test_3.md";
+import EXAMPLE81 from "./examples/_Initiate_test_3.md";
 
 <EXAMPLE81 />
 
@@ -113,7 +113,7 @@ END INTERFACE
 
 <TabItem value="example" label="️See example">
 
-import EXAMPLE96 from "./examples/Initiate_test_4.md";
+import EXAMPLE96 from "./examples/_Initiate_test_4.md";
 
 <EXAMPLE96 />
 
@@ -137,14 +137,6 @@ INTERFACE
   END SUBROUTINE Initiate
 END INTERFACE
 ```
-
-</TabItem>
-
-<TabItem value="example" label="️See example">
-
-import EXAMPLE125 from "./examples/Initiate_test_5.md";
-
-<EXAMPLE125 />
 
 </TabItem>
 

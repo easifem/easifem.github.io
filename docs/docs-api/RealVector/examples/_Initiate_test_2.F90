@@ -1,4 +1,3 @@
-```fortran
 PROGRAM main
 USE GlobalData
 USE BaseType, ONLY: RealVector_
@@ -12,4 +11,3 @@ CALL Initiate(obj, [5, 5])
 CALL Display(obj, "test1")
 
 END PROGRAM main
-```

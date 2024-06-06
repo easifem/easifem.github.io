@@ -1,4 +1,3 @@
-```fortran
 PROGRAM main
 USE GlobalData
 USE BaseType, ONLY: RealVector_, DOF_
@@ -23,4 +22,3 @@ CALL Display(obj, "obj = ")
 CALL Display(obj, dofobj, 'obj:')
 
 END PROGRAM main
-```

@@ -1,4 +1,3 @@
-```fortran
 PROGRAM main
 USE GlobalData
 USE BaseType, ONLY: RealVector_
@@ -8,8 +7,9 @@ IMPLICIT NONE
 
 TYPE(RealVector_), ALLOCATABLE :: obj(:)
 
-CALL Initiate(obj, [5, 5])
-CALL Display(obj, "test1")
+! Generate several random vectors by using [Random_Number](Random_Number.md).
+
+CALL RANDOM_NUMBER(obj, [3, 4, 5])
+CALL Display(obj, "obj: ")
 
 END PROGRAM main
-```

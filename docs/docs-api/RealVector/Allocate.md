@@ -1,9 +1,8 @@
 # Allocate
 
-Allocate memory for RealVector.
+<!-- markdownlint-disable MD041 MD013 MD033 MD012 -->
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+Allocate memory for `RealVector`.
 
 ## Interface
 
@@ -16,14 +15,14 @@ INTERFACE
     CLASS(RealVector_), INTENT(INOUT) :: obj
     INTEGER(I4B), INTENT(IN) :: Dims
   END SUBROUTINE Allocate
-END INTERFACE 
+END INTERFACE
 ```
 
 </TabItem>
 
 <TabItem value="example" label="️܀ See example">
 
-import EXAMPLE7 from "./_Initiate_test_1.md";
+import EXAMPLE7 from "./examples/_Initiate_test_1.md";
 
 <EXAMPLE7 />
 
@@ -33,5 +32,3 @@ import EXAMPLE7 from "./_Initiate_test_1.md";
 
 </TabItem>
 </Tabs>
-
-

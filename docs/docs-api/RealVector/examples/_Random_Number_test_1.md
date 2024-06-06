@@ -1,19 +1,14 @@
-This example initiates an instance of [RealVector_](RealVector_.md)
-
 ```fortran
 PROGRAM main
-  USE easifemBase
-  IMPLICIT NONE
-  TYPE( RealVector_ ) :: obj
-```
+USE GlobalData
+USE BaseType, ONLY: RealVector_
+USE RealVector_Method
 
-Generate a random vector by using [Random_Number](Random_Number.md).
+IMPLICIT NONE
 
-```fortran
-  CALL Random_Number(obj, 5)
-  CALL Display( obj, "obj: ")
-```
+TYPE(RealVector_) :: obj
 
-```fortran
+CALL RANDOM_NUMBER(obj, 5)
+CALL Display(obj, "obj: ")
 END PROGRAM main
 ```

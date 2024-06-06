@@ -1,14 +1,13 @@
 # Random_Number
 
-Generate a random realvector.
+<!-- markdownlint-disable MD041 MD013 MD033 MD012 -->
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+Generate random `RealVector`.
 
 ## Interfaces
 
 <Tabs>
-<TabItem value="interface" label="܀ Interface 1" default>
+<TabItem value="interface" label="Interface 1" default>
 
 ```fortran
 INTERFACE
@@ -21,7 +20,7 @@ END INTERFACE
 
 </TabItem>
 
-<TabItem value="interface2" label="܀ Interface 2" default>
+<TabItem value="interface2" label="Interface 2" default>
 
 ```fortran
 INTERFACE
@@ -34,18 +33,17 @@ END INTERFACE
 
 </TabItem>
 
-<TabItem value="example" label="️܀ Example 1">
+<TabItem value="example" label="️Example 1">
 
-import EXAMPLE7 from "./_Random_Number_test_1.md";
+import EXAMPLE7 from "./examples/_Random_Number_test_1.md";
 
 <EXAMPLE7 />
 
 </TabItem>
 
+<TabItem value="example 2" label="️Example 2">
 
-<TabItem value="example 2" label="️܀ Example 2">
-
-import EXAMPLE8 from "./_Random_Number_test_2.md";
+import EXAMPLE8 from "./examples/_Random_Number_test_2.md";
 
 <EXAMPLE8 />
 
@@ -55,4 +53,3 @@ import EXAMPLE8 from "./_Random_Number_test_2.md";
 
 </TabItem>
 </Tabs>
-

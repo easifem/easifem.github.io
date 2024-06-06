@@ -1,4 +1,3 @@
-```fortran
 PROGRAM main
 USE GlobalData
 USE RealVector_Method
@@ -12,4 +11,3 @@ CALL Initiate(obj, 2, 10)
 CALL Display(obj, "obj(a:b)=")
 
 END PROGRAM main
-```

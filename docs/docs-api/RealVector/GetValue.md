@@ -1,5 +1,9 @@
 # GetValue
 
+Get the value from `RealVector_`.
+
+Calling examples:
+
 - `GetValue(obj, value, istart, iend, stride)`
 - `GetValue(obj, dofobj, value, idof)`
 - `GetValue(obj, dofobj, value, ivar, idof)`

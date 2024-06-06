@@ -1,1 +1,0 @@
-This example shows the use of Initiate method to construct an instance of [RealVector](./RealVector_.md)
