@@ -1,0 +1,185 @@
+---
+sidebar_position: 1
+date: 2023-11-28 
+update: 2023-11-28 
+status: stable
+docs: done
+extpkgs: none
+category: 
+  - MaterialModels
+  - Materials
+  - Guides
+tags: 
+  - materialModels
+  - models
+  - materials
+  - easifemClasses
+---
+
+# Linear elastic model
+
+[LinearElasticModel_](/docs-api/LinearElasticModel/LinearElasticModel_)  is the class for modeling linear elastic material behavior. It is a subclass of [AbstractSolidMechanicsModel_](/docs-api/AbstractSolidMechanicsModel/AbstractSolidMechanicsModel_).
+
+Linear elasticity is a simplification of the more general nonlinear theory of elasticity and a branch of continuum mechanics. In linear elasticity we assume that: 
+- the strains are small 
+- the relation between stress and strain tensor is linear.
+
+These assumptions are reasonable for many engineering materials and engineering design scenarios. Linear elasticity is therefore used extensively in structural analysis and engineering design, often with the aid of finite element analysis.
+
+In the case of linear elasticity the relation between stress and strain is given by:
+
+$$
+\sigma_{ij} = C_{ijkl} \varepsilon_{kl}
+$$
+
+where $\sigma_{ij}$ and $\varepsilon_{ij}$ are the second order symmetric tensors denoting the stress and strain tensor, respectively.
+
+$C$ is the fourth-order stiffness tensor, which has both major and minor symmetries: 
+
+Major symmetries:
+
+$$
+C_{abcd} = C_{cdab}
+$$
+
+Minor symmetries:
+
+$$
+C_{abcd} = C_{bacd}; C_{abcd}=C_{abdc}
+$$
+
+In this way, $C$ has a total 21 number of independent elements.
+
+## Voigt notation
+
+The Voigt notation for stress tensor is given by following:
+
+$$
+\sigma = 
+\left\{ \begin{array}{c}
+\sigma_{11}\\
+\sigma_{22}\\
+\sigma_{33}\\
+\sigma_{12}\\
+\sigma_{23}\\
+\sigma_{13}
+\end{array}\right\} 
+$$
+
+The Voigt notation for strain tensor is given by following:
+
+$$
+\varepsilon = \left\{ \begin{array}{c}
+\varepsilon_{11}\\
+\varepsilon_{22}\\
+\varepsilon_{33}\\
+2\varepsilon_{12}\\
+2\varepsilon_{23}\\
+2\varepsilon_{13}
+\end{array}\right\}
+$$
+
+The fourth-order tensor $C$ is given by a symmetric $6 \times 6$ matrix.
+
+<CardSection id="isotropic-elasticity-theory">
+
+  <Card
+    title="Theory of isotropic elasticity"
+    to="/guides/programming-fem/linearElasticity/theory_isotropic"
+    description="Read about the theory of isotropic linear elasticity."
+  />
+  <Card
+    title="Theory of orthotropic elasticity"
+    to="/guides/programming-fem/linearElasticity/theory_orthotropic"
+    description="Read about the theory of orthotropic linear elasticity."
+  />
+  <Card
+    title="Theory of transversely isotropic elasticity"
+    to="/guides/programming-fem/linearElasticity/theory_trans_isotropic"
+    description="Read about the theory of transversely isotropic linear elasticity."
+  />
+  <Card
+    title="Theory of anisotropic elasticity"
+    to="/guides/programming-fem/linearElasticity/theory_anisotropic"
+    description="Read about the theory of anisotropic linear elasticity."
+  />
+</CardSection>
+
+## Learn from example
+
+We will consider the following example to learn about the [LinearElasticModel](/docs-api/LinearElasticModel).
+
+<details>
+<summary>Click here to see the example</summary>
+<div>
+
+```fortran
+PROGRAM main
+USE easifemBase
+USE easifemClasses
+USE easifemMaterials
+IMPLICIT NONE
+TYPE(LinearElasticModel_) :: obj
+TYPE(ParameterList_) :: param
+
+CALL FPL_INIT; CALL param%initiate()
+
+CALL SetLinearElasticModelParam( &
+  & param=param,  &
+  & ElasticityType=TypeElasticity%Isotropic, &
+  & PoissonRatio=0.3_DFP, &
+  & YoungsModulus=1.0D+6)
+
+CALL obj%Initiate(param)
+CALL obj%Display(msg="ISOTROPIC | PLANE-STRAIN |:")
+
+CALL param%DEALLOCATE(); CALL FPL_FINALIZE
+END PROGRAM main
+```
+
+</div>
+</details>
+
+### Step 1 (configure)
+
+In the above example, first we configure the `LinearElasticModel` by calling the [SetLinearElasticModelParam](/docs-api/LinearElasticModel/SetLinearElasticModelParam) method.
+
+```fortran
+CALL SetLinearElasticModelParam( &
+  & param=param,  &
+  & ElasticityType=TypeElasticity%Isotropic, &
+  & PoissonRatio=0.3_DFP, &
+  & YoungsModulus=1.0D+6)
+```
+
+### Step 2 (initiate)
+
+Now we will pass `param` to [Initiate](/docs-api/LinearElasticModel/Initiate) method to construct an instance of `LinearElasticModel_`. 
+
+```fortran
+CALL obj%Initiate(param)
+```
+
+### Step 3 (display)
+
+You can display the content of `LinearElasticModel` by calling the [Display](/docs-api/LinearElasticModel/Display) method.
+
+```fortran
+CALL obj%Display(msg="ISOTROPIC | PLANE-STRAIN |:")
+```
+
+## Further reading
+
+<CardSection id="linearElasticity-guide">
+
+  <Card
+    title="Export data to HDF5File"
+    to="/guides/programming-fem/linearElasticity/export_hdf5"
+    description="This example shows how to export data stored inside the LinearElasticModel to HDF5File."
+  />
+  <Card
+    title="Construct by using import"
+    to="/guides/programming-fem/linearElasticity/import_hdf5"
+    description="This example shows how to initiate LinearElasticModel by importing data from HDF5File"
+  />
+</CardSection>

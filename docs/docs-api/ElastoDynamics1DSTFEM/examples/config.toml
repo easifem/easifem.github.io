@@ -1,0 +1,56 @@
+[lagrange_lagrange]
+totalSpaceElements = 2
+totalTimeElements = 2
+totalSpaceNodes = 3
+totalTimeNodes = 3
+filename = "Lagrange-Lagrange"
+spaceDomain = [0.0, 1.0]
+timeDomain = [0.0, 1.0]
+spaceOrder = 1
+timeOrder = 1
+spaceElemLength = 0.5
+timeElemLength = 0.5
+elasticModulus = 1.0
+density = 1.0
+quadTypeForSpace = "GaussLegendreLobatto"
+quadTypeForTime = "GaussLegendreLobatto"
+
+[lagrange_hierarchical]
+totalSpaceElements = 2
+totalTimeElements = 2
+totalSpaceNodes = 3
+totalTimeNodes = 3
+filename = "Lagrange-Hierarchical"
+spaceDomain = [0.0, 1.0]
+timeDomain = [0.0, 1.0]
+spaceOrder = 2
+timeOrder = 2
+spaceElemLength = 0.5
+timeElemLength = 0.5
+elasticModulus = 1.0
+density = 1.0
+quadTypeForSpace = "GaussLegendreLobatto"
+quadTypeForTime = "GaussLegendreLobatto"
+baseInterpolationForSpace = "Lagrange"
+baseTypeForSpace = "Monomial"
+ipTypeForSpace = "Equidistance"
+baseInterpolationForTime = "Hierarchical"
+
+[hierarchical_hierarchical]
+totalSpaceElements = 2
+totalTimeElements = 2
+totalSpaceNodes = 3
+totalTimeNodes = 3
+filename = "Hierarchical-Hierarchical"
+spaceDomain = [0.0, 1.0]
+timeDomain = [0.0, 1.0]
+spaceOrder = 2
+timeOrder = 2
+spaceElemLength = 0.5
+timeElemLength = 0.5
+elasticModulus = 1.0
+density = 1.0
+quadTypeForSpace = "GaussLegendreLobatto"
+quadTypeForTime = "GaussLegendreLobatto"
+baseInterpolationForSpace = "Hierarchical"
+baseInterpolationForTime = "Hierarchical"

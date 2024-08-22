@@ -1,0 +1,3 @@
+BuildType = "Debug"
+BuildDir = "/tmp/user-function/"
+TargetLibs = ["easifemClasses"]
