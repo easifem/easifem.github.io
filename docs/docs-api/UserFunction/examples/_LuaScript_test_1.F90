@@ -1,40 +1,39 @@
-! This program is a part of EASIFEM library
-! Copyright (C) 2020-2021  Vikas Sharma, Ph.D
-!
-! This program is free software: you can redistribute it and/or modify
-! it under the terms of the GNU General Public License as published by
-! the Free Software Foundation, either version 3 of the License, or
-! (at your option) any later version.
-!
-! This program is distributed in the hope that it will be useful,
-! but WITHOUT ANY WARRANTY; without even the implied warranty of
-! MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-! GNU General Public License for more details.
-!
-! You should have received a copy of the GNU General Public License
-! along with this program.  If not, see <https: //www.gnu.org/licenses/>
-
 PROGRAM main
-USE easifemBase
-USE easifemClasses
+USE UserFunction_Class
+USE FPL
+USE GlobalData
+USE Display_Method
+USE Test_Method
+USE ApproxUtility
+
 IMPLICIT NONE
 
 TYPE(UserFunction_) :: obj
 TYPE(ParameterList_) :: param
-REAL(DFP) :: val
+REAL(DFP) :: want, found, args(10)
 CHARACTER(*), PARAMETER :: luaScript = "Function1.lua"
 CHARACTER(*), PARAMETER :: luaFunction = "Function1"
+CHARACTER(*), PARAMETER :: testname = "luascript test 1"
+LOGICAL(LGT) :: isok
 
 CALL FPL_Init
 CALL param%Initiate()
 
-CALL SetUserFunctionParam(param=param, returnType=Scalar, argType=Space,  &
-  & luaScript=luaScript, luaFunctionName=luaFunction, numArgs=1, numReturns=1)
+CALL SetUserFunctionParam(param=param, name="test", returnType=Scalar, &
+            argType=Space, luaScript=luaScript, luaFunctionName=luaFunction, &
+                          numArgs=1, numReturns=1)
+
 CALL obj%Initiate(param)
-! CALL obj%Display("")
-! CALL obj%SET(MyUserFunction)
-CALL obj%Get(val=val, args=[1.0_DFP])
-CALL Display(val, "val: ")
+
+CALL obj%Set(luaScript=luaScript, luaFunctionName=luaFunction)
+CALL obj%Display(testname)
+
+args(1) = 1.0_DFP
+want = 20.0 * args(1)
+CALL obj%Get(val=found, args=args)
+
+isok = found.approxeq.want
+CALL OK(isok, testname)
 
 CALL param%DEALLOCATE()
 CALL FPL_Finalize
