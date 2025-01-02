@@ -26,6 +26,13 @@ tags:
 - By defining `varType` we can control how the scalar field changes inside an element.
 - By defining `fieldType`, we can control how the scalar field over the elements of mesh.
 
+## Getting Started
+
+This datatype should be used in the following way:
+
+- Initiate an instance of `ScalarMeshField`. This step will allocate required memory for the scalar field
+- Then, set the values in `ScalarMeshField`. This action is performed by using `Set` method. There are several ways to use `Set` method. The first one requires as to pass an instance of `FEVariable`.
+
 ## All Methods
 
 import DocCardList from '@theme/DocCardList';
