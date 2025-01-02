@@ -18,4 +18,8 @@ tags:
 
 # FEDOF
 
-Data type for finite element degree of freedoms.
+Data type for finite element degree of freedoms. `FEDOF_` defines the abstract node in finite element method. The basic steps of using this data type is given below.
+
+## Basic usage
+
+Constructor
