@@ -153,4 +153,6 @@ tanmat.svg
 *.svg
 *.png
 *.jpg
+*.plt
+*.csv
 
