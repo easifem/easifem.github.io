@@ -1,10 +1,10 @@
 # Initiate
 
-This routine initiates the kernel, this method should be implemented by the children of `AbstractKernel_`:
+This routine reads the information from parameter list and stores them in the field of abstract kernel.
 
 - `param` contains the parameters for kernel [ParameterList_](../ParameterList/ParameterList_.md)
 - `dom` is the domain of computation [Domain_](../Domain/Domain_.md)
-- `domains` is multiple domains of computation 
+- `domains` is multiple domains of computation
 
 ```fortran
 INTERFACE

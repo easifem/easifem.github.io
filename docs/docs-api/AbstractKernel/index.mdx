@@ -20,124 +20,61 @@ update: 2023-09-08
 
 `AbstractKernel_` class is an abstract class for designing kernels. You can see the structure of the `AbstractKernel` [here](./AbstractKernel_.md).
 
-## Methods
+## Constructor Methods
 
-### Constructor Methods
+### SetAbstractKernelParam
 
-<CardSection id="abstract-kernel-constructor-methods">
-  <Card
-    title="Set Parameter"
-    to="/docs-api/AbstractKernel/SetAbstractKernelParam"
-    description="Set the parameters for constructing the abstract kernel."
-  />
-  <Card
-    title="Check essential parameters"
-    to="/docs-api/AbstractKernel/CheckEssentialParam"
-    description="Check the essential parameters."
-  />
-  <Card
-    title="Initite Kernel"
-    to="/docs-api/AbstractKernel/Initiate"
-    description="Initiate the kernels by using parameters."
-  />
-  <Card
-    title="Initite fields"
-    to="/docs-api/AbstractKernel/InitiateFields"
-    description="Initiate the vector and matrix fields of kernels."
-  />
-  <Card
-    title="Deallocate kernel"
-    to="/docs-api/AbstractKernel/Deallocate"
-    description="Deallocate the data stored inside the Kernel."
-  />
-</CardSection>
+This method sets the essential parameters of the kernel. The user should use this method to set the parameters in the kernel. You can find more information here [SetAbstractKernelParam](./SetAbstractKernelParam.md).
 
-### Set Methods
+### CheckEssentialParam
 
-<CardSection id="abstract-kernel-set-methods">
-  <Card
-    title="Set"
-    to="/docs-api/AbstractKernel/Set"
-    description="Set method should be called after configuring the kernel."
-  />
-  <Card
-    title="Set Current Time Step"
-    to="/docs-api/AbstractKernel/SetCurrentTimeStep"
-    description="This method sets the current time step of simulation."
-  />
-  <Card
-    title="Set Iteration Number"
-    to="/docs-api/AbstractKernel/SetIterationNumber"
-    description="This method sets the current iteration number in kernel."
-  />
-  <Card
-    title="Set Mesh Data"
-    to="/docs-api/AbstractKernel/SetMeshData"
-    description="This method sets mesh data in the kernel."
-  />
-  <Card
-    title="Set Finite Element"
-    to="/docs-api/AbstractKernel/SetFiniteElement"
-    description="This method sets the finite element."
-  />
-  <Card
-    title="Set Facet Finite Element"
-    to="/docs-api/AbstractKernel/SetFacetFiniteElement"
-    description="This method sets the facet finite element."
-  />
-  <Card
-    title="Set Quadrature Points in Space"
-    to="/docs-api/AbstractKernel/SetQuadPointsInSpace"
-    description="This method sets the quadrature points in space."
-  />
-  <Card
-    title="Set Quadrature Points in Time"
-    to="/docs-api/AbstractKernel/SetQuadPointsInTime"
-    description="This method sets the quadrature points in time."
-  />
-  <Card
-    title="Set Local Shape Data in Space"
-    to="/docs-api/AbstractKernel/SetLocalElemShapeDataInSpace"
-    description="This method sets the local shape function data in space."
-  />
-  <Card
-    title="Set Local Shape Data in Time"
-    to="/docs-api/AbstractKernel/SetLocalElemShapeDataInTime"
-    description="This method sets the local shape function data in time."
-  />
-</CardSection>
+It check the essential parameters of the kernel. This method is called internally to check the validity of the data while initiating the kernel. A general user should not worry about it. You can find more information [here](./CheckEssentialParam.md).
 
+### Initiate
 
-### Get methods
+This method reads the parameters and store them in the abstract kernel. This method is usually extended by the child classes. You can find more information here [Initiate](./Initiate.md)
 
-<CardSection id="abstract-kernel-get-methods">
-  <Card
-    title="Get Prefix"
-    to="/docs-api/AbstractKernel/GetPrefix"
-    description="Get the prefix of the kernel."
-  />
-  <Card
-    title="Get Coordinate System Name"
-    to="/docs-api/AbstractKernel/KernelGetCoordinateSystemName"
-    description="Get the name of coordinate system from integer id."
-  />
-  <Card
-    title="Get Coordinate System ID"
-    to="/docs-api/AbstractKernel/KernelGetCoordinateSystemID"
-    description="Get the integer id of coordinate system from its name."
-  />
-  <Card
-    title="Get NSD from ID"
-    to="/docs-api/AbstractKernel/KernelGetNSDFromID"
-    description="Get the number of spatial dimension from the coordinate system id."
-  />
-  <Card
-    title="Get NSD from Name"
-    to="/docs-api/AbstractKernel/KernelGetNSDFromName"
-    description="Get the number of spatial dimension from the coordinate system name."
-  />
-</CardSection>
+### Deallocate
 
+This method deallocates the memory of the kernel. This method is usually extended by the child classes. You can find more information here [Deallocate](./Deallocate.md)
+
+### PreCheckError
+
+This method is called to check the errors in the kernel. This method is called before setting the kernel. This is also an internal method and a general user  should not worry about it. You can find more information here [PreCheckError](./PreCheckError.md).
+
+### PostCheckError
+
+This method is called to check the errors in the kernel. This method is called after setting the kernel. This is also an internal method and a general user  should not worry about it. This method is documented [here](./PostCheckError.md).
+
+### CheckError
+
+This method checks the errors in the Kernel. This method is called internally to check the validity of the data while initiating the kernel. A general user should not worry about it. You can find more information [here](./CheckError.md).
+
+## Initiating fields
+
+### KernelInitiateSpaceMatrix
+
+This subroutine is defined in `KernelMatrixField_Method`. You can find about this subroutine [here](./KernelInitiateSpaceMatrix.md)
+
+### KernelInitiateTangentMatrix
+
+This subroutine is defined in `KernelMatrixField_Method`. You can find about this subroutine [here](./KernelInitiateTangentMatrix.md)
+
+### InitiateFields
+
+### InitiateTangentMatrix
+
+This subroutine initiate the tangent matrix of the kernel.
+
+### InitiateScalarFields
+
+### InitiateSTScalarFields
+
+### InitiateVectorFields
+
+### InitiateSTVectorFields
+
+### InitiateMatrixFields
 
 
 ## All methods 

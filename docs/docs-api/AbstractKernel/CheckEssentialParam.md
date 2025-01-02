@@ -1,6 +1,8 @@
 # CheckEssentialParam
 
-Checks the essential parameters in the param of kernels
+Checks the essential parameters in the parameter list of kernels.
+
+This method is called internally to check the validity of the data while initiating the kernel. A general user should not worry about it.
 
 ## Interface
 

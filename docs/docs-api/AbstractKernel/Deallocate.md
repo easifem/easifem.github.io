@@ -11,9 +11,3 @@ INTERFACE
   END SUBROUTINE Deallocate
 END INTERFACE
 ```
-
-```fortran
-INTERFACE KernelDeallocate
-  MODULE PROCEDURE Deallocate
-END INTERFACE KernelDeallocate
-```
