@@ -8,7 +8,7 @@ USE Display_Method
 IMPLICIT NONE
 
 TYPE(ElastoDynamics1DSTFEM_) :: obj
-CHARACTER(*), PARAMETER :: testname = "dev test", &
+CHARACTER(*), PARAMETER :: testname = "test", &
                            tomlName = "kernel", &
                            filename = "config.toml"
 
@@ -22,6 +22,7 @@ END IF
 
 CALL obj%Set()
 CALL obj%Display(testname)
+
 CALL obj%Run()
 
 CALL FPL_Finalize

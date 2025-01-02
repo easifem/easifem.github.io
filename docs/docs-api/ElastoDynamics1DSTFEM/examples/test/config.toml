@@ -15,7 +15,8 @@ quadTypeForSpace = "GaussLegendreLobatto"
 quadTypeForTime = "GaussLegendreLobatto"
 baseInterpolationForSpace = "Lagrange"
 spaceOrder = 1
-baseInterpolationForTime = "Hierarchical"
+baseInterpolationForTime = "Orthogonal"
+baseTypeForTime = "Legendre"
 timeOrder = 1
 verbosity = 0
 
