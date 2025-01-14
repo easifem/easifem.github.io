@@ -1,27 +1,4 @@
----
-authors: Vikas Sharma, Ph. D.
-date: 22 Oct 2021
-update: 14 Nov 2021
-title: StaticDiffusion example 1
-tags:
-  - SetStaticDiffusionParam
-  - StaticDiffusion/CheckEssentialParam
----
-
-# StaticDiffusion example 1
-
-!!! note ""
-	This examples shows how to use `SetStaticDiffusionParam` to set the parameters of [[StaticDiffusion_]] kernel.
-
-## Modules and classes
-
-- [[ParameterList_]]
-- [[StaticDiffusion_]]
-
-## Usage
-
-!!! notes ""
-    Use modules and declare variables
+This examples shows how to use `SetStaticDiffusionParam` to set the parameters of [[StaticDiffusion_]] kernel.
 
 ``` fortran
 PROGRAM main

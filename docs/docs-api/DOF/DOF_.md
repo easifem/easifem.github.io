@@ -16,11 +16,11 @@ In order to understand the storage pattern, and the working-principal of `DOF_` 
 
 `FMT_Nodes`: In this case all the components of $v$ are grouped together and values are defined at each node of the mesh. At each node, DOFs (spatial components) form a small vector. So the nodal values of $v$ are defined as a nodal vector of these small vectors.
 
-![DOF1](figures/DOF1.svg)
+![DOF1](/img/svg/DOF1.svg)
 
 Further, to understand how storage pattern works in the case of multi-variables, let us consider an example in which we have pressure and velocity as the physical variables. Note that velocity is a vector and pressure is scalar physical variable. These storage patterns are given in following figure.
 
-![DOF2](figures/DOF2.svg)
+![DOF2](/img/svg/DOF2.svg)
 
 Following code can be used to define an instance of `DOF_`. Note that each physical variable contains two components in the time domain.
 

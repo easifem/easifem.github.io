@@ -1,35 +1,4 @@
----
-authors: Vikas Sharma, Ph. D.
-date: 22 Oct 2021
-update: 14 Nov 2021
-title: StaticDiffusion example 3
-tags:
-  - SetStaticDiffusionParam
-  - StaticDiffusion/Initiate
-  - StaticDiffusion/CheckEssentialParam
-  - StaticDiffusion/Display
-  - Domain/Initiate
-  - Domain/Open
-  - HDF5File/Initiate
-  - HDF5File/Open
-  - SetLinSolverParam
----
-
-# StaticDiffusion example 3
-
-!!! note ""
-    This example shows how to initiate an instance of [[StaticDiffusion_]]
-
-## Modules and classes
-
-- [[ParameterList_]]
-- [[StaticDiffusion_]]
-- [[HDF5File_]]
-
-## Usage
-
-!!! notes ""
-    USE modules and declare variables
+This example shows how to initiate an instance of [[StaticDiffusion_]]
 
 ``` fortran
 PROGRAM main

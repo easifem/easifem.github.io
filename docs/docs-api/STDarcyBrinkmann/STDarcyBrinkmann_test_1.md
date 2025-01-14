@@ -1,10 +1,4 @@
-!> authors: Vikas Sharma, Ph. D.
-! date: 29 Sept 2021
-! update: 23 Sept 2021
-! summary: Testing setSTDarcyBrinkmannParam()
-
-! [[STDarcyBrinkmann_]], [[ParameterList_]]
-
+```fortran
 PROGRAM main
 USE easifemBase
 USE easifemClasses
@@ -38,3 +32,4 @@ CALL param%Print()
 CALL obj%CheckEssentialParam( param )
 CALL param%Deallocate(); CALL FPL_FINALIZE()
 END PROGRAM main
+```

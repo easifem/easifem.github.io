@@ -1,15 +1,4 @@
-
-!> authors: Vikas Sharma, Ph. D.
-! date: 29 Sept 2021
-! update:
-!   - 21 Oct 2021
-!   - 23 Oct 2021
-! summary: Testing AddPorousMaterial(), different domains
-
-! [[STDarcyBrinkmann_]], [[ParameterList_]], [[HDF5File_]]
-
-! [[Domain_]], [[MeshSelection_]]
-
+```fortran
 PROGRAM main
 USE easifemBase
 USE easifemClasses
@@ -118,3 +107,4 @@ CALL domainForPressure%Deallocate()
 CALL domainForVelocity%Deallocate()
 CALL param%Deallocate(); CALL FPL_FINALIZE()
 END PROGRAM main
+```

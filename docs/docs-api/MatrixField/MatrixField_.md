@@ -50,7 +50,5 @@ TYPE, EXTENDS(AbstractMatrixField_) :: MatrixField_
 #endif
 ```
 
-![](figures/MatrixField1.svg)
-
 - If the matrix is square, then the storage format is `FMT_NODES`
 - If the matrix is Rectangle, then the storage format is `FMT_NODES`

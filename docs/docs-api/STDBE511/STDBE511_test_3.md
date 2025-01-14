@@ -1,18 +1,3 @@
----
-author: Vikas Sharma, Ph.D.
-date: 2 Nov 2022
-tags:
-    - SetSTDBE511Param
-    - SetLinSolverParam
-    - Domain/Initiate
-    - STDBE511/Initiate
-    - MeshSelection/Initiate
-    - MeshSelection/Add
-    - SetPorousMaterialParam
-    - STDBE511/AddPorousMaterial
-    - STDBE511/AddFluidMaterial
----
-
 # STDBE511 example 3
 
 - Both fluid and porous medium are considered
@@ -23,12 +8,6 @@ tags:
 - V_TOP = 0.01
 - dt = dx / V_TOP = 0.2
 - StabOption=1
-
-Mesh:
-
-![](figures/mesh.png)
-
-[TOC]
 
 ## Header
 

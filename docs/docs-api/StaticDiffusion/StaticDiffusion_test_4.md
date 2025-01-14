@@ -1,33 +1,3 @@
----
-authors: Vikas Sharma, Ph. D.
-date: 22 Oct 2021
-update: 15 Nov 2021
-title: StaticDiffusion example 4
-tags:
-  - SetStaticDiffusionParam
-  - StaticDiffusion/Initiate
-  - StaticDiffusion/CheckEssentialParam
-  - StaticDiffusion/Display
-  - Domain/Initiate
-  - Domain/Open
-  - HDF5File/Initiate
-  - HDF5File/Open
-  - SetLinSolverParam
----
-
-# StaticDiffusion example 4
-
-## Modules and classes
-
-- [[ParameterList_]]
-- [[StaticDiffusion_]]
-- [[HDF5File_]]
-
-## Usage
-
-!!! notes ""
-    USE modules and declare variables
-
 ``` fortran
 PROGRAM main
     USE easifemBase

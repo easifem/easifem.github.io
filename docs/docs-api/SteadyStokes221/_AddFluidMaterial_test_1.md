@@ -1,30 +1,5 @@
 In this example we will learn how to add a fluid material in the kernel.
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-<Tabs defaultValue={null}>
-
-<TabItem value="1" label="܀ Mesh for velocity">
-
-![](figures/mesh_tri6.png)
-
-</TabItem>
-
-<TabItem value="2" label="܀ Mesh for pressure ">
-
-![](figures/mesh_tri3.png)
-
-</TabItem>
-
-<TabItem value="3" label="↢ ">
-
-</TabItem>
-
-</Tabs>
-
-Use modules
-
 ```fortran
 PROGRAM main
   USE easifemBase

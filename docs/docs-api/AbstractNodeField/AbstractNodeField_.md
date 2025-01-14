@@ -44,8 +44,6 @@ Real vector, it contains the value.
 
 Degree of freedom object. Read more about it [here](../DOF/DOF_).
 
-![AbstractNodeField1](./figures/AbstractNodeField1.svg)
-
 :::note How to extend?
 In order to extend the abstract class `AbstractNodeField` one should implement the methods given in [AbstractField\_](../AbstractField/AbstractField_.md) as well as the following methods:
 :::

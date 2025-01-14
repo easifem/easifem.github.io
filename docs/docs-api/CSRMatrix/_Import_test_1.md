@@ -17,14 +17,10 @@ Let's see its content
 CALL SPY(obj=obj, filename="FIDAPM33_BEFORE", ext="png")
 ```
 
-![](./figures/FIDAPM33_BEFORE.png)
-
 ```fortran title="Incomplete LU decompositiont"
 CALL getILUD(obj=obj, Pmat=pmat, alpha=1.0_DFP, droptol=0.001_DFP)
 CALL spy(obj=pmat, filename="FIDAPM33_ILUD_BEFORE", ext="png")
 ```
-
-![](./figures/FIDAPM33_ILUD_BEFORE.png)
 
 NestedDissect from Metis.
 

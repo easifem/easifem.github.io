@@ -12,7 +12,5 @@ TYPE, EXTENDS(MatrixField_) :: MatrixFieldLis_
   INTEGER(I4B), ALLOCATABLE :: lis_ja(:)
 ```
 
-![](figures/MatrixField1.svg)
-
 - If the matrix is square, then the storage format is `FMT_NODES`
 - If the matrix is Rectangle, then the storage format is `FMT_NODES`

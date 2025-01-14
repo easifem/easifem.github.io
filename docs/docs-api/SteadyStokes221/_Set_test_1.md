@@ -4,31 +4,6 @@ This example tests and demonstrates the usage of `Set()` method of [SteadyStokes
 - The set method does a lot of work, for example depending upon the options provided by the user it allocates the field instances for matrices, vectors, material properties etc.
 - The main computation starts only after calling the Set function.
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-<Tabs defaultValue={null}>
-
-<TabItem value="1" label="܀ Mesh for velocity">
-
-![](figures/mesh_tri6.png)
-
-</TabItem>
-
-<TabItem value="2" label="܀ Mesh for pressure ">
-
-![](figures/mesh_tri3.png)
-
-</TabItem>
-
-<TabItem value="3" label="↢ ">
-
-</TabItem>
-
-</Tabs>
-
-Use modules
-
 ``` fortran
 PROGRAM main
   USE easifemBase
