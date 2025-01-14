@@ -150,7 +150,7 @@ build/*
 *.h5
 *.vtu
 tanmat.svg
-*.svg
+#*.svg
 *.png
 *.jpg
 *.plt
