@@ -1,30 +1,5 @@
 This example tests and demonstrates the usage of `AssembleTanMat()` method.
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-<Tabs defaultValue={null} block>
-
-<TabItem value="1" label="Mesh for velocity">
-
-![](figures/mesh_tri6.png)
-
-</TabItem>
-
-<TabItem value="2" label="Mesh for pressure">
-
-![](figures/mesh_tri3.png)
-
-</TabItem>
-
-<TabItem value="3" label="Hide">
-
-</TabItem>
-
-</Tabs>
-
-Use modules
-
 ``` fortran
 PROGRAM main
   USE easifemBase
@@ -296,25 +271,6 @@ AssembleTanMat
   CALL obj%Kmat%SPY(filename="./Kmat", ext=".png")
   CALL obj%Gmat%SPY(filename="./Gmat", ext=".png")
 ```
-
-Results are given below
-
-<Tabs>
-<TabItem value="fig1" label="Kmat" default>
-
-![Kmat](figures/Kmat.png)
-
-</TabItem>
-
-<TabItem value="fig2" label="Gmat">
-
-![Gmat](figures/Gmat.png)
-
-</TabItem>
-
-</Tabs>
-
-Cleanup
 
 ```fortran
   CALL obj%Deallocate()

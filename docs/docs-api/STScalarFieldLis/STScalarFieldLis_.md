@@ -1,11 +1,11 @@
 ---
 sidebar_position: 1
-date: 2023-03-23 
-update: 2023-03-23  
-status: stable 
+date: 2023-03-23
+update: 2023-03-23
+status: stable
 docs:  done
 extpkgs: none
-category: 
+category:
   - LinearAlgebra
   - Field
   - SpaceTime
@@ -28,5 +28,3 @@ This data type is useful in space-time finite element algorithms.
 ```fortran
 TYPE, EXTENDS(STScalarField_) :: STScalarFieldLis_
 ```
-
-![](./figures/STScalarField1.svg)

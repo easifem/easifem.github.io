@@ -1,13 +1,3 @@
----
-author: Vikas Sharma, Ph.D.
-date: 2 Nov 2022
-tags:
-    - SetSTDBE511Param
-    - SetLinSolverParam
-    - Domain/Initiate
-    - STDBE511/Initiate
----
-
 # STDBE511 example 2
 
 - Both fluid and porous medium are considered
@@ -18,18 +8,6 @@ tags:
 - V_TOP = 0.01
 - dt = dx / V_TOP = 0.2
 - StabOption=1
-
-Mesh:
-
-![](figures/mesh.png)
-
-In this example we test following:
-
-- [[STDBE511_#SetSTDBE511Param]]
-- [[LinSolver_#SetLinSolverParam]]
-- [[Domain_#Initiate]]
-
-[TOC]
 
 ## Header
 

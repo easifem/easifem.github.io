@@ -1,11 +1,11 @@
 ---
 sidebar_position: 1
-date:  2023-03-21 
-update: 2023-03-21  
-status: stable 
+date:  2023-03-21
+update: 2023-03-21
+status: stable
 docs: done
 extpkgs: none
-category: 
+category:
   - LinearAlgebra
   - Field
   - Vector
@@ -26,5 +26,3 @@ The nodal values are defined at the spatial nodes of finite element mesh.
 TYPE, EXTENDS(ScalarField_) :: ScalarFieldLis_
 END TYPE
 ```
-
-![ScalarFieldLis1](figures/ScalarFieldLis1.svg)

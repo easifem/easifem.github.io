@@ -1,14 +1,9 @@
 In this example we will generate node to node connectivity information between part of velocity-domain (2,1) and part of pressure-Domain (2,1).
 
-Pressure domain consists Triangle3 elements as shown below.
+- Pressure domain consists Triangle3 elements as shown below.
+- Velocity domain consists Triangle6 elements as shown below.
 
-![mesh_tri3](figures/mesh_tri3.png)
-
-Velocity domain consists Triangle6 elements as shown below.
-
-![mesh_tri6](figures/mesh_tri6.png)
-
-``` fortran
+```fortran
 PROGRAM main
   USE easifemBase
   USE easifemClasses
@@ -27,51 +22,49 @@ PROGRAM main
   INTEGER( I4B ) :: ii
 ```
 
-
 ```fortran
-  CALL velocityMeshFile%Initiate( FileName="./mesh_tri6.h5", MODE="READ" )
-  CALL velocityMeshFile%Open()
-  CALL pressureMeshFile%Initiate( FileName="./mesh_tri3.h5", MODE="READ" )
-  CALL pressureMeshFile%Open()
+CALL velocityMeshFile%Initiate( FileName="./mesh_tri6.h5", MODE="READ" )
+CALL velocityMeshFile%Open()
+CALL pressureMeshFile%Initiate( FileName="./mesh_tri3.h5", MODE="READ" )
+CALL pressureMeshFile%Open()
 ```
 
 ```fortran
-  CALL velocityDomain%Initiate( velocityMeshFile, "")
-  CALL velocityMeshFile%Deallocate()
-  CALL pressureDomain%Initiate( pressureMeshFile, "")
-  CALL pressureMeshFile%Deallocate()
+CALL velocityDomain%Initiate( velocityMeshFile, "")
+CALL velocityMeshFile%Deallocate()
+CALL pressureDomain%Initiate( pressureMeshFile, "")
+CALL pressureMeshFile%Deallocate()
 ```
 
-
 ```fortran
-  CALL obj%InitiateNodeToNodeData( domain2=velocityDomain, &
-    & domain1=pressureDomain, dim1=dim1, entityNum1=entityNum1, &
-    & dim2=dim2, entityNum2=entityNum2 )
-  nodeToNode => obj%getNodeToNodePointer()
-  velocityMesh => velocityDomain%getMeshPointer( dim1, entityNum1 )
-  pressureMesh => pressureDomain%getMeshPointer( dim2, entityNum2 )
-  pressureNode => pressureDomain%getNodeCoordPointer()
-  velocityNode => velocityDomain%getNodeCoordPointer()
+CALL obj%InitiateNodeToNodeData( domain2=velocityDomain, &
+  & domain1=pressureDomain, dim1=dim1, entityNum1=entityNum1, &
+  & dim2=dim2, entityNum2=entityNum2 )
+nodeToNode => obj%getNodeToNodePointer()
+velocityMesh => velocityDomain%getMeshPointer( dim1, entityNum1 )
+pressureMesh => pressureDomain%getMeshPointer( dim2, entityNum2 )
+pressureNode => pressureDomain%getNodeCoordPointer()
+velocityNode => velocityDomain%getNodeCoordPointer()
 ```
 
 Simple testing
 
 ```fortran
-  DO ii = pressureMesh%minNptrs, pressureMesh%maxNptrs
-    IF( .NOT. pressureMesh%isNodePresent( globalNode=ii ) ) CYCLE
-    IF( nodeToNode( ii ) .EQ. 0 ) CYCLE
-    IF( ALL( pressureNode(:,pressureDomain%getLocalNodeNumber(ii)) &
-      & .APPROXEQ. velocityNode(:, &
-      & velocityDomain%getLocalNodeNumber(nodeToNode(ii)))) ) THEN
-      CALL Display( "pressure Node = " // TOSTRING(ii)  &
-        & // " matches with velocity Node = " // TOSTRING( nodeToNode(ii)))
-    ELSE
-      CALL Display( "ERROR: pressure Node = " // TOSTRING(ii)  &
-        & // " not matches with velocity Node = "  &
-        & // TOSTRING( nodeToNode(ii)))
-      STOP
-    END IF
-  END DO
+DO ii = pressureMesh%minNptrs, pressureMesh%maxNptrs
+  IF( .NOT. pressureMesh%isNodePresent( globalNode=ii ) ) CYCLE
+  IF( nodeToNode( ii ) .EQ. 0 ) CYCLE
+  IF( ALL( pressureNode(:,pressureDomain%getLocalNodeNumber(ii)) &
+    & .APPROXEQ. velocityNode(:, &
+    & velocityDomain%getLocalNodeNumber(nodeToNode(ii)))) ) THEN
+    CALL Display( "pressure Node = " // TOSTRING(ii)  &
+      & // " matches with velocity Node = " // TOSTRING( nodeToNode(ii)))
+  ELSE
+    CALL Display( "ERROR: pressure Node = " // TOSTRING(ii)  &
+      & // " not matches with velocity Node = "  &
+      & // TOSTRING( nodeToNode(ii)))
+    STOP
+  END IF
+END DO
 ```
 
 Cleanup

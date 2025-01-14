@@ -7,5 +7,3 @@
 ```fortran
 TYPE, EXTENDS(STVectorField_) :: STVectorFieldLis_
 ```
-
-![](./figures/STVectorField1.svg)

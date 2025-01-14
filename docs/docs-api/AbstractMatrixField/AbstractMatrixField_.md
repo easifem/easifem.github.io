@@ -12,8 +12,6 @@ TYPE, ABSTRACT, EXTENDS(AbstractField_) :: AbstractMatrixField_
   !! True if precondition matrix is initiated
 ```
 
-![AbstractMatrixField1](./figures/AbstractMatrixField1.svg)
-
 ## todo
 
 - ShallowCopy

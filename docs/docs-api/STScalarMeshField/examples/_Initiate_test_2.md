@@ -1,10 +1,4 @@
-:::info
 This example shows how to initiate an instance of [Mesh](/docs-api/Mesh) by reading data from mesh file, which is in [HDF5File_](/docs-api/HDF5File) format. We will also construct an instance of [STScalarMeshField_](/docs-api/STScalarMeshField).
-:::
-
-The mesh is given below
-
-![](./mesh.png)
 
 ```fortran
 PROGRAM main
@@ -52,15 +46,15 @@ The above code will initiate an instance of `STScalarMeshField_`, which will the
 Object INITIATED: TRUE
 name: aScalar
 prefix: STScalarMeshField
-fieldType: CONSTANT            
+fieldType: CONSTANT
 engine: NATIVE_SERIAL
 tSize: 1
 defineOn: Nodal
 rank: Scalar
 varType: Constant
-shape: 
+shape:
 -------
-   1   
+   1
 val ALLOCATED: TRUE
 mesh ASSOCIATED: TRUE
 ```

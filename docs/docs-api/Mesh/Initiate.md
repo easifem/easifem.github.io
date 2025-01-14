@@ -23,10 +23,6 @@ END INTERFACE
 
 ## Examples
 
-In the following examples we have used the mesh given below.
-
-![](./figures/small_mesh.svg)
-
 ### Converting mesh from Gmsh to easifem format
 
 <details>

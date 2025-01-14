@@ -1,38 +1,4 @@
----
-title: StaticDiffusion example 6
-authors: Vikas Sharma, Ph. D.
-date: 22 Oct 2021
-update: 15 Nov 2021
-tags:
-  - SetStaticDiffusionParam
-  - StaticDiffusion/Initiate
-  - StaticDiffusion/CheckEssentialParam
-  - StaticDiffusion/AddMaterial
-  - StaticDiffusion/Display
-  - Domain/Initiate
-  - Domain/Open
-  - HDF5File/Initiate
-  - HDF5File/Open
-  - SetLinSolverParam
----
-
-# StaticDiffusion example 6
-
-!!! note ""
-    This example demonstrates how to use `addMaterial` to add new material to [[StaticDiffusion_]] kernel.
-
-## Modules and classes
-
-- [[ParameterList_]]
-- [[StaticDiffusion_]]
-- [[HDF5File_]]
-- [[MeshSelection_]]
-- [[Domain_]]
-
-## Usage
-
-!!! notes ""
-    Use modules and declare variables
+This example demonstrates how to use `addMaterial` to add new material to [[StaticDiffusion_]] kernel.
 
 ``` fortran
 PROGRAM main
@@ -92,10 +58,10 @@ PROGRAM main
       & rtol=1.0D-10, &
       & atol=1.0D-10 )
 ```
-      
+
 !!! note ""
     Initiates computation domain.
-      
+
 ```fortran
     CALL domainFile%Initiate(filename=domainFileName, mode="READ")
     CALL domainFile%Open()

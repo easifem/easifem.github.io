@@ -1,48 +1,4 @@
----
-title: LinearStaticCDR example 11
-authors: Vikas Sharma, Ph. D.
-date: 25 Nov 2021
-update: 25 Nov 2021
-tags:
-  - SetLinearStaticCDRParam
-  - LinearStaticCDR/Initiate
-  - LinearStaticCDR/CheckEssentialParam
-  - LinearStaticCDR/AddMaterial
-  - LinearStaticCDR/AddDirichletBC
-  - LinearStaticCDR/GetDirichletBCPointer
-  - LinearStaticCDR/Export
-  - LinearStaticCDR/AssembleTanmat
-  - LinearStaticCDR/AssembleRHS
-  - LinearStaticCDR/Assemble
-  - DirichletBC/Set
-  - LinearStaticCDR/Display
-  - Domain/Initiate
-  - Domain/Open
-  - HDF5File/Initiate
-  - HDF5File/Open
-  - SetLinSolverParam
----
-
-# LinearStaticCDR example 11
-
-!!! note ""
-    This example shows the use of `AssembleTanmat` `AssembleRHS` and `Assemble` method.
-
-Mesh used in this example is given below.
-
-![](./mesh.png)
-
-## Use association
-
-- [[HDF5File_]]
-- [[MSHFile_]]
-- [[ParameterList_]]
-- [[Domain_]]
-- [[MeshSelection_]]
-
-## Usage
-
-## Usage
+This example shows the use of `AssembleTanmat` `AssembleRHS` and `Assemble` method.
 
 ```fortran
 PROGRAM main
@@ -68,19 +24,13 @@ PROGRAM main
       & maxIter = 100, &
       & KrylovSubspaceSize=20
     CLASS( DirichletBC_ ), POINTER :: dbc
-```
 
-!!! note ""
-    Initiate an instance of [[ParameterList_]]
+!!!  Initiate an instance of `ParameterList_`
 
-```fortran
     CALL FPL_INIT(); CALL param%Initiate()
-```
 
-!!! note ""
-    Set the parameter for [[LinearStaticCDR_]]
+!!!  Set the parameter for [[LinearStaticCDR_]]
 
-```fortran
     CALL SetLinearStaticCDRParam( param=param, &
       & engine="NATIVE_SERIAL", &
       & isConservative=.false., &
@@ -91,12 +41,9 @@ PROGRAM main
       & baseContinuity="H1", &
       & baseInterpolation="LagrangeInterpolation", &
       & quadratureType="GaussLegendre" )
-```
 
-!!! note ""
-    Set the parameter for [[LinSolver_]].
+!!! Set the parameter for [[LinSolver_]].
 
-```fortran
     CALL SetLinSolverParam( &
       & param=param, &
       & solverName=solverName,&
@@ -108,29 +55,21 @@ PROGRAM main
       & KrylovSubspaceSize=KrylovSubspaceSize, &
       & rtol=1.0D-10, &
       & atol=1.0D-10 )
-```
 
-!!! note ""
-    Initiates computation domain.
+!!! Initiates computation domain.
 
-```fortran
     CALL domainFile%Initiate(filename=domainFileName, mode="READ")
     CALL domainFile%Open()
     CALL dom%Initiate( domainFile, '' )
     CALL domainFile%Deallocate()
-```
 
-!!! note ""
-    Initiate an instace of [[LinearStaticCDR_]] kernel
+!!! Initiate an instace of [[LinearStaticCDR_]] kernel
 
-```fortran
     CALL obj%Initiate( param=param, dom=dom )
-```
 
-!!! note "addMaterial 1"
-    Add another material and domain region in the [[LinearStaticCDR_]] kernel.
+!! "addMaterial 1"
+!! Add another material and domain region in the [[LinearStaticCDR_]] kernel.
 
-```fortran
     CALL region%Initiate( isSelectionByMeshID=.TRUE. )
     CALL region%Add( dim=2, meshID=[1] )
     CALL SetSolidMaterialParam( param=param, name="SolidMaterial", &
@@ -138,12 +77,10 @@ PROGRAM main
     CALL obj%AddMaterial( materialNo=1, materialName="SolidMaterial",  &
       & param=param, region=region )
     CALL region%Deallocate()
-```
 
-!!! note "addMaterial 2"
-    Add another material and domain region in the [[LinearStaticCDR_]] kernel.
+!! "addMaterial 2"
+!! Add another material and domain region in the [[LinearStaticCDR_]] kernel.
 
-```fortran
     CALL region%Initiate( isSelectionByMeshID=.TRUE. )
     CALL region%Add( dim=2, meshID=[2] )
     CALL SetSolidMaterialParam( param=param, name="SolidMaterial", &
@@ -151,13 +88,11 @@ PROGRAM main
     CALL obj%AddMaterial( materialNo=2, materialName="SolidMaterial",  &
       & param=param, region=region )
     CALL region%Deallocate()
-```
 
-!!! note "SetDirichletBC 1"
-    Now we set the Dirichlet boundary condition. First we select the mesh
-    boundary, then we prescribe the boundary condition.
+!! "SetDirichletBC 1"
+!! Now we set the Dirichlet boundary condition. First we select the mesh
+!! boundary, then we prescribe the boundary condition.
 
-```fortran
     CALL SetDirichletBCParam(param=param, name="ZeroDBC", idof=1, &
       & nodalValueType=Constant, useFunction=.FALSE. )
     CALL region%Initiate( isSelectionByMeshID=.TRUE.)
@@ -166,12 +101,10 @@ PROGRAM main
     CALL region%Deallocate()
     dbc => obj%GetDirichletBCPointer( dbcNo=1 )
     CALL dbc%Set( ConstantNodalValue=0.0_DFP ); dbc=>NULL()
-```
 
-!!! note "SetDirichletBC 2"
-    Let us repeat the procedure mentioned above to prescribe another boundary condition.
+!! "SetDirichletBC 2"
+!! Let us repeat the procedure mentioned above to prescribe another boundary condition.
 
-```fortran
     CALL SetDirichletBCParam(param=param, name="NonZeroDBC", idof=1, &
       & nodalValueType=Constant, useFunction=.FALSE. )
     CALL region%Initiate( isSelectionByMeshID=.TRUE.)
@@ -180,44 +113,32 @@ PROGRAM main
     CALL region%Deallocate()
     dbc => obj%GetDirichletBCPointer( dbcNo=2 )
     CALL dbc%Set( ConstantNodalValue=1.0_DFP ); dbc=>NULL()
-```
 
-!!! note "Set"
-    Now that we are done setting the kernels properties, we will call `Set` method.
+!! "Set"
+!! Now that we are done setting the kernels properties, we will call `Set` method.
 
-```fortran
     CALL obj%set()
-```
 
-!!! note "SetVelocity"
-    Let us set the convective velocity
+!! "SetVelocity"
+!! Let us set the convective velocity
 
-```fortran
     CALL obj%SetVelocity(constantVelocity=[0.1_DFP, 0.0_DFP])
-```
 
-!!! note "AssembleTanmat"
-    Let us assemble the tangent matrix.
+!! "AssembleTanmat"
+!! Let us assemble the tangent matrix.
 
-```fortran
    CALL obj%AssembleTanMat()
    CALL obj%AssembleRHS()
    CALL obj%Assemble()
-```
 
-!!! note "Export"
-    Now we export the kernel in [[HDF5File_]] file
+!! "Export"
+!! Now we export the kernel in [[HDF5File_]] file
 
-```fortran
     CALL outfile%Initiate(outfileName, "NEW")
     CALL outfile%Open()
     CALL obj%Export(outfile, "")
     CALL outfile%Deallocate()
-```
 
-!!! settings "Cleanup"
-
-```fortran
     CALL obj%Deallocate( )
     CALL dom%Deallocate()
     CALL param%Deallocate()

@@ -1,13 +1,4 @@
-!> authors: Vikas Sharma, Ph. D.
-! date: 29 Sept 2021
-! update:
-!   - 21 Oct 2021
-! summary: Testing Initiate, Display, and Deallocate, different domain
-
-! [[STDarcyBrinkmann_]], [[ParameterList_]], [[HDF5File_]]
-
-! [[Domain_]]
-
+```fortran
 PROGRAM main
 USE easifemBase
 USE easifemClasses
@@ -78,3 +69,4 @@ CALL domainFileForPressure%Deallocate()
 CALL domainFileForVelocity%Deallocate()
 CALL param%Deallocate(); CALL FPL_FINALIZE()
 END PROGRAM main
+```

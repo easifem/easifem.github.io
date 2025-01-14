@@ -1,28 +1,8 @@
----
-title: LidDrivenCavity example 1
-authors: Vikas Sharma, Ph. D.
-date: 20 Jan 2022
-update: 20 Jan 2022
-tags:
-  - STDarcyBrinkmann/Initiate
-  - STDarcyBrinkmann/AddPorousMaterial
-  - STDarcyBrinkmann/AddVelocityBC
-  - STDarcyBrinkmann/GetVelocityBCPointer
-  - STDarcyBrinkmann/AddPressureBC
-  - STDarcyBrinkmann/GetPressureBCPointer
-  - STDarcyBrinkmann/Set
-  - STDarcyBrinkmann/AssembleTanMat
----
-
 # LidDrivenCavity example 1
 
-!!! note ""
-    This example solves a benchmark problem of LidDrivenCavity.
+This example solves a benchmark problem of LidDrivenCavity.
 
 - Mesh used for velocity and pressure field is the same.
-
-![](./meshP.png)
-![](./meshV.png)
 
 ## Modules & Classes
 

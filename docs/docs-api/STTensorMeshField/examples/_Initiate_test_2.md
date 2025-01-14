@@ -1,8 +1,4 @@
-### Example 2
-
-:::info
 This example shows how to initiate an instance of [Mesh](/docs-api/Mesh) by reading data from mesh file, which is in [HDF5File_](/docs-api/HDF5File) format. We will also construct an instance of [STVectorMeshField_](/docs-api/STVectorMeshField).
-:::
 
 ```fortran
 PROGRAM main
@@ -51,15 +47,15 @@ The above code will initiate an instance of `STVectorMeshField_`, which will the
 Object INITIATED: TRUE
 name: aVector
 prefix: STVectorMeshField
-fieldType: CONSTANT            
+fieldType: CONSTANT
 engine: NATIVE_SERIAL
 tSize: 1
 defineOn: Nodal
 rank: Vector
 varType: Constant
-shape: 
+shape:
 -------
-   2   
+   2
 val ALLOCATED: TRUE
 mesh ASSOCIATED: TRUE
 ```

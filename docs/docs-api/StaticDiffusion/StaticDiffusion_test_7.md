@@ -1,43 +1,4 @@
----
-title: StaticDiffusion example 7
-authors: Vikas Sharma, Ph. D.
-date: 25 Nov 2021
-update: 25 Nov 2021
-tags:
-  - SetStaticDiffusionParam
-  - StaticDiffusion/Initiate
-  - StaticDiffusion/CheckEssentialParam
-  - StaticDiffusion/AddMaterial
-  - StaticDiffusion/AddDirichletBC
-  - StaticDiffusion/GetDirichletBCPointer
-  - DirichletBC/Set
-  - StaticDiffusion/Display
-  - Domain/Initiate
-  - Domain/Open
-  - HDF5File/Initiate
-  - HDF5File/Open
-  - SetLinSolverParam
----
-
-# StaticDiffusion example 7
-
-!!! note ""
-    This example shows how to add Dirichlet boundary condition in [[StaticDiffusion_]] kernel.
-
-Mesh used in this example is given below.
-
-![](./mesh.png)
-
-
-## Use association
-
-- [[HDF5File_]]
-- [[MSHFile_]]
-- [[ParameterList_]]
-- [[Domain_]]
-- [[MeshSelection_]]
-
-## Usage
+This example shows how to add Dirichlet boundary condition in [[StaticDiffusion_]] kernel.
 
 ```fortran
 PROGRAM main
@@ -98,10 +59,10 @@ PROGRAM main
       & rtol=1.0D-10, &
       & atol=1.0D-10 )
 ```
-      
+
 !!! note ""
     Initiates computation domain.
-      
+
 ```fortran
     CALL domainFile%Initiate(filename=domainFileName, mode="READ")
     CALL domainFile%Open()
@@ -143,7 +104,7 @@ PROGRAM main
 ```
 
 !!! note "SetDirichletBC 1"
-    Now we set the Dirichlet boundary condition. First we select the mesh 
+    Now we set the Dirichlet boundary condition. First we select the mesh
     boundary, then we prescribe the boundary condition.
 
 ```fortran
@@ -288,7 +249,7 @@ PROGRAM main
     # nodeCoord : NOT ASSOCIATED
     ```
 
-!!! settings "Cleanup" 
+!!! settings "Cleanup"
 
 ```fortran
     CALL obj%Deallocate( )

@@ -1,48 +1,4 @@
----
-title: StaticDiffusion example 12
-authors: Vikas Sharma, Ph. D.
-date: 25 Nov 2021
-update: 25 Nov 2021
-tags:
-  - SetStaticDiffusionParam
-  - StaticDiffusion/Initiate
-  - StaticDiffusion/CheckEssentialParam
-  - StaticDiffusion/AddMaterial
-  - StaticDiffusion/AddDirichletBC
-  - StaticDiffusion/GetDirichletBCPointer
-  - StaticDiffusion/Export
-  - StaticDiffusion/AssembleTanmat
-  - StaticDiffusion/AssembleRHS
-  - StaticDiffusion/Assemble
-  - DirichletBC/Set
-  - StaticDiffusion/Display
-  - Domain/Initiate
-  - Domain/Open
-  - HDF5File/Initiate
-  - HDF5File/Open
-  - SetLinSolverParam
----
-
-# StaticDiffusion example 12
-
-!!! note ""
-    This example shows the use of `Solve`method
-    
-Mesh used in this example is given below.
-
-![](./mesh.png)
-
-## Use association
-
-- [[HDF5File_]]
-- [[MSHFile_]]
-- [[ParameterList_]]
-- [[Domain_]]
-- [[MeshSelection_]]
-
-## Usage
-
-## Usage
+This example shows the use of `Solve`method
 
 ```fortran
 PROGRAM main
@@ -106,10 +62,10 @@ PROGRAM main
       & rtol=1.0D-10, &
       & atol=1.0D-10 )
 ```
-      
+
 !!! note ""
     Initiates computation domain.
-      
+
 ```fortran
     CALL domainFile%Initiate(filename=domainFileName, mode="READ")
     CALL domainFile%Open()
@@ -151,7 +107,7 @@ PROGRAM main
 ```
 
 !!! note "SetDirichletBC 1"
-    Now we set the Dirichlet boundary condition. First we select the mesh 
+    Now we set the Dirichlet boundary condition. First we select the mesh
     boundary, then we prescribe the boundary condition.
 
 ```fortran
@@ -187,8 +143,8 @@ PROGRAM main
 ```
 
 !!! note "AssembleTanmat"
-    Let us assemble the tangent matrix. 
-    
+    Let us assemble the tangent matrix.
+
 ```fortran
    CALL obj%AssembleTanMat()
    CALL obj%AssembleRHS()
@@ -204,7 +160,7 @@ PROGRAM main
 
 !!! note "Export"
     Now we export the kernel in [[HDF5File_]] file
-    
+
 ```fortran
     CALL outfile%Initiate(outfileName, "NEW")
     CALL outfile%Open()
@@ -212,7 +168,7 @@ PROGRAM main
     CALL outfile%Deallocate()
 ```
 
-!!! settings "Cleanup" 
+!!! settings "Cleanup"
 
 ```fortran
     CALL obj%Deallocate( )

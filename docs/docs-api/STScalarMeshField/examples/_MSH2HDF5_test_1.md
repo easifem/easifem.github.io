@@ -1,10 +1,4 @@
-:::info
 This example shows how to convert the mesh generated from `MSH` format to `HDF5` format.
-:::
-
-In this example, we use the following mesh.
-
-![](./mesh.png)
 
 ```fortran
 PROGRAM main

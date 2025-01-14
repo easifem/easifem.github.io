@@ -21,11 +21,14 @@ tags:
 
 ## Introduction
 
-The Gmsh application programming interface (API) allows to integrate the Gmsh library in external applications written in Fortran. By design, the Gmsh API is purely functional, and only uses elementary types from the target languages. See the tutorials/fortran directories from the Gmsh tutorial for examples. For other API examples, see the examples/api directory.
+The `Gmsh` application programming interface (API) allows to integrate the Gmsh library in external applications written in Fortran. By design, the `Gmsh` API is purely functional, and only uses elementary types from the target languages. See the tutorials/fortran directories from the `Gmsh` tutorial for examples. For other API examples, see the examples/api directory.
 
 The top level class is [[Gmsh_]] class, which allows us to interact with the `libgmsh` and GUI of gmsh. The structure of `Gmsh_` class is given below.
 
-![](figures/Gmsh_Class.svg)
+import Drawio from '@theme/Drawio'
+import simpleGraph from '!!raw-loader!/img/drawio/gmshAPI.drawio';
+
+<Drawio content={simpleGraph} page={1} />
 
 The structure of the API reflects the underlying Gmsh data model (see also Source code structure):
 

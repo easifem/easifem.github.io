@@ -1,36 +1,4 @@
----
-title: LinearStaticCDR example 15
-authors: Vikas Sharma, Ph. D.
-date: 30 Nov 2021
-update: 30 Nov 2021
-tags:
-  - SetLinearStaticCDRParam
-  - LinearStaticCDR/Initiate
-  - LinearStaticCDR/CheckEssentialParam
-  - LinearStaticCDR/AddMaterial
-  - LinearStaticCDR/AddDirichletBC
-  - LinearStaticCDR/GetDirichletBCPointer
-  - LinearStaticCDR/Export
-  - LinearStaticCDR/AssembleTanmat
-  - LinearStaticCDR/AssembleRHS
-  - LinearStaticCDR/Assemble
-  - DirichletBC/Set
-  - LinearStaticCDR/Display
-  - Domain/Initiate
-  - Domain/Open
-  - HDF5File/Initiate
-  - HDF5File/Open
-  - SetLinSolverParam
----
-
-# LinearStaticCDR example 15
-
-!!! note ""
-    Example 2.6.2 from Donea and Huerta 2003 text book.
-
-Mesh used in this example is given below.
-
-![](./mesh.png)
+Example 2.6.2 from Donea and Huerta 2003 text book.
 
 - domain $\left \[0,1 \right \]$
 - $\phi(0)=0, \phi(1)=1$
@@ -70,15 +38,13 @@ PROGRAM main
     REAL(DFP), parameter :: cvel = pe * 2.0 * nu / h
 ```
 
-!!! note "ParameterList"
-    Initiate an instance of [[ParameterList_]]
+!! Initiate an instance of [[ParameterList_]]
 
 ```fortran
     CALL FPL_INIT(); CALL param%Initiate()
 ```
 
-!!! note "LinearStaticCDR"
-    Set the PARAMETER for [[LinearStaticCDR_]]
+!! Set the PARAMETER for [[LinearStaticCDR_]]
 
 ```fortran
     CALL SetLinearStaticCDRParam( param=param, &
@@ -93,8 +59,7 @@ PROGRAM main
       & quadratureType="GaussLegendre" )
 ```
 
-!!! note "LinSolver"
-    Set the PARAMETER for [[LinSolver_]].
+!! Set the PARAMETER for [[LinSolver_]].
 
 ```fortran
     CALL SetLinSolverParam( &
@@ -110,8 +75,7 @@ PROGRAM main
       & atol=1.0D-10 )
 ```
 
-!!! note "Domain"
-    Initiates computation domain.
+!! Initiates computation domain.
 
 ```fortran
     CALL domainFile%Initiate(filename=domainFileName, mode="READ")
@@ -120,15 +84,13 @@ PROGRAM main
     CALL domainFile%Deallocate()
 ```
 
-!!! note "LinearStaticCDR"
-    Initiate an instace of [[LinearStaticCDR_]] kernel
+!! Initiate an instace of [[LinearStaticCDR_]] kernel
 
 ```fortran
     CALL obj%Initiate( param=param, dom=dom )
 ```
 
-!!! note "addMaterial 1"
-    Add another material and domain region in the [[LinearStaticCDR_]] kernel.
+!! Add another material and domain region in the [[LinearStaticCDR_]] kernel.
 
 ```fortran
     CALL region%Initiate( isSelectionByMeshID=.TRUE. )

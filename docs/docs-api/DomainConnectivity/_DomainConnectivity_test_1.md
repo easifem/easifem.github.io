@@ -2,11 +2,9 @@ In this example we will generate node to node-connectivity information between p
 
 Pressure domain consists Triangle3 elements as shown below.
 
-![mesh_tri3](figures/mesh_tri3.png)
-
 Importing modules and variables
 
-``` fortran
+```fortran
 PROGRAM main
   USE easifemBase
   USE easifemClasses
@@ -21,20 +19,20 @@ PROGRAM main
 ```
 
 ```fortran
-  CALL pressureMeshFile%Initiate( FileName="./mesh_tri3.h5", MODE="READ" )
-  CALL pressureMeshFile%Open()
-  CALL pressureDomain%Initiate( pressureMeshFile, "")
-  CALL pressureMeshFile%Deallocate()
+CALL pressureMeshFile%Initiate( FileName="./mesh_tri3.h5", MODE="READ" )
+CALL pressureMeshFile%Open()
+CALL pressureDomain%Initiate( pressureMeshFile, "")
+CALL pressureMeshFile%Deallocate()
 ```
 
 This will create node to node-connectivity data from domain1 (dim=2, entityNum=1) to domain2 (dim=2, entityNum=2).
 
 ```fortran
-  CALL obj%InitiateNodeToNodeData( domain1=pressureDomain, &
-    & domain2=pressureDomain, dim1=2, entityNum1=1, dim2=2, entityNum2=1)
-  nodeToNode => obj%getNodeToNodePointer()
-  pressureMesh => pressureDomain%getMeshPointer( 2, 1 )
-  pressureNode => pressureDomain%getNodeCoordPointer()
+CALL obj%InitiateNodeToNodeData( domain1=pressureDomain, &
+  & domain2=pressureDomain, dim1=2, entityNum1=1, dim2=2, entityNum2=1)
+nodeToNode => obj%getNodeToNodePointer()
+pressureMesh => pressureDomain%getMeshPointer( 2, 1 )
+pressureNode => pressureDomain%getNodeCoordPointer()
 ```
 
 ```fortran

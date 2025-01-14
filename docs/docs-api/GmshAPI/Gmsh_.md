@@ -20,7 +20,10 @@ end subroutine test1
 
 ## Structure
 
-![](figures/Gmsh_Class.svg)
+import Drawio from '@theme/Drawio'
+import simpleGraph from '!!raw-loader!/img/drawio/gmshAPI.drawio';
+
+<Drawio content={simpleGraph} page={1} />
 
 Status of these components is given below.
 

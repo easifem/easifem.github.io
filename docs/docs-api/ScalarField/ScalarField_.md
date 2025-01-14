@@ -16,5 +16,3 @@ The nodal values are defined at the spatial nodes of finite element mesh.
 TYPE, EXTENDS(AbstractNodeField_) :: ScalarField_
 END TYPE
 ```
-
-![ScalarField](./figures/ScalarField1.svg)

@@ -1,7 +1,5 @@
 This example tests and demonstrates the usage of `Solve()` method.
 
-Use modules
-
 ``` fortran
 PROGRAM main
   USE easifemBase
