@@ -79,3 +79,20 @@ end program
 ! Output (exact: 3 2 -1):
 ! 2.9999999999999978        2.0000000000000018       -1.0000000000000004
 ```
+
+## Toml configuration for easifem
+
+```toml
+name = "lapack95"
+isExtPkg = true
+isActive = true
+buildSystem = "cmake"
+git = "github.com/easifem/lapack95"
+buildType = "Release" # "Debug", "Both"
+buildSharedLibs = true
+buildStaticLibs = true
+libName = "LAPACK95"
+runtest = true
+license = "GPL3"
+```
+

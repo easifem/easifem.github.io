@@ -1,6 +1,6 @@
 ---
 title: Ubuntu
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 import Tabs from '@theme/Tabs';
@@ -14,23 +14,47 @@ Following steps are performed in this section.
 - Set up the environment variables by using `easifem` CLI.
 - Install easifem library.
 
-:::info summary 
-It is recommended that you read and follow the steps given below to quickly install `easifem`. However, due to any reason, if you do not want to read the instruction given below, then just copy and paste the command given below.
+<Tabs>
+<TabItem value="bash" label="bash/zsh" default>
 
-```bash 
+It is recommended that you read (and follow) the steps given below to quickly install `easifem`. However, due to any reason, if you do not want to read the instruction given below, then just copy and paste the command given below.
+
+<span class="badge badge--info"> For bash/zsh shell </span>
+
+```bash
 sudo apt-get update && \
 sudo apt-get install -y gfortran gcc libomp-dev curl git \
 python3 python3-pip cmake ninja-build \
 liblapack-dev libopenblas-dev libhdf5-dev \
 libplplot-dev plplot-driver-cairo libboost-all-dev \
-gnuplot doxygen libgtk-4-dev lua5.4 liblua5.4-dev \ && 
-python3 -m pip install easifem && \
-easifem setenv -i ~/.easifem/install -b ~/.easifem/build -s ~/.easifem/src && \ 
-source ~/.config/easifem/easifemvar.sh && \ 
-easifem install easifem
+gnuplot doxygen libgtk-4-dev lua5.4 liblua5.4-dev golang-go \ && 
+git clone https://github.com/easifem/config.git  ~/.config/easifem && \
+source ~/.config/easifem/easifemvar.sh && \
+easifem install extpkgs base classes
 ```
-:::
 
+</TabItem>
+
+<TabItem value="fish" label="fish">
+
+<span class="badge badge--info"> For fish shell </span>
+
+It is recommended that you read (and follow) the steps given below to quickly install `easifem`. However, due to any reason, if you do not want to read the instruction given below, then just copy and paste the command given below.
+
+```bash
+sudo apt-get update && \
+sudo apt-get install -y gfortran gcc libomp-dev curl git \
+python3 python3-pip cmake ninja-build \
+liblapack-dev libopenblas-dev libhdf5-dev \
+libplplot-dev plplot-driver-cairo libboost-all-dev \
+gnuplot doxygen libgtk-4-dev lua5.4 liblua5.4-dev golang-go \ && 
+git clone https://github.com/easifem/config.git  ~/.config/easifem && \
+source ~/.config/easifem/easifemvar.fish && \
+easifem install extpkgs base classes
+```
+
+</TabItem>
+</Tabs>
 
 ## Build from source
 
@@ -42,20 +66,42 @@ sudo apt-get install -y gfortran gcc libomp-dev curl git \
 python3 python3-pip cmake ninja-build \
 liblapack-dev libopenblas-dev libhdf5-dev \
 libplplot-dev plplot-driver-cairo libboost-all-dev lua5.4 liblua5.4-dev \
-gnuplot doxygen libgtk-4-dev
+gnuplot doxygen libgtk-4-dev golang-go
 ```
 
 ### Step 2: Install `easifem` CLI
 
+> You can read more about easifem command line interface [here](../easifemGO)
+
+:::caution
+make sure go language is installed.
+:::
+
 ```bash
-python3 -m pip install easifem
+go install github.com/easifem/easifemgo
+```
+
+Now `easifemgo` is installed on your system mostly at `~/go/bin/easifemgo`
+
+:::info 
+It is recommended that you make a symlink or alias of easifemgo with name easifem. In the following text `easifem`  would mean `easifemgo`
+:::
+
+Check 
+
+```bash
+easifem --help
 ```
 
 ### Step 3: Setting up environment variables
 
+To configure easifem and to get snippets it is better to clone the git repository from `github.com/easifem/config` to `$HOME/.config/easifem` by using following.
+
 ```bash
-easifem setenv -i ~/.easifem/install -b ~/.easifem/build -s ~/.easifem/src
+git clone https://github.com/easifem/config.git  ~/.config/easifem
 ```
+
+> You can read more more about the configuration files [here](../easifemGO/config.md).
 
 If your active shell is `zsh` or `bash`, then please run the following command.
 
@@ -87,19 +133,6 @@ echo $SHELL
 Now, you need to modify the shell file by adding following lines.
 
 <details>
-<summary>Click here to to know more about the environment variables</summary>
-<div>
-
-- option `-i` denotes the location of file system where `easifem` will be installed.
-- `-b` denotes the location of file system where `easifem` build files will be stored.
-- `-s` denotes the location of file system where `easifem` source file will be downloaded.
-
-[You can learn more about the `easifem` environment variables here](/guides/install/ubuntu/setup-environment).
-
-</div>
-</details>
-
-<details>
 <summary>Click here to see how to modify the shell(recommended)</summary>
 <div>
 
@@ -109,7 +142,7 @@ If you do not want to source the `easifemvar` files every time you open a new te
 
 <TabItem value="1" label="Bash Shell">
 
-If you are using `Bash` shell, then you can place `easifemvar.sh` in your shell. Open `~/.bashrc` in the editor, and add the following line at the end of the file.
+If you are using `bash` shell, then you can place `easifemvar.sh` in your shell. Open `~/.bashrc` in the editor, and add the following line at the end of the file.
 
 ```bash
 source ${HOME}/.config/easifem/easifemvar.sh
@@ -151,10 +184,8 @@ source $HOME/.config/easifem/easifemvar.fish
 </div>
 </details>
 
-
-### Step 4: Install easifem
+### Step 4: install easifem
 
 ```bash
-easifem install easifem
+easifem install extpkgs base classes
 ```
-

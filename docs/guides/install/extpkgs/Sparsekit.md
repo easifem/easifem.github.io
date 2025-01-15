@@ -42,3 +42,19 @@ git clone https://github.com/vickysharma0812/Sparsekit.git
 cd Sparsekit
 python3 install.py
 ```
+
+## Toml configuration for easifem
+
+```toml
+name = "sparsekit"
+isExtPkg = true
+isActive = true
+buildSystem = "cmake"
+git = "github.com/easifem/sparsekit"
+buildType = "Release" # "Debug", "Both"
+buildSharedLibs = true
+buildStaticLibs = true
+libName = "Sparsekit"
+runtest = true
+license = "GPL3"
+```

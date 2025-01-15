@@ -30,3 +30,32 @@ cd "$pkg_dir/${pkg_name}-3.3.10"
 make
 make install
 ```
+
+## Toml configuration for easifem
+
+```toml
+name = "fftw"
+isExtPkg = true
+isActive = true
+buildSystem = "cmake"
+git = "github.com/easifem/fftw.git"
+buildType = "Release" # "Debug", "Both"
+buildSharedLibs = true
+buildStaticLibs = true
+libName = "fftw"
+runtest = true
+license = "GPL3"
+buildOptions = ["-D BUILD_TESTS:BOOL=ON",
+"-D ENABLE_OPENMP:BOOL=ON",
+"-D ENABLE_THREADS:BOOL=ON",
+"-D WITH_COMBINED_THREADS:BOOL=OFF",
+"-D ENABLE_FLOAT:BOOL=OFF",
+"-D ENABLE_LONG_DOUBLE:BOOL=OFF",
+"-D ENABLE_QUAD_PRECISION:BOOL=OFF",
+"-D ENABLE_SSE:BOOL=OFF",
+"-D ENABLE_SSE2:BOOL=OFF",
+"-D ENABLE_AVX:BOOL=OFF",
+"-D ENABLE_AVX2:BOOL=OFF",
+"-D DISABLE_FORTRAN:BOOL=OFF",
+]
+```

@@ -7,13 +7,13 @@ Installtion of easifem is described in following steps.
 </span>
 <ol>
 <li>
-Step 1: Download the command line application for managing EASIFEM packages.
+Step 1: Install the system dependencies
 </li>
 <li>
-Step 2: Setup the EASIFEM environment variables.
+Step 2: Download the command line application for managing EASIFEM packages.
 </li>
 <li>
-Step 3: Install the system dependencies
+Step 3: Setup the EASIFEM environment variables.
 </li>
 <li>
 Step 4: Install external pacakges
@@ -35,19 +35,19 @@ Step 5 onwards: Install EASIFEM components such as `easifemBase`, `easifemClasse
 >
   <CardSection id="web-sdk" title="">
     <Card
-      title="Step 1: EASIFEM CLI"
+      title="Step 1: System requirements"
+      to={props.addParticipantPath + '/install-system-requirements'}
+      icon={<SystemInstallIcon />}
+    />
+    <Card
+      title="Step 2: EASIFEM CLI"
       to={props.addParticipantPath + '/install-easifem-cli'}
       icon={<CodepenIcon />}
     />
     <Card
-      title="Step 2: Environment variables"
+      title="Step 3: Environment variables"
       to={props.addParticipantPath + '/setup-environment'}
       icon={<CommandIcon />}
-    />
-    <Card
-      title="Step 3: System requirements"
-      to={props.addParticipantPath + '/install-system-requirements'}
-      icon={<SystemInstallIcon />}
     />
     <Card
       title="Step 4: External packages"

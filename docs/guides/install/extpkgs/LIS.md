@@ -30,3 +30,21 @@ make check
 make install
 make installcheck
 ```
+
+## Toml configuration for easifem
+
+```toml
+name = "lis"
+isExtPkg = true
+isActive = true
+buildSystem = "make"
+git = 'github.com/easifem/lis/'
+buildType = "Release" # "Debug", "Both"
+buildSharedLibs = true
+buildStaticLibs = false
+libName = "lis"
+runtest = true
+license = "GPL3"
+buildOptions = ["--enable-omp", "--enable-f90", "--enable-shared", "--enable-saamg"]
+# envVars.CC = "gcc-14"
+```

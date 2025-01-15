@@ -28,3 +28,31 @@ cmake -S . -B $build_dir ${cmake_def}
 cmake -B $build_dir
 cmake --build $build_dir --target install
 ```
+
+## Toml configuration for easifem
+
+```toml
+
+name = "superlu"
+isExtPkg = true
+isActive = true
+buildSystem = "cmake"
+git = "github.com/easifem/superlu/"
+buildType = "Release" # "Debug", "Both"
+buildSharedLibs = true
+buildStaticLibs = false
+libName = "superlu"
+runtest = true
+license = "GPL3"
+buildOptions = [
+"-D TPL_ENABLE_METISLIB:BOOL=OFF",
+"-D enable_single:BOOL=ON",
+"-D enable_double:BOOL=ON",
+"-D enable_complex:BOOL=ON",
+"-D enable_complex16:BOOL=ON",
+"-D enable_matlabmex:BOOL=OFF",
+"-D enable_doc:BOOL=OFF",
+"-D enable_examples:BOOL=OFF",
+"-D enable_tests:BOOL=ON"]
+
+```

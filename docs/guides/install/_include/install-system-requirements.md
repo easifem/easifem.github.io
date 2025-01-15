@@ -1,4 +1,4 @@
-You can use following instructions to install the system requirements for EASIFEM.
+You can use following instructions (based on your OS) to install the system requirements for easifem.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -14,7 +14,7 @@ sudo apt-get install -y gfortran gcc libomp-dev curl git \
 python3 python3-pip cmake ninja-build \
 liblapack-dev libopenblas-dev libhdf5-dev \
 libplplot-dev plplot-driver-cairo libboost-all-dev \
-gnuplot doxygen libgtk-4-dev lua5.4 liblua5.4-dev
+gnuplot doxygen libgtk-4-dev lua5.4 liblua5.4-dev golang-go
 ```
 
 </TabItem>
@@ -38,7 +38,7 @@ yay --version
 After successfully installing `yay` we can install the system dependencies by using following command.
 
 ```bash
-yay -Sy gcc gcc-fortran openmp curl git python3 cmake ninja lapack openblas hdf5 plplot gnuplot doxygen gtk4 lua
+yay -Sy gcc gcc-fortran openmp curl git python3 cmake ninja lapack openblas hdf5 plplot gnuplot doxygen gtk4 lua go
 ```
 
 If you face any problem installing plplot with fortran binding, then follow the instruction given below.
@@ -79,7 +79,7 @@ Coming soon 😭.
 ## macOS (Darwin)
 
 ```bash
-brew install gcc gfortran libomp curl git python3 cmake ninja lapack openblas hdf5 plplot gnuplot doxygen gtk4 lua
+brew install gcc gfortran libomp curl git python3 cmake ninja lapack openblas hdf5 plplot gnuplot doxygen gtk4 lua go
 ```
 
 ## Windows

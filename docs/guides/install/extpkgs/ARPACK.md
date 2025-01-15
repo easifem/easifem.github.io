@@ -57,3 +57,26 @@ cmake --build ${build_dir} --target install
 ```bash
 /extpkgs/arpack-ng
 ```
+
+## Toml configuration for easifem
+
+```toml
+name = "arpack"
+isExtPkg = true
+isActive = true
+buildSystem = "cmake"
+git = 'github.com/easifem/arpack.git'
+buildType = "Release" # "Debug", "Both"
+buildSharedLibs = true
+buildStaticLibs = true
+libName = "arpack"
+runtest = true
+license = "GPL3"
+buildOptions = [
+"-D MPI:BOOL=OFF",
+"-D ICB:BOOL=OFF",
+"-D EIGEN:BOOL=OFF",
+"-D EXAMPLES:BOOL=OFF"]
+envVars.foo = "bar"
+envVars.FOO = "BAR"
+```
