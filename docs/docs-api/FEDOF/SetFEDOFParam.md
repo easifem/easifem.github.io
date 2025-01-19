@@ -32,3 +32,12 @@ INTERFACE
   END SUBROUTINE SetFEDOFParam
 END INTERFACE
 ```
+
+- `baseContinuity` is the continuity or conformity of the basis
+- `baseInterpolation` denotes interpolation of the basis type
+- `orderFile` file containing the order of each element
+- `ipType` is the interpolation point type. It is needed in the case of Lagrange polynomials.
+- `basisType` is the type of basis function in x, y, and z directions.
+- `alpha` is the Jacobian parameter in x, y, and z directions.
+- `beta` is the Jacobian parameter in x, y, and z directions.
+- `lambda` is the Ultraspherical parameter in x, y, and z directions.

@@ -4,11 +4,12 @@ sidebar_position: 4
 
 # Initiate
 
-This method initiates an instance of FEDOF.
-
-There are several ways to initiate an instance of FEDOF.
+This method initiates an instance of `FEDOF`. There are several ways to initiate an instance of `FEDOF`.
 
 ## Interface 1
+
+- Homogeneous order
+- In case of `H1` Lagrange `FEDOF`, order is determined from the cell order of each mesh.
 
 ```fortran
 INTERFACE
@@ -43,11 +44,13 @@ INTERFACE
     !! used when baseInterpolation is Lagrange
     !! used when basistype is Ultraspherical
   END SUBROUTINE Initiate
-
 END INTERFACE
 ```
 
 ## Interface 2
+
+- Here order represents the order of each cell element.
+- In case of `H1` Lagrange `FEDOF`, order is determined from the cell order of each mesh.
 
 ```fortran
 INTERFACE
@@ -69,6 +72,8 @@ END INTERFACE
 
 ## Interface 3
 
+- This method is used to initiate `FEDOF` by using `ParameterList`.
+
 ```fortran
 INTERFACE
   MODULE SUBROUTINE Initiate(obj, param, mesh)
@@ -80,6 +85,12 @@ END INTERFACE
 ```
 
 ## Interface 4
+
+This routine is similar to the interface 2, but the order of the element is defined for global element numbers.
+
+The number of rows in order is equal to 2, the first row contains the global element number the second row contains the order.
+
+This routine will make `order0(:)` from `order(:,:)` and call `Initiate2`.
 
 ```fortran
 INTERFACE

@@ -22,4 +22,29 @@ Data type for finite element degree of freedoms. `FEDOF_` defines the abstract n
 
 ## Basic usage
 
-Constructor
+### Constructor methods
+
+There are several ways to initiate an instance of `FEDOF`.
+
+```fortran
+CALL obj%Initiate(order,  mesh, baseContinuity, baseInterpolation, ipType, basisType, alpha, beta, lambda)
+```
+
+- Here `order` represents the order of each element.
+- It can be a scalar, vector, or a two dimensional matrix.
+- [The method with scalar order is given here.](./Initiate.md#interface-1)
+- When it is a vector then it represents the order of each cell element. [This method is given here](./Initiate.md#interface-2)
+- Then order is a matrix then the first row represents the global number of cell element, and the second row represents the order of cell element. [This method is given here](./Initiate.md#interface-4)
+
+:::info
+Read more about [Initiate](./Initiate.md) method.
+:::
+
+You can also initiate an instance of `FEDOF` using [ParameterList](/docs/docs-api/ParameterList/index.md). The process is given below.
+
+- First, set parameters in `ParameterList` object by using [SetFEDOFParam].
+- Then, initiate an instance of `FEDOF` using `ParameterList` object by using [Initiate](/docs/docs-api/FEDOF/Initiate.md#interface-3)
+
+```fortran
+CALL obj%Initiate(param, mesh)
+```

@@ -1,5 +1,5 @@
 ---
-title: 'Easifem Base'
+title: 'Base'
 sidebar_position: 6
 ---
 
@@ -13,20 +13,16 @@ Before installing the `easifemBase` library please make sure that you have insta
 
 :::
 
-## Building from source
+## EASIFEM CLI (recommended method)
 
-### EASIFEM CLI (recommended method)
+import EXAMPLE20 from "../_include/base_cli_install.md";
 
-You can install `easifemBase` by using the command line application.
+<EXAMPLE20 />
 
-```bash
-easifem install base
-```
 
-### Using CMake
+## Using CMake
 
 import EXAMPLE81 from "../_include/base_cmake_install.md";
 
 <EXAMPLE81 />
-
 

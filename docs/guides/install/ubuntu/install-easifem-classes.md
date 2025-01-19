@@ -1,12 +1,12 @@
 ---
-title: 'Easifem Classes'
+title: 'Classes'
 sidebar_position: 7
 ---
 
 :::note
 Before installing the `easifemClasses` library please make sure that you have installed
 
-- [EASIFEM command line application](./install-easifem-cli)
+- [easifem command line application](./install-easifem-cli)
 - [Set up the environment variables](./setup-environment)
 - [System requirements](./install-system-requirements)
 - [External packages](./install-extpkgs)
@@ -14,17 +14,14 @@ Before installing the `easifemClasses` library please make sure that you have in
 
 :::
 
-## Building from source
+## easifem CLI (recommended method)
 
-### EASIFEM CLI (recommended method)
 
-You can install `easifemClasses` by using the command line application.
+import EXAMPLE19 from "../_include/classes_cli_install.md";
 
-```bash
-easifem install classes
-```
+<EXAMPLE19 />
 
-### Using CMake
+## Using CMake
 
 import EXAMPLE81 from "../_include/classes_cmake_install.md";
 
