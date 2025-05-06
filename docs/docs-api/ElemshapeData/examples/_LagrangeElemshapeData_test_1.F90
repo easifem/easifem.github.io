@@ -60,6 +60,8 @@ SUBROUTINE callme
   CALL Display(elemsd%N, "elemsd%N: ")
   CALL EqualLine()
   CALL Display(elemsd%dNdXi, "elemsd%dNdXi: ")
+  CALL EqualLine()
+  CALL Display(elemsd%ws, "elemsd%ws: ")
 
 END SUBROUTINE callme
 

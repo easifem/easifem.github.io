@@ -3,7 +3,9 @@
 
 PROGRAM main
 USE easifemBase
-USE easifemClasses
+USE Gmsh_Class
+USE HDF5File_Class
+USE MSHFile_Class
 
 TYPE(Gmsh_) :: gmsh
 

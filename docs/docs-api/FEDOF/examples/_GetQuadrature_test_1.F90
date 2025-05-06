@@ -34,7 +34,7 @@ CALL dom%Initiate(meshfile, '')
 
 meshptr => dom%GetMeshPointer()
 
-CALL obj%Initiate(baseContinuity="H1", baseInterpolation="Heirarchical", &
+CALL obj%Initiate(baseContinuity="H1", baseInterpolation="Hierarchical", &
                   order=1, mesh=meshptr)
 testname = "H1 Hierarchical order=1"
 
@@ -43,7 +43,7 @@ testname = "H1 Hierarchical order=1"
 ! telements = meshptr%GetTotalElements()
 telements = 1
 globalElement = 1
-order = 6
+order = 2
 
 ! DO globalElement = 1, telements
 

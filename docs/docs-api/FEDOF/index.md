@@ -48,3 +48,45 @@ You can also initiate an instance of `FEDOF` using [ParameterList](/docs/docs-ap
 ```fortran
 CALL obj%Initiate(param, mesh)
 ```
+
+### Get methods
+
+#### Get the upper bound for connectivity matrix
+
+```fortran
+ans = obj%GetMaxTotalConnectivty()
+```
+
+#### Get order of cell element
+
+```fortran
+CALL obj%GetCellOrder(cellOrder, tCellOrder)
+```
+
+#### Get quadrature points
+
+```fortran
+CALL obj%GetQuadraturePoints(quad, globalElement, islocal, quadratureType, order)
+```
+
+#### Getting the shape data
+
+Getting the local element shape data.
+
+```fortran
+CALL obj%GetLocalElemShapeData(globalElement, isLocal, quad, elemsd)
+```
+
+Getting the global element shape data.
+
+```fortran
+CALL obj%GetGlobalElemShapeData(globalElement, isLocal, xij, elemsd)
+```
+
+#### Getting the connectivity
+
+Getting the local element connectivity.
+
+```fortran
+CALL obj%GetConnectivity_(globalElement, isLocal, ans, tsize, opt)
+```

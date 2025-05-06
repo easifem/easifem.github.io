@@ -163,8 +163,8 @@ const config = {
       navbar: {
         logo: {
           href: "/",
-          src: "/logo/light.svg",
-          srcDark: "/logo/dark.svg",
+          src: "/img/svg/logo-light.svg",
+          srcDark: "/img/svg/logo-dark.svg",
           alt: "EASIFEM docs",
           height: "40px",
           width: "101px",
