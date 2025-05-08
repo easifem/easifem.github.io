@@ -11,8 +11,8 @@ This routine needs the following information:
 
 It makes following data structures:
 
-- [InternalFacetData_](InternalFacetData_.md)
-- [BoundaryFacetData_](BoundaryFacetData_.md)
+- [InternalFacetData_](./InternalFacetData_.md)
+- [BoundaryFacetData_](./BoundaryFacetData_.md)
 - `FacetElementType` field in [Mesh_](Mesh_.md)
 
 :::info

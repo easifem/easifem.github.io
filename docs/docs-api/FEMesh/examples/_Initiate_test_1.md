@@ -1,47 +1,28 @@
-<!-- markdownlint-disable MD041 MD013 MD033 MD012 -->
-
-This example shows how to initiate an instance of `Mesh_` by reading data
-from mesh file, which is in `HDF5File_` format.
+This example shows how to convert a mesh from gmsh format to hdf5 format which is necessary to initiate the FEMesh object.
 
 ```fortran
 PROGRAM main
-  USE easifemBase
-  USE easifemClasses
-  IMPLICIT NONE
-  TYPE( FEMesh_ ) :: obj
-  TYPE( HDF5File_ ) :: meshfile
-  CHARACTER( LEN = *), PARAMETER :: filename= &
-    & "../../Mesh/examples/meshdata/small_mesh.h5"
-```
+USE MSHFile_Class
+USE HDF5File_Class
 
-Initiate and open the mesh file which is in `HDF5File_` format.
+IMPLICIT NONE
 
-```fortran
-CALL meshfile%Initiate( FileName=filename, MODE="READ" )
-```
+TYPE(MSHFile_) :: mshFile
+TYPE(HDF5File_) :: hdf5file
 
-Open the mesh file
+CALL mshFile%Initiate( filename="./meshdata/small_mesh.msh", STATUS="OLD", ACTION="READ" )
 
-```fortran
-CALL meshfile%Open()
-```
+CALL mshFile%OPEN()
 
-Initiate an instance of `Mesh_`
+CALL mshFile%READ()
 
-```fortran
-CALL obj%Initiate(hdf5=meshfile, group="/surfaceEntities_1" )
-```
+CALL hdf5file%Initiate("./meshdata/small_mesh.h5", MODE="NEW")
 
-Display the content of mesh.
+CALL hdf5file%OPEN()
 
-```fortran
-CALL obj%Display("")
-```
+CALL mshFile%Export(hdf5=hdf5file, group="")
 
-cleaning up.
-
-```fortran
-  CALL obj%Deallocate()
-  CALL meshfile%Deallocate()
+CALL mshFile%DEALLOCATE()
+CALL hdf5file%DEALLOCATE()
 END PROGRAM main
 ```

@@ -6,14 +6,15 @@ IMPLICIT NONE
 
 TYPE(MSHFile_) :: mshFile
 TYPE(HDF5File_) :: hdf5file
+CHARACTER(*), parameter :: filename = "./meshdata/small_tri3_mesh"
 
-CALL mshFile%Initiate( filename="./meshdata/small_mesh.msh", STATUS="OLD", ACTION="READ" )
+CALL mshFile%Initiate( filename=filename // ".msh", STATUS="OLD", ACTION="READ" )
 
 CALL mshFile%OPEN()
 
 CALL mshFile%READ()
 
-CALL hdf5file%Initiate("./meshdata/small_mesh.h5", MODE="NEW")
+CALL hdf5file%Initiate(filename // ".h5", MODE="NEW")
 
 CALL hdf5file%OPEN()
 
