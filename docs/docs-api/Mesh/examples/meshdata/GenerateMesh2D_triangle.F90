@@ -1,5 +1,9 @@
+#define SMALL_TRI3_MESH
 !#define SMALL_TRI6_MESH
-#define SMALL_MESH
+!#define BIG_TRI3_MESH
+!#define BIG_BIG_TRI3_MESH
+!#define BIG_TRI6_MESH
+!#define BIG_BIG_TRI6_MESH
 
 PROGRAM main
 USE easifemBase
@@ -8,13 +12,6 @@ USE HDF5File_Class
 USE MSHFile_Class
 
 TYPE(Gmsh_) :: gmsh
-
-#ifdef SMALL_MESH
-CHARACTER(LEN=*), PARAMETER :: title = "small_mesh"
-REAL(DFP), PARAMETER :: lx = 2.0
-REAL(DFP), PARAMETER :: ly = 2.0
-INTEGER(I4B), PARAMETER :: order = 1
-#endif
 
 #ifdef SMALL_TRI3_MESH
 CHARACTER(LEN=*), PARAMETER :: title = "small_tri3_mesh"
@@ -30,18 +27,32 @@ REAL(DFP), PARAMETER :: ly = 2.0
 INTEGER(I4B), PARAMETER :: order = 2
 #endif
 
-#ifdef BIG_MESH
-CHARACTER(LEN=*), PARAMETER :: title = "big_mesh"
+#ifdef BIG_TRI3_MESH
+CHARACTER(LEN=*), PARAMETER :: title = "big_tri3_mesh"
 REAL(DFP), PARAMETER :: lx = 100.0
 REAL(DFP), PARAMETER :: ly = 100.0
 INTEGER(I4B), PARAMETER :: order = 1
 #endif
 
-#ifdef BIG_BIG_MESH
-CHARACTER(LEN=*), PARAMETER :: title = "big_big_mesh"
+#ifdef BIG_BIG_TRI3_MESH
+CHARACTER(LEN=*), PARAMETER :: title = "big_big_tri3_mesh"
 REAL(DFP), PARAMETER :: lx = 500.0
 REAL(DFP), PARAMETER :: ly = 200.0
 INTEGER(I4B), PARAMETER :: order = 1
+#endif
+
+#ifdef BIG_TRI6_MESH
+CHARACTER(LEN=*), PARAMETER :: title = "big_tri6_mesh"
+REAL(DFP), PARAMETER :: lx = 100.0
+REAL(DFP), PARAMETER :: ly = 100.0
+INTEGER(I4B), PARAMETER :: order = 2
+#endif
+
+#ifdef BIG_BIG_TRI6_MESH
+CHARACTER(LEN=*), PARAMETER :: title = "big_big_tri6_mesh"
+REAL(DFP), PARAMETER :: lx = 500.0
+REAL(DFP), PARAMETER :: ly = 200.0
+INTEGER(I4B), PARAMETER :: order = 2
 #endif
 
 REAL(DFP), PARAMETER :: meshSize = 1.0

@@ -139,9 +139,9 @@ build/*
 **/build
 
 *.mtx
-*.eps 
-*.pdf 
-*.msh 
+*.eps
+*.pdf
+*.msh
 *.geo
 *.txt
 *.gp
@@ -155,6 +155,5 @@ tanmat.svg
 *.jpg
 *.plt
 *.csv
-
 
 docs/docs-api/.obsidian
