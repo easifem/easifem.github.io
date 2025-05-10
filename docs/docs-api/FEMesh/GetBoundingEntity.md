@@ -1,10 +1,11 @@
-# GetBoundingEntity
+---
+title: GetBoundingEntity
+---
 
-## Interface
+:::tip Inheritence
+This method is inherited from the [AbstractMesh](../AbstractMesh/AbstractMesh_.md) class.
+:::
 
-```fortran
-  MODULE PURE FUNCTION getBoundingEntity(obj) RESULT(ans)
-    CLASS(Mesh_), INTENT(IN) :: obj
-    INTEGER(I4B), ALLOCATABLE :: ans(:)
-  END FUNCTION getBoundingEntity
-```
+import EXAMPLE5 from "../AbstractMesh/GetBoundingEntity.md";
+
+<EXAMPLE5 />

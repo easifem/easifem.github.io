@@ -1,51 +1,25 @@
-# GetNodeToElements
+---
+title: GetNodeToElements
+---
 
-Get node to elements connectivity.
+:::tip Inheritence
+This method is inherited from the [AbstractMesh](../AbstractMesh/AbstractMesh_.md) class.
+:::
 
-There are two interfaces to this method.
-
-## Interface
-
-### Interface 1
-
-<Tabs>
-<TabItem value="interface" label="Interface" default>
-
-```fortran
-MODULE PURE FUNCTION getNodeToElements(obj, globalNode) RESULT(ans)
-  CLASS(Mesh_), INTENT(IN) :: obj
-  !! mesh data
-  INTEGER(I4B), INTENT(IN) :: globalNode
-  !! global node number
-  INTEGER(I4B), ALLOCATABLE :: ans(:)
-  !! A vector of local element number
-END FUNCTION getNodeToElements
-```
-
-</TabItem>
-
-<TabItem value="example" label="example">
-
-import EXAMPLE5 from "./examples/_GetNodeToElements_test_1.md";
+import EXAMPLE5 from "../AbstractMesh/GetNodeToNodes.md";
 
 <EXAMPLE5 />
 
-</TabItem>
+## Examples 
 
-<TabItem value="close" label="↢ close">
+<details>
+<summary>Example 1</summary>
+<div>
 
-</TabItem>
-</Tabs>
+import EXAMPLE6 from "./examples/_GetNodeToElements_test_1.md";
 
-### Interface 2
+<EXAMPLE6 />
 
-```fortran
-MODULE PURE FUNCTION getNodeToElements(obj, globalNode) RESULT(ans)
-  CLASS(Mesh_), INTENT(IN) :: obj
-  !! mesh data
-  INTEGER(I4B), INTENT(IN) :: globalNode(:)
-  !! global node number
-  INTEGER(I4B), ALLOCATABLE :: ans(:)
-  !! A vector of local element number
-END FUNCTION getNodeToElements
-```
+</div>
+</details>
+

@@ -1,10 +1,13 @@
-# GetRefElemPointer
+---
+title: GetRefElemPointer
+---
 
-## Interface
+:::tip Inheritence
+This method is inherited from the [AbstractMesh](../AbstractMesh/AbstractMesh_.md) class.
+:::
 
-```fortran
-  MODULE FUNCTION getRefElemPointer(obj) RESULT(ans)
-    CLASS(Mesh_), INTENT(IN) :: obj
-    CLASS(ReferenceElement_), POINTER :: ans
-  END FUNCTION getRefElemPointer
-```
+import EXAMPLE5 from "../AbstractMesh/GetRefElemPointer.md";
+
+<EXAMPLE5 />
+
+

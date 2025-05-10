@@ -1,11 +1,11 @@
-# Size
+---
+title: Size
+---
 
-## Interface
+:::tip Inheritence
+This method is inherited from the [AbstractMesh](../AbstractMesh/AbstractMesh_.md) class.
+:::
 
-```fortran
-  MODULE PURE FUNCTION size(obj) RESULT(ans)
-    CLASS(Mesh_), INTENT(IN) :: obj
-    !! mesh object
-    INTEGER(I4B) :: ans
-  END FUNCTION size
-```
+import EXAMPLE5 from "../AbstractMesh/Size.md";
+
+<EXAMPLE5 />

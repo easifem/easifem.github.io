@@ -1,12 +1,11 @@
-# GetFacetElementType
+---
+title: GetFacetElementType
+---
 
-## Interface
+:::tip Inheritence
+This method is inherited from the [AbstractMesh](../AbstractMesh/AbstractMesh_.md) class.
+:::
 
-```fortran
-  MODULE PURE FUNCTION getFacetElementType( obj, globalElement ) &
-    & RESULT( ans )
-    CLASS( Mesh_ ), INTENT( IN ) :: obj
-    INTEGER( I4B ), INTENT( IN ) :: globalElement
-    INTEGER( I4B ), ALLOCATABLE :: ans( : )
-  END FUNCTION getFacetElementType
-```
+import EXAMPLE5 from "../AbstractMesh/GetFacetElementType.md";
+
+<EXAMPLE5 />
