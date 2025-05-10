@@ -182,11 +182,10 @@ const config = {
             label: "Docs",
             to: "docs-api",
           },
-          // {
-          //   to: '/gists',
-          //   label: 'Gists',
-          //   position: 'left',
-          // },
+          {
+            label: "Blog",
+            to: "blog",
+          },
           {
             type: "search",
             position: "right",

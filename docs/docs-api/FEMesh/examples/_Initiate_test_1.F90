@@ -1,20 +1,21 @@
 PROGRAM main
-USE MSHFile_Class
+USE MSHFile_Class, ONLY: MSHFile_
 USE HDF5File_Class
+USE GlobalData
 
 IMPLICIT NONE
 
 TYPE(MSHFile_) :: mshFile
 TYPE(HDF5File_) :: hdf5file
-CHARACTER(*), parameter :: filename = "./meshdata/small_tri3_mesh"
+CHARACTER(*), PARAMETER :: filename = "./meshdata/small_tri3_mesh"
 
-CALL mshFile%Initiate( filename=filename // ".msh", STATUS="OLD", ACTION="READ" )
+CALL mshFile%Initiate(filename=filename//".msh", STATUS="OLD", ACTION="READ")
 
 CALL mshFile%OPEN()
 
 CALL mshFile%READ()
 
-CALL hdf5file%Initiate(filename // ".h5", MODE="NEW")
+CALL hdf5file%Initiate(filename//".h5", MODE="NEW")
 
 CALL hdf5file%OPEN()
 
@@ -22,4 +23,5 @@ CALL mshFile%Export(hdf5=hdf5file, group="")
 
 CALL mshFile%DEALLOCATE()
 CALL hdf5file%DEALLOCATE()
+
 END PROGRAM main

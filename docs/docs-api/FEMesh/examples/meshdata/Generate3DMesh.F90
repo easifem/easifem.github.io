@@ -1,6 +1,7 @@
 PROGRAM main
 USE easifemBase
 USE easifemClasses
+USE GlobalData
 IMPLICIT NONE
 
 TYPE(GmshStructuredMesh_) :: obj
