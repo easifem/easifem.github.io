@@ -1,5 +1,3 @@
-In this example we test [Get](./Set.md) method.
-
 ```fortran
 PROGRAM main
   USE easifemBase

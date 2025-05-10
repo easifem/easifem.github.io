@@ -1,10 +1,11 @@
-# GetTotalNodes
+---
+title: GetTotalNodes
+---
 
-## Interface
+:::tip Inheritence
+This method is inherited from the [AbstractMesh](../AbstractMesh/AbstractMesh_.md) class.
+:::
 
-```fortran
-  MODULE PURE FUNCTION getTotalNodes(obj) RESULT(ans)
-    CLASS(Mesh_), INTENT(IN) :: obj
-    INTEGER(I4B) :: ans
-  END FUNCTION getTotalNodes
-```
+import EXAMPLE5 from "../AbstractMesh/GetTotalNodes.md";
+
+<EXAMPLE5 />

@@ -1,15 +1,11 @@
-# GetLocalFacetID
+---
+title: GetLocalFacetID
+---
 
-## Interface
+:::tip Inheritence
+This method is inherited from the [AbstractMesh](../AbstractMesh/AbstractMesh_.md) class.
+:::
 
-```fortran
-  MODULE PURE FUNCTION getLocalFacetID( obj, facetElement, &
-    & elementType, isMaster, facetBoundary ) RESULT( ans )
-    CLASS( Mesh_ ), INTENT( IN ) :: obj
-    INTEGER( I4B ), INTENT( IN ) :: facetElement
-    INTEGER( I4B ), INTENT( IN ) :: elementType
-    LOGICAL( LGT ), INTENT( IN ) :: isMaster
-    INTEGER( I4B ), OPTIONAL, INTENT( IN ) :: facetBoundary
-    INTEGER( I4B ) :: ans
-  END FUNCTION getLocalFacetID
-```
+import EXAMPLE5 from "../AbstractMesh/GetLocalFacetID.md";
+
+<EXAMPLE5 />

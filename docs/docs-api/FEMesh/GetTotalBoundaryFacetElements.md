@@ -1,10 +1,11 @@
-# GetTotalBoundaryFacetElements
+---
+title: GetTotalBoundaryFacetElements
+---
 
-## Interface
+:::tip Inheritence
+This method is inherited from the [AbstractMesh](../AbstractMesh/AbstractMesh_.md) class.
+:::
 
-```fortran
-  MODULE PURE FUNCTION getTotalBoundaryFacetElements( obj ) RESULT(ans)
-    CLASS(Mesh_), INTENT( IN ) :: obj
-    INTEGER( I4B ) :: ans
-  END FUNCTION getTotalBoundaryFacetElements
-```
+import EXAMPLE5 from "../AbstractMesh/GetTotalBoundaryFacetElements.md";
+
+<EXAMPLE5 />

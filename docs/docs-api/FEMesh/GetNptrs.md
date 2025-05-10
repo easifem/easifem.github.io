@@ -1,10 +1,12 @@
-# GetNptrs
+---
+title: GetNptrs
+---
 
-## Interface
+:::tip Inheritence
+This method is inherited from the [AbstractMesh](../AbstractMesh/AbstractMesh_.md) class.
+:::
 
-```fortran
-  MODULE PURE FUNCTION getNptrs(obj) RESULT(ans)
-    CLASS(Mesh_), INTENT(IN) :: obj
-    INTEGER(I4B), ALLOCATABLE :: ans(:)
-  END FUNCTION getNptrs
-```
+import EXAMPLE5 from "../AbstractMesh/GetNptrs.md";
+
+<EXAMPLE5 />
+

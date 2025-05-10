@@ -1,19 +1,14 @@
-# GetGlobalNodeNumber
+---
+title: GetGlobalNodeNumber
+---
 
-## Interface
+:::tip Inheritence
+This method is inherited from the [AbstractMesh](../AbstractMesh/AbstractMesh_.md) class.
+:::
 
-```fortran
-  MODULE PURE FUNCTION getGlobalNodeNumber(obj, localNode) RESULT(ans)
-    CLASS(Mesh_), INTENT(IN) :: obj
-    INTEGER(I4B), INTENT(IN) :: localNode(:)
-    INTEGER(I4B) :: ans(SIZE(localNode))
-  END FUNCTION getGlobalNodeNumber
-```
+import EXAMPLE5 from "../AbstractMesh/GetGlobalNodeNumber.md";
 
-```fortran
-  MODULE PURE FUNCTION getGlobalNodeNumber(obj, localNode) RESULT(ans)
-    CLASS(Mesh_), INTENT(IN) :: obj
-    INTEGER(I4B), INTENT(IN) :: localNode
-    INTEGER(I4B) :: ans
-  END FUNCTION getGlobalNodeNumber
-```
+<EXAMPLE5 />
+
+
+

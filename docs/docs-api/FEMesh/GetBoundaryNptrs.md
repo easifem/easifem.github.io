@@ -1,10 +1,12 @@
-# GetBoundaryNptrs
+---
+title: GetBoundaryNptrs
+---
 
-## Interface
+:::tip Inheritence
+This method is inherited from the [AbstractMesh](../AbstractMesh/AbstractMesh_.md) class.
+:::
 
-```fortran
-  MODULE PURE FUNCTION getBoundaryNptrs(obj) RESULT(ans)
-    CLASS(Mesh_), INTENT(IN) :: obj
-    INTEGER(I4B), ALLOCATABLE :: ans(:)
-  END FUNCTION getBoundaryNptrs
-```
+import EXAMPLE5 from "../AbstractMesh/GetBoundaryNptrs.md";
+
+<EXAMPLE5 />
+
