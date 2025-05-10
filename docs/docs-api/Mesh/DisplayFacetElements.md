@@ -1,5 +1,7 @@
 # DisplayFacetElements
 
+Display the facet elements of a mesh.
+
 ## Interface
 
 ```fortran

@@ -1,5 +1,7 @@
 # GetTotalFacetElements
 
+This function returns the total number of facet elements in the mesh.
+
 ## Interface
 
 ```fortran
