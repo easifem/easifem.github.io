@@ -12,8 +12,6 @@ hide_table_of_contents: false
 
 This post explains the meaning of kernel in EASIFEM platform. It also describe the steps to create a new kernel in EASIFEM.
 
-<!-- truncate -->
-
 ## What is a kernel?
 
 A kernel is a computer program written in object oriented programming paradigm which attempts to solve a partial differential equation. In easifem, the term kernel is used for solving a particular PDE.
@@ -29,6 +27,8 @@ Yes, the kernel has sufficient amount of flexibility. For example, the coefficie
 :::tip Kernel is blend of procedural programming and object oriented programming?
 A kernel is a blend of procedural programming and object oriented programming. The procedural programming comes into the picture because a kernel is trying to solve a specific PDE by using a specific method. In this sense, the kernel's design is driven keeping procedure programming in mind. However, a kernel can solve several problems governed by the same PDE. These problems can have different types of boundary conditions and material properties. Also, we can use several numerical methods to solve the problem. In order to facilitate these objectives, we use object oriented programming.
 :::
+
+<!-- truncate -->
 
 ## Git ignore file
 
