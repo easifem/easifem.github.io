@@ -1,10 +1,12 @@
-# GetElemNum
+---
+title: GetElemNum
+---
 
-## Interface
+:::tip Inheritence
+This method is inherited from the [AbstractMesh](../AbstractMesh/AbstractMesh_.md) class.
+:::
 
-```fortran
-  MODULE FUNCTION getElemNum(obj) RESULT(ans)
-    CLASS(Mesh_), INTENT(IN) :: obj
-    INTEGER(I4B), ALLOCATABLE :: ans(:)
-  END FUNCTION getElemNum
-```
+import EXAMPLE5 from "../AbstractMesh/GetElemNum.md";
+
+<EXAMPLE5 />
+

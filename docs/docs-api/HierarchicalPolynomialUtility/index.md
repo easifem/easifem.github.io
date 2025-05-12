@@ -1,7 +1,6 @@
 ---
-sidebar_position: 1
-date: 2024-07-07 
-update: 2024-07-07 
+date: 2024-07-07
+update: 2024-07-07
 status: stable
 docs: done
 extpkgs: none
@@ -20,8 +19,3 @@ tags:
 
 This module is a collection of methods which are useful for Hierarchical Polynomials.
 
-## Methods
-
-import DocCardList from '@theme/DocCardList';
-
-<DocCardList />

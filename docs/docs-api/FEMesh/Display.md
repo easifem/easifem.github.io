@@ -1,16 +1,10 @@
 # Display
 
-## Interface
+:::tip Inheritence
+This method is inherited from the [AbstractMesh](../AbstractMesh/AbstractMesh_.md) class.
+:::
 
-```fortran
-INTERFACE
-  MODULE SUBROUTINE mesh_display(obj, msg, UnitNo)
-    CLASS(Mesh_), INTENT(INOUT) :: obj
-    !! mesh object
-    CHARACTER(*), INTENT(IN) :: msg
-    !! message on screen
-    INTEGER(I4B), OPTIONAL, INTENT(IN) :: UnitNo
-    !! unit number of ouput file
-  END SUBROUTINE mesh_display
-END INTERFACE
-```
+import EXAMPLE5 from "../AbstractMesh/Display.md";
+
+<EXAMPLE5 />
+

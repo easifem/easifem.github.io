@@ -18,6 +18,16 @@ This is an abstract class, which will be extended by `Mesh_` and `FEMesh_` class
 
 :::
 
+:::warning
+The support for Mesh class is deprecated and will be removed in future. Please use `FEMesh` class instead. In the future Mesh class and FEMesh class will be the same.
+:::
+
+- You can learn about the structure of `FEMesh` [Here](../FEMesh/FEMesh_.md)
+- You can learn about the structure of `ElemData` [Here](./ElemData_.md)
+- You can learn about the structure of `NodeData` [Here](./NodeData_.md)
+- The information of `BoundaryFacetData` is given [Here](./BoundaryFacetData_.md)
+- The information of `InternalFacetData` is given [Here](./InternalFacetData_.md)
+
 ## Type definition
 
 ```fortran

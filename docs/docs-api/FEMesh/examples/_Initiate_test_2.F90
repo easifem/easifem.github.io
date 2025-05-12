@@ -1,10 +1,11 @@
 PROGRAM main
-USE FEMesh_Class
-USE HDF5File_Class
+USE FEMesh_Class, only: FEMesh_
+USE HDF5File_Class, only: HDF5File_
 USE GlobalData, ONLY: I4B
 USE Test_Method, ONLY: OK
 
 IMPLICIT NONE
+
 TYPE(FEMesh_) :: obj
 TYPE(HDF5File_) :: meshfile
 CHARACTER(LEN=*), PARAMETER :: filename = &

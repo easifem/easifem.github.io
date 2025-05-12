@@ -1,12 +1,12 @@
 ---
 title: BoundaryFacetData
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 Data storage for boundary elements (i.e., facets which coincides with the boundary of mesh)
 
 `BoundaryFacetData_` represents the domain boundary elements which are located
-on the boundary of the domain. 
+on the boundary of the domain.
 
 Of course `domainFacet` elements are located on the mesh's boundary with only difference that these elements do not have `slaveCellNumber`
 
@@ -23,21 +23,21 @@ END TYPE BoundaryFacetData_
 ```
 
 :::info `masterCellNumber`
-::: 
+:::
 
-Master cell number. 
+Master cell number.
 
 :::info `masterLocalFacetID`
-::: 
+:::
 
-Local face number in the master cell. 
+Local face number in the master cell.
 
 :::info `elementType`
-::: 
+:::
 
 This variable distinguishes between domain boundary element and mesh boundary element.
 
-## Implementation details 
+## Implementation details
 
 This data structure is initiated by the method called [`InitiateFacetElements`](./InitiateFacetElements.md).
 

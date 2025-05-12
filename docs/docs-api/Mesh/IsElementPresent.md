@@ -1,11 +1,11 @@
-# IsElementPresent
+---
+title: IsElementPresent
+---
 
-## Interface
+:::tip Inheritence
+This method is inherited from the [AbstractMesh](../AbstractMesh/AbstractMesh_.md) class.
+:::
 
-```fortran
-  MODULE PURE FUNCTION isElementPresent(obj, GlobalElement) RESULT(ans)
-    CLASS(Mesh_), INTENT(IN) :: obj
-    INTEGER(I4B), INTENT(IN) :: GlobalElement
-    LOGICAL(LGT) :: ans
-  END FUNCTION isElementPresent
-```
+import EXAMPLE5 from "../AbstractMesh/IsElementPresent.md";
+
+<EXAMPLE5 />

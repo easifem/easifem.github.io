@@ -1,11 +1,11 @@
-# GetConnectivity
+---
+title: GetConnectivity
+---
 
-## Interface
+:::tip Inheritence
+This method is inherited from the [AbstractMesh](../AbstractMesh/AbstractMesh_.md) class.
+:::
 
-```fortran
-  MODULE PURE FUNCTION getConnectivity(obj, globalElement) RESULT(ans)
-    CLASS(Mesh_), INTENT(IN) :: obj
-    INTEGER(I4B), INTENT(IN) :: globalElement
-    INTEGER(I4B), ALLOCATABLE :: ans(:)
-  END FUNCTION getConnectivity
-```
+import EXAMPLE5 from "../AbstractMesh/GetConnectivity.md";
+
+<EXAMPLE5 />

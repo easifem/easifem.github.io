@@ -19,9 +19,10 @@ tags:
 
 `Mesh` datatype handles the finite element mesh.
 
-- You can learn about the structure of `Mesh` [Here](./Mesh_.md)
-- The information of `BoundaryFacetData` is given [Here](./BoundaryFacetData_.md)
-- The information of `InternalFacetData` is given [Here](./InternalFacetData_.md)
+:::warning Deprecated
+The support for Mesh has stopped. In future version, the Mesh and FEMesh will be merged. So please use FEMesh instead.
+:::
+
 
 import DocCardList from '@theme/DocCardList';
 

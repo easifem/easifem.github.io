@@ -59,8 +59,6 @@ The `easifemBase` library exposes three main modules.
 
 The structure of source directory is shown in the following figure.
 
-<!-- ![easifem-base-design](/img/svg/easifem-base-design.svg) -->
-
 import EasifemBaseDesign from '@site/static/img/svg/easifem-base-design.svg';
 
 <EasifemBaseDesign title="easifemBase design" className="logo" />;

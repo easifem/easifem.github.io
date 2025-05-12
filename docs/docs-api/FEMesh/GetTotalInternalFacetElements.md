@@ -1,10 +1,12 @@
-# GetTotalInternalFacetElements
+---
+title: GetTotalInternalFacetElements
+---
 
-## Interface
+:::tip Inheritence
+This method is inherited from the [AbstractMesh](../AbstractMesh/AbstractMesh_.md) class.
+:::
 
-```fortran
-  MODULE PURE FUNCTION getTotalInternalFacetElements( obj ) RESULT(ans)
-    CLASS(Mesh_), INTENT( IN ) :: obj
-    INTEGER( I4B ) :: ans
-  END FUNCTION getTotalInternalFacetElements
-```
+import EXAMPLE5 from "../AbstractMesh/GetTotalInternalFacetElements.md";
+
+<EXAMPLE5 />
+

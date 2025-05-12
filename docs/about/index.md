@@ -27,7 +27,7 @@ Currently, EASIFEM focuses on finite element methods. Eventually, the library wi
 
 ![easifem structure](/img/what-is-easifem.svg)
 
-EASIFEM consists following three hierarchical components:
+Easifem consists following three hierarchical components:
 
 - **Base** `libeasifemBase`
 - **Classes** `libeasifemClasses`
@@ -41,40 +41,12 @@ EASIFEM consists following three hierarchical components:
 Currently, `easifemBase` has interface with `BLAS95`, `Lapack95`, `Sparsekit`, `Metis`, `PlPlot`, `SuperLU`, `ARPACK`, etc.
 :::
 
-import Link from '@docusaurus/Link';
-
-<div className='container margin-vert--lg'>
-  <div className='row row--no-gutters'>
-  <div className="col col--5">
-    <Link to="/guides/getting-started/easifemBase" className="button button--lg button--outline button--block button--primary">Get Started with easifemBase</Link>
-  </div>
-  <div className="col col--2">
-  </div>
-  <div className="col col--5">
-  <Link to="/guides/getting-started" className="button button--lg button--outline button--block button--primary">Get Started with easifem</Link>
-  </div>
-  </div>
-</div>
-
 ## Classes
 
 `easifemClasses` (hereafter, read as the Classes) defines high-level derived types such as domain, mesh, fields, linear solvers, etc. Classes are primarily based on [object-oriented programming](https://en.wikipedia.org/wiki/Object-oriented_programming). Most of the functionality of Classes comes from the Base. In other words, most of the computation is deployed to the Base library. This approach improves flexibility at the cost of reducing some speed.
 :::info `Classes`
 Currently, `easifemBase` has interface with `HDF5`, `Gmsh`, `PlPlot`, `GTK4`, `PETsc`, `Matplotlib`, `Python`, `Lua`, etc. In the future, we will add interfaces to many other useful FORTRAN and C libraries.
 :::
-
-<div className='container margin-vert--lg'>
-  <div className='row row--no-gutters'>
-  <div className="col col--5">
-  <Link to="/guides/getting-started/easifemClasses" className="button button--lg button--outline button--block button--primary">Get Started with easifemClasses</Link>
-  </div>
-  <div className="col col--2">
-  </div>
-  <div className="col col--5">
-  <Link to="/guides/getting-started" className="button button--lg button--outline button--block button--primary">Get Started with easifem</Link>
-  </div>
-  </div>
-</div>
 
 ## Kernels
 
@@ -93,30 +65,17 @@ Currently, `easifemBase` has interface with `HDF5`, `Gmsh`, `PlPlot`, `GTK4`, `P
 - Incompressible and Isothermal Navier-Stokes Flow
 - Space-Time Finite element methods
 
-<div className='container margin-vert--lg'>
-  <div className='row row--no-gutters'>
-  <div className="col col--5">
-    <Link to="/guides/getting-started/easifemClasses" className="button button--lg button--outline button--block button--primary">Get Started with easifemClasses</Link>
-  </div>
-  <div className="col col--2">
-  </div>
-  <div className="col col--5">
-  <Link to="/guides/getting-started" className="button button--lg button--outline button--block button--primary">Get Started with easifem</Link>
-  </div>
-  </div>
-</div>
-
 ## Programming paradigm
 
-EASIFEM manly follows two types of programming paradigm:
+Easifem manly follows two types of programming paradigm:
 
 - Object-oriented-programming (OOP)
 - Multi-dispatch programming.
 
 ## System requirements
 
-Before installing the EASIFEM, please make sure your system is up-to-date and have requirements mentioned [here.](./SystemRequirements.md)
+Before installing the Easifem, please make sure your system is up-to-date and have requirements mentioned [here.](./SystemRequirements.md)
 
 ## External packages
 
-Before installing the EASIFEM, make sure to install the external packages on your system by following the details given [here.](./SystemRequirements.md)
+Before installing the Easifem, make sure to install the external packages on your system by following the details given [here.](./SystemRequirements.md)

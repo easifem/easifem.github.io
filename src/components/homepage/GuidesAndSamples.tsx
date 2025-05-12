@@ -23,16 +23,10 @@ interface Guide {
 
 const guides: Guide[] = [
   {
-    title: 'Getting started with easifemBase',
+    title: 'Getting started with easifemBase and easifemClasses',
     icon: CodeCircleRegular,
-    text: 'Quick installation of easifemBase and run some sample programs.',
-    link: '/guides/getting-started/easifemBase',
-  },
-  {
-    title: 'Getting started with easifemClasses',
-    icon: CubeRegular,
-    text: 'Quick installation of easifemClasses and run some sample programs.',
-    link: '/guides/getting-started/easifemClasses',
+    text: 'Quick installation of easifemBase, easifemClasses, and run some sample programs.',
+    link: '/guides/getting-started',
   },
   {
     title: 'A simple 💫 Hello World 🚀 program',

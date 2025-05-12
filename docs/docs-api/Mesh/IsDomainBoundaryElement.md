@@ -1,12 +1,11 @@
-# IsDomainBoundaryElement
+---
+title: IsDomainBoundaryElement
+---
 
-## Interface
+:::tip Inheritence
+This method is inherited from the [AbstractMesh](../AbstractMesh/AbstractMesh_.md) class.
+:::
 
-```fortran
-  MODULE PURE FUNCTION isDomainBoundaryElement(obj, globalElement) &
-    & RESULT(ans)
-    CLASS(Mesh_), INTENT(IN) :: obj
-    INTEGER(I4B), INTENT(IN) :: globalElement
-    LOGICAL(LGT) :: ans
-  END FUNCTION isDomainBoundaryElement
-```
+import EXAMPLE5 from "../AbstractMesh/IsDomainBoundaryElement.md";
+
+<EXAMPLE5 />

@@ -8,6 +8,8 @@ import EXAMPLE3 from "@site/docs/docs-api/AbstractBC/Initiate.md";
 
 <EXAMPLE3 />
 
+## Examples
+
 <Tabs>
 <TabItem value="example" label="Example 1">
 

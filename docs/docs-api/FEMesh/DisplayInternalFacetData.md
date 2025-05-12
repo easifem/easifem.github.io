@@ -1,13 +1,11 @@
-# DisplayInternalFacetData
+---
+title: DisplayInternalFacetData
+---
 
-## Interface
+:::tip Inheritence
+This method is inherited from the [AbstractMesh](../AbstractMesh/AbstractMesh_.md) class.
+:::
 
-```fortran
-INTERFACE
-  MODULE SUBROUTINE mesh_DisplayInternalFacetData(obj, msg, unitno)
-    CLASS(Mesh_), INTENT(IN) :: obj
-    CHARACTER(*), INTENT(IN) :: msg
-    INTEGER(I4B), OPTIONAL, INTENT(IN) :: unitno
-  END SUBROUTINE mesh_DisplayInternalFacetData
-END INTERFACE
-```
+import EXAMPLE5 from "../AbstractMesh/DisplayInternalFacetData.md";
+
+<EXAMPLE5 />

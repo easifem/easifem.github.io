@@ -1,5 +1,3 @@
-In this example we test [Get](./Set.md) method.
-
 ```fortran
 PROGRAM main
   USE easifemBase
@@ -21,7 +19,7 @@ PROGRAM main
   CALL resultFile%open()
 ```
 
-```fortran title="read domain"  
+```fortran title="read domain"
   !> start creating domain
   CALL meshfile%initiate( filename="./mesh.h5", mode="READ" )
   CALL meshfile%open()

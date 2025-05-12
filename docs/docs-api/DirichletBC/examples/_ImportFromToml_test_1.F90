@@ -1,5 +1,24 @@
 ! Import from toml
 ! Constant function
+!
+! In this example we will initiate an instance of `DirichletBC_` by importing data from `toml` configuration.
+!
+! The content of toml config file is given below
+!
+! ```toml
+! [bc1]
+! name = "DirichletBC"
+! idof = 1
+! nodalValueType = "Constant"
+! value = 10.0
+!
+! [bc1.boundary]
+! isSelectionByMeshID = true
+! [bc1.boundary.meshID]
+! surface = [1, 2]
+! ```
+!
+! Note that in the boundary condition is constant, and mesh is selected by mesh-id.
 
 PROGRAM main
 USE easifemBase

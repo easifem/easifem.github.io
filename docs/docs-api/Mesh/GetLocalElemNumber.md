@@ -1,19 +1,11 @@
-# GetLocalElemNumber
+---
+title: GetLocalElemNumber
+---
 
-## Interface
+:::tip Inheritence
+This method is inherited from the [AbstractMesh](../AbstractMesh/AbstractMesh_.md) class.
+:::
 
-```fortran
-  MODULE PURE FUNCTION getLocalElemNumber(obj, GlobalElement) RESULT(ans)
-    CLASS(Mesh_), INTENT(IN) :: obj
-    INTEGER(I4B), INTENT(IN) :: GlobalElement(:)
-    INTEGER(I4B) :: ans(SIZE(GlobalElement))
-  END FUNCTION getLocalElemNumber
-```
+import EXAMPLE5 from "../AbstractMesh/GetLocalElemNumber.md";
 
-```fortran
-  MODULE PURE FUNCTION getLocalElemNumber(obj, GlobalElement) RESULT(ans)
-    CLASS(Mesh_), INTENT(IN) :: obj
-    INTEGER(I4B), INTENT(IN) :: GlobalElement
-    INTEGER(I4B) :: ans
-  END FUNCTION getLocalElemNumber
-```
+<EXAMPLE5 />

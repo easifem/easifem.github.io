@@ -1,11 +1,11 @@
-# IsAnyNodePresent
+---
+title: IsAnyNodePresent
+---
 
-## Interface
+:::tip Inheritence
+This method is inherited from the [AbstractMesh](../AbstractMesh/AbstractMesh_.md) class.
+:::
 
-```fortran
-  MODULE PURE FUNCTION isAnyNodePresent(obj, globalNode) RESULT(ans)
-    CLASS(Mesh_), INTENT(IN) :: obj
-    INTEGER(I4B), INTENT(IN) :: globalNode( : )
-    LOGICAL(LGT) :: ans
-  END FUNCTION isAnyNodePresent
-```
+import EXAMPLE5 from "../AbstractMesh/IsAnyNodePresent.md";
+
+<EXAMPLE5 />

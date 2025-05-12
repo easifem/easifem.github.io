@@ -1,5 +1,31 @@
 ! Import from toml
 ! we define userfunction in the config file.
+!
+! Initiate an instance of `DirichletBC_` by importing config from a Toml file.
+!
+! In the toml file we define details of [UserFunction](/docs-api/UserFunction).
+!
+! ```toml
+! [bc3]
+! name = "DirichletBC"
+! idof = 1
+! nodalValueType = "Space"
+! isUserFunction = true
+!
+! [bc3.function]
+! name = "func"
+! returnType = "Scalar"
+! argType = "Space"
+! luaScript = "DirichletBC.lua"
+! luaFunctionName = "Func1"
+!
+! # boundary
+! [bc3.boundary]
+! isSelectionByMeshID = true
+!
+! [bc3.boundary.meshID]
+! surface = [1]
+! ```
 
 PROGRAM main
 USE easifemBase
