@@ -1,3 +1,20 @@
+!> author: Vikas Sharma, Ph. D.
+! date: 2025-05-11
+! summary:  Initiate an instance of DirichletBC
+!
+! In this example we initiate an instance of [DirichletBC](/docs-api/DirichletBC) by using the
+![UserFunction](/docs-api/UserFunction).
+!
+! The user function will be configured to give space-dependent value.
+! In other words, we implement following boundary condition.
+!
+! $$
+! u = g(x, y, z)
+! $$
+!
+! We will define a pointer to `UserFunction_` and then call [Set](/docs-api/AbstractBC/Set) method.
+! Then, the `Set` method will point to the user supplied `UserFunction`.
+!
 PROGRAM main
 USE easifemBase
 USE easifemClasses

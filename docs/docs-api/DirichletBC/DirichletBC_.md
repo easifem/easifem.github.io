@@ -14,7 +14,7 @@ TYPE, EXTENDS(AbstractBC_) :: DirichletBC_
 
 The module `DirichletBC_Class` defines following routines.
 
-- [DEALLOCATE](Deallocate)
-- [AddDirichletBC](AddDirichletBC)
-- [GetDirichletBCPointer](GetDirichletBCPointer)
-- [DirichletBCImportFromToml](DirichletBCImportFromToml)
+- [DEALLOCATE](./Deallocate.md)
+- [AddDirichletBC](./AddDirichletBC)
+- [GetDirichletBCPointer](./GetDirichletBCPointer)
+- [DirichletBCImportFromToml](./DirichletBCImportFromToml)

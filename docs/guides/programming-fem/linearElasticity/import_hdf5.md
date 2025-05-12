@@ -24,7 +24,7 @@ We need following data in the `HDF5File`.
 | `invC`           | REAL(6,6) |                                  |              This is necessary when `ANISO` option is selected. |
 
 :::caution
-Before using these examples, make sure to export the data as shown [here](/guides/programming-fem/LinearElasticity/export_hdf5).
+Before using these examples, make sure to export the data as shown [here](/guides/programming-fem/linearElasticity/export_hdf5).
 
 :::
 

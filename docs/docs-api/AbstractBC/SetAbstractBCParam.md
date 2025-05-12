@@ -42,7 +42,7 @@ END INTERFACE
 ```
 
 :::info `prefix`
-You can get `prefix` by calling [GetPrefix](./GetPrefix) method.
+You can get `prefix` by calling [GetPrefix](./GetPrefix.md) method.
 :::
 
 :::note `idof`
@@ -60,7 +60,7 @@ Type of boundary condition. It can take following values:
 :::
 
 :::note `isUserFunction`
-If the boundary condition is specified through [UserFunction](../UserFunction), then it `isUserFunction` should be set to `.TRUE.`.
+If the boundary condition is specified through [UserFunction](../UserFunction/UserFunction_.md), then it `isUserFunction` should be set to `.TRUE.`.
 :::
 
 :::info `isNormal`

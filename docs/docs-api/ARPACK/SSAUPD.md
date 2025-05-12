@@ -95,7 +95,7 @@ $$
 \tilde{\lambda} = \frac{1}{\lambda - \sigma}
 $$
 
-So, we can use shift and inverted method to find the smallest value of $\lambda$ [See for more information.](#standard-problem-by-using-shift-inverted-mode)
+So, we can use shift and inverted method to find the smallest value of $\lambda$.
 
 ### Mode 4 (Buckling)
 
