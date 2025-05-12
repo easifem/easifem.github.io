@@ -1,3 +1,0 @@
-# Structure
-
-Lagrange finite element.

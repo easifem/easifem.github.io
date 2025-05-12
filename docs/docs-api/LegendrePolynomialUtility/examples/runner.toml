@@ -1,3 +1,0 @@
-BuildType = "Debug"
-BuildDir = "/tmp/legendre-polynomial/"
-TargetLibs = ["easifemBase"]

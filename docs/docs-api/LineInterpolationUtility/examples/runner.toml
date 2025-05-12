@@ -1,3 +1,0 @@
-BuildType = "Debug"
-BuildDir = "/tmp/line-interpolation/"
-TargetLibs = ["easifemBase"]

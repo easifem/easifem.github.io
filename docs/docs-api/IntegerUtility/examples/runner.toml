@@ -1,3 +1,0 @@
-BuildType = "Debug"
-BuildDir = "/tmp/IntegerUtility/"
-TargetLibs = ["easifemBase"]

@@ -1,3 +1,0 @@
-BuildType = "Debug"
-BuildDir = "/tmp/easifem-test/"
-TargetLibs = ["easifemClasses"]

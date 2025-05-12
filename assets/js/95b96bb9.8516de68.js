@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkeasifem_docs=self.webpackChunkeasifem_docs||[]).push([[6405],{7057:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Setting up a new kernel using EASIFEM","permalink":"/blog/how-to-setup-a-new-kernel-in-easifem","unlisted":false,"date":"2025-05-11T09:05:24.000Z"}]}')}}]);
