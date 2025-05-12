@@ -261,23 +261,18 @@ export const basemethods_articles = [
 // ----------------------------------------------------------------------------
 export const basemethods_columns = [
   {
-    Header: "Module",
-    accessor: "title",
-    className: "pester-data-table left",
-    // Cell: ({ cell: { value }, row: { original } }) => (
-    //   <a href={`${original.url}`} target="blank" rel="noreferrer noopener">
-    //     {value}
-    //   </a>
-    // ),
-  },
-  {
-    Header: "Comment",
-    accessor: "comment",
+    header: "Module",
+    accessorKey: "title",
     className: "pester-data-table left",
   },
   {
-    Header: "Category",
-    accessor: "category",
+    header: "Comment",
+    accessorKey: "comment",
+    className: "pester-data-table left",
+  },
+  {
+    header: "Category",
+    accessorKey: "category",
     className: "pester-data-table",
   },
 ];
