@@ -311,23 +311,18 @@ export const basetype_articles = [
 // ----------------------------------------------------------------------------
 export const basetype_columns = [
   {
-    Header: "Data-type",
-    accessor: "title",
-    className: "pester-data-table left",
-    // Cell: ({ cell: { value }, row: { original } }) => (
-    //   <a href={`${original.url}`} target="blank" rel="noreferrer noopener">
-    //     {value}
-    //   </a>
-    // ),
-  },
-  {
-    Header: "Summary",
-    accessor: "comment",
+    header: "Data-type",
+    accessorKey: "title",
     className: "pester-data-table left",
   },
   {
-    Header: "Category",
-    accessor: "category",
+    header: "Summary",
+    accessorKey: "comment",
+    className: "pester-data-table left",
+  },
+  {
+    header: "Category",
+    accessorKey: "category",
     className: "pester-data-table",
   },
 ];

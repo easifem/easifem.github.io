@@ -121,7 +121,11 @@ const config = {
           routeBasePath: "/guides",
           ...defaultSettings,
         },
-        blog: false,
+        blog: {
+          path: "docs/blog",
+          id: "blog",
+          routeBasePath: "/blog",
+        },
         theme: {
           customCss: [
             require.resolve("./src/css/custom.css"),
@@ -273,7 +277,7 @@ const config = {
         copyright: "Copyright © Vikas Sharma since 2023. All rights reserved.",
       },
       prism: {
-        additionalLanguages: ["fortran", "bash", "python", "toml"],
+        additionalLanguages: ["fortran", "bash", "python", "toml", "cmake"],
         theme: require("./src/plugins/prism_themes/tokyonight_night"),
         magicComments: [
           {

@@ -99,21 +99,21 @@ export const data = [
 // ----------------------------------------------------------------------------
 export const columns = [
   {
-    Header: "Pkg name",
-    accessor: "title",
+    header: "Pkg name",
+    accessorKey: "title",
     className: "pester-data-table left",
-    Cell: ({ cell: { value }, row: { original } }) => (
+    cell: ({ cell, row: { original } }) => (
       <a href={`${original.url}`} target="blank" rel="noreferrer noopener">
-        {value}
+        {cell.getValue()}
       </a>
     ),
   },
   {
-    Header: "Description",
-    accessor: "description",
+    header: "Description",
+    accessorKey: "description",
     className: "pester-data-table left",
-    Cell: ({ cell: { value }, row: { original } }) => (
-      <span> {value} <a href={`${original.config}`} target="blank" rel="noreferrer noopener">
+    cell: ({ cell, row: { original } }) => (
+      <span> {cell.getValue()} <a href={`${original.config}`} target="blank" rel="noreferrer noopener">
         {"🚀 More..."}
       </a>
       </span>
@@ -121,11 +121,11 @@ export const columns = [
 
   },
   {
-    Header: "Command",
-    accessor: "cmd",
+    header: "Command",
+    accessorKey: "cmd",
     className: "pester-data-table left",
-    Cell: ({ cell: { value }, row: { original } }) => (
-      <code> {value} </code>
+    cell: ({ cell, row: { original } }) => (
+      <code> {cell.getValue()} </code>
     ),
   },
 ];

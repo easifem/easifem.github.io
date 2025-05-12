@@ -6,10 +6,10 @@ sidebar_position: 6
 :::note
 Before installing the `easifemBase` library please make sure that you have installed
 
-- [EASIFEM command line application](./install-easifem-cli)
-- [Set up the environment variables](./setup-environment)
-- [System requirements](./install-system-requirements)
-- [External packages](./install-extpkgs)
+- [EASIFEM command line application](./install-easifem-cli.md)
+- [Set up the environment variables](./setup-environment.md)
+- [System requirements](./install-system-requirements.md)
+- [External packages](./install-extpkgs.md)
 
 :::
 
