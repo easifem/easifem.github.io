@@ -59,7 +59,6 @@
     "process": "^0.11.10",
     "react-markdown": "^8.0.7",
     "stream-browserify": "^3.0.0",
-    "swc-loader": "^0.2.6",
     "tailwindcss": "^3.4.3",
     "typedoc": "^0.26.6",
     "typedoc-plugin-markdown": "^4.2.5",
