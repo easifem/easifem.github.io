@@ -5,9 +5,10 @@ date: 20 Nov 2021
 update: 20 Nov 2021
 tags:
     - MassMatrix
+category:
+    - MassMatrix
+    - Finite Element
 ---
-
-# MassMatrix
 
 ## Theory
 
@@ -19,18 +20,27 @@ $$
 \int_{\Omega } \rho N^{I} N^{J}d\Omega
 $$
 
-## Constructor methods
+## Example 1
 
-!!! note "MassMatrix"
+This example shows how to use the subroutine called `MassMatrix` to create a mass matrix in space domain.
+
+Here, we want to do the following. 
+
+$$
+\int_{\Omega } N^{I}\rho N^{J}d\Omega
+$$
+
+`rho` can be a constant, or a function of spatial coordinates, or some nonlinear function.
+
+In this example, we use
+
+- ReferenceLine element,  
+- QuadraturePoint are `GaussLegendre`
+- order of integrand is 2.
 
 $$
 \int_{\Omega } N^{I} N^{J}d\Omega
 $$
 
-    You can learn more about this in
+This type of mass matrix is useful in cases where $rho$ is a constant.
 
-    - [[MassMatrix_test_1]] for [[ReferenceLine_]] `Line2`
-    - [[MassMatrix_test_2]] for [[ReferenceLine_]] `Line3`
-    - [[MassMatrix_test_3]] for mixed FEM type, Line2 and Line3 [[ReferenceLine_]]
-
-- [ ] TODO add examples for creating mass matrix for triangle3 and triangle6 and 3D elements.
