@@ -12,12 +12,15 @@ Following steps are performed in this section.
 
 - Installing `easifem` command line interface.
 - Set up the environment variables by using `easifem` CLI.
-- Install easifem library.
+- Install `easifem` library.
+
+:::caution
+It is recommended that you read (and follow) the steps given below to quickly install `easifem`. However, due to any reason, if you do not want to read the instruction given below, then just copy and paste the command given below.
+:::
 
 <Tabs>
 <TabItem value="bash" label="bash/zsh" default>
 
-It is recommended that you read (and follow) the steps given below to quickly install `easifem`. However, due to any reason, if you do not want to read the instruction given below, then just copy and paste the command given below.
 
 <span class="badge badge--info"> For bash/zsh shell </span>
 
@@ -36,8 +39,6 @@ easifem install extpkgs base classes
 
 <span class="badge badge--info"> For fish shell </span>
 
-It is recommended that you read (and follow) the steps given below to quickly install `easifem`. However, due to any reason, if you do not want to read the instruction given below, then just copy and paste the command given below.
-
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && \
 brew update && brew upgrade && \ 
@@ -50,7 +51,7 @@ easifem install extpkgs base classes
 </TabItem>
 </Tabs>
 
-## Build from source
+## Step by step building
 
 ### Step 1: Install system dependencies
 
@@ -78,26 +79,33 @@ export CPPFLAGS="-I/opt/homebrew/opt/libomp/include"
 
 ### Step 2: Install `easifem` CLI
 
-> You can read more about easifem command line interface [here](../easifemGO)
+> You can read more about `easifem` command line interface [here](../easifemGO)
 
 :::caution
-make sure go language is installed. If not then run `sudo pacman -S go`
+make sure go language is installed. If not then run `brew install go`
 :::
 
+To install `easifem` command line interface, you can use the following command.
+
 ```bash
-go install github.com/easifem/easifemgo
+go install github.com/easifem/easifemGO/cmd/easifem@latest
 ```
 
-Now `easifemgo` is installed on your system mostly at `~/go/bin/easifemgo`
-
-:::info 
-It is recommended that you make a symlink or alias of easifemgo with name easifem. In the following text `easifem`  would mean `easifemgo`
-:::
-
-Check 
+:::tip
+To install the development version of `easifem`, you can use the following command.
 
 ```bash
-easifem --help
+go install github.com/easifem/easifemGO/cmd/easifem@dev
+```
+
+:::
+
+Now `easifem` is installed on your system, you can check the location by using the command `which easifem`.
+
+You can get the help by using the following command.
+
+```bash
+easifem help
 ```
 
 ### Step 3: Setting up environment variables
