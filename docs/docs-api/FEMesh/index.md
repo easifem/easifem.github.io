@@ -17,7 +17,7 @@ tags:
 
 <!-- markdownlint-disable MD041 MD013 MD033 MD012 -->
 
-`FEMesh_` datatype handles the finite element mesh.
+`FEMesh_` datatype handles the finite element mesh. It is a child class of  [AbstractMesh_](/docs/docs-api/AbstractMesh/AbstractMesh_.md) and inherits all its methods. It is used to store the mesh data and provide methods for mesh manipulation, such as adding nodes, elements, and boundaries.
 
 import EXAMPLE26 from "./FEMesh_.md";
 
