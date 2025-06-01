@@ -1,0 +1,7 @@
+[test1]
+value1 = [1, 2]
+value2 = "./toml/test1.txt"
+value3 = "./toml/test1b.txt"
+value4 = "./toml/test1.csv"
+value5 = "./toml/test1b.csv"
+value6 = "./toml/test1c.csv"
