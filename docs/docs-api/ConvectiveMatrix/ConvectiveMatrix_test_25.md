@@ -20,7 +20,7 @@ tags:
 # ConvectiveMatrix example 25
 
 !!! note ""
-    This example shows how to USE the SUBROUTINE called `ConvectiveMatrix` to create a convective matrix in space domain for Triangle6 element.
+This example shows how to USE the SUBROUTINE called `ConvectiveMatrix` to create a convective matrix in space domain for Triangle6 element.
 
 Here, we want to DO the following.
 
@@ -37,15 +37,15 @@ M(I,J) = \int_{\Omega} N^I \frac{\partial N^J}{\partial y} d{\Omega}
 $$
 
 $$
-M(I,J) =  \int_{\Omega} \frac{\partial N^I}{\partial y} N^J d{\Omega}
+M(I,J) = \int_{\Omega} \frac{\partial N^I}{\partial y} N^J d{\Omega}
 $$
 
 $$
-M(I,J) =  \int_{\Omega} N^I \frac{\partial N^J}{\partial z} d{\Omega}
+M(I,J) = \int_{\Omega} N^I \frac{\partial N^J}{\partial z} d{\Omega}
 $$
 
 $$
-M(I,J) =  \int_{\Omega} \frac{\partial N^I}{\partial z} N^J d{\Omega}
+M(I,J) = \int_{\Omega} \frac{\partial N^I}{\partial z} N^J d{\Omega}
 $$
 
 In this example, convective matrix is formed for
@@ -75,57 +75,57 @@ PROGRAM main
 ```
 
 !!! note ""
-    Let us now create the physical coordinate of the line element.
+Let us now create the physical coordinate of the line element.
 
 ```fortran
-    XiJ = RESHAPE([0,0, 1,0,0,1], [2, 3])
+XiJ = RESHAPE([0,0, 1,0,0,1], [2, 3])
 ```
 
 !!! note ""
-    Now  we create an instance of [[ReferenceTriangle_]].
+Now we create an instance of [[ReferenceTriangle_]].
 
 ```fortran
-    simplexRefElem = referenceTriangle(nsd=nsd)
-    call simplexRefElem%LagrangeElement(order=order, &
-        & highOrderObj=refelem)
+simplexRefElem = referenceTriangle(nsd=nsd)
+call simplexRefElem%LagrangeElement(order=order, &
+    & highOrderObj=refelem)
 ```
 
 !!! note ""
-    Here, we create the quadrature points.
+Here, we create the quadrature points.
 
 ```fortran
-    CALL initiate( obj=quad, refelem=simplexRefElem, order=2*order-1, &
-        & quadratureType='GaussLegendre' )
+CALL initiate( obj=quad, refelem=simplexRefElem, order=2*order-1, &
+    & quadratureType='GaussLegendre' )
 ```
 
 !!! note ""
-    Initiate an instance of [[ElemshapeData_]]. You can learn more about it from [[ElemshapeData_test]]
+Initiate an instance of [[ElemshapeData_]]. You can learn more about it from [[ElemshapeData_test]]
 
 ```fortran
-    CALL initiate(obj=elemsdForSimplex, &
-        & quad=quad, &
-        & refelem=simplexRefElem, &
-        & ContinuityType=typeH1, &
-        & InterpolType=typeLagrangeInterpolation)
-    CALL initiate(obj=test, &
-        & quad=quad, &
-        & refelem=refelem, &
-        & ContinuityType=typeH1, &
-        & InterpolType=typeLagrangeInterpolation)
-    CALL Set(obj=test, val=xij, N=elemsdForSimplex%N, &
-        & dNdXi=elemsdForSimplex%dNdXi)
+CALL initiate(obj=elemsdForSimplex, &
+    & quad=quad, &
+    & refelem=simplexRefElem, &
+    & ContinuityType=typeH1, &
+    & InterpolType=typeLagrangeInterpolation)
+CALL initiate(obj=test, &
+    & quad=quad, &
+    & refelem=refelem, &
+    & ContinuityType=typeH1, &
+    & InterpolType=typeLagrangeInterpolation)
+CALL Set(obj=test, val=xij, N=elemsdForSimplex%N, &
+    & dNdXi=elemsdForSimplex%dNdXi)
 ```
 
 !! note ""
-    Let us now create the following convective matrix.
+Let us now create the following convective matrix.
 
 $$
 M(I,J) = \int_{\Omega} N^{J} \frac{\partial N^{I}}{\partial x} d{\Omega}
 $$
 
 ```fortran
-    mat=ConvectiveMatrix(test=test, trial=test, term1=1, term2=0, dim=1)
-    CALL Display(mat, "mat:")
+mat=ConvectiveMatrix(test=test, trial=test, term1=1, term2=0, dim=1)
+CALL Display(mat, "mat:")
 ```
 
 ??? example "Results"
@@ -142,15 +142,15 @@ $$
     ```
 
 !! note ""
-    Let us now create the following convective matrix.
+Let us now create the following convective matrix.
 
 $$
 M(I,J) = \int_{\Omega} N^{J} \frac{\partial N^{I}}{\partial x} d{\Omega}
 $$
 
 ```fortran
-    mat=ConvectiveMatrix(test=test, trial=test, term1=0, term2=1, dim=1)
-    CALL Display(mat, "mat:")
+mat=ConvectiveMatrix(test=test, trial=test, term1=0, term2=1, dim=1)
+CALL Display(mat, "mat:")
 ```
 
 !!! example "Results"

@@ -5,18 +5,18 @@
 Interface:
 
 ```fortran
-  MODULE PURE FUNCTION ConvectiveMatrix(test, trial, term1, &
-      & term2, opt) RESULT(Ans)
-    CLASS(ElemshapeData_), INTENT(IN) :: test
-    CLASS(ElemshapeData_), INTENT(IN) :: trial
-    INTEGER(I4B), INTENT(IN) :: term1
-    !! del_x, del_y, del_z, del_x_all, del_none
-    INTEGER(I4B), INTENT(IN) :: term2
-    !! del_x, del_y, del_z, del_x_all, del_none
-    INTEGER( I4B ), OPTIONAL, INTENT( IN ) :: opt
-    !! Option for number of diagonal copies
-    REAL(DFP), ALLOCATABLE :: ans(:, :)
-  END FUNCTION ConvectiveMatrix
+MODULE PURE FUNCTION ConvectiveMatrix(test, trial, term1, &
+    & term2, opt) RESULT(Ans)
+  CLASS(ElemshapeData_), INTENT(IN) :: test
+  CLASS(ElemshapeData_), INTENT(IN) :: trial
+  INTEGER(I4B), INTENT(IN) :: term1
+  !! del_x, del_y, del_z, del_x_all, del_none
+  INTEGER(I4B), INTENT(IN) :: term2
+  !! del_x, del_y, del_z, del_x_all, del_none
+  INTEGER( I4B ), OPTIONAL, INTENT( IN ) :: opt
+  !! Option for number of diagonal copies
+  REAL(DFP), ALLOCATABLE :: ans(:, :)
+END FUNCTION ConvectiveMatrix
 ```
 
 Following matrices can be calculated based on the value of `term1` and `term2`.
@@ -86,22 +86,22 @@ $$
 Interface:
 
 ```fortran
-  MODULE PURE FUNCTION ConvectiveMatrix(test, trial, c, crank, term1, &
-      & term2, opt) RESULT(Ans)
-    CLASS(ElemshapeData_), INTENT(IN) :: test
-    CLASS(ElemshapeData_), INTENT(IN) :: trial
-    TYPE(FEVariable_), INTENT(IN) :: c
-    !! scalar variable
-    TYPE(FEVariableScalar_), INTENT(IN) :: crank
-    !! scalar variable
-    INTEGER(I4B), INTENT(IN) :: term1
-    !! del_x, del_y, del_z, del_x_all, del_none
-    INTEGER(I4B), INTENT(IN) :: term2
-    !! del_x, del_y, del_z, del_x_all, del_none
-    INTEGER( I4B ), OPTIONAL, INTENT( IN ) :: opt
-    !! number of copies
-    REAL(DFP), ALLOCATABLE :: ans(:, :)
-  END FUNCTION ConvectiveMatrix
+MODULE PURE FUNCTION ConvectiveMatrix(test, trial, c, crank, term1, &
+    & term2, opt) RESULT(Ans)
+  CLASS(ElemshapeData_), INTENT(IN) :: test
+  CLASS(ElemshapeData_), INTENT(IN) :: trial
+  TYPE(FEVariable_), INTENT(IN) :: c
+  !! scalar variable
+  TYPE(FEVariableScalar_), INTENT(IN) :: crank
+  !! scalar variable
+  INTEGER(I4B), INTENT(IN) :: term1
+  !! del_x, del_y, del_z, del_x_all, del_none
+  INTEGER(I4B), INTENT(IN) :: term2
+  !! del_x, del_y, del_z, del_x_all, del_none
+  INTEGER( I4B ), OPTIONAL, INTENT( IN ) :: opt
+  !! number of copies
+  REAL(DFP), ALLOCATABLE :: ans(:, :)
+END FUNCTION ConvectiveMatrix
 ```
 
 !!! note ""
@@ -124,7 +124,7 @@ $$
 - `term1=del_none, term2=del_z`
 
 $$
-M(I,J) =  \int_{\Omega} c N^I \frac{\partial N^J}{\partial z} d{\Omega}
+M(I,J) = \int_{\Omega} c N^I \frac{\partial N^J}{\partial z} d{\Omega}
 $$
 
 - `term1=del_none, term2=del_x_all` **opt=1**
@@ -148,13 +148,13 @@ $$
 - `term1=del_y, term2=del_none`
 
 $$
-M(I,J) =  \int_{\Omega} c \frac{\partial N^I}{\partial y} N^J d{\Omega}
+M(I,J) = \int_{\Omega} c \frac{\partial N^I}{\partial y} N^J d{\Omega}
 $$
 
 - `term1=del_z, term2=del_none`
 
 $$
-M(I,J) =  \int_{\Omega} c \frac{\partial N^I}{\partial z} N^J d{\Omega}
+M(I,J) = \int_{\Omega} c \frac{\partial N^I}{\partial z} N^J d{\Omega}
 $$
 
 - `term1=del_x_all, term2=del_none` **opt=1**
@@ -189,22 +189,22 @@ You can learn more from examples given below:
 Interface:
 
 ```fortran
-  MODULE PURE FUNCTION ConvectiveMatrix(test, trial, c, crank, term1, &
-      & term2, opt) RESULT(Ans)
-    CLASS(ElemshapeData_), INTENT(IN) :: test
-    CLASS(ElemshapeData_), INTENT(IN) :: trial
-    TYPE(FEVariable_), INTENT(IN) :: c
-    !! It can be a scalar or vector variable
-    TYPE(FEVariableVector_), INTENT(IN) :: crank
-    !! It can be a scalar or vector variable
-    INTEGER(I4B), INTENT(IN) :: term1
-    !! del_x, del_y, del_z, del_x_all, del_none
-    INTEGER(I4B), INTENT(IN) :: term2
-    !! del_x, del_y, del_z, del_x_all, del_none
-    INTEGER( I4B ), OPTIONAL, INTENT( IN ) :: opt
-    !! number of copies
-    REAL(DFP), ALLOCATABLE :: ans(:, :)
-  END FUNCTION ConvectiveMatrix
+MODULE PURE FUNCTION ConvectiveMatrix(test, trial, c, crank, term1, &
+    & term2, opt) RESULT(Ans)
+  CLASS(ElemshapeData_), INTENT(IN) :: test
+  CLASS(ElemshapeData_), INTENT(IN) :: trial
+  TYPE(FEVariable_), INTENT(IN) :: c
+  !! It can be a scalar or vector variable
+  TYPE(FEVariableVector_), INTENT(IN) :: crank
+  !! It can be a scalar or vector variable
+  INTEGER(I4B), INTENT(IN) :: term1
+  !! del_x, del_y, del_z, del_x_all, del_none
+  INTEGER(I4B), INTENT(IN) :: term2
+  !! del_x, del_y, del_z, del_x_all, del_none
+  INTEGER( I4B ), OPTIONAL, INTENT( IN ) :: opt
+  !! number of copies
+  REAL(DFP), ALLOCATABLE :: ans(:, :)
+END FUNCTION ConvectiveMatrix
 ```
 
 !!! note "Convective velocity"
@@ -311,9 +311,9 @@ $$
 
 ## Examples
 
-|                                              |                                              |                                             |
+| | | |
 | :------------------------------------------- | :------------------------------------------- | :------------------------------------------ | --- |
-| [🩱 Example 1](ConvectiveMatrix_test_1.md)   | [👬 Example 2](ConvectiveMatrix_test_2.md)   | [🧵 Example 3](ConvectiveMatrix_test_3.md)  |     |
-| [🍀 Example 4](ConvectiveMatrix_test_4.md)   | [🕵️‍♀️ Example 5](ConvectiveMatrix_test_5.md)   | [🔯 Example 6](ConvectiveMatrix_test_6.md)  |     |
-| [🙈 Example 7](ConvectiveMatrix_test_21.md)  | [🏋️ Example 8](ConvectiveMatrix_test_22.md)  | [😇 Example 9](ConvectiveMatrix_test_23.md) |     |
-| [⛺ Example 10](ConvectiveMatrix_test_24.md) | [🕴️ Example 11](ConvectiveMatrix_test_25.md) |                                             |
+| [🩱 Example 1](ConvectiveMatrix_test_1.md) | [👬 Example 2](ConvectiveMatrix_test_2.md) | [🧵 Example 3](ConvectiveMatrix_test_3.md) | |
+| [🍀 Example 4](ConvectiveMatrix_test_4.md) | [🕵️‍♀️ Example 5](ConvectiveMatrix_test_5.md) | [🔯 Example 6](ConvectiveMatrix_test_6.md) | |
+| [🙈 Example 7](ConvectiveMatrix_test_21.md) | [🏋️ Example 8](ConvectiveMatrix_test_22.md) | [😇 Example 9](ConvectiveMatrix_test_23.md) | |
+| [⛺ Example 10](ConvectiveMatrix_test_24.md) | [🕴️ Example 11](ConvectiveMatrix_test_25.md) | |
