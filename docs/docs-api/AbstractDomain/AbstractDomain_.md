@@ -70,10 +70,9 @@ TYPE, ABSTRACT :: AbstractDomain_
 END TYPE AbstractDomain_
 ```
 
-## What is the difference between domain and mesh 
+## What is the difference between domain and mesh
 
-
-A mesh is a collection of same topological order, that is, 
+A mesh is a collection of same topological order, that is,
 
 - a mesh of volume elements
 - a mesh of surface elements
