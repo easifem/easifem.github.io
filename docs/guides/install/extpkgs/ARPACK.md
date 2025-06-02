@@ -73,10 +73,11 @@ libName = "arpack"
 runtest = true
 license = "GPL3"
 buildOptions = [
-"-D MPI:BOOL=OFF",
-"-D ICB:BOOL=OFF",
-"-D EIGEN:BOOL=OFF",
-"-D EXAMPLES:BOOL=OFF"]
+  "-D MPI:BOOL=OFF",
+  "-D ICB:BOOL=OFF",
+  "-D EIGEN:BOOL=OFF",
+  "-D EXAMPLES:BOOL=OFF",
+]
 envVars.foo = "bar"
 envVars.FOO = "BAR"
 ```

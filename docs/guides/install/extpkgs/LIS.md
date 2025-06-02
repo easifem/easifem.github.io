@@ -45,6 +45,11 @@ buildStaticLibs = false
 libName = "lis"
 runtest = true
 license = "GPL3"
-buildOptions = ["--enable-omp", "--enable-f90", "--enable-shared", "--enable-saamg"]
+buildOptions = [
+  "--enable-omp",
+  "--enable-f90",
+  "--enable-shared",
+  "--enable-saamg",
+]
 # envVars.CC = "gcc-14"
 ```

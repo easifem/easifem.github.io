@@ -19,10 +19,8 @@ import EXAMPLE20 from "../_include/base_cli_install.md";
 
 <EXAMPLE20 />
 
-
 ## Using CMake
 
 import EXAMPLE81 from "../_include/base_cmake_install.md";
 
 <EXAMPLE81 />
-
