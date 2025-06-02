@@ -12,4 +12,3 @@ MODULE PURE FUNCTION GetBoundaryElementData(obj, globalElement) &
   INTEGER(I4B), ALLOCATABLE :: ans(:)
 END FUNCTION GetBoundaryElementData
 ```
-

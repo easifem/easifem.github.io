@@ -10,7 +10,7 @@ This routine creates the element surrounding a given element data
 - `obj%elementData(ielem)%globalElements`
 - It also identifies those elements which are boundary element of mesh, and set `obj%elementData(ielem)%elementType=BOUNDARY_ELEMENT` for those elements.
 - Note that at this point these boundary-elements can be interface element
- between two meshs, or domain-boundary element.
+  between two meshs, or domain-boundary element.
 
 ```fortran
 INTERFACE
