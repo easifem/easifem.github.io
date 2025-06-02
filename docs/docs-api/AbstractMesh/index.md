@@ -46,17 +46,17 @@ status: stable
 
 ### Constructor methods for connectivity
 
-| Method Name               | Purpose                                                  |
-| ------------------------- | -------------------------------------------------------- |
-| InitiateKdtree            | Initiate Kdtree.                                         |
-| InitiateNodeToElements    | Initiate node to element data (mapping).                 |
-| InitiateNodeToNodes       | Initiate Node to nodes data.                             |
-| InitiateExtraNodeToNodes  | Initiate Node to nodes mapping (used in jump based FEM). |
-| InitiateElementToElements | Initiate element to elements mapping.                    |
-| InitiateBoundaryData      | Initiate the boundary data.                              |
-| InitiateEdgeConnectivity  | (No description provided)                                |
-| InitiateFaceConnectivity  | (No description provided)                                |
-| InitiateFacetElements     | Initiate boundary data.                                  |
+| Method Name                                           | Purpose                                                  |
+| ----------------------------------------------------- | -------------------------------------------------------- |
+| [InitiateKdtree](./InitiateKdtree.md)                 | Initiate Kdtree.                                         |
+| [InitiateNodeToElements](./InitiateNodeToElements.md) | Initiate node to element data (mapping).                 |
+| InitiateNodeToNodes                                   | Initiate Node to nodes data.                             |
+| InitiateExtraNodeToNodes                              | Initiate Node to nodes mapping (used in jump based FEM). |
+| InitiateElementToElements                             | Initiate element to elements mapping.                    |
+| InitiateBoundaryData                                  | Initiate the boundary data.                              |
+| InitiateEdgeConnectivity                              | (No description provided)                                |
+| InitiateFaceConnectivity                              | (No description provided)                                |
+| InitiateFacetElements                                 | Initiate boundary data.                                  |
 
 ### Element information methods
 
