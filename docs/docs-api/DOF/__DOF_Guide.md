@@ -15,13 +15,13 @@ tags:
 
 # DOF
 
-`DOF_`  data type contains the information of degrees of freedom in finite element method. It mainly includes the information regarding the storage pattern of degrees of freedom.
+`DOF_` data type contains the information of degrees of freedom in finite element method. It mainly includes the information regarding the storage pattern of degrees of freedom.
 
 Degrees of freedom are space-time components of physical variable. There can be several physical variables such as pressure, velocity, temperature. Now pressure has single degrees of freedom, because it is a scalar whereas velocity can have three degrees of freedom.
 
-In order to understand the storage pattern,and the working principal of  `DOF_` datatype, let us consider a vector $\textbf{v}$ in three dimension space. There are three degrees of freedom at each spatial nodes of the mesh (this corresponds to $v_x, v_y, v_z$. Now, there arises two ways to store the nodal values of the physical variable (here, $\textbf{v}$).
+In order to understand the storage pattern,and the working principal of `DOF_` datatype, let us consider a vector $\textbf{v}$ in three dimension space. There are three degrees of freedom at each spatial nodes of the mesh (this corresponds to $v_x, v_y, v_z$. Now, there arises two ways to store the nodal values of the physical variable (here, $\textbf{v}$).
 
-`FMT_DOF` : In this case each components (DOF) of $v$  will be treated as an independent nodal vector. So there are actually three nodal vectors corresponding to the spatial components $v_x, v_y, v_z$. We will use uppercase letter to denote the spatial nodal values. In this way, each of $V_x, V_y, V_z$ are nodal values of spatial component of a physical variable ($v$). One can appreciate the fact that `FMT_DOF`  format is flexible, because, each nodal vector can have different length.
+`FMT_DOF` : In this case each components (DOF) of $v$ will be treated as an independent nodal vector. So there are actually three nodal vectors corresponding to the spatial components $v_x, v_y, v_z$. We will use uppercase letter to denote the spatial nodal values. In this way, each of $V_x, V_y, V_z$ are nodal values of spatial component of a physical variable ($v$). One can appreciate the fact that `FMT_DOF` format is flexible, because, each nodal vector can have different length.
 
 `FMT_Nodes`: In this case all the components of $v$ are grouped together and values are defined at each node of the mesh. At each node, DOFs (spatial components) form a small vector. So the nodal values of $v$ are defined as a nodal vector of these small vectors.
 
@@ -40,7 +40,7 @@ obj = dof( tNodes = [20, 10], Names = ['V', 'P'], SpaceCompo = [3, 1], &
 
 In this case velocity has 20 nodes and pressure has 10 nodes. There are 3 space components and 2 time components in the velocity.
 
-In the case of `FMT_DOF` , the degrees of freedom will be represented as shown in above figure. Each term in  `{}` denotes a nodal vector of DOF (i.e., v11, v12, p1, p2, etc.). Note that, in this representation both V and P can have different order of interpolation. For example, velocity can be quadratic and pressure can be linear. Needless to state, this yields a block-structured tangent matrix.
+In the case of `FMT_DOF` , the degrees of freedom will be represented as shown in above figure. Each term in `{}` denotes a nodal vector of DOF (i.e., v11, v12, p1, p2, etc.). Note that, in this representation both V and P can have different order of interpolation. For example, velocity can be quadratic and pressure can be linear. Needless to state, this yields a block-structured tangent matrix.
 
 Now consider the following case to understand `FMT_Nodes` :
 
@@ -111,7 +111,7 @@ where,
 - `Names` is the name of each physical variables
 - `SpaceCompo` is the number of spatial components in each physical variable, if a physical variable is scalar then one can use also use -1 instead of 1 for the total number of space components
 - `TimeCompo` is the number of time components in each physical variables
-- `StorageFMT` is the storage format, it can be `FMT_DOF`  or `FMT_Nodes`
+- `StorageFMT` is the storage format, it can be `FMT_DOF` or `FMT_Nodes`
 
 :::info
 The size of `tNodes`, `Names`, `SpaceCompo`, `TimeCompo` vectors should be equal to the total number of physical variables.
@@ -251,7 +251,7 @@ CALL Deallocate( obj )
 END PROGRAM main
 ```
 
-???  note "click here to see the output of above program"
+??? note "click here to see the output of above program"
 
     ```fortran
     # VAR :U
@@ -274,7 +274,7 @@ END PROGRAM main
 ### tNodes
 
 !!! note "tNodes"
-    Getting size of vector using `.tNodes.` operator
+Getting size of vector using `.tNodes.` operator
 
 Use `.tNodes.` operator to get the total number of nodes for `DOF_`.
 
@@ -388,7 +388,7 @@ END PROGRAM main
 - `getNodeLOC(obj, nodenum(:), ivar, spacecompo(:), timecompo)`
 
 !!! note "getNodeLOC"
-    Getting node locations
+Getting node locations
 
 ```fortran
 ans=getNodeLOC(obj, inode, idof)
