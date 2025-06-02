@@ -211,14 +211,6 @@ const config = {
                 label: "easifemClasses",
                 href: "https://www.easifem.com/guides/getting-started/easifemClasses",
               },
-              {
-                label: "easifemMaterials",
-                href: "https://www.easifem.com/guides/getting-started/easifemMaterials",
-              },
-              {
-                label: "easifemKernels",
-                href: "https://www.easifem.com/guides/getting-started/easifemKernels",
-              },
             ],
           },
           {
