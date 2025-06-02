@@ -28,4 +28,3 @@ program main
   call ok( ALL(SOFTEQ(ans, exact, tol )))
 end program main
 ```
-

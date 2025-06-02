@@ -25,25 +25,25 @@ Structure of D for odd N
 :::
 
 ```fortran
-  !!
-  n = 5
-  !!
-  call reallocate( pt, n+1, wt, n+1, fval, n+1 )
-  !!
-  call Chebyshev1Quadrature( n=n+1,  &
-    & pt=pt, wt=wt, quadType=quadType )
-  !!
-  fval = func1(pt)
-  !!
-  D = Chebyshev1DMatrix(n=n,  x=pt, quadType=quadType)
-  !!
-  CALL display(MdEncode(D), "D="//CHAR_LF)
+!!
+n = 5
+!!
+call reallocate( pt, n+1, wt, n+1, fval, n+1 )
+!!
+call Chebyshev1Quadrature( n=n+1,  &
+  & pt=pt, wt=wt, quadType=quadType )
+!!
+fval = func1(pt)
+!!
+D = Chebyshev1DMatrix(n=n,  x=pt, quadType=quadType)
+!!
+CALL display(MdEncode(D), "D="//CHAR_LF)
 ```
 
 D =
 
 |          |          |         |          |          |          |
-|----------|----------|---------|----------|----------|----------|
+| -------- | -------- | ------- | -------- | -------- | -------- |
 | -8.5     | 10.472   | -2.8944 | 1.5279   | -1.1056  | 0.5      |
 | -2.618   | 1.1708   | 2       | -0.89443 | 0.61803  | -0.27639 |
 | 0.72361  | -2       | 0.17082 | 1.618    | -0.89443 | 0.38197  |
@@ -56,8 +56,38 @@ Structure of D for even D
 :::
 
 ```fortran
-  !!
-  n = 6
+!!
+n = 6
+!!
+call reallocate( pt, n+1, wt, n+1, fval, n+1 )
+!!
+call Chebyshev1Quadrature( n=n+1,  &
+  & pt=pt, wt=wt, quadType=quadType )
+!!
+fval = func1(pt)
+!!
+D = Chebyshev1DMatrix(n=n,  x=pt, quadType=quadType)
+!!
+CALL display(MdEncode(D), "D="//CHAR_LF)
+```
+
+D =
+
+|          |          |          |             |          |          |          |
+| -------- | -------- | -------- | ----------- | -------- | -------- | -------- |
+| -12.167  | 14.928   | -4       | 2           | -1.3333  | 1.0718   | -0.5     |
+| -3.7321  | 1.7321   | 2.7321   | -1.1547     | 0.73205  | -0.57735 | 0.26795  |
+| 1        | -2.7321  | 0.33333  | 2           | -1       | 0.73205  | -0.33333 |
+| -0.5     | 1.1547   | -2       | 5.17058E-14 | 2        | -1.1547  | 0.5      |
+| 0.33333  | -0.73205 | 1        | -2          | -0.33333 | 2.7321   | -1       |
+| -0.26795 | 0.57735  | -0.73205 | 1.1547      | -2.7321  | -1.7321  | 3.7321   |
+| 0.5      | -1.0718  | 1.3333   | -2          | 4        | -14.928  | 12.167   |
+
+```fortran
+!!
+error = zeros(30, 2, 1.0_DFP)
+!!
+DO n = 1, SIZE(error,1)
   !!
   call reallocate( pt, n+1, wt, n+1, fval, n+1 )
   !!
@@ -68,50 +98,20 @@ Structure of D for even D
   !!
   D = Chebyshev1DMatrix(n=n,  x=pt, quadType=quadType)
   !!
-  CALL display(MdEncode(D), "D="//CHAR_LF)
-```
-
-D =
-
-|          |          |          |             |          |          |          |
-|----------|----------|----------|-------------|----------|----------|----------|
-| -12.167  | 14.928   | -4       | 2           | -1.3333  | 1.0718   | -0.5     |
-| -3.7321  | 1.7321   | 2.7321   | -1.1547     | 0.73205  | -0.57735 | 0.26795  |
-| 1        | -2.7321  | 0.33333  | 2           | -1       | 0.73205  | -0.33333 |
-| -0.5     | 1.1547   | -2       | 5.17058E-14 | 2        | -1.1547  | 0.5      |
-| 0.33333  | -0.73205 | 1        | -2          | -0.33333 | 2.7321   | -1       |
-| -0.26795 | 0.57735  | -0.73205 | 1.1547      | -2.7321  | -1.7321  | 3.7321   |
-| 0.5      | -1.0718  | 1.3333   | -2          | 4        | -14.928  | 12.167   |
-
-```fortran
+  f1val = dfunc1(pt)
   !!
-  error = zeros(30, 2, 1.0_DFP)
+  error(n,1) = n
+  error(n,2) = NORM2( ABS(f1val-MATMUL(D,fval)) )
   !!
-  DO n = 1, SIZE(error,1)
-    !!
-    call reallocate( pt, n+1, wt, n+1, fval, n+1 )
-    !!
-    call Chebyshev1Quadrature( n=n+1,  &
-      & pt=pt, wt=wt, quadType=quadType )
-    !!
-    fval = func1(pt)
-    !!
-    D = Chebyshev1DMatrix(n=n,  x=pt, quadType=quadType)
-    !!
-    f1val = dfunc1(pt)
-    !!
-    error(n,1) = n
-    error(n,2) = NORM2( ABS(f1val-MATMUL(D,fval)) )
-    !!
-  END DO
-  !!
-  CALL display( MdEncode(error), "error=")
+END DO
+!!
+CALL display( MdEncode(error), "error=")
 ```
 
 error=
 
 | order(n) | MAX(err)    |
-|----------|-------------|
+| -------- | ----------- |
 | 1        | 17.772      |
 | 2        | 21.766      |
 | 3        | 25.133      |
@@ -128,18 +128,18 @@ Define function
 :::
 
 ```fortran
-  contains
-  elemental function func1(x) result(ans)
-    real(dfp), intent(in) :: x
-    real(dfp) :: ans
-    ans = SIN(4.0_DFP * pi * x)
-  end function func1
-  !!
-  elemental function dfunc1(x) result(ans)
-    real(dfp), intent(in) :: x
-    real(dfp) :: ans
-    ans = 4.0_DFP * pi * COS(4.0_DFP * pi * x)
-  end function dfunc1
+contains
+elemental function func1(x) result(ans)
+  real(dfp), intent(in) :: x
+  real(dfp) :: ans
+  ans = SIN(4.0_DFP * pi * x)
+end function func1
+!!
+elemental function dfunc1(x) result(ans)
+  real(dfp), intent(in) :: x
+  real(dfp) :: ans
+  ans = 4.0_DFP * pi * COS(4.0_DFP * pi * x)
+end function dfunc1
 ```
 
 ```fortran

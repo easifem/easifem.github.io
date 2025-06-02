@@ -1,4 +1,4 @@
-This example shows the usage of `Chebyshev1GradientEvalSum` method. 
+This example shows the usage of `Chebyshev1GradientEvalSum` method.
 
 This routine evaluates the kth gradient of sum of finite series of Chebyshev1 polynomials of order upto n, at a single point.
 

@@ -10,7 +10,7 @@ program main
 ```
 
 ```fortran title "Chebyshev1-Gauss"
-  n = 2; quadType=Gauss; call callme
+n = 2; quadType=Gauss; call callme
 ```
 
 <details>
@@ -18,7 +18,7 @@ program main
 <div>
 
 | pt       | wt     |
-|----------|--------|
+| -------- | ------ |
 | -0.70711 | 1.5708 |
 | 0.70711  | 1.5708 |
 
@@ -26,7 +26,7 @@ program main
 </details>
 
 ```fortran title "Chebyshev1-Radau-Left"
-  n = 3; quadType=GaussRadauLeft; call callme
+n = 3; quadType=GaussRadauLeft; call callme
 ```
 
 <details>
@@ -34,7 +34,7 @@ program main
 <div>
 
 | pt       | wt      |
-|----------|---------|
+| -------- | ------- |
 | -1       | 0.31416 |
 | -0.30902 | 0.62832 |
 | 0.80902  | 0.62832 |
@@ -43,7 +43,7 @@ program main
 </details>
 
 ```fortran title "Chebyshev1-Radau-Right"
-  n = 3; quadType=GaussRadauRight; call callme
+n = 3; quadType=GaussRadauRight; call callme
 ```
 
 <details>
@@ -51,7 +51,7 @@ program main
 <div>
 
 | pt       | wt      |
-|----------|---------|
+| -------- | ------- |
 | -0.80902 | 0.31416 |
 | 0.30902  | 0.62832 |
 | 1        | 0.62832 |
@@ -60,7 +60,7 @@ program main
 </details>
 
 ```fortran title "Chebyshev1-Lobatto"
-  n = 4; quadType=GaussLobatto; call callme
+n = 4; quadType=GaussLobatto; call callme
 ```
 
 <details>
@@ -68,7 +68,7 @@ program main
 <div>
 
 | pt   | wt     |
-|------|--------|
+| ---- | ------ |
 | -1   | 0.5236 |
 | -0.5 | 1.0472 |
 | 0.5  | 1.0472 |
@@ -78,16 +78,16 @@ program main
 </details>
 
 ```fortran
-  contains
-  subroutine callme
-    call reallocate( pt, n, wt, n )
-    call Chebyshev1Quadrature( n=n, pt=pt, wt=wt, &
-      & quadType=quadType )
-    msg = "| pt | wt |"
-    call display(msg%chars())
-    astr = MdEncode( pt .COLCONCAT. wt )
-    call display( astr%chars(), "" )
-  end subroutine callme
+contains
+subroutine callme
+  call reallocate( pt, n, wt, n )
+  call Chebyshev1Quadrature( n=n, pt=pt, wt=wt, &
+    & quadType=quadType )
+  msg = "| pt | wt |"
+  call display(msg%chars())
+  astr = MdEncode( pt .COLCONCAT. wt )
+  call display( astr%chars(), "" )
+end subroutine callme
 ```
 
 ```fortran

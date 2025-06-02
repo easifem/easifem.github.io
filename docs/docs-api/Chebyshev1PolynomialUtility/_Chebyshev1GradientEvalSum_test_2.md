@@ -1,4 +1,4 @@
-This example shows the usage of `Chebyshev1GradientEvalSum` method. 
+This example shows the usage of `Chebyshev1GradientEvalSum` method.
 
 This routine evaluates the gradient offinite sum of the Chebyshev1 polynomials of order upto n, at several point.
 
@@ -36,4 +36,3 @@ program main
   call ok( ALL(SOFTEQ(ans, exact, tol )))
 end program main
 ```
-

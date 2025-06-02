@@ -32,4 +32,3 @@ program main
   call ok( ALL(SOFTEQ(exact, uhat, tol)), "n=10 "//CHAR_LF)
 end program main
 ```
-

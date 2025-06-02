@@ -41,29 +41,29 @@ $$
 !!! note "Structure of D"
 
 ```fortran
-  !!
-  n = 5
-  !!
-  call reallocate( pt, n+1, wt, n+1, fval, n+1 )
-  !!
-  call LegendreQuadrature( n=n+1,  &
-    & pt=pt, wt=wt, quadType=quadType )
-  !!
-  fval = func1(pt)
-  !!
-  D = LegendreDMatrix(n=n,  x=pt, quadType=quadType)
-  !!
-  CALL reallocate(e, int(n/2)+1, int(n/2)+1)
-  CALL reallocate(o, int(n/2)+1, int(n/2)+1)
-  CALL LegendreDMatEvenOdd(n=n,D=D, e=e, o=o)
-  !!
-  CALL display(MdEncode(D), "D=")
-  CALL display(MdEncode(e), "e=")
-  CALL display(MdEncode(o), "o=")
+!!
+n = 5
+!!
+call reallocate( pt, n+1, wt, n+1, fval, n+1 )
+!!
+call LegendreQuadrature( n=n+1,  &
+  & pt=pt, wt=wt, quadType=quadType )
+!!
+fval = func1(pt)
+!!
+D = LegendreDMatrix(n=n,  x=pt, quadType=quadType)
+!!
+CALL reallocate(e, int(n/2)+1, int(n/2)+1)
+CALL reallocate(o, int(n/2)+1, int(n/2)+1)
+CALL LegendreDMatEvenOdd(n=n,D=D, e=e, o=o)
+!!
+CALL display(MdEncode(D), "D=")
+CALL display(MdEncode(e), "e=")
+CALL display(MdEncode(o), "o=")
 ```
 
 !!! example "result"
-    D =
+D =
 
     |         |          |         |         |          |          |
     |---------|----------|---------|---------|----------|----------|
@@ -95,18 +95,18 @@ $$
 !!! note "Define function"
 
 ```fortran
-  contains
-  elemental function func1(x) result(ans)
-    real(dfp), intent(in) :: x
-    real(dfp) :: ans
-    ans = SIN(4.0_DFP * pi * x)
-  end function func1
-  !!
-  elemental function dfunc1(x) result(ans)
-    real(dfp), intent(in) :: x
-    real(dfp) :: ans
-    ans = 4.0_DFP * pi * COS(4.0_DFP * pi * x)
-  end function dfunc1
+contains
+elemental function func1(x) result(ans)
+  real(dfp), intent(in) :: x
+  real(dfp) :: ans
+  ans = SIN(4.0_DFP * pi * x)
+end function func1
+!!
+elemental function dfunc1(x) result(ans)
+  real(dfp), intent(in) :: x
+  real(dfp) :: ans
+  ans = 4.0_DFP * pi * COS(4.0_DFP * pi * x)
+end function dfunc1
 ```
 
 ```fortran
