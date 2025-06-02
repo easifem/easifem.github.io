@@ -9,7 +9,7 @@ ans = SymSmallestEigenVal(CSRMatrix_::mat &
   & [, char(2)::which, INTEGER::NCV, INTEGER::maxIter, REAL::tol]) 
 
 ans = SymSmallestEigenVal(CSRMatrix_::mat, INTEGER::nev &
-  [&, char(2)::which, INTEGER::NCV, INTEGER::maxIter, REAL::tol]) 
+  [&, char(2)::which, INTEGER::NCV, INTEGER::maxIter, REAL::tol])
 ```
 
 ## Interface

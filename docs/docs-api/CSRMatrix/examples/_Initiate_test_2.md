@@ -10,24 +10,24 @@ PROGRAM main
 Initiate degrees of freedom object DOF
 
 ```fortran
-    CALL Initiate( obj=dofobj, tNodes=[4, 2], names=['V', 'P'], &
-      & spaceCompo=[2, 1], timeCompo=[1,1], storageFMT=FMT_DOF )
+CALL Initiate( obj=dofobj, tNodes=[4, 2], names=['V', 'P'], &
+  & spaceCompo=[2, 1], timeCompo=[1,1], storageFMT=FMT_DOF )
 ```
 
 Initiate CSRMatrix
 
 ```fortran
-    CALL Initiate( obj, &
-      & ncol=.tnodes. dofobj, &
-      & nrow=.tnodes. dofobj, &
-      & idof=dofobj, jdof=dofobj )
+CALL Initiate( obj, &
+  & ncol=.tnodes. dofobj, &
+  & nrow=.tnodes. dofobj, &
+  & idof=dofobj, jdof=dofobj )
 ```
 
 Convert CSRMatrix to dense matrix.
 
 ```fortran
-    m2 = obj
-    CALL Display( m2, "test2" )
+m2 = obj
+CALL Display( m2, "test2" )
 ```
 
 Cleanup

@@ -32,7 +32,7 @@ Consider the following `5x5` matrix:
 0   10.5    0       0      0     
 0    0    .015      0      0     
 0  250.5    0     -280    33.32  
-0    0      0       0     12  
+0    0      0       0     12
 ```
 
 In MM coordinate format this could be represented as follows.

@@ -1,4 +1,3 @@
-
 # AtMatVec
 
 This routine performs transpose matrix vector multiplication for csrmatrix ($A^T\ cdot x$).

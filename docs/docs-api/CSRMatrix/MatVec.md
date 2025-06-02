@@ -21,7 +21,6 @@ CALL MatVec(CSRMatrix_::obj, Real::x(:), Real::y(:))
 
 :::
 
-
 :::tip example 2
 
 $$
@@ -33,8 +32,6 @@ CALL MatVec(CSRMatrix_::obj, Real::x(:), Real::y(:), Bool::addContribution, REAL
 ```
 
 :::
-
-
 
 ## Interface 1
 
@@ -70,7 +67,6 @@ TODO
 </Tabs>
 
 ## Interface 2
-
 
 <Tabs>
 

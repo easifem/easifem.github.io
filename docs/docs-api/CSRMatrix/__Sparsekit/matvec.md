@@ -2,24 +2,24 @@
 
 This page provides the documentation of `matvec.f`. The contents of this module are described below.
 
-| subroutine  | description  |
-|---|---|
-| `AMUX`   | A times a vector. Compressed Sparse Row (CSR) format.        |
-| `AMUXMS` | A times a vector. Modified Compress Sparse Row format.       |
-| `ATMUX`  | `Transp(A)` times a vector. CSR format.                        |
-| `ATMUXR` | `Transp(A)` times a vector. CSR format. A rectangular.         |
-| `VBRMV`  | Sparse matrix-full vector product, in VBR format             |
-| `LDSOL`  | Lower Triang. solve.  Modified Sparse Row (MSR) format.      |
-| `LDSOLL` | Lower Triang. solve with level scheduling. MSR format.       |
-| `USOL`   | Unit Upper Triang. solve. Compressed Sparse Row (CSR) format.|
-| `UDSOL`  | Upper Triang. solve.  Modified Sparse Row (MSR) format.      |
+| subroutine | description                                                   |
+| ---------- | ------------------------------------------------------------- |
+| `AMUX`     | A times a vector. Compressed Sparse Row (CSR) format.         |
+| `AMUXMS`   | A times a vector. Modified Compress Sparse Row format.        |
+| `ATMUX`    | `Transp(A)` times a vector. CSR format.                       |
+| `ATMUXR`   | `Transp(A)` times a vector. CSR format. A rectangular.        |
+| `VBRMV`    | Sparse matrix-full vector product, in VBR format              |
+| `LDSOL`    | Lower Triang. solve. Modified Sparse Row (MSR) format.        |
+| `LDSOLL`   | Lower Triang. solve with level scheduling. MSR format.        |
+| `USOL`     | Unit Upper Triang. solve. Compressed Sparse Row (CSR) format. |
+| `UDSOL`    | Upper Triang. solve. Modified Sparse Row (MSR) format.        |
 
 ## AMUX
 
 ```fortran
-  subroutine amux (n, x, y, a,ja,ia)
-  real*8  x(*), y(*), a(*)
-  integer n, ja(*), ia(*)
+subroutine amux (n, x, y, a,ja,ia)
+real*8  x(*), y(*), a(*)
+integer n, ja(*), ia(*)
 ```
 
 Multiplies a matrix by a vector using the dot product form Matrix A is stored in compressed sparse row storage.
@@ -57,9 +57,9 @@ ON RETURN
 ## ATMUX
 
 ```fortran
-  subroutine atmux (n, x, y, a,ja,ia)
-  real*8  x(*), y(*), a(*)
-  integer n, ja(*), ia(*)
+subroutine atmux (n, x, y, a,ja,ia)
+real*8  x(*), y(*), a(*)
+integer n, ja(*), ia(*)
 ```
 
 This routine multiplies the transpose of a matrix by a vector when the original matrix is stored in compressed sparse row storage. Can also be viewed as the product of a matrix by a vector when the original matrix is stored in the compressed sparse column format.
@@ -77,9 +77,9 @@ ON RETURN
 ## ATMUXR
 
 ```fortran
-      subroutine atmuxr (m, n, x, y, a, ja, ia)
-      real*8 x(*), y(*), a(*)
-      integer m, n, ia(*), ja(*)
+subroutine atmuxr (m, n, x, y, a, ja, ia)
+real*8 x(*), y(*), a(*)
+integer m, n, ia(*), ja(*)
 ```
 
 This routien multiplies transp( A ) and a vector, where A can be rectangular.
