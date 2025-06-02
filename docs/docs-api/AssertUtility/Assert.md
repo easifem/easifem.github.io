@@ -118,11 +118,11 @@ END SUBROUTINE Assert
 <TabItem value="interface2" label="܀ Interface">
 
 ```fortran
-  MODULE SUBROUTINE Assert(n1, n2, n3, msg, file, line, routine)
-    INTEGER(I4B), INTENT(IN) :: n1, n2, n3
-    INTEGER(I4B), INTENT(IN) :: line
-    CHARACTER(*), INTENT(IN) :: msg, file, routine
-  END SUBROUTINE Assert
+MODULE SUBROUTINE Assert(n1, n2, n3, msg, file, line, routine)
+  INTEGER(I4B), INTENT(IN) :: n1, n2, n3
+  INTEGER(I4B), INTENT(IN) :: line
+  CHARACTER(*), INTENT(IN) :: msg, file, routine
+END SUBROUTINE Assert
 ```
 
 </TabItem>
@@ -130,11 +130,11 @@ END SUBROUTINE Assert
 <TabItem value="interface3" label="܀ Interface">
 
 ```fortran
-  MODULE SUBROUTINE Assert(n1, n2, n3, n4, msg, file, line, routine)
-    INTEGER(I4B), INTENT(IN) :: n1, n2, n3, n4
-    INTEGER(I4B), INTENT(IN) :: line
-    CHARACTER(*), INTENT(IN) :: msg, file, routine
-  END SUBROUTINE Assert
+MODULE SUBROUTINE Assert(n1, n2, n3, n4, msg, file, line, routine)
+  INTEGER(I4B), INTENT(IN) :: n1, n2, n3, n4
+  INTEGER(I4B), INTENT(IN) :: line
+  CHARACTER(*), INTENT(IN) :: msg, file, routine
+END SUBROUTINE Assert
 ```
 
 </TabItem>
@@ -142,14 +142,14 @@ END SUBROUTINE Assert
 <TabItem value="interface4" label="܀ interface">
 
 ```fortran
-  MODULE SUBROUTINE Assert(nn, msg, file, line, routine)
-    INTEGER(I4B), DIMENSION(:), INTENT(IN) :: nn
-    INTEGER(I4B), INTENT(IN) :: line
-    CHARACTER(*), INTENT(IN) :: msg, file, routine
-  END SUBROUTINE Assert
+MODULE SUBROUTINE Assert(nn, msg, file, line, routine)
+  INTEGER(I4B), DIMENSION(:), INTENT(IN) :: nn
+  INTEGER(I4B), INTENT(IN) :: line
+  CHARACTER(*), INTENT(IN) :: msg, file, routine
+END SUBROUTINE Assert
 ```
 
-</TabItem>  
+</TabItem>
 
 <TabItem value="example" label="️܀ See example">
 
