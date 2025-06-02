@@ -236,7 +236,7 @@ Create following directory in the root directory of your kernel.
 3. tests: This directory will contain the test code of your kernel.
 4. examples: This directory will contain the example code and tutorials of your kernel.
 5. cmake: This directory will contain the cmake files necessary to build your kernel.
-6. docker: This directory will contain the  docker files.
+6. docker: This directory will contain the docker files.
 7. bin: This directory will contain the binary files of application based on your kernel
 8. media: This directory will contain the figures and images used for the documentation
 9. pages: This directory will contain the pages for documentation by using ford.
@@ -248,7 +248,7 @@ The `src` directory will contain the following directories and files.
 - `modules`: This directory contains the header files of the kernel. These header files are called modules.
 - `submodules`: This directory contains the `submodules` of the kernel. These `submodules` are contains the implementation of the header files.
 
-Let us say you want to develop a class called `Abstract1DUVSTFEM_` (note that all user defined data types end with an underscore). Then you should create a directory called `Abstract1DUVSTFEM`  in the `src/modules` directory. 
+Let us say you want to develop a class called `Abstract1DUVSTFEM_` (note that all user defined data types end with an underscore). Then you should create a directory called `Abstract1DUVSTFEM` in the `src/modules` directory.
 
 Now in `Abstract1DUVSTFEM` directory create another directory called `src` which will contain the header file. In this source directory you will create `Abstract1DUVSTFEM_Class.F90`.
 
@@ -666,7 +666,7 @@ isActive = true
 buildSystem = "cmake"
 git = 'github.com/easifem/oneDimElasticity.git'
 sourceDir = "${HOME}/Dropbox/easifem/oneDimElasticity"
-installDir=  "${HOME}/.easifem/install/oneDimElasticity/"
+installDir = "${HOME}/.easifem/install/oneDimElasticity/"
 buildType = "Debug"
 buildSharedLibs = true
 buildStaticLibs = true
@@ -702,4 +702,3 @@ To install the kernel with downloading the files from git, that is, by using the
 ```bash
 easifem install oneDimElasticity --no-download
 ```
-
