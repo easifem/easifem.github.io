@@ -5,7 +5,7 @@ update: 2021-11-08
 title: CommandLineInterface example-2
 ---
 
-#  CommandLineInterface: example-2
+# CommandLineInterface: example-2
 
 ## Class and modules
 

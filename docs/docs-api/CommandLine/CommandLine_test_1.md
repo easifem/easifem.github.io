@@ -14,7 +14,7 @@ title: CommandLineInterface example-1
 ## Usage
 
 !!! note ""
-    Import modules
+Import modules
 
 ```fortran
 PROGRAM main
@@ -49,7 +49,6 @@ check error
 ```fortran
 IF (error /= 0) STOP
 ```
-
 
 #CommandLineInterface/Get get the value of an option
 
