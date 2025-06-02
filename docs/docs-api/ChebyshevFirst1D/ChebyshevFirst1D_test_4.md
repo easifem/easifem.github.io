@@ -33,45 +33,45 @@ real( dfp ), parameter :: tol=1.0E-10
 ### n=1
 
 ```fortran
-  x = RAND()
-  yexact = 1
-  n=1
-  obj = ChebyshevFirst1D(varname="x", n=n)
-  y = obj%EvalGradient( x )
-  call OK( SOFTEQ( y, yexact, tol ), "test-1:" )
+x = RAND()
+yexact = 1
+n=1
+obj = ChebyshevFirst1D(varname="x", n=n)
+y = obj%EvalGradient( x )
+call OK( SOFTEQ( y, yexact, tol ), "test-1:" )
 ```
 
 ### n=2
 
 ```fortran
-  x = RAND()
-  yexact = 4.0*x
-  n=2
-  obj = ChebyshevFirst1D(varname="x", n=n)
-  y = obj%EvalGradient( x )
-  call OK( SOFTEQ( y, yexact, tol ), "test-2:" )
+x = RAND()
+yexact = 4.0*x
+n=2
+obj = ChebyshevFirst1D(varname="x", n=n)
+y = obj%EvalGradient( x )
+call OK( SOFTEQ( y, yexact, tol ), "test-2:" )
 ```
 
 ### n=3
 
 ```fortran
-  x = RAND()
-  yexact = 12.0*x**2 - 3.0
-  n=3
-  obj = ChebyshevFirst1D(varname="x", n=n)
-  y = obj%EvalGradient( x )
-  call OK( SOFTEQ( y, yexact, tol ), "test-3:" )
+x = RAND()
+yexact = 12.0*x**2 - 3.0
+n=3
+obj = ChebyshevFirst1D(varname="x", n=n)
+y = obj%EvalGradient( x )
+call OK( SOFTEQ( y, yexact, tol ), "test-3:" )
 ```
 
 ### n=4
 
 ```fortran
-  x = RAND()
-  yexact = 32.0*x**3 - 16.0*x
-  n=4
-  obj = ChebyshevFirst1D(varname="x", n=n)
-  y = obj%EvalGradient( x )
-  call OK( SOFTEQ( y, yexact, tol ), "test-4:" )
+x = RAND()
+yexact = 32.0*x**3 - 16.0*x
+n=4
+obj = ChebyshevFirst1D(varname="x", n=n)
+y = obj%EvalGradient( x )
+call OK( SOFTEQ( y, yexact, tol ), "test-4:" )
 ```
 
 ```fortran

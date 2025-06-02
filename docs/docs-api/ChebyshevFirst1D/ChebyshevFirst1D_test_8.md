@@ -32,41 +32,39 @@ real( dfp ), parameter :: a = -1.0_DFP
 ### n=1
 
 ```fortran
-  n = 1
-  obj=ChebyshevFirst1D(varname="x", n=n)
-  x = obj%GaussRadauQuadrature(a)
-  call display( x, "pt | wt for n="//tostring(n) )
+n = 1
+obj=ChebyshevFirst1D(varname="x", n=n)
+x = obj%GaussRadauQuadrature(a)
+call display( x, "pt | wt for n="//tostring(n) )
 ```
 
 ### n=2
 
 ```fortran
-  n = 2
-  obj=ChebyshevFirst1D(varname="x", n=n)
-  x = obj%GaussRadauQuadrature(a)
-  call display( x, "pt | wt for n="//tostring(n) )
+n = 2
+obj=ChebyshevFirst1D(varname="x", n=n)
+x = obj%GaussRadauQuadrature(a)
+call display( x, "pt | wt for n="//tostring(n) )
 ```
 
 ### n=3
 
 ```fortran
-  n = 3
-  obj=ChebyshevFirst1D(varname="x", n=n)
-  x = obj%GaussRadauQuadrature(a)
-  call display( x, "pt | wt for n="//tostring(n) )
+n = 3
+obj=ChebyshevFirst1D(varname="x", n=n)
+x = obj%GaussRadauQuadrature(a)
+call display( x, "pt | wt for n="//tostring(n) )
 ```
 
 ### n=4
 
 ```fortran
-  n = 4
-  obj=ChebyshevFirst1D(varname="x", n=n)
-  x = obj%GaussRadauQuadrature(a)
-  call display( x, "pt | wt for n="//tostring(n) )
+n = 4
+obj=ChebyshevFirst1D(varname="x", n=n)
+x = obj%GaussRadauQuadrature(a)
+call display( x, "pt | wt for n="//tostring(n) )
 ```
 
 ```fortran
 END PROGRAM main
 ```
-
-
