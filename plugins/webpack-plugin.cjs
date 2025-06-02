@@ -1,10 +1,8 @@
-/* eslint-disable */
 const { ProvidePlugin } = require("webpack");
-
 function webpackPlugin(context, options) {
   return {
     name: "webpack-plugin",
-    configureWebpack(config) {
+    configureWebpack(config, isServer, { currentBundler }) {
       return {
         module: {
           rules: [
@@ -17,7 +15,7 @@ function webpackPlugin(context, options) {
           ],
         },
         plugins: [
-          new ProvidePlugin({
+          new currentBundler.instance.ProvidePlugin({
             process: require.resolve("process/browser"),
           }),
         ],
