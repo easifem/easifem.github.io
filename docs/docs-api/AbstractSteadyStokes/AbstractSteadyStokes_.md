@@ -585,7 +585,7 @@ END INTERFACE AbstractSteadyStokesSet
 
 - This routine returns the pointer to Dirichlet boundary condition of pressure field in [AbstractSteadyStokes_](AbstractSteadyStokes_.md) kernel, that is `obj%DBCForPressure(dbcNo)%ptr`.
 - After obtaining the Dirichlet boundary condition pointer, user can set the
-boundary condition
+  boundary condition
 - `dbcNo` should be lesser than total dirichlet boundary condition.
 
 ```fortran
@@ -663,7 +663,6 @@ INTERFACE
     LOGICAL(LGT) :: ans
   END FUNCTION isSteadyState
 END INTERFACE
-
 ```
 
 ### IsConverged
