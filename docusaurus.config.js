@@ -121,6 +121,7 @@ const config = {
           id: "blog",
           routeBasePath: "/blog",
         },
+        // commenting the theme
         theme: {
           customCss: [
             require.resolve("./src/css/custom.css"),
@@ -293,23 +294,6 @@ const config = {
         contextualSearch: false,
       },
     }),
-  // webpack: {
-  //   jsLoader: (isServer) => ({
-  //     loader: require.resolve('swc-loader'),
-  //     options: {
-  //       jsc: {
-  //         parser: {
-  //           syntax: 'typescript',
-  //           tsx: true,
-  //         },
-  //         target: 'es2017',
-  //       },
-  //       module: {
-  //         type: isServer ? 'commonjs' : 'es6',
-  //       },
-  //     },
-  //   }),
-  // },
 };
 
 module.exports = config;
