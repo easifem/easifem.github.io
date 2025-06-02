@@ -5,8 +5,8 @@ PROGRAM main
 ```
 
 ```fortran
-    call display( ColConcat(a=reshape([1,2,3,4], [2,2]), &
-        & b=reshape([5,6,7,8], [2,2]) ), "colconcat=" )
+call display( ColConcat(a=reshape([1,2,3,4], [2,2]), &
+    & b=reshape([5,6,7,8], [2,2]) ), "colconcat=" )
 ```
 
 <details>
@@ -24,8 +24,8 @@ colconcat=
 </details>
 
 ```fortran
-    call display( ColConcat(a=reshape(arange(1,9), [3,3]), &
-        & b=reshape(arange(10,13), [2,2]) ), "colconcat=" )
+call display( ColConcat(a=reshape(arange(1,9), [3,3]), &
+    & b=reshape(arange(10,13), [2,2]) ), "colconcat=" )
 ```
 
 <details>
@@ -44,8 +44,8 @@ colconcat=
 </details>
 
 ```fortran
-    call display( ColConcat(a=reshape(arange(1,4), [2,2]), &
-        & b=reshape(arange(5,13), [3,3]) ), "colconcat=" )
+call display( ColConcat(a=reshape(arange(1,4), [2,2]), &
+    & b=reshape(arange(5,13), [3,3]) ), "colconcat=" )
 ```
 
 <details>
