@@ -241,7 +241,7 @@ body {
 html[data-theme='dark'] {
   --docs-color-primary: #47DCEB;
   --docs-color-primary-tint: #1E1E2E;
-  --docs-color-primary-tint-light: rgba(33 96 253/0.24);
+  --docs-color-primary-tint-light: rgba(33, 96, 253, 0.24);
 
   --ifm-link-color: #47DCEB;
   --ifm-tabs-color-active-border: #F5E0DC;
