@@ -24,18 +24,18 @@ PROGRAM main
 ```
 
 ```fortran
-  TYPE( BlockMatrixField_ ) :: obj
-  TYPE( ParameterList_ ) :: param
-  TYPE( Domain_ ), TARGET :: pressureDomain
-  TYPE( Domain_ ), TARGET :: velocityDomain
-  TYPE( DomainPointer_ ) :: domains( 2 )
-  TYPE( HDF5File_ ) :: pressureMeshFile
-  TYPE( HDF5File_ ) :: velocityMeshFile
-  TYPE( HDF5File_ ) :: blockMatrixOutfile
-  CHARACTER( LEN = * ), PARAMETER :: pressureMeshFilename="./mesh_tri3.h5"
-  CHARACTER( LEN = * ), PARAMETER :: velocityMeshFilename="./mesh_tri6.h5"
-  CHARACTER( LEN = * ), PARAMETER :: blockMatrixOutfileName= &
-    & "./blockMatrixOutfile.h5"
+TYPE( BlockMatrixField_ ) :: obj
+TYPE( ParameterList_ ) :: param
+TYPE( Domain_ ), TARGET :: pressureDomain
+TYPE( Domain_ ), TARGET :: velocityDomain
+TYPE( DomainPointer_ ) :: domains( 2 )
+TYPE( HDF5File_ ) :: pressureMeshFile
+TYPE( HDF5File_ ) :: velocityMeshFile
+TYPE( HDF5File_ ) :: blockMatrixOutfile
+CHARACTER( LEN = * ), PARAMETER :: pressureMeshFilename="./mesh_tri3.h5"
+CHARACTER( LEN = * ), PARAMETER :: velocityMeshFilename="./mesh_tri6.h5"
+CHARACTER( LEN = * ), PARAMETER :: blockMatrixOutfileName= &
+  & "./blockMatrixOutfile.h5"
 ```
 
 ```fortran

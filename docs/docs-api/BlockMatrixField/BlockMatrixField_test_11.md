@@ -27,7 +27,7 @@ Following modules are used
 
 Import modules and define variables
 
-``` fortran
+```fortran
 PROGRAM main
     USE easifemBase
     USE easifemClasses
@@ -46,55 +46,55 @@ PROGRAM main
 ```
 
 ```fortran
-    CALL FPL_INIT(); CALL param%Initiate()
+CALL FPL_INIT(); CALL param%Initiate()
 ```
 
 ```fortran
-    CALL SetBlockMatrixFieldParam(param=param, name="K",  &
-      & physicalVarNames=["V", "P"], spaceCompo=[2, 1], &
-      & timeCompo=[1,1], fieldType=FIELD_TYPE_NORMAL,  &
-      & matrixProp="UNSYM" )
+CALL SetBlockMatrixFieldParam(param=param, name="K",  &
+  & physicalVarNames=["V", "P"], spaceCompo=[2, 1], &
+  & timeCompo=[1,1], fieldType=FIELD_TYPE_NORMAL,  &
+  & matrixProp="UNSYM" )
 ```
 
 ```fortran
-    CALL pressureMeshfile%Initiate( FileName=pressureMeshFilename, MODE="READ" )
-    CALL velocityMeshfile%Initiate( FileName=velocityMeshFilename, MODE="READ" )
-    CALL pressureMeshfile%Open()
-    CALL velocityMeshfile%Open()
+CALL pressureMeshfile%Initiate( FileName=pressureMeshFilename, MODE="READ" )
+CALL velocityMeshfile%Initiate( FileName=velocityMeshFilename, MODE="READ" )
+CALL pressureMeshfile%Open()
+CALL velocityMeshfile%Open()
 ```
 
 ```fortran
-    CALL pressureDomain%Initiate( pressureMeshfile, "")
+CALL pressureDomain%Initiate( pressureMeshfile, "")
 ```
 
 ```fortran
-    CALL velocityDomain%Initiate( velocityMeshfile, "")
+CALL velocityDomain%Initiate( velocityMeshfile, "")
 ```
 
 ```fortran
-    CALL pressureMeshfile%Deallocate()
-    CALL velocityMeshfile%Deallocate()
+CALL pressureMeshfile%Deallocate()
+CALL velocityMeshfile%Deallocate()
 ```
 
 ```fortran
-    domains(1)%ptr => velocityDomain
-    domains(2)%ptr => pressureDomain
+domains(1)%ptr => velocityDomain
+domains(2)%ptr => pressureDomain
 ```
 
 ```fortran
-    CALL obj%Initiate(param=param, dom=domains)
+CALL obj%Initiate(param=param, dom=domains)
 ```
 
 ```fortran
-    CALL obj%Set(value=1.0_DFP)
+CALL obj%Set(value=1.0_DFP)
 ```
 
 ```fortran
-    CALL obj%Display("")
+CALL obj%Display("")
 ```
 
 ```fortran
-    CALL obj%Deallocate()
+CALL obj%Deallocate()
 ```
 
 ```fortran
