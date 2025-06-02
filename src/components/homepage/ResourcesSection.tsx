@@ -1,11 +1,7 @@
-import Link from '@docusaurus/Link';
-import React, { useState } from 'react';
-import clsx from 'clsx';
-import {
-  ArrowRightFilled,
-  ChevronLeftRegular,
-  ChevronRightRegular,
-} from '@fluentui/react-icons';
+import Link from "@docusaurus/Link";
+import { ArrowRightFilled, ChevronLeftRegular, ChevronRightRegular } from "@fluentui/react-icons";
+import clsx from "clsx";
+import React, { useState } from "react";
 
 interface Resource {
   url: string;
@@ -18,50 +14,47 @@ interface Resource {
 
 const ALL_RESOURCES: Resource[] = [
   {
-    url: '/guides/v2-migration-guide',
-    type: 'blog',
-    title: 'Migrate to v2 REST API',
+    url: "/guides/v2-migration-guide",
+    type: "blog",
+    title: "Migrate to v2 REST API",
     description:
-      'Excited to announce the release of our v2 REST APIs, which are faster, more idiomatic, and easier to use.',
-    image:
-      'https://dyte.io/blog/content/images/size/w1000/2023/02/Dyte-Blog---v2-APIs.jpg',
-    duration: '3 min',
+      "Excited to announce the release of our v2 REST APIs, which are faster, more idiomatic, and easier to use.",
+    image: "https://dyte.io/blog/content/images/size/w1000/2023/02/Dyte-Blog---v2-APIs.jpg",
+    duration: "3 min",
   },
   {
-    url: 'https://dyte.io/blog/hls-in-depth/',
-    type: 'blog',
-    title: 'HLS in Depth',
+    url: "https://dyte.io/blog/hls-in-depth/",
+    type: "blog",
+    title: "HLS in Depth",
     description:
       "HLS is widely adopted, simple, yet robust. Learn how it works from a client's perspective, its segments, features, and disadvantages.",
-    image:
-      'https://dyte.io/blog/content/images/size/w1000/2023/07/HLS--indepth--header--1.png',
-    duration: '10 min',
+    image: "https://dyte.io/blog/content/images/size/w1000/2023/07/HLS--indepth--header--1.png",
+    duration: "10 min",
   },
   {
-    url: 'https://www.youtube.com/watch?v=eVUqkNNHh1o',
-    type: 'video',
-    title: 'Integrating React UI Kit',
+    url: "https://www.youtube.com/watch?v=eVUqkNNHh1o",
+    type: "video",
+    title: "Integrating React UI Kit",
     description:
-      'In this video learn how to use React UI Kit prebuilt components to add live video and audio to your React application.',
-    image: 'https://img.youtube.com/vi/eVUqkNNHh1o/hqdefault.jpg',
-    duration: '5 min',
+      "In this video learn how to use React UI Kit prebuilt components to add live video and audio to your React application.",
+    image: "https://img.youtube.com/vi/eVUqkNNHh1o/hqdefault.jpg",
+    duration: "5 min",
   },
   {
-    url: 'https://www.youtube.com/watch?v=ZkrZc8Neh6A',
-    type: 'video',
-    title: 'Video KYC App using React UI Kit',
-    description:
-      'In this episode of Dyte Byte we show how to build Video KYC App using React UI Kit.',
-    image: 'https://img.youtube.com/vi/ZkrZc8Neh6A/hqdefault.jpg',
-    duration: '5 min',
+    url: "https://www.youtube.com/watch?v=ZkrZc8Neh6A",
+    type: "video",
+    title: "Video KYC App using React UI Kit",
+    description: "In this episode of Dyte Byte we show how to build Video KYC App using React UI Kit.",
+    image: "https://img.youtube.com/vi/ZkrZc8Neh6A/hqdefault.jpg",
+    duration: "5 min",
   },
   {
-    url: 'https://www.youtube.com/watch?v=UHuzWDxrvLk',
-    type: 'video',
-    title: 'Calling Dyte REST APIs',
-    description: 'Understand our HTTP REST APIs',
-    image: 'https://img.youtube.com/vi/UHuzWDxrvLk/hqdefault.jpg',
-    duration: '7 min',
+    url: "https://www.youtube.com/watch?v=UHuzWDxrvLk",
+    type: "video",
+    title: "Calling Dyte REST APIs",
+    description: "Understand our HTTP REST APIs",
+    image: "https://img.youtube.com/vi/UHuzWDxrvLk/hqdefault.jpg",
+    duration: "7 min",
   },
 ];
 
@@ -95,7 +88,7 @@ function Resource({
       </div>
       <div className="mt-4 flex items-center justify-between">
         <div className="text-sm text-text-400">
-          {`${duration} ${type === 'Video' ? 'watch' : 'read'}`}
+          {`${duration} ${type === "Video" ? "watch" : "read"}`}
         </div>
       </div>
     </Link>
@@ -104,12 +97,11 @@ function Resource({
 
 export default function ResourcesSection() {
   const [page, setPage] = useState(1);
-  const [activeType, setActiveType] = useState<'all' | 'blog' | 'video'>('all');
+  const [activeType, setActiveType] = useState<"all" | "blog" | "video">("all");
 
-  const resources =
-    activeType === 'all'
-      ? ALL_RESOURCES
-      : ALL_RESOURCES.filter((r) => r.type === activeType);
+  const resources = activeType === "all"
+    ? ALL_RESOURCES
+    : ALL_RESOURCES.filter((r) => r.type === activeType);
 
   const currentResources = resources.slice((page - 1) * 3, page * 3);
 
@@ -146,31 +138,31 @@ export default function ResourcesSection() {
         <div className="mb-6 inline-flex gap-1 rounded-lg bg-secondary-700 p-2 font-jakarta text-sm font-semibold dark:bg-secondary-700">
           <button
             className={clsx(
-              'rounded-lg px-4 py-2 transition-colors',
-              activeType === 'all' &&
-                'bg-zinc-700 text-white dark:bg-zinc-200 dark:text-black'
+              "rounded-lg px-4 py-2 transition-colors",
+              activeType === "all"
+                && "bg-zinc-700 text-white dark:bg-zinc-200 dark:text-black",
             )}
-            onClick={() => setActiveType('all')}
+            onClick={() => setActiveType("all")}
           >
             All
           </button>
           <button
             className={clsx(
-              'rounded-lg px-4 py-2 transition-colors',
-              activeType === 'blog' &&
-                'bg-zinc-700 text-white dark:bg-zinc-200 dark:text-black'
+              "rounded-lg px-4 py-2 transition-colors",
+              activeType === "blog"
+                && "bg-zinc-700 text-white dark:bg-zinc-200 dark:text-black",
             )}
-            onClick={() => setActiveType('blog')}
+            onClick={() => setActiveType("blog")}
           >
             Blogs
           </button>
           <button
             className={clsx(
-              'rounded-lg px-4 py-2 transition-colors',
-              activeType === 'video' &&
-                'bg-zinc-700 text-white dark:bg-zinc-200 dark:text-black'
+              "rounded-lg px-4 py-2 transition-colors",
+              activeType === "video"
+                && "bg-zinc-700 text-white dark:bg-zinc-200 dark:text-black",
             )}
-            onClick={() => setActiveType('video')}
+            onClick={() => setActiveType("video")}
           >
             Videos
           </button>

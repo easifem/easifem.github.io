@@ -1,7 +1,7 @@
-import React from 'react';
-import Footer from '@theme-original/Footer';
-import { useLocation } from '@docusaurus/router';
-import Head from '@docusaurus/Head';
+import Head from "@docusaurus/Head";
+import { useLocation } from "@docusaurus/router";
+import Footer from "@theme-original/Footer";
+import React from "react";
 
 export default function FooterWrapper(props) {
   const { pathname } = useLocation();

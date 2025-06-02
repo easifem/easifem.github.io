@@ -1,6 +1,6 @@
-import Link from '@docusaurus/Link';
-import React from 'react';
-import styles from './styles.module.css';
+import Link from "@docusaurus/Link";
+import React from "react";
+import styles from "./styles.module.css";
 
 /**
  * @typedef {{name: string, component: string}} ComponentEntry
@@ -31,7 +31,7 @@ function Card({ item, basePath }) {
 /**
  * @param {{ items: ComponentEntry[], basePath: string }}
  */
-export default function ComponentsGrid({ items, basePath = '/' }) {
+export default function ComponentsGrid({ items, basePath = "/" }) {
   items.sort((a, b) => {
     if (a.name < b.name) return -1;
     else if (a.name > b.name) return 1;
@@ -41,9 +41,7 @@ export default function ComponentsGrid({ items, basePath = '/' }) {
   return (
     <div className={styles.section}>
       <div className={styles.grid}>
-        {items.map((item) => (
-          <Card key={item.component} item={item} basePath={basePath} />
-        ))}
+        {items.map((item) => <Card key={item.component} item={item} basePath={basePath} />)}
       </div>
     </div>
   );

@@ -1,11 +1,11 @@
-import React from 'react';
-import clsx from 'clsx';
-import { useThemeConfig } from '@docusaurus/theme-common';
-import Logo from '@theme/Logo';
-import CollapseButton from '@theme/DocSidebar/Desktop/CollapseButton';
-import Content from '@theme/DocSidebar/Desktop/Content';
-import styles from './styles.module.css';
-import SidebarMenu from '../../../components/SidebarMenu';
+import { useThemeConfig } from "@docusaurus/theme-common";
+import CollapseButton from "@theme/DocSidebar/Desktop/CollapseButton";
+import Content from "@theme/DocSidebar/Desktop/Content";
+import Logo from "@theme/Logo";
+import clsx from "clsx";
+import React from "react";
+import SidebarMenu from "../../../components/SidebarMenu";
+import styles from "./styles.module.css";
 
 function DocSidebarDesktop({ path, sidebar, onCollapse, isHidden }) {
   const {
@@ -20,7 +20,7 @@ function DocSidebarDesktop({ path, sidebar, onCollapse, isHidden }) {
       className={clsx(
         styles.sidebar,
         hideOnScroll && styles.sidebarWithHideableNavbar,
-        isHidden && styles.sidebarHidden
+        isHidden && styles.sidebarHidden,
       )}
     >
       {hideOnScroll && <Logo tabIndex={-1} className={styles.sidebarLogo} />}

@@ -1,22 +1,22 @@
-import React from 'react';
-import Link from '@docusaurus/Link';
+import Link from "@docusaurus/Link";
+import React from "react";
 
-import { Linkedin, Twitter } from 'react-feather';
-import { DiscordIcon } from '@site/src/icons';
+import { DiscordIcon } from "@site/src/icons";
+import { Linkedin, Twitter } from "react-feather";
 
 const githubUsernames = [
-  'vaibhavshn',
-  'akigugale',
-  'roerohan',
-  'thebongy',
-  'alias-rahil',
-  'AshishKumar4',
-  'anunaym14',
-  'CallMeTarush',
-  'ishita1805',
-  'madhugb',
-  'mayur-tendulkar',
-  'milapsingh',
+  "vaibhavshn",
+  "akigugale",
+  "roerohan",
+  "thebongy",
+  "alias-rahil",
+  "AshishKumar4",
+  "anunaym14",
+  "CallMeTarush",
+  "ishita1805",
+  "madhugb",
+  "mayur-tendulkar",
+  "milapsingh",
 ];
 
 export default function CommunitySection() {
@@ -27,8 +27,7 @@ export default function CommunitySection() {
           Join the <span className="text-primary-100">community</span>
         </h2>
         <p className="mb-10 text-zinc-500">
-          Engage with our ever-growing community to get the latest updates,
-          product support, and more.
+          Engage with our ever-growing community to get the latest updates, product support, and more.
         </p>
         <div className="mx-auto mb-16 flex flex-wrap -space-x-1.5">
           {githubUsernames.map((username) => (

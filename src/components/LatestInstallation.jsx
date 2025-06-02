@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import CodeBlock from '@theme/CodeBlock';
-import latestNPMVersion from '../utils/npm';
+import CodeBlock from "@theme/CodeBlock";
+import React, { useEffect, useState } from "react";
+import latestNPMVersion from "../utils/npm";
 
 export const AndroidCoreLatestInstallation = () => {
-  const [version, setVersion] = useState('+');
+  const [version, setVersion] = useState("+");
 
   useEffect(() => {
     const raw = JSON.stringify({
@@ -11,16 +11,16 @@ export const AndroidCoreLatestInstallation = () => {
     });
 
     const requestOptions = {
-      method: 'POST',
+      method: "POST",
       body: raw,
     };
 
     fetch(
-      'https://b72qj023g7.execute-api.ap-south-1.amazonaws.com/default/android-core-latest',
-      requestOptions
+      "https://b72qj023g7.execute-api.ap-south-1.amazonaws.com/default/android-core-latest",
+      requestOptions,
     )
       .then((response) => response.json())
-      .then((result) => setVersion(result.latestVersion ?? '+'));
+      .then((result) => setVersion(result.latestVersion ?? "+"));
   }, []);
   return (
     <div>
@@ -35,10 +35,10 @@ export const AndroidCoreLatestInstallation = () => {
 };
 
 export const WebCoreCDNInstallation = () => {
-  const [version, setVersion] = useState('');
+  const [version, setVersion] = useState("");
   useEffect(() => {
     async function load() {
-      const version = await latestNPMVersion({ pkg: 'web-core' });
+      const version = await latestNPMVersion({ pkg: "web-core" });
       setVersion(`-${version}`);
     }
     load();
@@ -52,14 +52,14 @@ export const WebCoreCDNInstallation = () => {
 };
 
 export const HTMLUIKitInstallation = () => {
-  const [webCoreVersion, setWebCoreVersion] = useState('');
-  const [uikitVersion, setUIKitVersion] = useState('');
+  const [webCoreVersion, setWebCoreVersion] = useState("");
+  const [uikitVersion, setUIKitVersion] = useState("");
 
   useEffect(() => {
     async function load() {
-      const versionWC = await latestNPMVersion({ pkg: 'web-core' });
+      const versionWC = await latestNPMVersion({ pkg: "web-core" });
       setWebCoreVersion(`-${versionWC}`);
-      const versionUI = await latestNPMVersion({ pkg: 'ui-kit' });
+      const versionUI = await latestNPMVersion({ pkg: "ui-kit" });
       setUIKitVersion(`@${versionUI}`);
     }
     load();
@@ -80,13 +80,13 @@ export const HTMLUIKitInstallation = () => {
 };
 
 export const HTMLUIKitUtilsInstallation = ({
-  modules = ['provideDyteDesignSystem', 'extendConfig,'],
+  modules = ["provideDyteDesignSystem", "extendConfig,"],
 }) => {
-  const [uikitVersion, setUIKitVersion] = useState('');
+  const [uikitVersion, setUIKitVersion] = useState("");
 
   useEffect(() => {
     async function load() {
-      const versionUI = await latestNPMVersion({ pkg: 'ui-kit' });
+      const versionUI = await latestNPMVersion({ pkg: "ui-kit" });
       setUIKitVersion(`@${versionUI}`);
     }
     load();
@@ -97,7 +97,7 @@ export const HTMLUIKitUtilsInstallation = ({
       {`<head>
   <script type="module">
     import {
-      ${modules.join(',\n    ')}
+      ${modules.join(",\n    ")}
     } from 'https://cdn.jsdelivr.net/npm/@dytesdk/ui-kit${uikitVersion}/dist/esm/index.js';
   </script>
 </head>`}

@@ -1,5 +1,5 @@
-import useRouteContext from '@docusaurus/useRouteContext';
-import { SECTIONS, SECTION_GROUPS } from '../sections';
+import useRouteContext from "@docusaurus/useRouteContext";
+import { SECTION_GROUPS, SECTIONS } from "../sections";
 
 export function useSectionMenu() {
   const routeContext = useRouteContext();
@@ -27,7 +27,7 @@ export function useSectionMenu() {
       docId,
       currentSection,
       sections: SECTIONS.filter(
-        (section) => section.section === currentSection
+        (section) => section.section === currentSection,
       ),
     };
   }

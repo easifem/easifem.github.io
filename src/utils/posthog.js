@@ -1,13 +1,13 @@
-import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
+import ExecutionEnvironment from "@docusaurus/ExecutionEnvironment";
 
-export default (function () {
+export default (function() {
   if (!ExecutionEnvironment.canUseDOM) {
     return null;
   }
 
   return {
     onRouteUpdate() {
-      window.posthog.capture('$pageview');
+      window.posthog.capture("$pageview");
     },
   };
 })();

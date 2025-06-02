@@ -1,18 +1,18 @@
-import React from 'react';
-import Link from '@docusaurus/Link';
+import Link from "@docusaurus/Link";
 import {
   AppsAddInRegular,
   ArrowRightFilled,
-  DocumentRegular,
-  OpenRegular,
-  RecordRegular,
   CodeCircleRegular,
   CubeRegular,
   DesktopRegular,
   DeveloperBoardRegular,
-} from '@fluentui/react-icons';
-import clsx from 'clsx';
-import { ChevronRight, GitHub } from 'react-feather';
+  DocumentRegular,
+  OpenRegular,
+  RecordRegular,
+} from "@fluentui/react-icons";
+import clsx from "clsx";
+import React from "react";
+import { ChevronRight, GitHub } from "react-feather";
 
 interface Guide {
   title: string;
@@ -23,22 +23,22 @@ interface Guide {
 
 const guides: Guide[] = [
   {
-    title: 'Getting started with easifemBase and easifemClasses',
+    title: "Getting started with easifemBase and easifemClasses",
     icon: CodeCircleRegular,
-    text: 'Quick installation of easifemBase, easifemClasses, and run some sample programs.',
-    link: '/guides/getting-started',
+    text: "Quick installation of easifemBase, easifemClasses, and run some sample programs.",
+    link: "/guides/getting-started",
   },
   {
-    title: 'A simple 💫 Hello World 🚀 program',
+    title: "A simple 💫 Hello World 🚀 program",
     icon: DesktopRegular,
-    text: 'Run a hello world program by using easifem.',
-    link: 'guides/learn-by-examples/hello-world',
+    text: "Run a hello world program by using easifem.",
+    link: "guides/learn-by-examples/hello-world",
   },
   {
-    title: 'Getting started with strings',
+    title: "Getting started with strings",
     icon: DeveloperBoardRegular,
-    text: 'Strings in easifem',
-    link: '/guides/programming-basics/string',
+    text: "Strings in easifem",
+    link: "/guides/programming-basics/string",
   },
 ];
 
@@ -52,25 +52,25 @@ interface Sample {
 
 const samples: Sample[] = [
   {
-    title: 'Heat Diffusion in Soils and Solids',
-    platform: 'React',
-    source: 'https://github.com/vickysharma0812/HeatDiffusion',
-    blog: 'https://easifem.com/blog/HeatDiffusion',
-    demo: 'https://easifem.com/demo/HeatDiffusion',
+    title: "Heat Diffusion in Soils and Solids",
+    platform: "React",
+    source: "https://github.com/vickysharma0812/HeatDiffusion",
+    blog: "https://easifem.com/blog/HeatDiffusion",
+    demo: "https://easifem.com/demo/HeatDiffusion",
   },
   {
-    title: 'Seepage in Soils',
-    platform: 'React',
-    blog: 'https://easifem.com/blog/Seepage/',
-    source: 'https://github.com/vickysharma0812/Seepage',
-    demo: 'https://easifem.com/demo/Seepage',
+    title: "Seepage in Soils",
+    platform: "React",
+    blog: "https://easifem.com/blog/Seepage/",
+    source: "https://github.com/vickysharma0812/Seepage",
+    demo: "https://easifem.com/demo/Seepage",
   },
   {
-    title: 'Elastodynamics response of solids and structures',
-    platform: 'React',
-    blog: 'https://easifem.com/blog/Elastodynamics',
-    source: 'https://github.com/vickysharma0812/Elastodynamics',
-    demo: 'https://easifem.com/demo/Elastodynamics',
+    title: "Elastodynamics response of solids and structures",
+    platform: "React",
+    blog: "https://easifem.com/blog/Elastodynamics",
+    source: "https://github.com/vickysharma0812/Elastodynamics",
+    demo: "https://easifem.com/demo/Elastodynamics",
   },
 ];
 
@@ -132,7 +132,6 @@ function Sample({ title, platform, blog, source, demo }: Sample) {
 export default function GuidesAndSamples() {
   return (
     <section className="no-underline-links my-4 mt-10 mx-auto flex w-full max-w-5xl flex-col gap-10 p-4 py-0 md:flex-row md:gap-0">
-
       <div className="flex-1">
         <div className="mb-8 flex items-center justify-between">
           <h3 className="m-0">Getting started guides 📚</h3>
@@ -143,16 +142,14 @@ export default function GuidesAndSamples() {
         </div>
 
         <div className="flex flex-col gap-4">
-          {guides.map((guide) => (
-            <Guide {...guide} key={guide.title} />
-          ))}
+          {guides.map((guide) => <Guide {...guide} key={guide.title} />)}
         </div>
       </div>
 
       <div
         className={clsx(
-          'mx-8 block flex-shrink-0 bg-gradient-to-b from-transparent via-secondary-700 to-transparent',
-          'hidden w-px md:block'
+          "mx-8 block flex-shrink-0 bg-gradient-to-b from-transparent via-secondary-700 to-transparent",
+          "hidden w-px md:block",
         )}
       />
 
@@ -169,9 +166,7 @@ export default function GuidesAndSamples() {
         </div>
 
         <div className="flex flex-col gap-4">
-          {samples.map((sample) => (
-            <Sample {...sample} key={sample.title} />
-          ))}
+          {samples.map((sample) => <Sample {...sample} key={sample.title} />)}
         </div>
       </div>
     </section>

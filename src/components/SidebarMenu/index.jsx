@@ -1,15 +1,15 @@
-import React from 'react';
-import { useHistory } from '@docusaurus/router';
-import clsx from 'clsx';
-import VersionDropdown from '@theme/NavbarItem/DocsVersionDropdownNavbarItem';
-import useGlobalData from '@docusaurus/useGlobalData';
+import { useHistory } from "@docusaurus/router";
+import useGlobalData from "@docusaurus/useGlobalData";
+import VersionDropdown from "@theme/NavbarItem/DocsVersionDropdownNavbarItem";
+import clsx from "clsx";
+import React from "react";
 
-import SectionsMenu from '../SectionsMenu';
-import { useSectionMenu } from '../../lib/useSectionMenu';
-import styles from './styles.module.css';
+import { useSectionMenu } from "../../lib/useSectionMenu";
+import SectionsMenu from "../SectionsMenu";
+import styles from "./styles.module.css";
 
 function getPrettyPath(path) {
-  return path.slice(-1) === '/' ? path.slice(0, -1) : path;
+  return path.slice(-1) === "/" ? path.slice(0, -1) : path;
 }
 
 export default function SidebarMenu() {
@@ -18,20 +18,19 @@ export default function SidebarMenu() {
   const { docId, currentSection, sections, groups } = data;
 
   const globalData = useGlobalData();
-  const allDocs = globalData['docusaurus-plugin-content-docs'];
+  const allDocs = globalData["docusaurus-plugin-content-docs"];
 
   if (!sections && !groups) return null;
 
   const handleSectionChange = (selectedSection) => {
     if (selectedSection !== docId) {
       const { pathname, hash } = router.location;
-      const page =
-        `/${selectedSection}/` + pathname.split('/').slice(2).join('/');
+      const page = `/${selectedSection}/` + pathname.split("/").slice(2).join("/");
 
       const selectedSectionDocs = allDocs[selectedSection].versions[0].docs;
 
       if (selectedSectionDocs.find((doc) => doc.path === page)) {
-        const path = page + (hash && hash.length > 0 ? '#' + hash : '');
+        const path = page + (hash && hash.length > 0 ? "#" + hash : "");
         router.push(getPrettyPath(path));
       } else {
         const path = selectedSectionDocs[0].path;
@@ -59,7 +58,7 @@ export default function SidebarMenu() {
   }
 
   return (
-    <div className={clsx('sidebar-menu', styles.multiSectionContainer)}>
+    <div className={clsx("sidebar-menu", styles.multiSectionContainer)}>
       {groups.map((group) => {
         const { name, docs, description, className } = group;
 
@@ -71,11 +70,11 @@ export default function SidebarMenu() {
           <div
             className={clsx(
               styles.section,
-              isCurrentSection && styles.sectionActive
+              isCurrentSection && styles.sectionActive,
             )}
             onClick={navigateToFirstSection}
             onKeyDown={(e) => {
-              if (e.code === 'Space' || e.code == 'Enter') {
+              if (e.code === "Space" || e.code == "Enter") {
                 navigateToFirstSection();
               }
             }}
@@ -84,23 +83,23 @@ export default function SidebarMenu() {
           >
             <div className={clsx(styles.label, className)}>{name}</div>
             <div>
-              {isCurrentSection ? (
-                <div className={styles.row}>
-                  <SectionsMenu
-                    defaultValue={isCurrentSection ? docId : docs[0].id}
-                    values={docs}
-                    onValueChange={handleSectionChange}
-                    triggerClassName={styles.sectionsMenu}
-                  />
-                  <VersionDropdown
-                    docsPluginId={docId}
-                    dropdownItemsBefore={[]}
-                    dropdownItemsAfter={[]}
-                  />
-                </div>
-              ) : (
-                <p className={styles.description}>{description}</p>
-              )}
+              {isCurrentSection
+                ? (
+                  <div className={styles.row}>
+                    <SectionsMenu
+                      defaultValue={isCurrentSection ? docId : docs[0].id}
+                      values={docs}
+                      onValueChange={handleSectionChange}
+                      triggerClassName={styles.sectionsMenu}
+                    />
+                    <VersionDropdown
+                      docsPluginId={docId}
+                      dropdownItemsBefore={[]}
+                      dropdownItemsAfter={[]}
+                    />
+                  </div>
+                )
+                : <p className={styles.description}>{description}</p>}
             </div>
           </div>
         );

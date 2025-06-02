@@ -1,5 +1,5 @@
-import React from 'react';
-import type { Props } from '@theme/DocSidebar/Desktop';
+import type { Props } from "@theme/DocSidebar/Desktop";
+import React from "react";
 declare function DocSidebarDesktop({
   path,
   sidebar,

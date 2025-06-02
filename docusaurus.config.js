@@ -93,18 +93,13 @@ const plugins = [
   ...docs_plugins,
   webpackPlugin,
   ["drawio", {}],
-  // [
-  //   'docusaurus-plugin-content-gists',
-  //   {
-  //     enabled: true,
-  //     verbose: true,
-  //     personalAccessToken: process.env.GITHUB_PERSONAL_ACCESS_TOKEN,
-  //   },
-  // ],
 ];
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
+  future: {
+    v4: true,
+  },
   ...meta,
   plugins,
   trailingSlash: false,

@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import Link from '@docusaurus/Link';
-import styles from './styles.module.css';
+import Link from "@docusaurus/Link";
+import styles from "./styles.module.css";
 
 function LecturesCard(props) {
   const {
