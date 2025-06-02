@@ -9,6 +9,5 @@ abool = SOFTLE(a, b, tol)
 ```
 
 $$
-a \le b + tol  
+a \le b + tol\
 $$
-

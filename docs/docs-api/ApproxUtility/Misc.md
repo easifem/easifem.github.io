@@ -27,9 +27,8 @@ import EXAMPLE25 from "./_Misc_test_1.md";
 
 <EXAMPLE25 />
 
-
 To check if a string is number:
 
-```fortran 
+```fortran
 abool = isNumeric("1.2")
 ```

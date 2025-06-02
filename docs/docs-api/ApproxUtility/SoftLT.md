@@ -9,5 +9,5 @@ abool = SOFTLT(a, b, tol)
 ```
 
 $$
-a < b + tol  
+a < b + tol\
 $$
