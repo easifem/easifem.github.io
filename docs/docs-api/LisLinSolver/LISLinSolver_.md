@@ -104,7 +104,7 @@ configuration files for Windows systems
 - `CFLAGS=<additional c flags>` specify additional cflags
 - `FC=<fortran compiler>` specify fortran compiler
 - `FCFLAGS=<f90 flags>` specify additional fortran compiler flags
-- `LDFLAGS=<ld flags for linker>`  optional
+- `LDFLAGS=<ld flags for linker>` optional
 - `--enable-saamg` optional
 - `--enable-quad` optional
 - `--enable-longdouble` optional
@@ -250,7 +250,7 @@ The current version has the following limitations:
 - The VBR format does not support the multiprocessing environment.
 - The SA-AMG preconditioner supports only the CSR format.
 - In the multiprocessing environment, the CSR is the only accepted format for user defined
-arrays.
+  arrays.
 
 ### Double-double (quadruple) precision operations
 
@@ -265,7 +265,7 @@ arrays.
 
 - The algorithm of the ILU(k) preconditioner is based on the localized ILU preconditioning[38], which factorizes the block diagonal elements in parallel. Note that the convergence behavior approaches to that of the Jacobi preconditioner as the number of threads or processes increases.
 - If a preconditioner other than the Jacobi or SSOR is selected and matrix A is not in the CSR
-format, a new matrix is created in the CSR format for preconditioning.
+  format, a new matrix is created in the CSR format for preconditioning.
 - The SA-AMG preconditioner does not support the BiCG method for unsymmetric matrices.
 - The SA-AMG preconditioner does not support multithreading.
 - The SA-AMG preconditioner does not support complex arithmetic.

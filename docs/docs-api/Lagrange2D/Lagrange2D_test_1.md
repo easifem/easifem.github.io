@@ -29,14 +29,14 @@ integer(i4b) :: ii, order, n
 !!! note "order=1"
 
 ```fortran
-  order=1
-  x = EquidistancePoint(order=order, elemType=Triangle)
-  f1=Lagrange2D( order=order, i=1, x=x, name1="x", name2="y", elemType=Triangle )
-  call f1%display( 'f(x)=' )
-  f1=Lagrange2D( order=order, i=2, x=x, name1="x", name2="y", elemType=Triangle )
-  call f1%display( 'f(x)=' )
-  f1=Lagrange2D( order=order, i=3, x=x, name1="x", name2="y", elemType=Triangle )
-  call f1%display( 'f(x)=' )
+order=1
+x = EquidistancePoint(order=order, elemType=Triangle)
+f1=Lagrange2D( order=order, i=1, x=x, name1="x", name2="y", elemType=Triangle )
+call f1%display( 'f(x)=' )
+f1=Lagrange2D( order=order, i=2, x=x, name1="x", name2="y", elemType=Triangle )
+call f1%display( 'f(x)=' )
+f1=Lagrange2D( order=order, i=3, x=x, name1="x", name2="y", elemType=Triangle )
+call f1%display( 'f(x)=' )
 ```
 
 !!! example "result"
@@ -50,16 +50,16 @@ $$
 !!! note "order=2"
 
 ```fortran
-  order = 2_I4B
-  x = EquidistancePoint(order=order, elemType=Triangle)
-  n = LagrangeDOF( order=order, elemType=Triangle )
-  allocate( f(n) )
-  do ii = 1, n
-    f(ii) = Lagrange2D(i=ii, x=x, order=order, &
-      & name1="x", name2="y", elemType=Triangle)
-    call f(ii)%display("l_{"//tostring(ii)//"}=")
-  end do
-  deallocate(f)
+order = 2_I4B
+x = EquidistancePoint(order=order, elemType=Triangle)
+n = LagrangeDOF( order=order, elemType=Triangle )
+allocate( f(n) )
+do ii = 1, n
+  f(ii) = Lagrange2D(i=ii, x=x, order=order, &
+    & name1="x", name2="y", elemType=Triangle)
+  call f(ii)%display("l_{"//tostring(ii)//"}=")
+end do
+deallocate(f)
 ```
 
 !!! example "result"
@@ -76,16 +76,16 @@ $$
 !!! note "order=3"
 
 ```fortran
-  order = 3_I4B
-  x = EquidistancePoint(order=order, elemType=Triangle)
-  n = LagrangeDOF( order=order, elemType=Triangle )
-  allocate( f(n) )
-  do ii = 1, n
-    f(ii) = Lagrange2D(i=ii, x=x, order=order, &
-      & name1="x", name2="y", elemType=Triangle)
-    call f(ii)%display("l_{"//tostring(ii)//"}=")
-  end do
-  deallocate(f)
+order = 3_I4B
+x = EquidistancePoint(order=order, elemType=Triangle)
+n = LagrangeDOF( order=order, elemType=Triangle )
+allocate( f(n) )
+do ii = 1, n
+  f(ii) = Lagrange2D(i=ii, x=x, order=order, &
+    & name1="x", name2="y", elemType=Triangle)
+  call f(ii)%display("l_{"//tostring(ii)//"}=")
+end do
+deallocate(f)
 ```
 
 !!! example "result"

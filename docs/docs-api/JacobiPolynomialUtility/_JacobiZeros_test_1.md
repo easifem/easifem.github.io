@@ -11,7 +11,7 @@ program main
 ```
 
 ```fortran
-  n = 1; call callme
+n = 1; call callme
 ```
 
 <details>
@@ -19,14 +19,14 @@ program main
 <div>
 
 | x |
-|---|
+| - |
 | 0 |
 
 </div>
 </details>
 
 ```fortran
-  n = 2; call callme
+n = 2; call callme
 ```
 
 ```txt title="results"
@@ -36,7 +36,7 @@ Zeros of J(x), n = 2 alpha=0 beta=0
 ```
 
 ```fortran
-  n = 3; call callme
+n = 3; call callme
 ```
 
 <details>
@@ -51,16 +51,16 @@ Zeros of J(x), n = 3 alpha=0 beta=0
 </details>
 
 ```fortran
-  contains
-  subroutine callme
-    pt = JacobiZeros( n=n, alpha=alpha, beta=beta )
-    msg = "Zeros of J(x), n = " &
-        & // tostring( n ) // " alpha="//tostring( alpha ) // &
-        & " beta="//tostring( beta )
-    call display(msg%chars())
-    astr = MdEncode( pt )
-    call display( astr%chars(), "" )
-  end subroutine
+contains
+subroutine callme
+  pt = JacobiZeros( n=n, alpha=alpha, beta=beta )
+  msg = "Zeros of J(x), n = " &
+      & // tostring( n ) // " alpha="//tostring( alpha ) // &
+      & " beta="//tostring( beta )
+  call display(msg%chars())
+  astr = MdEncode( pt )
+  call display( astr%chars(), "" )
+end subroutine
 ```
 
 ```fortran

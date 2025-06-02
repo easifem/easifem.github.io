@@ -21,10 +21,10 @@ import TabItem from '@theme/TabItem';
 <TabItem value="interface" label="܀ QuickSort(vect1, low, high)">
 
 ```fortran
-  MODULE RECURSIVE PURE SUBROUTINE QuickSort(vect1, low, high)
-    Int8|Int16|Int32|Int64|Real32|Real64, INTENT(INOUT) :: vect1(:)
-    INTEGER(I4B), INTENT(IN) :: low, high
-  END SUBROUTINE QuickSort
+MODULE RECURSIVE PURE SUBROUTINE QuickSort(vect1, low, high)
+  Int8|Int16|Int32|Int64|Real32|Real64, INTENT(INOUT) :: vect1(:)
+  INTEGER(I4B), INTENT(IN) :: low, high
+END SUBROUTINE QuickSort
 ```
 
 In this interface `vect1` can be a one dimensional fortran array of

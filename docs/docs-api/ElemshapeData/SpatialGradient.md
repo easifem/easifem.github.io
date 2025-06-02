@@ -15,4 +15,3 @@ MODULE PURE FUNCTION SpatialGradient(obj, val) RESULT(Ans)
   TYPE(FEVariable_) :: ans
 END FUNCTION SpatialGradient
 ```
-

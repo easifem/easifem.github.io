@@ -12,13 +12,11 @@ Ubuntu 🍻
 sudo apt-get install libplplot-dev libplplotfortran0
 ```
 
-
 MacOS 🍎
 
 ```bash
 brew install plplot
 ```
-
 
 ## Building from source
 
@@ -54,7 +52,6 @@ git checkout $(whoami)
 
 We will use `-DCMAKE_INSTALL_PREFIX` to specify the director wherein `PLplot` will be installed.
 
-
 ```sh
 cmake -S ./ -B ./build DCMAKE_INSTALL_PREFIX=~/.easifem/extpkgs  -G "Unix Makefiles"
 cmake --build ./build --target all
@@ -67,8 +64,8 @@ cmake --build ./build --target install
 - `-DCMAKE_BUILD_TYPE:STRING=Release`, other option is `Debug`
 - `-DBUILD_SHARED_LIBS:BOOL=ON`, set `OFF` if shared lib are not desired
 - `-DBUILD_TEST:BOOL=ON`, set `OFF` you dont want to build the tests
--  `-DENABLE_fortran:BOOL=ON`, set `OFF`, if you dont want fortran bindings
--  `-DENABLE_lua:BOOL=ON`, set `OFF` if you do not want Lua language bindings
+- `-DENABLE_fortran:BOOL=ON`, set `OFF`, if you dont want fortran bindings
+- `-DENABLE_lua:BOOL=ON`, set `OFF` if you do not want Lua language bindings
 
 ```sh
 cmake -S ./ -B ~/temp/easifem-extpkgs/plplot/build -G "Unix Makefiles"  -DCMAKE_INSTALL_PREFIX=${EASIFEM_EXTPKGS} -DCMAKE_BUILD_TYPE:STRING=Release -DBUILD_SHARED_LIBS:BOOL=ON  -DBUILD_TEST:BOOL=ON -DENABLE_fortran:BOOL=ON -DENABLE_lua:BOOL=ON

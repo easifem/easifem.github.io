@@ -18,9 +18,9 @@ END INTERFACE
 
 ## Template
 
-| Variable     | Data type |                          Value                          |                                                      Comment |
-| ------------ | :-------: | :-----------------------------------------------------: | -----------------------------------------------------------: |
-| `restart`*   |   Char    |                       `T` or `F`                        | aThe default value is False. If it is true then it represents that we are restarting the simulation, in this case more information are necessary. |
-| `name`       |  String   |                                                         |                                     Name of the scalar field |
-| `fieldType`  |  String   | `NORMAL`, `CONSTANT`, `CONSTANT_SPACE`, `CONSTANT_TIME` |                                                              |
-| `spaceCompo` |  Integer  |                                                         | It represents the number of the  number of spatial components in the field. For example, in 2D problem, velocity variable has two spatial components. |
+| Variable     | Data type |                          Value                          |                                                                                                                                              Comment |
+| ------------ | :-------: | :-----------------------------------------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------: |
+| `restart`*   |   Char    |                       `T` or `F`                        |    aThe default value is False. If it is true then it represents that we are restarting the simulation, in this case more information are necessary. |
+| `name`       |  String   |                                                         |                                                                                                                             Name of the scalar field |
+| `fieldType`  |  String   | `NORMAL`, `CONSTANT`, `CONSTANT_SPACE`, `CONSTANT_TIME` |                                                                                                                                                      |
+| `spaceCompo` |  Integer  |                                                         | It represents the number of the number of spatial components in the field. For example, in 2D problem, velocity variable has two spatial components. |

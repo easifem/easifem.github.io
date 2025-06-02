@@ -27,28 +27,28 @@ PROGRAM MAIN
 ```
 
 !!! note ""
-    Plotting a two dimensional structured grid.
+Plotting a two dimensional structured grid.
 
 ```fortran
-  CALL MeshGrid( x=x, y = y, z = z, &
-    & xgv=linspace( 0.0_DFP, 1.0_DFP, 100), &
-    & ygv=linspace( 0.0_DFP, 1.0_DFP, 100), &
-    & zgv=[1.0_DFP] &
-    & )
+CALL MeshGrid( x=x, y = y, z = z, &
+  & xgv=linspace( 0.0_DFP, 1.0_DFP, 100), &
+  & ygv=linspace( 0.0_DFP, 1.0_DFP, 100), &
+  & zgv=[1.0_DFP] &
+  & )
 ```
 
 !!! note ""
-    Now we replace z by f(x,y). In this way we get a 3D surface representing
-    f(x,y).
+Now we replace z by f(x,y). In this way we get a 3D surface representing
+f(x,y).
 
 ```fortran
-  z = x*(x-1) + y*(y-1)
+z = x*(x-1) + y*(y-1)
 ```
 
 ```fortran
-  CALL obj%initiate( )
-  CALL obj%plot( x, y, z, "./test_6.vts")
-  CALL obj%deallocate()
+CALL obj%initiate( )
+CALL obj%plot( x, y, z, "./test_6.vts")
+CALL obj%deallocate()
 ```
 
 ```fortran

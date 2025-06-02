@@ -13,6 +13,4 @@ INTERFACE
 END INTERFACE
 ```
 
-
-
 This routine is inherited from [AbstractBC_](../AbstractBC/AbstractBC_.md).

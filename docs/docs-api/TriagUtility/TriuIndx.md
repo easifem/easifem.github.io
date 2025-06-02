@@ -25,7 +25,7 @@ import TabItem from '@theme/TabItem';
     !! ans(:,1) contains the row indices
     !! ans(:,2) contains the col indices
   END FUNCTION TriuIndx
-END INTERFACE 
+END INTERFACE
 ```
 
 </TabItem>

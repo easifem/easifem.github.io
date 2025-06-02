@@ -10,9 +10,9 @@ This example demonstrates how to USE the `GetInterpolation` method for scalar va
 ## Usage
 
 !!! note ""
-    IMPORT modules and declare variables
+IMPORT modules and declare variables
 
-``` fortran
+```fortran
 PROGRAM main
     USE easifemBase
     IMPLICIT NONE
@@ -30,63 +30,63 @@ PROGRAM main
 ```
 
 !!! note ""
-    Initiate an instance of [[ReferenceQuadrangle_]]
+Initiate an instance of [[ReferenceQuadrangle_]]
 
 ```fortran
-    refelem = ReferenceQuadrangle( nsd = nsd )
+refelem = ReferenceQuadrangle( nsd = nsd )
 ```
 
 !!! note ""
-    Initiate Gauss-Legendre Quadrature points.
+Initiate Gauss-Legendre Quadrature points.
 
 ```fortran
-    CALL Initiate(obj=quad, refelem=refelem, order=order, &
-        & quadratureType='GaussLegendre')
+CALL Initiate(obj=quad, refelem=refelem, order=order, &
+    & quadratureType='GaussLegendre')
 ```
 
 !!! note ""
-    Initiate an instance of [[ElemshapeData_]] for [[ReferenceQuadrangle_]]. The code shown below ONLY initiates the local shape FUNCTION DATA.
+Initiate an instance of [[ElemshapeData_]] for [[ReferenceQuadrangle_]]. The code shown below ONLY initiates the local shape FUNCTION DATA.
 
 ```fortran
-    CALL Initiate( obj = obj, quad = quad, refelem = refelem, &
-      & ContinuityType= typeH1, InterpolType = TypeLagrangeInterpolation )
-    CALL Set( obj=obj, val=xij, N=obj%N, dNdXi=obj%dNdXi )
+CALL Initiate( obj = obj, quad = quad, refelem = refelem, &
+  & ContinuityType= typeH1, InterpolType = TypeLagrangeInterpolation )
+CALL Set( obj=obj, val=xij, N=obj%N, dNdXi=obj%dNdXi )
 ```
 
 !!! note "GetInterpolation"
-    Scalar variable, constant.
+Scalar variable, constant.
 
 ```fortran
-    var1 = NodalVariable( 1.0_DFP, &
-        & typeFEVariableScalar, &
-        & typeFEVariableConstant )
-    CALL GetInterpolation(obj=obj, interpol=var2, val=var1)
-    CALL Display( var2, "scalar+constant")
+var1 = NodalVariable( 1.0_DFP, &
+    & typeFEVariableScalar, &
+    & typeFEVariableConstant )
+CALL GetInterpolation(obj=obj, interpol=var2, val=var1)
+CALL Display( var2, "scalar+constant")
 ```
 
 ```fortran
-    var1 = NodalVariable( 1.0_DFP, &
-        & typeFEVariableScalar, &
-        & typeFEVariableConstant )
-    CALL Display(Interpolation(obj=obj, val=var1), "scalar+constant")
+var1 = NodalVariable( 1.0_DFP, &
+    & typeFEVariableScalar, &
+    & typeFEVariableConstant )
+CALL Display(Interpolation(obj=obj, val=var1), "scalar+constant")
 ```
 
 !!! note "GetInterpolation"
-    Scalar variable, space.
+Scalar variable, space.
 
 ```fortran
-    var1 = NodalVariable( ones(4, 1.0_DFP), &
-        & typeFEVariableScalar, &
-        & typeFEVariableSpace )
-    CALL GetInterpolation(obj=obj, interpol=var2, val=var1)
-    CALL Display( var2, "scalar+space")
+var1 = NodalVariable( ones(4, 1.0_DFP), &
+    & typeFEVariableScalar, &
+    & typeFEVariableSpace )
+CALL GetInterpolation(obj=obj, interpol=var2, val=var1)
+CALL Display( var2, "scalar+space")
 ```
 
 ```fortran
-    var1 = NodalVariable( ones(4, 1.0_DFP), &
-        & typeFEVariableScalar, &
-        & typeFEVariableSpace )
-    CALL Display(Interpolation(obj=obj, val=var1), "scalar+space")
+var1 = NodalVariable( ones(4, 1.0_DFP), &
+    & typeFEVariableScalar, &
+    & typeFEVariableSpace )
+CALL Display(Interpolation(obj=obj, val=var1), "scalar+space")
 ```
 
 !!! settings "Cleanup"

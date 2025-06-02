@@ -7,7 +7,7 @@ sidebar_label: EquidistancePoint
 This function returns the equidistance points on edge.
 
 :::note
-This routine returns the points in  "VEFC" format, which means `xij(:,1:2)` are the end points, and `xij(:, 3:)` are the internal points.
+This routine returns the points in "VEFC" format, which means `xij(:,1:2)` are the end points, and `xij(:, 3:)` are the internal points.
 :::
 
 ## Interface

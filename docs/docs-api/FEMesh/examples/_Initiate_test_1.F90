@@ -1,5 +1,5 @@
 PROGRAM main
-USE MSHFile_Class, ONLY: MSHFile_
+USE MSHFile_Class
 USE HDF5File_Class
 USE GlobalData
 

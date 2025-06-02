@@ -12,7 +12,7 @@ MODULE PURE SUBROUTINE Initiate( obj, NSD, XiJ )
   CLASS( ReferenceTriangle_ ), INTENT( INOUT ) :: obj
   INTEGER( I4B ), INTENT( IN ) :: NSD
   REAL( DFP ), INTENT( IN ), OPTIONAL :: XiJ( :, : )
-END SUBROUTINE Initiate  
+END SUBROUTINE Initiate
 ```
 
 :::info `xij`
@@ -20,11 +20,11 @@ END SUBROUTINE Initiate
 - The shape of xij is `[3,3]`
 - If xij is not present, then we use the following coordinates:
 
-|     |     |     |
-| --- | --- | --- |
-| 0   | 1   | 0   |
-| 0   | 0   | 1   |
-| 0   | 0   | 0   |
+|   |   |   |
+| - | - | - |
+| 0 | 1 | 0 |
+| 0 | 0 | 1 |
+| 0 | 0 | 0 |
 
 :::
 

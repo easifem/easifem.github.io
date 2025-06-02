@@ -23,19 +23,19 @@ program main
 ```
 
 ```fortran title "Structure of D for odd N"
-  !!
-  n = 5
-  !!
-  call reallocate( pt, n+1, wt, n+1, fval, n+1 )
-  !!
-  call UltrasphericalQuadrature( n=n+1, lambda=lambda, &
-    & pt=pt, wt=wt, quadType=quadType )
-  !!
-  fval = func1(pt)
-  !!
-  D = UltrasphericalDMatrix(n=n, lambda=lambda, x=pt, quadType=quadType)
-  !!
-  CALL display(MdEncode(D), "D=")
+!!
+n = 5
+!!
+call reallocate( pt, n+1, wt, n+1, fval, n+1 )
+!!
+call UltrasphericalQuadrature( n=n+1, lambda=lambda, &
+  & pt=pt, wt=wt, quadType=quadType )
+!!
+fval = func1(pt)
+!!
+D = UltrasphericalDMatrix(n=n, lambda=lambda, x=pt, quadType=quadType)
+!!
+CALL display(MdEncode(D), "D=")
 ```
 
 <details>
@@ -45,7 +45,7 @@ program main
 D =
 
 |         |          |         |         |          |          |
-|---------|----------|---------|---------|----------|----------|
+| ------- | -------- | ------- | ------- | -------- | -------- |
 | -7.5    | 10.141   | -4.0362 | 2.2447  | -1.3499  | 0.5      |
 | -1.7864 | -0       | 2.5234  | -1.1528 | 0.65355  | -0.23778 |
 | 0.48495 | -1.7213  | -0      | 1.753   | -0.78636 | 0.2697   |
@@ -57,19 +57,19 @@ D =
 </details>
 
 ```fortran title "Structure of D for even D"
-  !!
-  n = 6
-  !!
-  call reallocate( pt, n+1, wt, n+1, fval, n+1 )
-  !!
-  call UltrasphericalQuadrature( n=n+1, lambda=lambda, &
-    & pt=pt, wt=wt, quadType=quadType )
-  !!
-  fval = func1(pt)
-  !!
-  D = UltrasphericalDMatrix(n=n, lambda=lambda, x=pt, quadType=quadType)
-  !!
-  CALL display(MdEncode(D), "D=")
+!!
+n = 6
+!!
+call reallocate( pt, n+1, wt, n+1, fval, n+1 )
+!!
+call UltrasphericalQuadrature( n=n+1, lambda=lambda, &
+  & pt=pt, wt=wt, quadType=quadType )
+!!
+fval = func1(pt)
+!!
+D = UltrasphericalDMatrix(n=n, lambda=lambda, x=pt, quadType=quadType)
+!!
+CALL display(MdEncode(D), "D=")
 ```
 
 <details>
@@ -79,7 +79,7 @@ D =
 D =
 
 |          |          |          |         |         |          |          |
-|----------|----------|----------|---------|---------|----------|----------|
+| -------- | -------- | -------- | ------- | ------- | -------- | -------- |
 | -10.5    | 14.202   | -5.669   | 3.2     | -2.05   | 1.3174   | -0.5     |
 | -2.4429  | -0       | 3.4558   | -1.5986 | 0.96134 | -0.60225 | 0.22661  |
 | 0.62526  | -2.2158  | -0       | 2.2667  | -1.0664 | 0.61639  | -0.2261  |
@@ -92,28 +92,28 @@ D =
 </details>
 
 ```fortran
+!!
+error = zeros(30, 2, 1.0_DFP)
+!!
+DO n = 1, SIZE(error,1)
   !!
-  error = zeros(30, 2, 1.0_DFP)
+  call reallocate( pt, n+1, wt, n+1, fval, n+1 )
   !!
-  DO n = 1, SIZE(error,1)
-    !!
-    call reallocate( pt, n+1, wt, n+1, fval, n+1 )
-    !!
-    call UltrasphericalQuadrature( n=n+1, lambda=lambda, &
-      & pt=pt, wt=wt, quadType=quadType )
-    !!
-    fval = func1(pt)
-    !!
-    D = UltrasphericalDMatrix(n=n, lambda=lambda, x=pt, quadType=quadType)
-    !!
-    f1val = dfunc1(pt)
-    !!
-    error(n,1) = n
-    error(n,2) = NORM2( ABS(f1val-MATMUL(D,fval)) )
-    !!
-  END DO
+  call UltrasphericalQuadrature( n=n+1, lambda=lambda, &
+    & pt=pt, wt=wt, quadType=quadType )
   !!
-  CALL display( MdEncode(error), "error=")
+  fval = func1(pt)
+  !!
+  D = UltrasphericalDMatrix(n=n, lambda=lambda, x=pt, quadType=quadType)
+  !!
+  f1val = dfunc1(pt)
+  !!
+  error(n,1) = n
+  error(n,2) = NORM2( ABS(f1val-MATMUL(D,fval)) )
+  !!
+END DO
+!!
+CALL display( MdEncode(error), "error=")
 ```
 
 <details>
@@ -123,7 +123,7 @@ D =
 error=
 
 | order(n) | MAX(err)    |
-|----------|-------------|
+| -------- | ----------- |
 | 1        | 17.772      |
 | 2        | 21.766      |
 | 5        | 30.677      |
@@ -137,18 +137,18 @@ error=
 </details>
 
 ```fortran title "Define function"
-  contains
-  elemental function func1(x) result(ans)
-    real(dfp), intent(in) :: x
-    real(dfp) :: ans
-    ans = SIN(4.0_DFP * pi * x)
-  end function func1
-  !!
-  elemental function dfunc1(x) result(ans)
-    real(dfp), intent(in) :: x
-    real(dfp) :: ans
-    ans = 4.0_DFP * pi * COS(4.0_DFP * pi * x)
-  end function dfunc1
+contains
+elemental function func1(x) result(ans)
+  real(dfp), intent(in) :: x
+  real(dfp) :: ans
+  ans = SIN(4.0_DFP * pi * x)
+end function func1
+!!
+elemental function dfunc1(x) result(ans)
+  real(dfp), intent(in) :: x
+  real(dfp) :: ans
+  ans = 4.0_DFP * pi * COS(4.0_DFP * pi * x)
+end function dfunc1
 ```
 
 ```fortran

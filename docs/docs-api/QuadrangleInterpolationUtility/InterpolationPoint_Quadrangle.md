@@ -34,7 +34,7 @@ END INTERFACE InterpolationPoint_Quadrangle
 - The number of rows in xij can be 2 or 3 (for 2D or 3D)
 - The number of columns in xij is 4
 - If xij is absent then biunit quadrangle is assumed.
-:::
+  :::
 
 :::info ipType
 
@@ -45,7 +45,7 @@ END INTERFACE InterpolationPoint_Quadrangle
 - [x] `GaussChebyshev1Lobatto`
 - [x] `GaussJacobiLobatto`
 - [x] `GaussUltrasphericalLobatto`
-:::
+      :::
 
 :::info layout
 `layout` specifies the arrangement of interpolation points.
@@ -56,7 +56,7 @@ It has two options:
 
 In "VEFC" format (vertex, edge, face, cell), the first four entries denote the vertex points, then we have edges, and then internal nodes.
 
-The internal nodes also follow the same convention. Please read Gmsh manual  on this topic.
+The internal nodes also follow the same convention. Please read Gmsh manual on this topic.
 
 **INCREASING**
 
@@ -67,17 +67,17 @@ For example for order = 3:
 
 **VEFC**
 
-| |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| --- |  --- |  --- |  --- |  --- |  --- |  --- |  --- |  --- |  --- |  --- |  --- |  --- |  --- |  --- |  --- | --- |
-| $x$ | -1 | 1 | 1 | -1 | -0.33333 | 0.33333 | 1 | 1 | 0.33333 | -0.33333 | -1 | -1 | -0.33333 | -0.33333 | 0.333 33 | 0.33333 |
-| $y$ | -1 | -1 | 1 | 1 | -1 | -1 | -0.33333 | 0.33333 | 1 | 1 | 0.33333 | -0.33333 | -0.33333 | 0.33333 | 0.3333 3 | -0.33333 |
+|     |    |    |   |    |          |         |          |         |         |          |         |          |          |          |          |          |
+| --- | -- | -- | - | -- | -------- | ------- | -------- | ------- | ------- | -------- | ------- | -------- | -------- | -------- | -------- | -------- |
+| $x$ | -1 | 1  | 1 | -1 | -0.33333 | 0.33333 | 1        | 1       | 0.33333 | -0.33333 | -1      | -1       | -0.33333 | -0.33333 | 0.333 33 | 0.33333  |
+| $y$ | -1 | -1 | 1 | 1  | -1       | -1      | -0.33333 | 0.33333 | 1       | 1        | 0.33333 | -0.33333 | -0.33333 | 0.33333  | 0.3333 3 | -0.33333 |
 
 **INCREASING**
 
-| |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| --- |  --- |  --- |  --- |  --- |  --- |  --- |  --- |  --- |  --- |  --- |  --- |  --- |  --- |  --- |  --- | --- |
-| $x$ | -1 | -1 | -1 | -1 | -0.33333 | -0.33333 | -0.33333 | -0.33333 | 0.33333 | 0.33333 | 0.33333 | 0.33333 | 1 | 1 | 1 | 1 |
-| $y$ | | -1 | -0.33333 | 0.33333 | 1 | -1 | -0.33333 | 0.33333 | 1 | -1 | -0.33333 | 0.33333 | 1 | -1 | -0.33333 | 0.33333 | 1 |
+|     |    |    |          |         |          |          |          |          |         |         |          |         |   |    |          |         |
+| --- | -- | -- | -------- | ------- | -------- | -------- | -------- | -------- | ------- | ------- | -------- | ------- | - | -- | -------- | ------- |
+| $x$ | -1 | -1 | -1       | -1      | -0.33333 | -0.33333 | -0.33333 | -0.33333 | 0.33333 | 0.33333 | 0.33333  | 0.33333 | 1 | 1  | 1        | 1       |
+| $y$ |    | -1 | -0.33333 | 0.33333 | 1        | -1       | -0.33333 | 0.33333  | 1       | -1      | -0.33333 | 0.33333 | 1 | -1 | -0.33333 | 0.33333 |
 
 </TabItem>
 

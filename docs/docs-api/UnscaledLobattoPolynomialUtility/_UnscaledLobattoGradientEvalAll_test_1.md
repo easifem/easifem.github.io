@@ -1,4 +1,4 @@
-This example shows the usage of `UnscaledLobattoGradientEvalAll` method. 
+This example shows the usage of `UnscaledLobattoGradientEvalAll` method.
 
 This routine evaluates the first derivative of UnscaledLobatto polynomial upto order n, for many points
 
@@ -21,7 +21,7 @@ end program main
 ```
 
 |      |     |    |      |    |       |
-|------|-----|----|------|----|-------|
+| ---- | --- | -- | ---- | -- | ----- |
 | -0.5 | 0.5 | -1 | 1    | -1 | 1     |
 | -0.5 | 0.5 | 0  | -0.5 | -0 | 0.375 |
 | -0.5 | 0.5 | 1  | 1    | 1  | 1     |

@@ -2,7 +2,7 @@
 
 This subroutine computes the area of a triangle in two dimensions.
 
-- If the triangle's vertices are given in counterclockwise order, the area will be positive.  
+- If the triangle's vertices are given in counterclockwise order, the area will be positive.
 - If the triangle's vertices are given in clockwise order, the area will be negative.
 
 ## Interface

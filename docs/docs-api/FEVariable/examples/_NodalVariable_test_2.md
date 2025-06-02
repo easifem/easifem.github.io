@@ -10,9 +10,9 @@ PROGRAM main
 NodalVariable, Vector, constant
 
 ```fortran
-  obj = NodalVariable( arange(0.0_DFP, 3.0_DFP), typeFEVariableVector, &
-    & typeFEVariableConstant )
-  CALL Display(obj, "NodalVariable, Vector, Constant")
+obj = NodalVariable( arange(0.0_DFP, 3.0_DFP), typeFEVariableVector, &
+  & typeFEVariableConstant )
+CALL Display(obj, "NodalVariable, Vector, Constant")
 ```
 
 Results
@@ -32,10 +32,10 @@ RANK :: 1 (VECTOR)
 NodalVariable, Vector, space
 
 ```fortran
-  obj = NodalVariable( reshape(arange(1.0_DFP, 6.0_DFP), [3,2]), &
-      & typeFEVariableVector, &
-      & typeFEVariableSpace )
-  CALL Display(obj, "NodalVariable, Vector, Space")
+obj = NodalVariable( reshape(arange(1.0_DFP, 6.0_DFP), [3,2]), &
+    & typeFEVariableVector, &
+    & typeFEVariableSpace )
+CALL Display(obj, "NodalVariable, Vector, Space")
 ```
 
 Results
@@ -54,10 +54,10 @@ RANK :: 1 (VECTOR)
 NodalVariable, Vector, Time
 
 ```fortran
-  obj = NodalVariable( reshape(arange(1.0_DFP, 6.0_DFP), [3,2]), &
-      & typeFEVariableVector, &
-      & typeFEVariableTime )
-  CALL Display(obj, "NodalVariable, Vector, Time")
+obj = NodalVariable( reshape(arange(1.0_DFP, 6.0_DFP), [3,2]), &
+    & typeFEVariableVector, &
+    & typeFEVariableTime )
+CALL Display(obj, "NodalVariable, Vector, Time")
 ```
 
 Results
@@ -76,10 +76,10 @@ RANK :: 1 (VECTOR)
 NodalVariable, Vector, Space-time
 
 ```fortran
-  obj = NodalVariable( reshape(arange(1.0_DFP, 12.0_DFP), [3,2,2]), &
-      & typeFEVariableVector, &
-      & typeFEVariableSpaceTime )
-  CALL Display(obj, "NodalVariable, Vector, Space-time")
+obj = NodalVariable( reshape(arange(1.0_DFP, 12.0_DFP), [3,2,2]), &
+    & typeFEVariableVector, &
+    & typeFEVariableSpaceTime )
+CALL Display(obj, "NodalVariable, Vector, Space-time")
 ```
 
 Results

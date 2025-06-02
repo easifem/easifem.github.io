@@ -1,4 +1,3 @@
-
 # GetVelocityNeumannBCPointer
 
 This routine returns the pointer to Neumann boundary condition of Velocity field in [AbstractSteadyStokes_](../AbstractSteadyStokes/AbstractSteadyStokes_.md) kernel, that is `obj%NBCForVelocity(nbcNo)%ptr`.

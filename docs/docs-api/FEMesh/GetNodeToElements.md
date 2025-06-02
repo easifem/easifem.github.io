@@ -10,7 +10,7 @@ import EXAMPLE5 from "../AbstractMesh/GetNodeToNodes.md";
 
 <EXAMPLE5 />
 
-## Examples 
+## Examples
 
 <details>
 <summary>Example 1</summary>
@@ -22,4 +22,3 @@ import EXAMPLE6 from "./examples/_GetNodeToElements_test_1.md";
 
 </div>
 </details>
-

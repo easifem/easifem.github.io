@@ -33,8 +33,8 @@ $$
 General interface is given below.
 
 ```fortran
-  mat4 = STDiffusionMatrix(test, trial)
-  mat2 = DiffusionMatrix(test, trial)
+mat4 = STDiffusionMatrix(test, trial)
+mat2 = DiffusionMatrix(test, trial)
 ```
 
 $$
@@ -46,8 +46,8 @@ $$
 General interface is given below.
 
 ```fortran
-  mat4 = STDiffusionMatrix(test, trial, k)
-  mat2 = DiffusionMatrix(test, trial, k)
+mat4 = STDiffusionMatrix(test, trial, k)
+mat2 = DiffusionMatrix(test, trial, k)
 ```
 
 !!! example ""
@@ -59,8 +59,8 @@ $$
 Here, $\rho$ is a scalar [[FEVariable_]], therefore, we can obtain this matrix by following call.
 
 ```fortran
-  mat4 = STDiffusionMatrix(test, trial, k=rho)
-  mat2 = DiffusionMatrix(test, trial, k=rho)
+mat4 = STDiffusionMatrix(test, trial, k=rho)
+mat2 = DiffusionMatrix(test, trial, k=rho)
 ```
 
 !!! example ""
@@ -72,8 +72,8 @@ $$
 Here, $k_{ij}$ is a diffusion tensor [[FEVariable_]], therefore, we can obtain this matrix by following call.
 
 ```fortran
-  mat4 = STDiffusionMatrix(test, trial, k=k)
-  mat2 = DiffusionMatrix(test, trial, k=k)
+mat4 = STDiffusionMatrix(test, trial, k=k)
+mat2 = DiffusionMatrix(test, trial, k=k)
 ```
 
 ### STDiffusionMatrix 3
@@ -81,18 +81,18 @@ Here, $k_{ij}$ is a diffusion tensor [[FEVariable_]], therefore, we can obtain t
 The general interface in this category is given below.
 
 ```fortran
-  mat4 = STDiffusionMatrix(test, trial, c1, c2)
-  mat2 = DiffusionMatrix(test, trial, c1, c2)
+mat4 = STDiffusionMatrix(test, trial, c1, c2)
+mat2 = DiffusionMatrix(test, trial, c1, c2)
 ```
 
 !!! note "c1"
-  c1 is a [[FEVariable_]], which can be a scalar, vector, or a matrix.
+c1 is a [[FEVariable_]], which can be a scalar, vector, or a matrix.
 
 !!! note "c2"
-  c2 is a [[FEVariable_]], which can be a scalar, vector, or a matrix.
+c2 is a [[FEVariable_]], which can be a scalar, vector, or a matrix.
 
 !!! note ""
-  9 types of matrices can be formed from this routine.
+9 types of matrices can be formed from this routine.
 
 !!! example "scalar-scalar"
 
@@ -107,8 +107,8 @@ $$
 Here $\rho$ is a scalar and $k$ is a matrix (rank-2 tensor) [[FEVariable_]]. This matrix can be obtained by following expression.
 
 ```fortran
-  mat4 = STDiffusionMatrix(test, trial, c1=rho, c2=k)
-  mat2 = DiffusionMatrix(test, trial, c1=rho, c2=k)
+mat4 = STDiffusionMatrix(test, trial, c1=rho, c2=k)
+mat2 = DiffusionMatrix(test, trial, c1=rho, c2=k)
 ```
 
 ### STDiffusionMatrix 4
@@ -116,8 +116,8 @@ Here $\rho$ is a scalar and $k$ is a matrix (rank-2 tensor) [[FEVariable_]]. Thi
 Generic interface is given below.
 
 ```fortran
-  mat4 = STDiffusionMatrix(test, trial, c1, c2, c3)
-  mat2 = DiffusionMatrix(test, trial, c1, c2, c3)
+mat4 = STDiffusionMatrix(test, trial, c1, c2, c3)
+mat2 = DiffusionMatrix(test, trial, c1, c2, c3)
 ```
 
 $$

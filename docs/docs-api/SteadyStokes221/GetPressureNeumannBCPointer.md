@@ -1,4 +1,3 @@
-
 # GetPressureNeumannBCPointer
 
 This routine returns the pointer to Neumann boundary condition of pressure field in [AbstractSteadyStokes_](../AbstractSteadyStokes/AbstractSteadyStokes_.md) kernel, that is `obj%NBCForPressure(nbcNo)%ptr`.

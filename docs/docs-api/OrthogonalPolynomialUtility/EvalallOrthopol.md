@@ -42,7 +42,7 @@ Currently, we can specify following types of orthogonal polynomials:
 - [x] Chebyshev
 - [x] Lobatto
 - [x] UnscaledLobatto
-:::
+      :::
 
 :::note `alpha, beta`
 alpha and beta are parameters of Jacobi Polynomials. They should be present when `orthopol` is equal to `Jacobi`
@@ -56,4 +56,4 @@ alpha and beta are parameters of Jacobi Polynomials. They should be present when
 
 - The jth col of `ans` denotes the value of jth polynomial at all points.
 - The ith row of `ans` denotes the value of all polynomials at ith point.
-:::
+  :::

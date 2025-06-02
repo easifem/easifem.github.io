@@ -77,10 +77,10 @@ Specifies whether to permute the rows of the original matrix.
 
 - NO: not to permute the rows
 - LargeDiag MC64: use a serial, weighted bipartite matching algorithm implemented in
-MC64 to permute the rows to make the diagonal large relative to the off-diagonal [11].
+  MC64 to permute the rows to make the diagonal large relative to the off-diagonal [11].
 - LargeDiag AWPM: use a parallel, approximate weighted bipartite matching algorithm
-implemented in CombBLAS to permute the rows to make the diagonal large relative to
-the off-diagonal [3].
+  implemented in CombBLAS to permute the rows to make the diagonal large relative to
+  the off-diagonal [3].
 - MY PERMR: use the permutation given by the user.
 
 ## ILU_DropRule

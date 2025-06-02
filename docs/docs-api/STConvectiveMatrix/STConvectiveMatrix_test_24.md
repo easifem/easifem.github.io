@@ -16,40 +16,40 @@ tags:
 # STConvectiveMatrix example 24
 
 !!! note ""
-	This example shows how to USE the SUBROUTINE called `STConvectiveMatrix` to create a space-time convective matrix. Triangle3 in space and Line2 in time.
-    
+This example shows how to USE the SUBROUTINE called `STConvectiveMatrix` to create a space-time convective matrix. Triangle3 in space and Line2 in time.
+
 Here, we want to DO the following.
 
 $$
-M\left( {I,J,a,b} \right) =  {\int_{{I_n}}^{} {\int_\Omega ^{} {\frac{{\partial {N^I}{T_a}}}{{\partial x}} c \cdot {N^J}{T_b}d\Omega dt} } } 
+M\left( {I,J,a,b} \right) = {\int_{{I_n}}^{} {\int_\Omega ^{} {\frac{{\partial {N^I}{T_a}}}{{\partial x}} c \cdot {N^J}{T_b}d\Omega dt} } }
 $$
 
 $$
-M\left( {I,J,a,b} \right) =  {\int_{{I_n}}^{} {\int_\Omega ^{} {\frac{{\partial {N^I}{T_a}}}{{\partial y}} c \cdot {N^J}{T_b}d\Omega dt} } } 
+M\left( {I,J,a,b} \right) = {\int_{{I_n}}^{} {\int_\Omega ^{} {\frac{{\partial {N^I}{T_a}}}{{\partial y}} c \cdot {N^J}{T_b}d\Omega dt} } }
 $$
 
 $$
-M\left( {I,J,a,b} \right) =  {\int_{{I_n}}^{} {\int_\Omega ^{} {\frac{{\partial {N^I}{T_a}}}{{\partial z}} c \cdot {N^J}{T_b}d\Omega dt} } } 
+M\left( {I,J,a,b} \right) = {\int_{{I_n}}^{} {\int_\Omega ^{} {\frac{{\partial {N^I}{T_a}}}{{\partial z}} c \cdot {N^J}{T_b}d\Omega dt} } }
 $$
 
 $$
-M\left( {I,J,a,b} \right) =  {\int_{{I_n}}^{} {\int_\Omega ^{} {{N^J}{T_b} c \cdot  \frac{{\partial {N^J}{T_b}}}{{\partial x}}d\Omega dt} } } 
+M\left( {I,J,a,b} \right) = {\int_{{I_n}}^{} {\int_\Omega ^{} {{N^J}{T_b} c \cdot \frac{{\partial {N^J}{T_b}}}{{\partial x}}d\Omega dt} } }
 $$
 
 $$
-M\left( {I,J,a,b} \right) =  {\int_{{I_n}}^{} {\int_\Omega ^{} {{N^J}{T_b} c \cdot \frac{{\partial {N^J}{T_b}}}{{\partial y}}d\Omega dt} } } 
+M\left( {I,J,a,b} \right) = {\int_{{I_n}}^{} {\int_\Omega ^{} {{N^J}{T_b} c \cdot \frac{{\partial {N^J}{T_b}}}{{\partial y}}d\Omega dt} } }
 $$
 
 $$
-M\left( {I,J,a,b} \right) =  {\int_{{I_n}}^{} {\int_\Omega ^{} {{N^J}{T_b} c \cdot \frac{{\partial {N^J}{T_b}}}{{\partial z}}d\Omega dt} } } 
+M\left( {I,J,a,b} \right) = {\int_{{I_n}}^{} {\int_\Omega ^{} {{N^J}{T_b} c \cdot \frac{{\partial {N^J}{T_b}}}{{\partial z}}d\Omega dt} } }
 $$
 
 !!! warning ""
-    $c$ is scalar [[FEVariable_]], which can be a constant, or a FUNCTION of space-time, or some nonlinear FUNCTION.
+$c$ is scalar [[FEVariable_]], which can be a constant, or a FUNCTION of space-time, or some nonlinear FUNCTION.
 
-In this example, convective matrix is formed for 
+In this example, convective matrix is formed for
 
-- [[ReferenceTriangle_]] Triangle3 element for  space
+- [[ReferenceTriangle_]] Triangle3 element for space
 - [[ReferenceLine_]] Line2 element for time
 - [[QuadraturePoint_]] `GaussLegendre`
 - Constant $c$
@@ -87,80 +87,80 @@ PROGRAM main
 ```
 
 !!! note ""
-    First, we initiate a [[ReferenceLine_]] element for time domain. Note that `nsd` should be 1 when making reference element for time domain. Generate the quadrature points, and initiates an instance of [[ElemshapeData_]].
+First, we initiate a [[ReferenceLine_]] element for time domain. Note that `nsd` should be 1 when making reference element for time domain. Generate the quadrature points, and initiates an instance of [[ElemshapeData_]].
 
 ```fortran
-    refelemForTime= ReferenceLine(nsd=1)
-    CALL Initiate(obj=quadFortime, &
-		& refelem=refelemForTime,&
-		& order=orderForTime, &
-      	& quadratureType="GaussLegendre" )
-    CALL Initiate( &
-    	& obj=time_elemsd, &
-	  	& quad=quadForTime, &
-		& refelem=refelemForTime, &
-      	& ContinuityType=typeH1,&
-		& InterpolType=TypeLagrangeInterpolation)
-    CALL Set(obj=time_elemsd, &
-		& val=tiJ, N=time_elemsd%N, &
-        & dNdXi=time_elemsd%dNdXi)
+  refelemForTime= ReferenceLine(nsd=1)
+  CALL Initiate(obj=quadFortime, &
+& refelem=refelemForTime,&
+& order=orderForTime, &
+    	& quadratureType="GaussLegendre" )
+  CALL Initiate( &
+  	& obj=time_elemsd, &
+ 	& quad=quadForTime, &
+& refelem=refelemForTime, &
+    	& ContinuityType=typeH1,&
+& InterpolType=TypeLagrangeInterpolation)
+  CALL Set(obj=time_elemsd, &
+& val=tiJ, N=time_elemsd%N, &
+      & dNdXi=time_elemsd%dNdXi)
 ```
 
 !!! note ""
-    Initiate [[STElemshapeData_]].
+Initiate [[STElemshapeData_]].
 
 ```fortran
-    CALL Initiate(obj=test, elemsd=time_elemsd)
+CALL Initiate(obj=test, elemsd=time_elemsd)
 ```
 
 !!! note ""
-    Generating shape functions for space-elements. Here, we are selecting a triangular element
+Generating shape functions for space-elements. Here, we are selecting a triangular element
 
 ```fortran
-    refelemForSpace = ReferenceTriangle(nsd=nsd)
-    CALL Initiate(obj=quadForSpace, &
-		& refelem=refelemForSpace, &
-		& order=orderForSpace, &
-		& quadratureType='GaussLegendre')
+  refelemForSpace = ReferenceTriangle(nsd=nsd)
+  CALL Initiate(obj=quadForSpace, &
+& refelem=refelemForSpace, &
+& order=orderForSpace, &
+& quadratureType='GaussLegendre')
 ```
 
 ```fortran
-    DO ii = 1, SIZE(test)
-      CALL Initiate( obj=test(ii), &
-	  	& quad=quadForSpace, &
-		& refelem=refelemForSpace, &
-        & ContinuityType=typeH1, &
-		& InterpolType=TypeLagrangeInterpolation)
-    END DO
-```
-
-!!! note ""
-    Setting the remaining DATA in obj. Here, `xija` are the space-time nodal coordinates.
-
-```fortran
-	CALL Reallocate(xija, nsd, nns, nnt)
-    DO ii = 1, nnt; xija(:, :, ii) = xij; END DO
-    DO ii = 1, SIZE(test)
-        CALL Set(obj=test(ii), &
-            & val=xija, &
-			& N=test(ii)%N, &
-            & dNdXi=test(ii)%dNdXi, &
-            & T=test(ii)%T)
-    END DO
+  DO ii = 1, SIZE(test)
+    CALL Initiate( obj=test(ii), &
+ 	& quad=quadForSpace, &
+& refelem=refelemForSpace, &
+      & ContinuityType=typeH1, &
+& InterpolType=TypeLagrangeInterpolation)
+  END DO
 ```
 
 !!! note ""
-    Let us now create the space-time convective matrix.
+Setting the remaining DATA in obj. Here, `xija` are the space-time nodal coordinates.
 
 ```fortran
-    cvar = NodalVariable(c, typeFEVariableScalar, typeFEVariableConstant)
+CALL Reallocate(xija, nsd, nns, nnt)
+   DO ii = 1, nnt; xija(:, :, ii) = xij; END DO
+   DO ii = 1, SIZE(test)
+       CALL Set(obj=test(ii), &
+           & val=xija, &
+		& N=test(ii)%N, &
+           & dNdXi=test(ii)%dNdXi, &
+           & T=test(ii)%T)
+   END DO
+```
+
+!!! note ""
+Let us now create the space-time convective matrix.
+
+```fortran
+cvar = NodalVariable(c, typeFEVariableScalar, typeFEVariableConstant)
 ```
 
 ```fortran
-    mat=ConvectiveMatrix(test=test, trial=test, &
-        & term1=del_none, term2=del_x, &
-        & c=cvar)
-    CALL Display(mat, "mat:")
+mat=ConvectiveMatrix(test=test, trial=test, &
+    & term1=del_none, term2=del_x, &
+    & c=cvar)
+CALL Display(mat, "mat:")
 ```
 
 ??? example "Results"
@@ -177,10 +177,10 @@ PROGRAM main
     ```
 
 ```fortran
-    mat=ConvectiveMatrix(test=test, trial=test, &
-        & term1=del_x, term2=del_none, &
-        & c=cvar)
-    CALL Display(mat, "mat:")
+mat=ConvectiveMatrix(test=test, trial=test, &
+    & term1=del_x, term2=del_none, &
+    & c=cvar)
+CALL Display(mat, "mat:")
 ```
 
 ??? example "Results"

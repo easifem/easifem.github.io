@@ -1,6 +1,6 @@
 This example tests the `SetMeshMap` method of the domain.
 
-``` fortran
+```fortran
 PROGRAM main
   USE easifemBase
   USE easifemClasses

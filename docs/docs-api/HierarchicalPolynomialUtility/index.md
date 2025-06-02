@@ -18,4 +18,3 @@ tags:
 # HierarchicalPolynomialUtility
 
 This module is a collection of methods which are useful for Hierarchical Polynomials.
-

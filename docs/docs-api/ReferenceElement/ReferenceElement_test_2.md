@@ -12,7 +12,7 @@ title: ReferenceElement example 2
 
 ## Usage
 
-``` fortran
+```fortran
 PROGRAM main
   TYPE( ReferenceTriangle_ ) :: obj
   TYPE( ReferenceElement_ ), ALLOCATABLE :: facetElems( : )

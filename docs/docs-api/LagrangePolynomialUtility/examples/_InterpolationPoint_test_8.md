@@ -18,21 +18,21 @@ type(csvfile_) :: afile
 Setup
 
 ```fortran
-  xij = zeros(2,3, 0.0_DFP)
-  xij(1,:) = [0.0_DFP, 1.0_DFP, 0.0_DFP]
-  xij(2,:) = [0.0_DFP, 0.0_DFP, 1.0_DFP]
+xij = zeros(2,3, 0.0_DFP)
+xij(1,:) = [0.0_DFP, 1.0_DFP, 0.0_DFP]
+xij(2,:) = [0.0_DFP, 0.0_DFP, 1.0_DFP]
 ```
 
 ipType=Equidistance
 
 ```todo
-  ipType = Equidistance
-  !!
-  order=5
-  ip = InterpolationPoint(order=order, ipType=ipType, elemType=elemType, &
-    & xij=xij, layout=layout)
-  call display(MdEncode(TRANSPOSE(ip)), &
-    & "ipType=Equidistance, layout=VEFC" // char_lf)
+ipType = Equidistance
+!!
+order=5
+ip = InterpolationPoint(order=order, ipType=ipType, elemType=elemType, &
+  & xij=xij, layout=layout)
+call display(MdEncode(TRANSPOSE(ip)), &
+  & "ipType=Equidistance, layout=VEFC" // char_lf)
 ```
 
 <details>
@@ -42,7 +42,7 @@ ipType=Equidistance
 ipType=Equidistance, layout=VEFC
 
 |     |     |
-|-----|-----|
+| --- | --- |
 | 0   | 0   |
 | 1   | 0   |
 | 0   | 1   |
@@ -71,22 +71,22 @@ ipType=Equidistance, layout=VEFC
 ipType=BlythPozLegendre, layout=VEFC
 
 ```fortran
-  ipType = BlythPozLegendre
-  !!
-  order=4
-  ip = InterpolationPoint(order=order, ipType=ipType, elemType=elemType, &
-    & xij=xij, layout=layout)
-  call display(MdEncode(TRANSPOSE(ip)), &
-    & "ipType=Equidistance, layout=VEFC" // char_lf)
-  !!
-  call afile%initiate( &
-    & filename=fname//"_BlythPozLegendre_m="//tostring(order)//".csv", &
-    & status="NEW", &
-    & action="WRITE")
-  call afile%open()
-  call afile%write("x, y")
-  call afile%write(ip, orient="TRANSPOSE")
-  call afile%deallocate()
+ipType = BlythPozLegendre
+!!
+order=4
+ip = InterpolationPoint(order=order, ipType=ipType, elemType=elemType, &
+  & xij=xij, layout=layout)
+call display(MdEncode(TRANSPOSE(ip)), &
+  & "ipType=Equidistance, layout=VEFC" // char_lf)
+!!
+call afile%initiate( &
+  & filename=fname//"_BlythPozLegendre_m="//tostring(order)//".csv", &
+  & status="NEW", &
+  & action="WRITE")
+call afile%open()
+call afile%write("x, y")
+call afile%write(ip, orient="TRANSPOSE")
+call afile%deallocate()
 ```
 
 <details>
@@ -94,7 +94,7 @@ ipType=BlythPozLegendre, layout=VEFC
 <div>
 
 |              |              |
-|--------------|--------------|
+| ------------ | ------------ |
 | -3.70074E-17 | -3.70074E-17 |
 | 1            | -3.70074E-17 |
 | -3.70074E-17 | 1            |
@@ -117,39 +117,39 @@ ipType=BlythPozLegendre, layout=VEFC
 ipType=BlythPozLegendre, layout=VEFC
 
 ```fortran
-  ipType = BlythPozLegendre
-  !!
-  order=6
-  ip = InterpolationPoint(order=order, ipType=ipType, elemType=elemType, &
-    & xij=xij, layout=layout)
-  !!
-  call afile%initiate( &
-    & filename=fname//"_BlythPozLegendre_m="//tostring(order)//".csv", &
-    & status="NEW", &
-    & action="WRITE")
-  call afile%open()
-  call afile%write("x, y")
-  call afile%write(ip, orient="TRANSPOSE")
-  call afile%deallocate()
+ipType = BlythPozLegendre
+!!
+order=6
+ip = InterpolationPoint(order=order, ipType=ipType, elemType=elemType, &
+  & xij=xij, layout=layout)
+!!
+call afile%initiate( &
+  & filename=fname//"_BlythPozLegendre_m="//tostring(order)//".csv", &
+  & status="NEW", &
+  & action="WRITE")
+call afile%open()
+call afile%write("x, y")
+call afile%write(ip, orient="TRANSPOSE")
+call afile%deallocate()
 ```
 
 ipType=BlythPozLegendre, layout=VEFC
 
 ```fortran
-  ipType = BlythPozLegendre
-  !!
-  order=9
-  ip = InterpolationPoint(order=order, ipType=ipType, elemType=elemType, &
-    & xij=xij, layout=layout)
-  !!
-  call afile%initiate( &
-    & filename=fname//"_BlythPozLegendre_m="//tostring(order)//".csv", &
-    & status="NEW", &
-    & action="WRITE")
-  call afile%open()
-  call afile%write("x, y")
-  call afile%write(ip, orient="TRANSPOSE")
-  call afile%deallocate()
+ipType = BlythPozLegendre
+!!
+order=9
+ip = InterpolationPoint(order=order, ipType=ipType, elemType=elemType, &
+  & xij=xij, layout=layout)
+!!
+call afile%initiate( &
+  & filename=fname//"_BlythPozLegendre_m="//tostring(order)//".csv", &
+  & status="NEW", &
+  & action="WRITE")
+call afile%open()
+call afile%write("x, y")
+call afile%write(ip, orient="TRANSPOSE")
+call afile%deallocate()
 ```
 
 ```fortran

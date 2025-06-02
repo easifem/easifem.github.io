@@ -36,34 +36,31 @@ character(len=*), parameter :: varname1="x", varname2="y", varname3="z"
 ```
 
 !!! note ""
-    Initiate the following monomial.
+Initiate the following monomial.
 $$
 f(x,y)=x^2 y z
 $$
 
 ```fortran
-  n1=2; n2=1; n3=1
-  obj=Monomial3D( n1=n1, n2=n2, n3=n3, varname1=varname1, &
-    & varname2=varname2, varname3=varname3 )
+n1=2; n2=1; n3=1
+obj=Monomial3D( n1=n1, n2=n2, n3=n3, varname1=varname1, &
+  & varname2=varname2, varname3=varname3 )
 ```
 
 ```fortran
-  astr = obj%GetStringForUID()
-  call Display( astr, "GetStringForUID = " )
-  astr = obj%GetDisplayString()
-  call Display( astr, "GetDisplayString = " )
-  degree = obj%GetDegree()
-  call Display( degree, "GetDegree = " )
+astr = obj%GetStringForUID()
+call Display( astr, "GetStringForUID = " )
+astr = obj%GetDisplayString()
+call Display( astr, "GetDisplayString = " )
+degree = obj%GetDegree()
+call Display( degree, "GetDegree = " )
 ```
 
-!!! example "result"
-    GetStringForUID =x^2*y^1*z^1
-    GetDisplayString =x^2 y^1 z^1
-    GetDegree =
-    ------------
-        2
-        1
-        1
+## !!! example "result"GetStringForUID =x^2*y^1*z^1GetDisplayString =x^2 y^1 z^1GetDegree =
+
+2
+1
+1
 
 ```fortran
 END PROGRAM main

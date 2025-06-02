@@ -29,10 +29,10 @@ integer(i4b) :: ii
 Let us generate 100 jacobi polynomials
 
 ```fortran
-  DO ii = 1, 1000000
-    call obj%Initiate(varname="x", n=100, alpha=0.0_DFP, beta=0.0_DFP)
-  END DO
-  Read( *, * ) ii
+DO ii = 1, 1000000
+  call obj%Initiate(varname="x", n=100, alpha=0.0_DFP, beta=0.0_DFP)
+END DO
+Read( *, * ) ii
 ```
 
 ```fortran

@@ -7,7 +7,7 @@ This function calculates eigenvalues of a symmetric matrix.
 - For `n=2` it calls [SymEigenValues2y2](SymEigenValues2by2.md)
 - For `n=3` it calls [SymEigenValues3by3](SymEigenValues3by3.md)
 - For `n>=4` it calls `SYEV` routine from Lapack95
-:::
+  :::
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

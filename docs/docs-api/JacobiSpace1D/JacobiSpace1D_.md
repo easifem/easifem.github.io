@@ -31,7 +31,8 @@ END INTERFACE
 ```
 
 !!! example "Examples"
-    - [[JacobiSpace1D_test_1]]
+
+- [[JacobiSpace1D_test_1]]
 
 ### JacobiSpace1D_Pointer
 
@@ -54,7 +55,8 @@ END INTERFACE
 ```
 
 !!! example "Examples"
-    - [[JacobiSpace1D_test_1]]
+
+- [[JacobiSpace1D_test_1]]
 
 ### Deallocate
 
@@ -69,7 +71,8 @@ END INTERFACE
 ```
 
 !!! example "Examples"
-    - [[JacobiSpace1D_test_1]]
+
+- [[JacobiSpace1D_test_1]]
 
 ### Display
 
@@ -86,7 +89,8 @@ END INTERFACE
 ```
 
 !!! example "Examples"
-    - [[JacobiSpace1D_test_1]]
+
+- [[JacobiSpace1D_test_1]]
 
 ### GetParam
 
@@ -104,7 +108,8 @@ END INTERFACE
 ```
 
 !!! example "Examples"
-    - [[JacobiSpace1D_test_1]]
+
+- [[JacobiSpace1D_test_1]]
 
 ### GetRecurrenceCoeff
 
@@ -123,7 +128,8 @@ END INTERFACE
 ```
 
 !!! example "Examples"
-    - [[JacobiSpace1D_test_2]]
+
+- [[JacobiSpace1D_test_2]]
 
 ### GetRecurrenceCoeff2
 
@@ -147,7 +153,8 @@ END INTERFACE
 ```
 
 !!! example "Examples"
-    - [[JacobiSpace1D_test_2]]
+
+- [[JacobiSpace1D_test_2]]
 
 ### GetAlpha
 
@@ -164,7 +171,8 @@ END INTERFACE
 ```
 
 !!! example "Examples"
-    - [[JacobiSpace1D_test_2]]
+
+- [[JacobiSpace1D_test_2]]
 
 ### GetBeta
 
@@ -181,7 +189,8 @@ END INTERFACE
 ```
 
 !!! example "Examples"
-    - [[JacobiSpace1D_test_2]]
+
+- [[JacobiSpace1D_test_2]]
 
 ### GetLeadingCoeff
 
@@ -198,7 +207,8 @@ END INTERFACE
 ```
 
 !!! example "Examples"
-    - [[JacobiSpace1D_test_3]]
+
+- [[JacobiSpace1D_test_3]]
 
 ### GetLeadingCoeffRatio
 
@@ -215,7 +225,8 @@ END INTERFACE
 ```
 
 !!! example "Examples"
-    - [[JacobiSpace1D_test_3]]
+
+- [[JacobiSpace1D_test_3]]
 
 ### GetNormSqr
 
@@ -232,7 +243,8 @@ END INTERFACE
 ```
 
 !!! example "Examples"
-    - [[JacobiSpace1D_test_3]]
+
+- [[JacobiSpace1D_test_3]]
 
 ### GetNormSqr2
 
@@ -249,7 +261,8 @@ END INTERFACE
 ```
 
 !!! example "Examples"
-    - [[JacobiSpace1D_test_3]]
+
+- [[JacobiSpace1D_test_3]]
 
 ### GetNormSqrRatio
 
@@ -266,7 +279,8 @@ END INTERFACE
 ```
 
 !!! example "Examples"
-    - [[JacobiSpace1D_test_3]]
+
+- [[JacobiSpace1D_test_3]]
 
 ### GetZeros
 
@@ -283,7 +297,8 @@ END INTERFACE
 ```
 
 !!! example "Examples"
-    - [[JacobiSpace1D_test_4]]
+
+- [[JacobiSpace1D_test_4]]
 
 ### GetQuadrature
 

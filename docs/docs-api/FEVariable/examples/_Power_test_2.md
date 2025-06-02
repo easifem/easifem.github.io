@@ -12,7 +12,7 @@ tags:
 # FEVariable example 52
 
 !!! note ""
-    This example tests POWER `(**)` operator. Scalar, Quadrature Variable.
+This example tests POWER `(**)` operator. Scalar, Quadrature Variable.
 
 ## Use association
 
@@ -33,56 +33,56 @@ PROGRAM main
 !!! note "constant"
 
 ```fortran
-  obj = QuadratureVariable( &
-      & 2.0_DFP, &
-      & typeFEVariableScalar,    &
-      & typeFEVariableConstant ) ** 2
-  ans = QuadratureVariable( 4.0_DFP, &
-      & typeFEVariableScalar,    &
-      & typeFEVariableConstant )
-  CALL OK( obj .EQ. ans, "constant:" )
+obj = QuadratureVariable( &
+    & 2.0_DFP, &
+    & typeFEVariableScalar,    &
+    & typeFEVariableConstant ) ** 2
+ans = QuadratureVariable( 4.0_DFP, &
+    & typeFEVariableScalar,    &
+    & typeFEVariableConstant )
+CALL OK( obj .EQ. ans, "constant:" )
 ```
 
 !!! note "space"
 
 ```fortran
-  obj = QuadratureVariable( &
-      & arange(1.0_DFP, 3.0_DFP), &
-      & typeFEVariableScalar, &
-      & typeFEVariableSpace ) ** 2
-  ans = QuadratureVariable( &
-      & (arange(1.0_DFP, 3.0_DFP))**2, &
-      & typeFEVariableScalar,    &
-      & typeFEVariableSpace )
-  CALL OK( obj .EQ. ans, "space:" )
+obj = QuadratureVariable( &
+    & arange(1.0_DFP, 3.0_DFP), &
+    & typeFEVariableScalar, &
+    & typeFEVariableSpace ) ** 2
+ans = QuadratureVariable( &
+    & (arange(1.0_DFP, 3.0_DFP))**2, &
+    & typeFEVariableScalar,    &
+    & typeFEVariableSpace )
+CALL OK( obj .EQ. ans, "space:" )
 ```
 
 !!! note "time"
 
 ```fortran
-  obj = QuadratureVariable( &
-      & arange(0.0_DFP, 3.0_DFP), &
-      & typeFEVariableScalar, &
-      & typeFEVariableTime ) ** 2
-  ans = QuadratureVariable( &
-      & (arange(0.0_DFP, 3.0_DFP))**2, &
-      & typeFEVariableScalar,    &
-      & typeFEVariableTime )
-  CALL OK( obj .EQ. ans, "time:" )
+obj = QuadratureVariable( &
+    & arange(0.0_DFP, 3.0_DFP), &
+    & typeFEVariableScalar, &
+    & typeFEVariableTime ) ** 2
+ans = QuadratureVariable( &
+    & (arange(0.0_DFP, 3.0_DFP))**2, &
+    & typeFEVariableScalar,    &
+    & typeFEVariableTime )
+CALL OK( obj .EQ. ans, "time:" )
 ```
 
 !!! note "spacetime"
 
 ```fortran
-  obj = QuadratureVariable( &
-      & reshape(arange(1.0_DFP, 6.0_DFP), [3,2]), &
-      & typeFEVariableScalar, &
-      & typeFEVariableSpaceTime ) **2
-  ans = QuadratureVariable( &
-      & reshape(arange(1.0_DFP, 6.0_DFP)**2, [3,2]), &
-      & typeFEVariableScalar,    &
-      & typeFEVariableSpaceTime )
-  CALL OK( obj .EQ. ans, "spacetime" )
+obj = QuadratureVariable( &
+    & reshape(arange(1.0_DFP, 6.0_DFP), [3,2]), &
+    & typeFEVariableScalar, &
+    & typeFEVariableSpaceTime ) **2
+ans = QuadratureVariable( &
+    & reshape(arange(1.0_DFP, 6.0_DFP)**2, [3,2]), &
+    & typeFEVariableScalar,    &
+    & typeFEVariableSpaceTime )
+CALL OK( obj .EQ. ans, "spacetime" )
 ```
 
 ```fortran

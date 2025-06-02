@@ -29,22 +29,22 @@ integer(i4b) :: n
 ```
 
 !!! note "JacobiSpace1D_Pointer"
-    Construct an instance of `JacobiSpace1D_` by specifying $\alpha>-1.0$ and $\beta>-1.0$.
+Construct an instance of `JacobiSpace1D_` by specifying $\alpha>-1.0$ and $\beta>-1.0$.
 
 ```fortran
-  aptr => JacobiSpace1D_Pointer(alpha=0.0_DFP, beta=0.0_DFP)
+aptr => JacobiSpace1D_Pointer(alpha=0.0_DFP, beta=0.0_DFP)
 ```
 
 !!! note "GetZeros"
 
 ```fortran
-  n = 10
-  ans = aptr%GetZeros(n=n)
-  CALL Display(MdEncode(ans), "zeros="//char_lf)
+n = 10
+ans = aptr%GetZeros(n=n)
+CALL Display(MdEncode(ans), "zeros="//char_lf)
 ```
 
 !!! example "result"
-    zeros=
+zeros=
 
     |          |          |          |         |          |         |        |         |         |         |
     |----------|----------|----------|---------|----------|---------|--------|---------|---------|---------|
@@ -53,8 +53,8 @@ integer(i4b) :: n
 !!! note "cleanup"
 
 ```fortran
-  CALL aptr%Deallocate()
-  Deallocate(aptr)
+CALL aptr%Deallocate()
+Deallocate(aptr)
 ```
 
 ```fortran

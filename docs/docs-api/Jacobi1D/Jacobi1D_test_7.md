@@ -32,37 +32,37 @@ real( dfp ), parameter :: alpha=0.0_DFP, beta=0.0_DFP
 ### n=1
 
 ```fortran
-  n = 1
-  obj=Jacobi1D(varname="x", n=n, alpha=alpha, beta=beta)
-  x = obj%zeros()
-  call display( x, "zeros for n="//tostring(n), orient="ROW" )
+n = 1
+obj=Jacobi1D(varname="x", n=n, alpha=alpha, beta=beta)
+x = obj%zeros()
+call display( x, "zeros for n="//tostring(n), orient="ROW" )
 ```
 
 ### n=2
 
 ```fortran
-  n = 2
-  obj=Jacobi1D(varname="x", n=n, alpha=alpha, beta=beta)
-  x = obj%zeros()
-  call display( x, "zeros for n="//tostring(n), orient="ROW" )
+n = 2
+obj=Jacobi1D(varname="x", n=n, alpha=alpha, beta=beta)
+x = obj%zeros()
+call display( x, "zeros for n="//tostring(n), orient="ROW" )
 ```
 
 ### n=3
 
 ```fortran
-  n = 3
-  obj=Jacobi1D(varname="x", n=n, alpha=alpha, beta=beta)
-  x = obj%zeros()
-  call display( x, "zeros for n="//tostring(n), orient="ROW" )
+n = 3
+obj=Jacobi1D(varname="x", n=n, alpha=alpha, beta=beta)
+x = obj%zeros()
+call display( x, "zeros for n="//tostring(n), orient="ROW" )
 ```
 
 ### n=4
 
 ```fortran
-  n = 4
-  obj=Jacobi1D(varname="x", n=n, alpha=alpha, beta=beta)
-  x = obj%zeros()
-  call display( x, "zeros for n="//tostring(n), orient="ROW" )
+n = 4
+obj=Jacobi1D(varname="x", n=n, alpha=alpha, beta=beta)
+x = obj%zeros()
+call display( x, "zeros for n="//tostring(n), orient="ROW" )
 ```
 
 ```fortran

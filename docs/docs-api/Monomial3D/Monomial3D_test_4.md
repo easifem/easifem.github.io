@@ -32,32 +32,32 @@ real( dfp ), parameter :: tol=1.0E-10
 ```
 
 !!! note ""
-    Initiate the following monomial.
+Initiate the following monomial.
 $$
 f(x,y)=x^2 y z
 $$
 
 ```fortran
-  n1=2; n2=1; n3=1
-  obj=Monomial3D( n1=n1, n2=n2, n3=n3, varname1=varname1, &
-    & varname2=varname2, varname3=varname3 )
+n1=2; n2=1; n3=1
+obj=Monomial3D( n1=n1, n2=n2, n3=n3, varname1=varname1, &
+  & varname2=varname2, varname3=varname3 )
 ```
 
 !!! note "EvalGradient"
 
 ```fortran
-  x = 2.0; y = 3.0; z = 4.0
-  ans = 2 * x * y * z
-  avar = obj%EvalGradient(x,y,z, dim=1)
-  CALL OK( SOFTEQ(ans, avar, tol), "test-4" )
-  !!
-  ans = x**2 * z
-  avar = obj%EvalGradient(x,y,z, dim=2)
-  CALL OK( SOFTEQ(ans, avar, tol), "test-4" )
-  !!
-  ans = x**2 * y
-  avar = obj%EvalGradient(x,y,z, dim=3)
-  CALL OK( SOFTEQ(ans, avar, tol), "test-4" )
+x = 2.0; y = 3.0; z = 4.0
+ans = 2 * x * y * z
+avar = obj%EvalGradient(x,y,z, dim=1)
+CALL OK( SOFTEQ(ans, avar, tol), "test-4" )
+!!
+ans = x**2 * z
+avar = obj%EvalGradient(x,y,z, dim=2)
+CALL OK( SOFTEQ(ans, avar, tol), "test-4" )
+!!
+ans = x**2 * y
+avar = obj%EvalGradient(x,y,z, dim=3)
+CALL OK( SOFTEQ(ans, avar, tol), "test-4" )
 ```
 
 ```fortran

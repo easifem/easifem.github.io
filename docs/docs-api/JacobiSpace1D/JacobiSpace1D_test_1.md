@@ -31,54 +31,52 @@ class(AbstractOrthopolSpace1D_), pointer :: aptr
 ```
 
 !!! note "Constructor"
-    Construct an instance of `JacobiSpace1D_` by specifying $\alpha>-1.0$ and $\beta>-1.0$.
+Construct an instance of `JacobiSpace1D_` by specifying $\alpha>-1.0$ and $\beta>-1.0$.
 
 ```fortran
-  obj = JacobiSpace1D(alpha=0.0_DFP, beta=0.0_DFP)
+obj = JacobiSpace1D(alpha=0.0_DFP, beta=0.0_DFP)
 ```
 
 !!! note "Display"
-    Display the contents of `obj`
+Display the contents of `obj`
 
 ```fortran
-  CALL obj%display("obj = ")
+CALL obj%display("obj = ")
 ```
 
-!!! example "result"
-      domain=
-      --------
-      -1.00000
-      1.00000
-      alpha=0.00000
-      beta=0.00000
+## !!! example "result"domain=
+
+-1.00000
+1.00000
+alpha=0.00000
+beta=0.00000
 
 !!! note "JacobiSpace1D_Pointer"
 
 ```fortran
-  aptr => JacobiSpace1D_Pointer(alpha=0.0_DFP, beta=0.0_DFP)
-  call aptr%Display("aptr= ")
+aptr => JacobiSpace1D_Pointer(alpha=0.0_DFP, beta=0.0_DFP)
+call aptr%Display("aptr= ")
 ```
 
-!!! example "result"
-      domain=
-      --------
-      -1.00000
-      1.00000
-      alpha=0.00000
-      beta=0.00000
+## !!! example "result"domain=
+
+-1.00000
+1.00000
+alpha=0.00000
+beta=0.00000
 
 !!! note "GetParam"
 
 ```fortran
-  CALL Display(obj%GetParam(), "alpha, beta = ")
+CALL Display(obj%GetParam(), "alpha, beta = ")
 ```
 
 !!! note "Deallocate"
 
 ```fortran
-  CALL obj%Deallocate()
-  CALL aptr%Deallocate()
-  Deallocate(aptr)
+CALL obj%Deallocate()
+CALL aptr%Deallocate()
+Deallocate(aptr)
 ```
 
 ```fortran

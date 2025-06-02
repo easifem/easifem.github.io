@@ -13,8 +13,8 @@ program main
 ```
 
 ```fortran title "Ultraspherical-Gauss"
-  x = [-1.0, -0.5, 0.0, 0.5, 1.0]
-  n = 5; call callme
+x = [-1.0, -0.5, 0.0, 0.5, 1.0]
+n = 5; call callme
 ```
 
 <details>
@@ -22,7 +22,7 @@ program main
 <div>
 
 | P0 | P1   | P2     | P3      | P4       | P5           |
-|----|------|--------|---------|----------|--------------|
+| -- | ---- | ------ | ------- | -------- | ------------ |
 | 1  | -1   | 1      | -1      | 1        | -1           |
 | 1  | -0.5 | -0.125 | 0.4375  | -0.28906 | -8.98438E-02 |
 | 1  | 0    | -0.5   | -0      | 0.375    | 0            |
@@ -33,12 +33,12 @@ program main
 </details>
 
 ```fortran
-  contains
-  subroutine callme
-    ans= UltrasphericalEvalAll( n=n, x=x, lambda=lambda )
-    astr = MdEncode( ans )
-    call display( astr%chars(), "" )
-  end subroutine callme
+contains
+subroutine callme
+  ans= UltrasphericalEvalAll( n=n, x=x, lambda=lambda )
+  astr = MdEncode( ans )
+  call display( astr%chars(), "" )
+end subroutine callme
 ```
 
 ```fortran

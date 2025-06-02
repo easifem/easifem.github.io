@@ -24,10 +24,9 @@ END PROGRAM main
 <summary>See results</summary>
 <div>
 
-
-|  | col-1 |col-2 |col-3 |col-4 |col-5 |col-6 |col-7 |col-8 |col-9 |col-10 |
-|  ---  | ---  | ---  | ---  | ---  | ---  | ---  | ---  | ---  | ---  | ---  |
-| Row heading |1 |2 |3 |4 |5 |6 |7 |8 |9 |10 |
+|             | col-1 | col-2 | col-3 | col-4 | col-5 | col-6 | col-7 | col-8 | col-9 | col-10 |
+| ----------- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ------ |
+| Row heading | 1     | 2     | 3     | 4     | 5     | 6     | 7     | 8     | 9     | 10     |
 
 </div>
 </details>

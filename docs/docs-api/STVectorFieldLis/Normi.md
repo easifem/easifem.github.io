@@ -1,6 +1,6 @@
 # Normi
 
-L$\infty$  Norm of space-time vector field.
+L$\infty$ Norm of space-time vector field.
 
 ## Interface
 

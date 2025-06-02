@@ -46,9 +46,9 @@ m=xy
 $$
 
 ```fortran
-  m1 = Monomial2D( 1,1,"x","y" )
-  f1 = m1 - 1
-  call f1%display( 'f(x,y)=' )
+m1 = Monomial2D( 1,1,"x","y" )
+f1 = m1 - 1
+call f1%display( 'f(x,y)=' )
 ```
 
 !!! example "result"
@@ -60,8 +60,8 @@ $$
 !!! note "integer-monomial"
 
 ```fortran
-  f1 = 1-m1
-  call f1%display( 'f(x,y)=' )
+f1 = 1-m1
+call f1%display( 'f(x,y)=' )
 ```
 
 !!! example "result"
@@ -73,8 +73,8 @@ $$
 !!! note "monomial - real"
 
 ```fortran
-  f1 = m1 - 1.0
-  call f1%display( 'f(x,y)=' )
+f1 = m1 - 1.0
+call f1%display( 'f(x,y)=' )
 ```
 
 !!! example "result"
@@ -86,8 +86,8 @@ $$
 !!! note "real - monomial"
 
 ```fortran
-  f1 = 1.0 - m1
-  call f1%display( 'f(x,y)=' )
+f1 = 1.0 - m1
+call f1%display( 'f(x,y)=' )
 ```
 
 !!! example "result"
@@ -99,8 +99,8 @@ $$
 !!! note "monomial- monomial"
 
 ```fortran
-  f1 = m1 - m1
-  call f1%display( 'f(x,y)=' )
+f1 = m1 - m1
+call f1%display( 'f(x,y)=' )
 ```
 
 !!! example "result"
@@ -112,10 +112,10 @@ $$
 !!! note "polynomial - monomial"
 
 ```fortran
-  f1 = m1
-  m2 = Monomial2D( 2, 0, "x", "y" )
-  f1 = f1 - m2
-  call f1%display( 'f(x,y)=' )
+f1 = m1
+m2 = Monomial2D( 2, 0, "x", "y" )
+f1 = f1 - m2
+call f1%display( 'f(x,y)=' )
 ```
 
 !!! example "result"
@@ -127,9 +127,9 @@ $$
 !!! note "monomial - polynomial"
 
 ```fortran
-  m2 = Monomial2D( 0, 2, "x", "y" )
-  f1 = m2 - f1
-  call f1%display( 'f(x,y)=' )
+m2 = Monomial2D( 0, 2, "x", "y" )
+f1 = m2 - f1
+call f1%display( 'f(x,y)=' )
 ```
 
 !!! example "result"
@@ -141,8 +141,8 @@ $$
 !!! note "polynomial - polynomial"
 
 ```fortran
-  f2 = f1 - f1
-  call f2%display( 'f(x,y)=' )
+f2 = f1 - f1
+call f2%display( 'f(x,y)=' )
 ```
 
 !!! example "result"
@@ -154,8 +154,8 @@ $$
 !!! note "polynomial - integer"
 
 ```fortran
-  f2 = f1 - 1
-  call f2%display( 'f(x,y)=' )
+f2 = f1 - 1
+call f2%display( 'f(x,y)=' )
 ```
 
 !!! example "result"
@@ -167,8 +167,8 @@ $$
 !!! note "integer - polynomial"
 
 ```fortran
-  f2 = 1 - f1
-  call f2%display( 'f(x,y)=' )
+f2 = 1 - f1
+call f2%display( 'f(x,y)=' )
 ```
 
 !!! example "result"

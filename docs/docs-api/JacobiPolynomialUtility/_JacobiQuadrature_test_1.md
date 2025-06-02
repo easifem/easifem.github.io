@@ -14,7 +14,7 @@ program main
 ```
 
 ```fortran title "Jacobi-Gauss"
-  n = 2; quadType=Gauss; call callme
+n = 2; quadType=Gauss; call callme
 ```
 
 <details>
@@ -22,7 +22,7 @@ program main
 <div>
 
 | pt       | wt |
-|----------|----|
+| -------- | -- |
 | -0.57735 | 1  |
 | 0.57735  | 1  |
 
@@ -30,7 +30,7 @@ program main
 </details>
 
 ```fortran title "Jacobi-Radau-Left"
-  n = 3; quadType=GaussRadauLeft; call callme
+n = 3; quadType=GaussRadauLeft; call callme
 ```
 
 ```txt title="results"
@@ -42,7 +42,7 @@ program main
 ```
 
 ```fortran title "Jacobi-Radau-Right"
-  n = 3; quadType=GaussRadauRight; call callme
+n = 3; quadType=GaussRadauRight; call callme
 ```
 
 <details>
@@ -50,7 +50,7 @@ program main
 <div>
 
 | pt      | wt      |
-|---------|---------|
+| ------- | ------- |
 | -0.6899 | 0.75281 |
 | 0.2899  | 1.025   |
 | 1       | 0.22222 |
@@ -59,7 +59,7 @@ program main
 </details>
 
 ```fortran title "Jacobi-Lobatto"
-  n = 4; quadType=GaussLobatto; call callme
+n = 4; quadType=GaussLobatto; call callme
 ```
 
 <details>
@@ -67,7 +67,7 @@ program main
 <div>
 
 | pt       | wt      |
-|----------|---------|
+| -------- | ------- |
 | -1       | 0.16667 |
 | -0.44721 | 0.83333 |
 | 0.44721  | 0.83333 |
@@ -77,16 +77,16 @@ program main
 </details>
 
 ```fortran
-  contains
-  subroutine callme
-    call reallocate( pt, n, wt, n )
-    call JacobiQuadrature( n=n, alpha=alpha, beta=beta, pt=pt, wt=wt, &
-      & quadType=quadType )
-    msg = "| pt | wt |"
-    call display(msg%chars())
-    astr = MdEncode( pt .COLCONCAT. wt )
-    call display( astr%chars(), "" )
-  end subroutine callme
+contains
+subroutine callme
+  call reallocate( pt, n, wt, n )
+  call JacobiQuadrature( n=n, alpha=alpha, beta=beta, pt=pt, wt=wt, &
+    & quadType=quadType )
+  msg = "| pt | wt |"
+  call display(msg%chars())
+  astr = MdEncode( pt .COLCONCAT. wt )
+  call display( astr%chars(), "" )
+end subroutine callme
 ```
 
 ```fortran

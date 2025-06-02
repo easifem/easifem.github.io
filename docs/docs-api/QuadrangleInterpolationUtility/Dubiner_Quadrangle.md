@@ -26,25 +26,25 @@ END INTERFACE
 
 The shape of `ans` is (M,N), where M=SIZE(xij,2) (number of points) N = 0.5*(order+1)*(order+2).
 
- In this way, ans(j,:) denotes the values of all polynomial at jth point
+In this way, ans(j,:) denotes the values of all polynomial at jth point
 
- Polynomials are returned in following way:
-
-$$
- P_{0,0}, P_{0,1}, \cdots , P_{0,order} \\
- P_{1,0}, P_{1,1}, \cdots , P_{1,order-1} \\
- P_{2,0}, P_{2,1}, \cdots , P_{2,order-2} \\
- \cdots
- P_{order,0}
-$$
-
- For example for order=3, the polynomials are arranged as:
+Polynomials are returned in following way:
 
 $$
- P_{0,0}, P_{0,1}, P_{0,2}, P_{0,3} \\
- P_{1,0}, P_{1,1}, P_{1,2} \\
- P_{2,0}, P_{2,1} \\
- P_{3,0}
+P_{0,0}, P_{0,1}, \cdots , P_{0,order} \\
+P_{1,0}, P_{1,1}, \cdots , P_{1,order-1} \\
+P_{2,0}, P_{2,1}, \cdots , P_{2,order-2} \\
+\cdots
+P_{order,0}
+$$
+
+For example for order=3, the polynomials are arranged as:
+
+$$
+P_{0,0}, P_{0,1}, P_{0,2}, P_{0,3} \\
+P_{1,0}, P_{1,1}, P_{1,2} \\
+P_{2,0}, P_{2,1} \\
+P_{3,0}
 $$
 
 ## Interface 2

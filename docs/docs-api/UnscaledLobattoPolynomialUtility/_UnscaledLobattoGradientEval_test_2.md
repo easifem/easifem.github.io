@@ -1,4 +1,4 @@
-This example shows the usage of `UnscaledLobattoGradientEval` method. 
+This example shows the usage of `UnscaledLobattoGradientEval` method.
 
 This routine evaluates gradient of UnscaledLobatto polynomial of order n, at several points.
 
@@ -20,4 +20,3 @@ program main
   end subroutine callme
 end program main
 ```
-

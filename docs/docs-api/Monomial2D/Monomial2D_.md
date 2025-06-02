@@ -41,7 +41,8 @@ END INTERFACE
 ```
 
 !!! example "Example"
-    - [[Monomial2D_test_1]]
+
+- [[Monomial2D_test_1]]
 
 Interface-2: Specify the two monomial in 1d, that is, [[Monomial1D_]].
 
@@ -59,7 +60,8 @@ END INTERFACE
 ```
 
 !!! example "Example"
-    - [[Monomial2D_test_2]]
+
+- [[Monomial2D_test_2]]
 
 ### Monomial2D_Pointer
 
@@ -76,7 +78,8 @@ CALL obj%Deallocate()
 ```
 
 !!! example "Example"
-    - [[Monomial2D_test_1]]
+
+- [[Monomial2D_test_1]]
 
 ## GetMethods
 
@@ -97,7 +100,8 @@ END INTERFACE
 ```
 
 !!! example "Example"
-    - [[Monomial2D_test_4]]
+
+- [[Monomial2D_test_4]]
 
 ### EvalGradient
 
@@ -119,10 +123,11 @@ END INTERFACE
 ```
 
 !!! note "dim"
-    For `dim=1,2,3` we evaluate $\frac{dm}{dx}$, $\frac{dm}{dy}$, $\frac{dm}{dz}$, respectively.
+For `dim=1,2,3` we evaluate $\frac{dm}{dx}$, $\frac{dm}{dy}$, $\frac{dm}{dz}$, respectively.
 
 !!! example "Example"
-    - [[Monomial2D_test_4]]
+
+- [[Monomial2D_test_4]]
 
 ### Grad
 
@@ -141,28 +146,32 @@ END INTERFACE
 ```
 
 !!! example "Example"
-    - [[Monomial2D_test_5]]
+
+- [[Monomial2D_test_5]]
 
 ### GetStringForUID
 
 Returns a string for generating a unique id for the monomial.
 
 !!! example "Example"
-    - [[Monomial2D_test_6]]
+
+- [[Monomial2D_test_6]]
 
 ### GetDisplayString
 
 Returns a string for displaying the monomial.
 
 !!! example "Example"
-    - [[Monomial2D_test_6]]
+
+- [[Monomial2D_test_6]]
 
 ### GetDegree
 
 Returns the degree, $(n1,n2)$, of the monomial.
 
 !!! example "Example"
-    - [[Monomial2D_test_6]]
+
+- [[Monomial2D_test_6]]
 
 ## IOMethods
 
@@ -204,7 +213,8 @@ m3 = m1 * m2
 ```
 
 !!! example "Examples"
-    - [[Monomial2D_test_3]]
+
+- [[Monomial2D_test_3]]
 
 ### Assignment(=)
 
@@ -250,10 +260,12 @@ END INTERFACE
 ```
 
 !!! note "elemType"
-    elemType defines the element type. It can take following values:
-    - triangle
-    - quadrangle
+elemType defines the element type. It can take following values:
+
+- triangle
+- quadrangle
 
 !!! example "Examples"
-    - [[Monomial2D_test_5]] on triangle.
-    - [[Monomial2D_test_6]] on quadrangle.
+
+- [[Monomial2D_test_5]] on triangle.
+- [[Monomial2D_test_6]] on quadrangle.

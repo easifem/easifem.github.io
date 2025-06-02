@@ -3,7 +3,6 @@ sidebar_position: 3
 title: Initiate
 ---
 
-
 :::tip Inheritence
 This method is inherited from the [AbstractMesh](../AbstractMesh/AbstractMesh_.md) class.
 :::
@@ -11,4 +10,3 @@ This method is inherited from the [AbstractMesh](../AbstractMesh/AbstractMesh_.m
 import EXAMPLE9 from "../AbstractMesh/Initiate.md";
 
 <EXAMPLE9 />
-

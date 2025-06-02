@@ -11,12 +11,12 @@ import TabItem from '@theme/TabItem';
 <TabItem value="interface" label="܀ Interface" default>
 
 ```fortran
-  MODULE PURE SUBROUTINE SetTril(A, lu, diagNo)
-    INTEGER(Int8| Int16 | Int32 | Int64) | REAL(Real32| Real64), INTENT(INOUT) :: A(:, :)
-    INTEGER(I4B), OPTIONAL, INTENT(IN) :: diagNo
-    !! diagonal number, default = 0
-    INTEGER(Int8| Int16 | Int32 | Int64) | REAL(Real32| Real64), INTENT(IN) :: lu(:, :)
-  END SUBROUTINE SetTril
+MODULE PURE SUBROUTINE SetTril(A, lu, diagNo)
+  INTEGER(Int8| Int16 | Int32 | Int64) | REAL(Real32| Real64), INTENT(INOUT) :: A(:, :)
+  INTEGER(I4B), OPTIONAL, INTENT(IN) :: diagNo
+  !! diagonal number, default = 0
+  INTEGER(Int8| Int16 | Int32 | Int64) | REAL(Real32| Real64), INTENT(IN) :: lu(:, :)
+END SUBROUTINE SetTril
 ```
 
 </TabItem>

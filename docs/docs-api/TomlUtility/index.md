@@ -11,11 +11,9 @@ tags: ['toml', 'file', 'input', 'config']
 
 # TomlUtility
 
-This module provides utilities for working with TOML files. It uses the `tomlf` package. 
+This module provides utilities for working with TOML files. It uses the `tomlf` package.
 
 This module provides following routines:
 
 - GetValue: Getting values from a toml table
 - GetValue_: Gettting values from a toml table without allocation.
-
-

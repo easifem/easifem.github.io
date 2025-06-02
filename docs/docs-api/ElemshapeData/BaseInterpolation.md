@@ -6,4 +6,3 @@ MODULE FUNCTION BaseInterpolation(childName) RESULT(Ans)
   CLASS(BaseInterpolation_), POINTER :: ans
 END FUNCTION BaseInterpolation
 ```
-

@@ -21,12 +21,12 @@ import TabItem from '@theme/TabItem';
 <TabItem value="interface" label="܀ Interface" default>
 
 ```fortran
- MODULE PURE SUBROUTINE ArgInsertionSort(array, arg, low, high)
-    INTEGER(Int8| Int16 | Int32 | Int64) | REAL(Real32| Real64), INTENT(IN) :: array(:)
-    INTEGER(I4B), INTENT(INOUT) :: arg(:)
-    INTEGER(I4B), INTENT(IN) :: low
-    INTEGER(I4B), INTENT(IN) :: high
-  END SUBROUTINE ArgInsertionSort 
+MODULE PURE SUBROUTINE ArgInsertionSort(array, arg, low, high)
+   INTEGER(Int8| Int16 | Int32 | Int64) | REAL(Real32| Real64), INTENT(IN) :: array(:)
+   INTEGER(I4B), INTENT(INOUT) :: arg(:)
+   INTEGER(I4B), INTENT(IN) :: low
+   INTEGER(I4B), INTENT(IN) :: high
+ END SUBROUTINE ArgInsertionSort
 ```
 
 - Here, entries of `array` are NOT modified by the routine.

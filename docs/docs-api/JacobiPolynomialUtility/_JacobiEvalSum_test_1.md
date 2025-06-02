@@ -19,50 +19,50 @@ program main
 ```
 
 ```fortran
-  n = 3
-  coeff = [1.0, 0.0, 0.0, 0.0]
-  x = 0.5_DFP;
-  ans = JacobiEvalSum(n=n, x=x, alpha=alpha, &
-    & beta=beta, coeff=coeff)
-  exact = JacobiEval(n=0_I4B, x=x, alpha=alpha,&
-    & beta=beta)
-  call ok( SOFTEQ(ans, exact, tol ))
+n = 3
+coeff = [1.0, 0.0, 0.0, 0.0]
+x = 0.5_DFP;
+ans = JacobiEvalSum(n=n, x=x, alpha=alpha, &
+  & beta=beta, coeff=coeff)
+exact = JacobiEval(n=0_I4B, x=x, alpha=alpha,&
+  & beta=beta)
+call ok( SOFTEQ(ans, exact, tol ))
 ```
 
 ```fortran
-  n = 3
-  coeff = [0.0, 1.0, 0.0, 0.0]
-  x = 0.5_DFP;
-  ans = JacobiEvalSum(n=n, x=x, alpha=alpha, &
-    & beta=beta, coeff=coeff)
-  exact = JacobiEval(n=1_I4B, x=x, alpha=alpha,&
-    & beta=beta)
-  call ok( SOFTEQ(ans, exact, tol ))
+n = 3
+coeff = [0.0, 1.0, 0.0, 0.0]
+x = 0.5_DFP;
+ans = JacobiEvalSum(n=n, x=x, alpha=alpha, &
+  & beta=beta, coeff=coeff)
+exact = JacobiEval(n=1_I4B, x=x, alpha=alpha,&
+  & beta=beta)
+call ok( SOFTEQ(ans, exact, tol ))
 ```
 
 ```fortran
-  n = 3
-  coeff = [0.0, 0.0, 0.0, 1.0]
-  x = 0.5_DFP;
-  ans = JacobiEvalSum(n=n, x=x, alpha=alpha, &
-    & beta=beta, coeff=coeff)
-  exact = JacobiEval(n=3_I4B, x=x, alpha=alpha,&
-    & beta=beta)
-  call ok( SOFTEQ(ans, exact, tol ))
+n = 3
+coeff = [0.0, 0.0, 0.0, 1.0]
+x = 0.5_DFP;
+ans = JacobiEvalSum(n=n, x=x, alpha=alpha, &
+  & beta=beta, coeff=coeff)
+exact = JacobiEval(n=3_I4B, x=x, alpha=alpha,&
+  & beta=beta)
+call ok( SOFTEQ(ans, exact, tol ))
 ```
 
 ```fortran
-  n = 3
-  coeff = [1.0, 2.0, 3.0, 4.0]
-  x = 0.5_DFP;
-  ans = JacobiEvalSum(n=n, x=x, alpha=alpha, &
-    & beta=beta, coeff=coeff)
-  exact = &
-  &  1.0*JacobiEval(n=0_I4B, x=x, alpha=alpha,beta=beta) &
-  &+ 2.0*JacobiEval(n=1_I4B, x=x, alpha=alpha,beta=beta) &
-  &+ 3.0*JacobiEval(n=2_I4B, x=x, alpha=alpha,beta=beta) &
-  &+ 4.0*JacobiEval(n=3_I4B, x=x, alpha=alpha,beta=beta)
-  call ok( SOFTEQ(ans, exact, tol ))
+n = 3
+coeff = [1.0, 2.0, 3.0, 4.0]
+x = 0.5_DFP;
+ans = JacobiEvalSum(n=n, x=x, alpha=alpha, &
+  & beta=beta, coeff=coeff)
+exact = &
+&  1.0*JacobiEval(n=0_I4B, x=x, alpha=alpha,beta=beta) &
+&+ 2.0*JacobiEval(n=1_I4B, x=x, alpha=alpha,beta=beta) &
+&+ 3.0*JacobiEval(n=2_I4B, x=x, alpha=alpha,beta=beta) &
+&+ 4.0*JacobiEval(n=3_I4B, x=x, alpha=alpha,beta=beta)
+call ok( SOFTEQ(ans, exact, tol ))
 ```
 
 ```fortran

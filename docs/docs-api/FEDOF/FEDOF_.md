@@ -1,20 +1,5 @@
 ---
 sidebar_position: 2
-date: 2024-09-30 
-update: 2024-09-30 
-status: stable
-docs: done
-extpkgs: none
-category: 
-  - Domain
-  - Mesh
-  - ShapeFunctions
-  - FEDOF
-tags: 
-  - Domain
-  - Mesh
-  - shapeFunctions
-  - FEDOF
 ---
 
 # Structure
@@ -112,23 +97,23 @@ It is true when `baseInterpolation` is Lagrange
 
 ### `tdof`
 
-Total number of degrees of freedom
+Total number of degrees of freedom in FEDOF object.
 
 ### `tNodes`
 
-Total number of nodes
+Total number of nodes in mesh.
 
 ### `tEdges`
 
-Total number of edges
+Total number of edges in mesh.
 
 ### `tFaces`
 
-Total number of faces
+Total number of faces in mesh.
 
 ### `tCells`
 
-Total number of cells
+Total number of cells in mesh.
 
 ### `maxTotalConnectivity`
 

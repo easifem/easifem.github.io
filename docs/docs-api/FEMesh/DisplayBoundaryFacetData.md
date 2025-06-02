@@ -9,3 +9,15 @@ This method is inherited from the [AbstractMesh](../AbstractMesh/AbstractMesh_.m
 import EXAMPLE5 from "../AbstractMesh/DisplayBoundaryFacetData.md";
 
 <EXAMPLE5 />
+
+## Example 1
+
+import EXAMPLE15 from "./examples/_DisplayBoundaryFacetData_test_1.md";
+
+<EXAMPLE15 />
+
+## Example 2
+
+import EXAMPLE21 from "./examples/_DisplayBoundaryFacetData_test_2.md";
+
+<EXAMPLE21 />

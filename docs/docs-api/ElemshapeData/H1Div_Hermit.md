@@ -12,4 +12,3 @@ END SUBROUTINE H1Div_Hermit
 ```
 
 This method belongs to the generic method [[#Initiate]].
-

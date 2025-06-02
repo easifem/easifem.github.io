@@ -1,4 +1,4 @@
-In this example we initiate an instance of  Matrix by copying contents from other matrix.
+In this example we initiate an instance of Matrix by copying contents from other matrix.
 
 ```fortran
 PROGRAM main

@@ -1,6 +1,6 @@
 In this example we create a reference triangle for orthogonal polynomials.
 
-``` fortran
+```fortran
 PROGRAM main
 USE easifemBase
 USE easifemClasses
@@ -13,13 +13,11 @@ CALL obj%display('Triangle : ')
 END PROGRAM main
 ```
 
-
 <details>
 <summary>See results</summary>
 <div>
 
 ```bash title="results"
-
 Triangle : 
 element type : Triangle3
 xidimension :: 2
@@ -84,7 +82,7 @@ nptrs :
 1  2  3 
 baseContinuity: H1
 baseInterpol: OrthogonalInterpolation
-``` 
+```
 
 </div>
 </details>

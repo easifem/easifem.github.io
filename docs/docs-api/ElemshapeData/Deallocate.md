@@ -9,4 +9,3 @@ MODULE PURE SUBROUTINE Deallocate(obj)
   CLASS(ElemshapeData_), INTENT(INOUT) :: obj
 END SUBROUTINE Deallocate
 ```
-

@@ -2,7 +2,6 @@
 sidebar_label: QuadraturePoint
 ---
 
-
 # QuadraturePoint_Line
 
 This routine returns the quadrature points on the line.
@@ -17,7 +16,7 @@ ans = QuadraturePoint_Line1( &
   & xij, &
   & alpha, &
   & beta, &
-  & lambda) 
+  & lambda)
 ```
 
 :::note `ans`

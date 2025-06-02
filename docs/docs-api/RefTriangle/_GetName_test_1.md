@@ -1,4 +1,4 @@
-``` fortran
+```fortran
 PROGRAM main
   USE easifemBase
   USE easifemClasses
@@ -9,4 +9,3 @@ PROGRAM main
   CALL OK(obj%GetName() .EQ. Line2, "GetName:")
 END PROGRAM main
 ```
-

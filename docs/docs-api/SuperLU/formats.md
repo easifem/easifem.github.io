@@ -35,7 +35,6 @@ TYPE(rowperm_), PUBLIC, PARAMETER :: rowperm_t = rowperm_( &
 ## ColPerm_t
 
 ```fortran
-
 TYPE :: colperm_
   INTEGER(C_INT) :: NATURAL, MMD_ATA, MMD_AT_PLUS_A, COLAMD, &
    & METIS_AT_PLUS_A, PARMETIS, ZOLTAN, MY_PERMC
@@ -44,7 +43,6 @@ END TYPE
 TYPE(colperm_), PUBLIC, PARAMETER :: colperm_t = colperm_(&
   & NATURAL, MMD_ATA, MMD_AT_PLUS_A, COLAMD, &
   & METIS_AT_PLUS_A, PARMETIS, ZOLTAN, MY_PERMC)
-
 ```
 
 ## Trans_t
@@ -61,14 +59,12 @@ TYPE(trans_), PARAMETER, PUBLIC :: trans_t = trans_(&
 ## DiagScale_t
 
 ```fortran
-
 TYPE :: DiagScale_
   INTEGER(C_INT) :: NOEQUIL, ROW, COL, BOTH
 END TYPE
 
 TYPE(DiagScale_), PUBLIC, PARAMETER :: DiagScale_t = DiagScale_(&
 & NOEQUIL, ROW, COL, BOTH)
-
 ```
 
 ## IterRefine_t
@@ -80,7 +76,6 @@ END TYPE
 
 TYPE(IterRefine_), PUBLIC, PARAMETER :: IterRefine_t = IterRefine_(&
   & NOREFINE, SLU_SINGLE, SLU_DOUBLE, SLU_EXTRA)
-
 ```
 
 ## MemType_t
@@ -92,13 +87,11 @@ END TYPE MemType_
 
 TYPE(MemType_), PUBLIC, PARAMETER :: MemType_t = MemType_(&
   & USUB, LSUB, UCOL, LUSUP, LLVL, ULVL, NO_MEMTYPE)
-
 ```
 
 ## Stack_end_t
 
 ```fortran
-
 TYPE :: stack_end_
   INTEGER(C_INT) :: HEAD, TAIL
 END TYPE
@@ -110,7 +103,6 @@ TYPE(stack_end_), PUBLIC, PARAMETER :: stack_end_t = stack_end_(&
 ## LU_space_t
 
 ```fortran
-
 TYPE :: LU_space_
   INTEGER(C_INT) :: SYSTEM, USER
 END TYPE
@@ -122,27 +114,23 @@ TYPE(LU_space_), PARAMETER, PUBLIC :: LU_space_t = LU_space_(&
 ## Norm_t
 
 ```fortran
-
 TYPE :: norm_
   INTEGER(C_INT) :: ONE_NORM, TWO_NORM, INF_NORM
 END TYPE
 
 TYPE(norm_), PUBLIC, PARAMETER :: norm_t = norm_(&
  & ONE_NORM, TWO_NORM, INF_NORM)
-
 ```
 
 ## Milu_t
 
 ```fortran
-
 TYPE :: milu_
   INTEGER(C_INT) :: SILU, SMILU_1, SMILU_2, SMILU_3
 END TYPE milu_
 
 TYPE(milu_), PARAMETER, PUBLIC :: milu_t = milu_(&
   &  SILU, SMILU_1, SMILU_2, SMILU_3)
-
 ```
 
 ## MType_t
@@ -171,7 +159,6 @@ TYPE(Mtype_), PUBLIC, PARAMETER :: Mtype_t = Mtype_(&
   & SLU_SYU=SLU_SYU, &
   & SLU_HEL=SLU_HEL, &
   & SLU_HEU=SLU_HEU)
-
 ```
 
 ## DType_t
@@ -190,7 +177,6 @@ TYPE(Dtype_), PARAMETER, PUBLIC :: Dtype_t = Dtype_(&
   & SLU_D=SLU_D, &
   & SLU_C=SLU_C, &
   & SLU_Z=SLU_Z)
-
 ```
 
 ## SType_t
@@ -218,7 +204,6 @@ TYPE(Stype_), PARAMETER, PUBLIC :: Stype_t = Stype_(&
   & SLU_DN=SLU_DN, &
   & SLU_NR_LOC=SLU_NR_LOC &
   & )
-
 ```
 
 ## NCFormat
@@ -381,7 +366,6 @@ TYPE, BIND(c) :: NCPformat
 END TYPE NCPformat
 
 PUBLIC :: NCPformat
-
 ```
 
 ## DNformat
@@ -490,5 +474,4 @@ TYPE, BIND(C) :: SuperLUStat_t
 END TYPE SuperLUStat_t
 
 PUBLIC :: SuperLUStat_t
-
 ```

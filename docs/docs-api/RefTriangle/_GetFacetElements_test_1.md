@@ -1,4 +1,4 @@
-``` fortran
+```fortran
 PROGRAM main
 USE easifemBase
 USE easifemClasses
@@ -19,4 +19,3 @@ END DO
 
 END PROGRAM main
 ```
-

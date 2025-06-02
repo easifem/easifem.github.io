@@ -13,7 +13,7 @@ program main
 ```
 
 ```fortran
-  n = 1; call callme
+n = 1; call callme
 ```
 
 <details>
@@ -23,14 +23,14 @@ program main
 Ultraspherical Gauss Quadrature n = 1
 
 | pt | wt |
-|----|----|
+| -- | -- |
 | 0  | 2  |
 
 </div>
 </details>
 
 ```fortran
-  n = 2; call callme
+n = 2; call callme
 ```
 
 <details>
@@ -40,7 +40,7 @@ Ultraspherical Gauss Quadrature n = 1
 Ultraspherical Gauss Quadrature n = 2
 
 | pt       | wt |
-|----------|----|
+| -------- | -- |
 | -0.57735 | 1  |
 | 0.57735  | 1  |
 
@@ -48,7 +48,7 @@ Ultraspherical Gauss Quadrature n = 2
 </details>
 
 ```fortran
-  n = 3; call callme
+n = 3; call callme
 ```
 
 <details>
@@ -58,7 +58,7 @@ Ultraspherical Gauss Quadrature n = 2
 Ultraspherical Gauss Quadrature n = 3
 
 | pt           | wt      |
-|--------------|---------|
+| ------------ | ------- |
 | -0.7746      | 0.55556 |
 | -3.38271E-17 | 0.88889 |
 | 0.7746       | 0.55556 |
@@ -67,7 +67,7 @@ Ultraspherical Gauss Quadrature n = 3
 </details>
 
 ```fortran
-  n = 4; call callme
+n = 4; call callme
 ```
 
 <details>
@@ -77,7 +77,7 @@ Ultraspherical Gauss Quadrature n = 3
 Ultraspherical Gauss Quadrature n = 4
 
 | pt       | wt      |
-|----------|---------|
+| -------- | ------- |
 | -0.86114 | 0.34785 |
 | -0.33998 | 0.65215 |
 | 0.33998  | 0.65215 |
@@ -87,7 +87,7 @@ Ultraspherical Gauss Quadrature n = 4
 </details>
 
 ```fortran
-  n = 5; call callme
+n = 5; call callme
 ```
 
 <details>
@@ -97,7 +97,7 @@ Ultraspherical Gauss Quadrature n = 4
 Ultraspherical Gauss Quadrature n = 5
 
 | pt           | wt      |
-|--------------|---------|
+| ------------ | ------- |
 | -0.90618     | 0.23693 |
 | -0.53847     | 0.47863 |
 | -1.56541E-16 | 0.56889 |
@@ -108,16 +108,16 @@ Ultraspherical Gauss Quadrature n = 5
 </details>
 
 ```fortran
-  contains
-  subroutine callme
-    call reallocate( pt, n, wt, n )
-    call UltrasphericalGaussQuadrature( n=n, &
-      & lambda=lambda, pt=pt, wt=wt )
-    msg = "Ultraspherical Gauss Quadrature n = " // tostring( n )
-    call display(msg%chars())
-    astr = MdEncode( pt .COLCONCAT. wt )
-    call display( astr%chars(), "" )
-  end subroutine callme
+contains
+subroutine callme
+  call reallocate( pt, n, wt, n )
+  call UltrasphericalGaussQuadrature( n=n, &
+    & lambda=lambda, pt=pt, wt=wt )
+  msg = "Ultraspherical Gauss Quadrature n = " // tostring( n )
+  call display(msg%chars())
+  astr = MdEncode( pt .COLCONCAT. wt )
+  call display( astr%chars(), "" )
+end subroutine callme
 ```
 
 ```fortran

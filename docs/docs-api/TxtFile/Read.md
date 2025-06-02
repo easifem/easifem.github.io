@@ -84,9 +84,7 @@ END INTERFACE
   - `LOGICAL(LGT)`
   - `STRING`
 
-
 ## Example 1 (Reading scalar values)
-
 
 import EXAMPLE90 from "./examples/_Read_test_1.md";
 

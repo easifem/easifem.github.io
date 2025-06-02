@@ -28,9 +28,9 @@ integer(i4b) :: ii, n
 !!! note "Create monomial"
 
 ```fortran
-  m1 = Monomial1D(degree=10, varname="x")
-  n = m1%GetDegree()
-  CALL OK( n .EQ. 10, "" )
+m1 = Monomial1D(degree=10, varname="x")
+n = m1%GetDegree()
+CALL OK( n .EQ. 10, "" )
 ```
 
 ```fortran

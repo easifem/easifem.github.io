@@ -41,7 +41,7 @@ INTERFACE
 END INTERFACE
 ```
 
-- N is  order of polynomial to compute.
+- N is order of polynomial to compute.
 - alpha, beta are parameters
 - x: the point at which the polynomials are to be evaluated.
 - ans, the values of the Jacobi polynomials at the several points.

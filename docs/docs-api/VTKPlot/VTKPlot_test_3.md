@@ -28,15 +28,15 @@ PROGRAM MAIN
 ```
 
 !!! note ""
-    Plotting a two dimensional structured grid.
+Plotting a two dimensional structured grid.
 
 ```fortran
-  x = linspace( 0.0_DFP, 10.0_DFP, 11)
-  y = linspace( 0.0_DFP, 5.0_DFP, 6)
-  z = linspace( 0.0_DFP, 5.0_DFP, 6)
-  CALL obj%initiate( )
-  CALL obj%plot( x, y, z, "./test_3.vts")
-  CALL obj%deallocate()
+x = linspace( 0.0_DFP, 10.0_DFP, 11)
+y = linspace( 0.0_DFP, 5.0_DFP, 6)
+z = linspace( 0.0_DFP, 5.0_DFP, 6)
+CALL obj%initiate( )
+CALL obj%plot( x, y, z, "./test_3.vts")
+CALL obj%deallocate()
 ```
 
 ```fortran

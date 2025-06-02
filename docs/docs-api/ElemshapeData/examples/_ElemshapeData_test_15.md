@@ -10,9 +10,9 @@ This example demonstrates how initiates an instance of [[ElemshapeData_]] for [[
 ## Usage
 
 !!! note ""
-    Import modules and declare variables
+Import modules and declare variables
 
-``` fortran
+```fortran
 PROGRAM main
     USE easifemBase
     IMPLICIT NONE
@@ -27,32 +27,32 @@ PROGRAM main
 ```
 
 !!! note ""
-    Create an instance of [[ReferenceLine_]] [[ReferenceQuadrangle_]] element.
+Create an instance of [[ReferenceLine_]] [[ReferenceQuadrangle_]] element.
 
 ```fortran
-    refelem_line = ReferenceLine( nsd = nsd )
-    refelem_quad = ReferenceQuadrangle( nsd = nsd )
+refelem_line = ReferenceLine( nsd = nsd )
+refelem_quad = ReferenceQuadrangle( nsd = nsd )
 ```
 
 !!! note ""
-    Create an instance of [[QuadraturePoint_]] on the [[ReferenceLine_]]. Here we are creating Gauss-Legendre Quadrature points.
+Create an instance of [[QuadraturePoint_]] on the [[ReferenceLine_]]. Here we are creating Gauss-Legendre Quadrature points.
 
 ```fortran
-    quad = GaussLegendreQuadrature( refelem = refelem_line, order = order )
+quad = GaussLegendreQuadrature( refelem = refelem_line, order = order )
 ```
 
 !!! note ""
-    Let us initiate an instance of [[ElemshapeData_]]. The code shown below only initiates the local shape function data.
+Let us initiate an instance of [[ElemshapeData_]]. The code shown below only initiates the local shape function data.
 
 ```fortran
-    CALL Initiate( obj = elemsd_line, quad = quad, refelem = refelem_line, &
-      & ContinuityType= typeH1, InterpolType = TypeLagrangeInterpolation )
-    CALL Initiate( obj = elemsd_quad, quad = quad, refelem = refelem_quad, &
-      & ContinuityType= typeH1, InterpolType = TypeLagrangeInterpolation )
+CALL Initiate( obj = elemsd_line, quad = quad, refelem = refelem_line, &
+  & ContinuityType= typeH1, InterpolType = TypeLagrangeInterpolation )
+CALL Initiate( obj = elemsd_quad, quad = quad, refelem = refelem_quad, &
+  & ContinuityType= typeH1, InterpolType = TypeLagrangeInterpolation )
 ```
 
 !!! note ""
-    Now we pass the information about the physical element. The code shown below will complete the information of the shape function in the physical element.
+Now we pass the information about the physical element. The code shown below will complete the information of the shape function in the physical element.
 
 - `val`: is the nodal coordinates of the element
 - `N`: is the shape function used for interpolating the nodal coordinate
@@ -60,15 +60,15 @@ PROGRAM main
 - In the case of isoparameteric coordinate sysmtem, `N` and `dNdXi` is same as those stored inside `obj` ([[ElemshapeData_]]).
 
 ```fortran
-    CALL Set( obj=elemsd_line, val=node_line, N=elemsd_line%N, dNdXi=elemsd_line%dNdXi )
-    CALL Set( obj=elemsd_quad, val=node_quad, N=elemsd_quad%N, dNdXi=elemsd_quad%dNdXi )
+CALL Set( obj=elemsd_line, val=node_line, N=elemsd_line%N, dNdXi=elemsd_line%dNdXi )
+CALL Set( obj=elemsd_quad, val=node_quad, N=elemsd_quad%N, dNdXi=elemsd_quad%dNdXi )
 ```
 
 !!! note ""
-    Display the content on the terminal.
+Display the content on the terminal.
 
 ```fortran
-    CALL Display( elemsd_line, "elemsd_line: " )
+CALL Display( elemsd_line, "elemsd_line: " )
 ```
 
 ??? example "Results"
@@ -144,7 +144,6 @@ PROGRAM main
     ```
 
 As you can see the value of $\frac{dN}{dXt}$ is zero, we want to calculate these values using cell element.
-
 
 !!! settings "Cleanup"
 

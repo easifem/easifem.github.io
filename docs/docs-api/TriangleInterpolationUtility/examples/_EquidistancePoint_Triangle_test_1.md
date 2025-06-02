@@ -11,18 +11,18 @@ Order less than or equal to 3.
 :::
 
 ```fortran
-  order=1
-  x = EquidistancePoint_Triangle( order=order )
-  call display( TRANSPOSE(x), "xij (order="//tostring(order)//")=" )
-  call blanklines(nol=2)
-  order=2
-  x = EquidistancePoint_Triangle( order=order )
-  call display( TRANSPOSE(x), "xij (order="//tostring(order)//")=" )
-  call blanklines(nol=2)
-  order=3
-  x = EquidistancePoint_Triangle( order=order )
-  call display( TRANSPOSE(x), "xij (order="//tostring(order)//")=" )
-  call blanklines(nol=2)
+order=1
+x = EquidistancePoint_Triangle( order=order )
+call display( TRANSPOSE(x), "xij (order="//tostring(order)//")=" )
+call blanklines(nol=2)
+order=2
+x = EquidistancePoint_Triangle( order=order )
+call display( TRANSPOSE(x), "xij (order="//tostring(order)//")=" )
+call blanklines(nol=2)
+order=3
+x = EquidistancePoint_Triangle( order=order )
+call display( TRANSPOSE(x), "xij (order="//tostring(order)//")=" )
+call blanklines(nol=2)
 ```
 
 <details>
@@ -32,7 +32,7 @@ Order less than or equal to 3.
 xij (order=1)=
 
 | x1      | x2      | x3      |
-|---------|---------|---------|
+| ------- | ------- | ------- |
 | 0.00000 | 0.00000 | 0.00000 |
 | 1.00000 | 0.00000 | 0.00000 |
 | 0.00000 | 1.00000 | 0.00000 |
@@ -40,7 +40,7 @@ xij (order=1)=
 xij (order=2)=
 
 | x1      | x2      | x3      |
-|---------|---------|---------|
+| ------- | ------- | ------- |
 | 0.00000 | 0.00000 | 0.00000 |
 | 1.00000 | 0.00000 | 0.00000 |
 | 0.00000 | 1.00000 | 0.00000 |
@@ -51,7 +51,7 @@ xij (order=2)=
 xij (order=3)=
 
 | x1      | x2      | x3      |
-|---------|---------|---------|
+| ------- | ------- | ------- |
 | 0.00000 | 0.00000 | 0.00000 |
 | 1.00000 | 0.00000 | 0.00000 |
 | 0.00000 | 1.00000 | 0.00000 |
@@ -71,14 +71,14 @@ Order greater than or equal to 4.
 :::
 
 ```fortran
-  order=4
-  x = EquidistancePoint_Triangle( order=order )
-  call display( TRANSPOSE(x), "xij (order="//tostring(order)//")=" )
-  call blanklines(nol=2)
-  order=5
-  x = EquidistancePoint_Triangle( order=order )
-  call display( TRANSPOSE(x), "xij (order="//tostring(order)//")=" )
-  call blanklines(nol=2)
+order=4
+x = EquidistancePoint_Triangle( order=order )
+call display( TRANSPOSE(x), "xij (order="//tostring(order)//")=" )
+call blanklines(nol=2)
+order=5
+x = EquidistancePoint_Triangle( order=order )
+call display( TRANSPOSE(x), "xij (order="//tostring(order)//")=" )
+call blanklines(nol=2)
 ```
 
 <details>
@@ -88,7 +88,7 @@ Order greater than or equal to 4.
 xij (order=4)=
 
 | x1      | x2      | x3      |
-|---------|---------|---------|
+| ------- | ------- | ------- |
 | 0.00000 | 0.00000 | 0.00000 |
 | 1.00000 | 0.00000 | 0.00000 |
 | 0.00000 | 1.00000 | 0.00000 |
@@ -108,7 +108,7 @@ xij (order=4)=
 xij (order=5)=
 
 | x1      | x2      | x3      |
-|---------|---------|---------|
+| ------- | ------- | ------- |
 | 0.00000 | 0.00000 | 0.00000 |
 | 1.00000 | 0.00000 | 0.00000 |
 | 0.00000 | 1.00000 | 0.00000 |

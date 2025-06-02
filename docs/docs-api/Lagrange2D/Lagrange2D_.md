@@ -3,7 +3,7 @@ author: Vikas Sharma, Ph.D.
 date: 14 Aug 2022
 ---
 
-#  Lagrange2D
+# Lagrange2D
 
 ## Introduction
 

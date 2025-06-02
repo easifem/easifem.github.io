@@ -1,6 +1,6 @@
 # GetName
 
-Return the name  of reference element.
+Return the name of reference element.
 
 The returned name is an integer code.
 
@@ -8,7 +8,6 @@ The returned name is an integer code.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
 
 <Tabs>
 <TabItem value="interface" label="܀ Interface" default>
@@ -21,6 +20,7 @@ INTERFACE
   END FUNCTION refelem_GetName
 END INTERFACE
 ```
+
 </TabItem>
 
 <TabItem value="example" label="️܀ See example">
@@ -35,6 +35,3 @@ import EXAMPLE10 from "./_GetName_test_1.md";
 
 </TabItem>
 </Tabs>
-
-
-

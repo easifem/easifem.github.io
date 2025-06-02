@@ -15,7 +15,7 @@ tags:
 
 ## Usage
 
-``` fortran
+```fortran
 program main
   use easifembase
   use easifemclasses
@@ -26,11 +26,11 @@ program main
 ```
 
 !!! note "Initiate"
-    Initiate an instance of [[ReferencePyramid_]]
+Initiate an instance of [[ReferencePyramid_]]
 
 ```fortran
-  CALL obj%Initiate(nsd=nsd)
-  CALL obj%display( 'Obj : ' )
+CALL obj%Initiate(nsd=nsd)
+CALL obj%display( 'Obj : ' )
 ```
 
 ```fortran

@@ -27,12 +27,12 @@ integer( i4b ) :: ii, n
 !!! note "Monomials3D"
 
 ```fortran
-  f1 = Monomials3D( order=1, varname1="x", varname2="y", &
-    & varname3="z", elemType=Tetrahedron)
-  n = size( f1 )
-  do ii = 1, n
-    call f1(ii)%display( "f(" // tostring(ii) // ")=" )
-  end do
+f1 = Monomials3D( order=1, varname1="x", varname2="y", &
+  & varname3="z", elemType=Tetrahedron)
+n = size( f1 )
+do ii = 1, n
+  call f1(ii)%display( "f(" // tostring(ii) // ")=" )
+end do
 ```
 
 !!! example "results"
@@ -55,12 +55,12 @@ $$
 !!! note "Monomials3D"
 
 ```fortran
-  f2 = Monomials3D( order=2, varname1="x", varname2="y", varname3="z", &
-    & elemType=Tetrahedron )
-  n = size( f2 )
-  do ii = 1, n
-    call f2(ii)%display( "f(" // tostring(ii) // ")=" )
-  end do
+f2 = Monomials3D( order=2, varname1="x", varname2="y", varname3="z", &
+  & elemType=Tetrahedron )
+n = size( f2 )
+do ii = 1, n
+  call f2(ii)%display( "f(" // tostring(ii) // ")=" )
+end do
 ```
 
 !!! example "results"

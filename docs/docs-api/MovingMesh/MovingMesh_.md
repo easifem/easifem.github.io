@@ -16,18 +16,15 @@ tags:
 
 Moving mesh kernel.
 
-
 ## TODO
 
 - [ ] Neumann boundary condition
-	- [x] isSelectionByMeshID and UseFunction
-	- [ ] isSelectionByMeshID and ConstantValue
-	- [ ] isSelectionByMeshID and SpaceNodalValue
-	- [ ] isSelectionByElemNum and UseFunction
-	- [ ] isSelectionByElemNum and ConstantValue
-	- [ ] isSelectionByElemNum and SpaceNodalValue
-
-
+  - [x] isSelectionByMeshID and UseFunction
+  - [ ] isSelectionByMeshID and ConstantValue
+  - [ ] isSelectionByMeshID and SpaceNodalValue
+  - [ ] isSelectionByElemNum and UseFunction
+  - [ ] isSelectionByElemNum and ConstantValue
+  - [ ] isSelectionByElemNum and SpaceNodalValue
 
 ## Methods
 

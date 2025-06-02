@@ -28,63 +28,63 @@ character(len=256) :: varname(2)
 ```
 
 !!! note "Initiate"
-    Initiate the object.
-	
+Initiate the object.
+
 $$
 f(x,y)=x^2 y
 $$
 
 ```fortran
-  f1=Monomial2D( 2, 1, "x", "y" )
+f1=Monomial2D( 2, 1, "x", "y" )
 ```
 
 !!! note "Eval"
-    Evaluating values.
+Evaluating values.
 
 ```fortran
-  call display( f1%eval(1.0_DFP, 1.0_DFP), "f(1,1)=" )
-  call display( f1%eval(2.0_DFP, 3.0_DFP), "f(2,3)=" )
+call display( f1%eval(1.0_DFP, 1.0_DFP), "f(1,1)=" )
+call display( f1%eval(2.0_DFP, 3.0_DFP), "f(2,3)=" )
 ```
 
 !!! example "result"
-    f(1,1)=1.00000
-    f(2,3)=12.0000
+f(1,1)=1.00000
+f(2,3)=12.0000
 
 !!! note "EvalGradient"
-    Evaluating gradient
-	
+Evaluating gradient
+
 $$
 \frac{df}{dx} = 2xy
 $$
 
 ```fortran
-  call display( f1%evalGradient(1.0_DFP, 1.0_DFP, dim=1_I4B), &
-    & "dfdx(1,1)=" )
-  call display( f1%evalGradient(2.0_DFP, 3.0_DFP, dim=1_I4B), &
-    & "dfdx(2,3)=" )
+call display( f1%evalGradient(1.0_DFP, 1.0_DFP, dim=1_I4B), &
+  & "dfdx(1,1)=" )
+call display( f1%evalGradient(2.0_DFP, 3.0_DFP, dim=1_I4B), &
+  & "dfdx(2,3)=" )
 ```
 
 !!! example "result"
-    dfdx(1,1)=2.00000
-    dfdx(2,3)=12.0000
+dfdx(1,1)=2.00000
+dfdx(2,3)=12.0000
 
 !!! note "EvalGradient"
-    Evaluating gradient
-	
+Evaluating gradient
+
 $$
 \frac{df}{dy} = x^2
 $$
 
 ```fortran
-  call display( f1%evalGradient(1.0_DFP, 1.0_DFP, dim=2_I4B), &
-    & "dfdy(1,1)=" )
-  call display( f1%evalGradient(2.0_DFP, 3.0_DFP, dim=2_I4B), &
-    & "dfdy(2,3)=" )
+call display( f1%evalGradient(1.0_DFP, 1.0_DFP, dim=2_I4B), &
+  & "dfdy(1,1)=" )
+call display( f1%evalGradient(2.0_DFP, 3.0_DFP, dim=2_I4B), &
+  & "dfdy(2,3)=" )
 ```
 
 !!! example "results"
-    dfdy(1,1)=1.00000
-    dfdy(2,3)=4.00000
+dfdy(1,1)=1.00000
+dfdy(2,3)=4.00000
 
 ```fortran
 END PROGRAM main

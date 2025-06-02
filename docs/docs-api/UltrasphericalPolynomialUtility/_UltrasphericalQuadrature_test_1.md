@@ -15,7 +15,7 @@ program main
 ```
 
 ```fortran title "Ultraspherical-Gauss"
-  n = 5; quadType=Gauss; call callme
+n = 5; quadType=Gauss; call callme
 ```
 
 <details>
@@ -23,7 +23,7 @@ program main
 <div>
 
 | pt           | wt      |
-|--------------|---------|
+| ------------ | ------- |
 | -0.90618     | 0.23693 |
 | -0.53847     | 0.47863 |
 | -1.56541E-16 | 0.56889 |
@@ -34,7 +34,7 @@ program main
 </details>
 
 ```fortran title "Ultraspherical-Radau-Left"
-  n = 5; quadType=GaussRadauLeft; call callme
+n = 5; quadType=GaussRadauLeft; call callme
 ```
 
 <details>
@@ -42,7 +42,7 @@ program main
 <div>
 
 | pt       | wt      |
-|----------|---------|
+| -------- | ------- |
 | -1       | 8E-02   |
 | -0.72048 | 0.44621 |
 | -0.16718 | 0.62365 |
@@ -53,7 +53,7 @@ program main
 </details>
 
 ```fortran title "Ultraspherical-Radau-Right"
-  n = 5; quadType=GaussRadauRight; call callme
+n = 5; quadType=GaussRadauRight; call callme
 ```
 
 <details>
@@ -61,7 +61,7 @@ program main
 <div>
 
 | pt       | wt      |
-|----------|---------|
+| -------- | ------- |
 | -0.88579 | 0.28743 |
 | -0.44631 | 0.56271 |
 | 0.16718  | 0.62365 |
@@ -72,7 +72,7 @@ program main
 </details>
 
 ```fortran title "Ultraspherical-Lobatto"
-  n = 5; quadType=GaussLobatto; call callme
+n = 5; quadType=GaussLobatto; call callme
 ```
 
 <details>
@@ -80,7 +80,7 @@ program main
 <div>
 
 | pt           | wt      |
-|--------------|---------|
+| ------------ | ------- |
 | -1           | 0.1     |
 | -0.65465     | 0.54444 |
 | -6.41178E-17 | 0.71111 |

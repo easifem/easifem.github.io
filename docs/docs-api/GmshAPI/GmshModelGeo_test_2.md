@@ -29,18 +29,18 @@ IMPLICIT NONE
 ```
 
 ```fortran
-  TYPE( gmsh_ ) :: gmsh
+TYPE( gmsh_ ) :: gmsh
 ```
 
 - Instance of [[Gmsh_]].
 
 ```fortran
-  INTEGER( I4B ) :: ierr, tag
-  REAL( DFP ), PARAMETER :: R=1.0, Xc=0.0, Yc=0.0, Zc=0.0
-  REAL( DFP ) :: x, y, z, meshSize
-  CHARACTER( LEN = GMSH_API_MAX_STR_LEN ), ALLOCATABLE :: names( : )
-  CHARACTER( LEN = GMSH_API_MAX_STR_LEN ) :: name
-  CHARACTER(LEN=*), PARAMETER :: PREFIX="t1"
+INTEGER( I4B ) :: ierr, tag
+REAL( DFP ), PARAMETER :: R=1.0, Xc=0.0, Yc=0.0, Zc=0.0
+REAL( DFP ) :: x, y, z, meshSize
+CHARACTER( LEN = GMSH_API_MAX_STR_LEN ), ALLOCATABLE :: names( : )
+CHARACTER( LEN = GMSH_API_MAX_STR_LEN ) :: name
+CHARACTER(LEN=*), PARAMETER :: PREFIX="t1"
 ```
 
 - [[Gmsh_#Initialize]]
@@ -48,9 +48,9 @@ IMPLICIT NONE
 - [[GmshModel_#SetFileName]]
 
 ```fortran
-  ierr = gmsh%initialize()
-  ierr = gmsh%model%add( PREFIX )
-  ierr = gmsh%model%setFileName( PREFIX//".geo" )
+ierr = gmsh%initialize()
+ierr = gmsh%model%add( PREFIX )
+ierr = gmsh%model%setFileName( PREFIX//".geo" )
 ```
 
 ### Points
@@ -60,12 +60,12 @@ IMPLICIT NONE
 Point-1: Specifying tag explicitly
 
 ```fortran
-  x = Xc-R; y = Yc; z = Zc; meshSize = 0.1; tag=1
-  ierr = gmsh%model%geo%addPoint(x,y,z,meshSize,tag)
-  x = Xc+R; y = Yc; z = Zc; meshSize = 0.1; tag=2
-  ierr = gmsh%model%geo%addPoint(x,y,z,meshSize,tag)
-  x = Xc; y = Yc; z = Zc; meshSize = 0.1; tag=3
-  ierr = gmsh%model%geo%addPoint(x,y,z,meshSize,tag)
+x = Xc-R; y = Yc; z = Zc; meshSize = 0.1; tag=1
+ierr = gmsh%model%geo%addPoint(x,y,z,meshSize,tag)
+x = Xc+R; y = Yc; z = Zc; meshSize = 0.1; tag=2
+ierr = gmsh%model%geo%addPoint(x,y,z,meshSize,tag)
+x = Xc; y = Yc; z = Zc; meshSize = 0.1; tag=3
+ierr = gmsh%model%geo%addPoint(x,y,z,meshSize,tag)
 ```
 
 ### Line and curves
@@ -78,26 +78,26 @@ Point-1: Specifying tag explicitly
 - `nx, ny, nz` are optional, default value is zero.
 
 ```fortran
-  ierr = gmsh%model%geo%AddCircleArc( &
-    & startTag=1, &
-    & centerTag=3, &
-    & endTag=2, &
-    & tag=1, &
-    & nx=0.0, &
-    & ny=0.0, &
-    & nz=0.0 )
-  call ok(ierr .NE. 0_I4B, "AddCircleArc(1)")
+ierr = gmsh%model%geo%AddCircleArc( &
+  & startTag=1, &
+  & centerTag=3, &
+  & endTag=2, &
+  & tag=1, &
+  & nx=0.0, &
+  & ny=0.0, &
+  & nz=0.0 )
+call ok(ierr .NE. 0_I4B, "AddCircleArc(1)")
 ```
 
 Adding another circle arc.
 
 ```fortran
-  ierr = gmsh%model%geo%AddCircleArc( &
-    & startTag=2, &
-    & centerTag=3, &
-    & endTag=1, &
-    & tag=2)
-  call ok(ierr .NE. 0_I4B, "AddCircleArc(2)")
+ierr = gmsh%model%geo%AddCircleArc( &
+  & startTag=2, &
+  & centerTag=3, &
+  & endTag=1, &
+  & tag=2)
+call ok(ierr .NE. 0_I4B, "AddCircleArc(2)")
 ```
 
 ### CurveLoop
@@ -108,8 +108,8 @@ Adding another circle arc.
 - `tag` is optional
 
 ```fortran
-  ierr = gmsh%model%geo%addCurveLoop( &
-    & curveTags=[1,2], tag=1, reorient=.TRUE.)
+ierr = gmsh%model%geo%addCurveLoop( &
+  & curveTags=[1,2], tag=1, reorient=.TRUE.)
 ```
 
 ### AddPlaneSurface
@@ -119,7 +119,7 @@ Adding another circle arc.
 - `tag` is explicitly given.
 
 ```fortran
-  ierr = gmsh%model%geo%addPlaneSurface(wireTags=[1], tag=1)
+ierr = gmsh%model%geo%addPlaneSurface(wireTags=[1], tag=1)
 ```
 
 ### Synchronize

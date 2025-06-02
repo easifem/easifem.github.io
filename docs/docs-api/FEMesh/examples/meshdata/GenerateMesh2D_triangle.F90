@@ -1,8 +1,8 @@
-#define SMALL_TRI3_MESH
-!#define SMALL_TRI6_MESH
-!#define BIG_TRI3_MESH
+!#define SMALL_TRI3_MESH
+#define SMALL_TRI6_MESH
+! #define BIG_TRI3_MESH
 !#define BIG_BIG_TRI3_MESH
-!#define BIG_TRI6_MESH
+! #define BIG_TRI6_MESH
 !#define BIG_BIG_TRI6_MESH
 
 PROGRAM main

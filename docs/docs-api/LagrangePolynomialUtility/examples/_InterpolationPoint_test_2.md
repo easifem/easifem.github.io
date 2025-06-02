@@ -47,27 +47,27 @@ ipType=Equidistance, layout=INCREASING
 
 ipType=Equidistance, layout=INCREASING
 
- |  |
- |  --- |
- | 5.5 |
+|     |
+| --- |
+| 5.5 |
 
 ipType=Equidistance, layout=INCREASING
 
- |  |  |
- |  --- |  --- |
- | 1 | 10 |
+|   |    |
+| - | -- |
+| 1 | 10 |
 
 ipType=Equidistance, layout=INCREASING
 
- |  |  |  |
- |  --- |  --- |  --- |
- | 1 | 5.5 | 10 |
+|   |     |    |
+| - | --- | -- |
+| 1 | 5.5 | 10 |
 
 ipType=Equidistance, layout=INCREASING
 
- |  |  |  |  |
- |  --- |  --- |  --- |  --- |
- | 1 | 4 | 7 | 10 |
+|   |   |   |    |
+| - | - | - | -- |
+| 1 | 4 | 7 | 10 |
 
 </div>
 </details>

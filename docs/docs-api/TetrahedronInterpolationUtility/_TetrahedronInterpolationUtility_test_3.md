@@ -12,11 +12,11 @@ program main
 ```
 
 ```fortran
-  order=4
-  x = EquidistanceInPoint_Tetrahedron( order=order )
-  astr = MdEncode( TRANSPOSE(x) )
-  call display( astr, "xij (order="//tostring(order)//")=" // CHAR_LF )
-  call blanklines(nol=2)
+order=4
+x = EquidistanceInPoint_Tetrahedron( order=order )
+astr = MdEncode( TRANSPOSE(x) )
+call display( astr, "xij (order="//tostring(order)//")=" // CHAR_LF )
+call blanklines(nol=2)
 ```
 
 <details>
@@ -26,18 +26,18 @@ program main
 xij (order=4)=
 
 | x    | y    | z    |
-|------|------|------|
+| ---- | ---- | ---- |
 | 0.25 | 0.25 | 0.25 |
 
 </div>
 </details>
 
 ```fortran
-  order=5
-  x = EquidistanceInPoint_Tetrahedron( order=order )
-  astr = MdEncode( TRANSPOSE(x) )
-  call display( astr, "xij (order="//tostring(order)//")=" // CHAR_LF )
-  call blanklines(nol=2)
+order=5
+x = EquidistanceInPoint_Tetrahedron( order=order )
+astr = MdEncode( TRANSPOSE(x) )
+call display( astr, "xij (order="//tostring(order)//")=" // CHAR_LF )
+call blanklines(nol=2)
 ```
 
 <details>
@@ -46,8 +46,8 @@ xij (order=4)=
 
 xij (order=5)=
 
-|  x  |  y  |  z  |
-|-----|-----|-----|
+| x   | y   | z   |
+| --- | --- | --- |
 | 0.2 | 0.2 | 0.2 |
 | 0.4 | 0.2 | 0.2 |
 | 0.2 | 0.4 | 0.2 |
@@ -57,11 +57,11 @@ xij (order=5)=
 </details>
 
 ```fortran
-  order=6
-  x = EquidistanceInPoint_Tetrahedron( order=order )
-  astr = MdEncode( TRANSPOSE(x) )
-  call display( astr, "xij (order="//tostring(order)//")=" // CHAR_LF )
-  call blanklines(nol=2)
+order=6
+x = EquidistanceInPoint_Tetrahedron( order=order )
+astr = MdEncode( TRANSPOSE(x) )
+call display( astr, "xij (order="//tostring(order)//")=" // CHAR_LF )
+call blanklines(nol=2)
 ```
 
 <details>
@@ -70,8 +70,8 @@ xij (order=5)=
 
 xij (order=6)=
 
-|    x    |    y    |    z    |
-|---------|---------|---------|
+| x       | y       | z       |
+| ------- | ------- | ------- |
 | 0.16667 | 0.16667 | 0.16667 |
 | 0.5     | 0.16667 | 0.16667 |
 | 0.16667 | 0.5     | 0.16667 |

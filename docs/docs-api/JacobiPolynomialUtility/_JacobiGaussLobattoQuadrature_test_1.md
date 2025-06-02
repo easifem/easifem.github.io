@@ -17,7 +17,7 @@ program main
 order=0
 
 ```fortran
-  n = 0; call callme
+n = 0; call callme
 ```
 
 <details>
@@ -27,7 +27,7 @@ order=0
 Jacobi Gauss Lobatto points, n+2 = 3 alpha=0 beta=0
 
 | pt           | wt      |
-|--------------|---------|
+| ------------ | ------- |
 | -1           | 0.33333 |
 | -4.48639E-17 | 1.3333  |
 | 1            | 0.33333 |
@@ -38,7 +38,7 @@ Jacobi Gauss Lobatto points, n+2 = 3 alpha=0 beta=0
 order=1
 
 ```fortran
-  n = 1; call callme
+n = 1; call callme
 ```
 
 <details>
@@ -48,7 +48,7 @@ order=1
 Jacobi Gauss Lobatto points, n+2 = 3 alpha=0 beta=0
 
 | pt           | wt      |
-|--------------|---------|
+| ------------ | ------- |
 | -1           | 0.33333 |
 | -4.48639E-17 | 1.3333  |
 | 1            | 0.33333 |
@@ -59,7 +59,7 @@ Jacobi Gauss Lobatto points, n+2 = 3 alpha=0 beta=0
 order=2.
 
 ```fortran
-  n = 2; call callme
+n = 2; call callme
 ```
 
 <details>
@@ -69,7 +69,7 @@ order=2.
 Jacobi Gauss Lobatto points, n+2 = 4 alpha=0 beta=0
 
 | pt       | wt      |
-|----------|---------|
+| -------- | ------- |
 | -1       | 0.16667 |
 | -0.44721 | 0.83333 |
 | 0.44721  | 0.83333 |
@@ -81,7 +81,7 @@ Jacobi Gauss Lobatto points, n+2 = 4 alpha=0 beta=0
 order=4.
 
 ```fortran
-  n = 4; call callme
+n = 4; call callme
 ```
 
 <details>
@@ -91,7 +91,7 @@ order=4.
 Jacobi Gauss Lobatto points, n+2 = 4 alpha=0 beta=0
 
 | pt       | wt          |
-|----------|-------------|
+| -------- | ----------- |
 | -1       | 6.66667E-02 |
 | -0.76506 | 0.37847     |
 | -0.28523 | 0.55486     |
@@ -103,18 +103,18 @@ Jacobi Gauss Lobatto points, n+2 = 4 alpha=0 beta=0
 </details>
 
 ```fortran
-  contains
-    subroutine callme
-    call reallocate( pt, n+2, wt, n+2 )
-    call JacobiGaussLobattoQuadrature( n=n, alpha=alpha, &
-      & beta=beta, pt=pt, wt=wt )
-    msg="Jacobi Gauss Lobatto points, n+2 = " &
-        & // tostring( n+2 ) // " alpha="//tostring( alpha ) // &
-        & " beta="//tostring( beta )
-    call display(msg%chars())
-    astr = MdEncode( pt .COLCONCAT. wt )
-    call display( astr%chars(), "" )
-  end subroutine callme
+contains
+  subroutine callme
+  call reallocate( pt, n+2, wt, n+2 )
+  call JacobiGaussLobattoQuadrature( n=n, alpha=alpha, &
+    & beta=beta, pt=pt, wt=wt )
+  msg="Jacobi Gauss Lobatto points, n+2 = " &
+      & // tostring( n+2 ) // " alpha="//tostring( alpha ) // &
+      & " beta="//tostring( beta )
+  call display(msg%chars())
+  astr = MdEncode( pt .COLCONCAT. wt )
+  call display( astr%chars(), "" )
+end subroutine callme
 ```
 
 ```fortran

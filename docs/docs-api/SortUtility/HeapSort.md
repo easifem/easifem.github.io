@@ -17,9 +17,9 @@ import TabItem from '@theme/TabItem';
 <TabItem value="interface" label="܀ Interface" default>
 
 ```fortran
-  MODULE PURE SUBROUTINE HeapSort(array)
-    INTEGER(Int8| Int16 | Int32 | Int64) | REAL(Real32| Real64), INTENT(INOUT) :: array(:)
-  END SUBROUTINE HeapSort
+MODULE PURE SUBROUTINE HeapSort(array)
+  INTEGER(Int8| Int16 | Int32 | Int64) | REAL(Real32| Real64), INTENT(INOUT) :: array(:)
+END SUBROUTINE HeapSort
 ```
 
 </TabItem>

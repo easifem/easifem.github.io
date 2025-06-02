@@ -9,7 +9,7 @@ tags:
 # Intvector example 2
 
 !!! note ""
-    This examples shows how to use Operator(.in.) to find out if an integer set is a subset of another integer set.
+This examples shows how to use Operator(.in.) to find out if an integer set is a subset of another integer set.
 
 ## Modules and classes
 
@@ -17,15 +17,14 @@ tags:
 
 ## Usage
 
-
-``` fortran
+```fortran
 PROGRAM main
 USE easifemBase
 TYPE(IntVector_) :: obj1, obj2
 ```
 
 !!! note ""
-    Initiate an instance of [[IntVector_]]
+Initiate an instance of [[IntVector_]]
 
 ```fortran
 obj1 = [1,2,3]
@@ -33,7 +32,7 @@ obj2 = [1,2,3]
 ```
 
 !!! note ""
-    Using opertor(.in.) for native fortran integer vectors
+Using opertor(.in.) for native fortran integer vectors
 
 ```fortran
 CALL OK(obj1%val .in. obj2%val, "operator(.in.)")
@@ -73,13 +72,9 @@ obj1 = [1,2,5,6]
 CALL OK( obj1 .in. obj2, "operator(.in.)-should-fail")
 ```
 
-
 !!! settings ""
-    Cleanup
+Cleanup
 
 ```fortran
 END PROGRAM main
 ```
-
-
-

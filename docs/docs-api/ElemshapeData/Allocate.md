@@ -20,4 +20,3 @@ MODULE PURE SUBROUTINE Allocate(obj, nsd, xidim, nns, nips)
   !! number of integration points
 END SUBROUTINE Allocate
 ```
-

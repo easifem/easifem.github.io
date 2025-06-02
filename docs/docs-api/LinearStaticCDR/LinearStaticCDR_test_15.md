@@ -41,137 +41,137 @@ PROGRAM main
 !! Initiate an instance of [[ParameterList_]]
 
 ```fortran
-    CALL FPL_INIT(); CALL param%Initiate()
+CALL FPL_INIT(); CALL param%Initiate()
 ```
 
 !! Set the PARAMETER for [[LinearStaticCDR_]]
 
 ```fortran
-    CALL SetLinearStaticCDRParam( param=param, &
-      & engine="NATIVE_SERIAL", &
-      & isConservative=.FALSE., &
-      & coordinateSystem=KERNEL_2D, &
-      & tMaterials=tMaterials, &
-      & tDirichletBC=tDirichletBC, &
-      & domainFile=domainFileName, &
-      & baseContinuity="H1", &
-      & baseInterpolation="LagrangeInterpolation", &
-      & quadratureType="GaussLegendre" )
+CALL SetLinearStaticCDRParam( param=param, &
+  & engine="NATIVE_SERIAL", &
+  & isConservative=.FALSE., &
+  & coordinateSystem=KERNEL_2D, &
+  & tMaterials=tMaterials, &
+  & tDirichletBC=tDirichletBC, &
+  & domainFile=domainFileName, &
+  & baseContinuity="H1", &
+  & baseInterpolation="LagrangeInterpolation", &
+  & quadratureType="GaussLegendre" )
 ```
 
 !! Set the PARAMETER for [[LinSolver_]].
 
 ```fortran
-    CALL SetLinSolverParam( &
-      & param=param, &
-      & solverName=solverName,&
-      & preconditionOption=preconditionOption, &
-      & convergenceIn=convergenceIn, &
-      & convergenceType=convergenceType, &
-      & maxIter=maxIter, &
-      & relativeToRHS=.TRUE., &
-      & KrylovSubspaceSize=KrylovSubspaceSize, &
-      & rtol=1.0D-10, &
-      & atol=1.0D-10 )
+CALL SetLinSolverParam( &
+  & param=param, &
+  & solverName=solverName,&
+  & preconditionOption=preconditionOption, &
+  & convergenceIn=convergenceIn, &
+  & convergenceType=convergenceType, &
+  & maxIter=maxIter, &
+  & relativeToRHS=.TRUE., &
+  & KrylovSubspaceSize=KrylovSubspaceSize, &
+  & rtol=1.0D-10, &
+  & atol=1.0D-10 )
 ```
 
 !! Initiates computation domain.
 
 ```fortran
-    CALL domainFile%Initiate(filename=domainFileName, mode="READ")
-    CALL domainFile%Open()
-    CALL dom%Initiate( domainFile, '' )
-    CALL domainFile%Deallocate()
+CALL domainFile%Initiate(filename=domainFileName, mode="READ")
+CALL domainFile%Open()
+CALL dom%Initiate( domainFile, '' )
+CALL domainFile%Deallocate()
 ```
 
 !! Initiate an instace of [[LinearStaticCDR_]] kernel
 
 ```fortran
-    CALL obj%Initiate( param=param, dom=dom )
+CALL obj%Initiate( param=param, dom=dom )
 ```
 
 !! Add another material and domain region in the [[LinearStaticCDR_]] kernel.
 
 ```fortran
-    CALL region%Initiate( isSelectionByMeshID=.TRUE. )
-    CALL region%Add( dim=2, meshID=[1] )
-    CALL SetSolidMaterialParam( param=param, &
-      & name="SolidMaterial", &
-      & massDensity=1.0_DFP, &
-      & diffusivity=nu )
-    CALL obj%AddMaterial( materialNo=1, materialName="SolidMaterial",  &
-      & param=param, region=region )
-    CALL region%Deallocate()
+CALL region%Initiate( isSelectionByMeshID=.TRUE. )
+CALL region%Add( dim=2, meshID=[1] )
+CALL SetSolidMaterialParam( param=param, &
+  & name="SolidMaterial", &
+  & massDensity=1.0_DFP, &
+  & diffusivity=nu )
+CALL obj%AddMaterial( materialNo=1, materialName="SolidMaterial",  &
+  & param=param, region=region )
+CALL region%Deallocate()
 ```
 
 !!! note "SetDirichletBC 1"
-    Now we set the Dirichlet boundary condition. First we SELECT the mesh
-    boundary, THEN we prescribe the boundary condition.
+Now we set the Dirichlet boundary condition. First we SELECT the mesh
+boundary, THEN we prescribe the boundary condition.
 
 ```fortran
-    CALL SetDirichletBCParam(param=param, name="ZeroDBC", idof=1, &
-      & nodalValueType=Constant, useFunction=.FALSE. )
-    CALL region%Initiate( isSelectionByMeshID=.TRUE.)
-    CALL region%Add( dim=1, meshID=[1,5] )
-    CALL obj%AddDirichletBC( dbcNo=1, boundary=region, param=param )
-    CALL region%Deallocate()
-    dbc => obj%GetDirichletBCPointer( dbcNo=1 )
-    CALL dbc%Set( ConstantNodalValue=leftphi ); dbc=>NULL()
+CALL SetDirichletBCParam(param=param, name="ZeroDBC", idof=1, &
+  & nodalValueType=Constant, useFunction=.FALSE. )
+CALL region%Initiate( isSelectionByMeshID=.TRUE.)
+CALL region%Add( dim=1, meshID=[1,5] )
+CALL obj%AddDirichletBC( dbcNo=1, boundary=region, param=param )
+CALL region%Deallocate()
+dbc => obj%GetDirichletBCPointer( dbcNo=1 )
+CALL dbc%Set( ConstantNodalValue=leftphi ); dbc=>NULL()
 ```
 
 !!! note "SetDirichletBC 2"
-    Let us repeat the PROCEDURE mentioned above to prescribe another boundary condition.
+Let us repeat the PROCEDURE mentioned above to prescribe another boundary condition.
 
 ```fortran
-    CALL SetDirichletBCParam(param=param, name="NonZeroDBC", idof=1, &
-      & nodalValueType=Constant, useFunction=.FALSE. )
-    CALL region%Initiate( isSelectionByMeshID=.TRUE.)
-    CALL region%Add( dim=1, meshID=[4] )
-    CALL obj%AddDirichletBC( dbcNo=2, boundary=region, param=param )
-    CALL region%Deallocate()
-    dbc => obj%GetDirichletBCPointer( dbcNo=2 )
-    CALL dbc%Set( ConstantNodalValue=rightphi ); dbc=>NULL()
+CALL SetDirichletBCParam(param=param, name="NonZeroDBC", idof=1, &
+  & nodalValueType=Constant, useFunction=.FALSE. )
+CALL region%Initiate( isSelectionByMeshID=.TRUE.)
+CALL region%Add( dim=1, meshID=[4] )
+CALL obj%AddDirichletBC( dbcNo=2, boundary=region, param=param )
+CALL region%Deallocate()
+dbc => obj%GetDirichletBCPointer( dbcNo=2 )
+CALL dbc%Set( ConstantNodalValue=rightphi ); dbc=>NULL()
 ```
 
 !!! note "Set"
-    Now that we are done setting the kernels properties, we will CALL `Set` method.
+Now that we are done setting the kernels properties, we will CALL `Set` method.
 
 ```fortran
-    CALL obj%set()
+CALL obj%set()
 ```
 
 !!! note "SetVelocity"
-    Let us set the convective velocity
+Let us set the convective velocity
 
 ```fortran
-    CALL obj%SetVelocity(constantVelocity=[cos(theta), sin(theta)])
+CALL obj%SetVelocity(constantVelocity=[cos(theta), sin(theta)])
 ```
 
 !!! note "AssembleTanmat"
-    Let us assemble the tangent matrix.
+Let us assemble the tangent matrix.
 
 ```fortran
-   CALL obj%AssembleTanMat()
-   CALL obj%AssembleRHS()
-   CALL obj%Assemble()
+CALL obj%AssembleTanMat()
+CALL obj%AssembleRHS()
+CALL obj%Assemble()
 ```
 
 !!! note "Solve"
-    solve the system of linear equations.
+solve the system of linear equations.
 
 ```fortran
-    CALL obj%Solve()
-    CALL obj%Update(reset=.true.)
+CALL obj%Solve()
+CALL obj%Update(reset=.true.)
 ```
 
 !!! note "Export"
-    Now we export the kernel [[HDF5File_]] file
+Now we export the kernel [[HDF5File_]] file
 
 ```fortran
-    CALL outfile%Initiate(outfileName, "NEW")
-    CALL outfile%Open()
-    CALL obj%WriteData(outfile, "/1")
-    CALL outfile%Deallocate()
+CALL outfile%Initiate(outfileName, "NEW")
+CALL outfile%Open()
+CALL obj%WriteData(outfile, "/1")
+CALL outfile%Deallocate()
 ```
 
 !!! settings "Cleanup"

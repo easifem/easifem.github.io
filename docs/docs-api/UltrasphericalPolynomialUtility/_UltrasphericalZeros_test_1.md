@@ -13,7 +13,7 @@ program main
 ```
 
 ```fortran
-  n = 1; call callme
+n = 1; call callme
 ```
 
 <details>
@@ -21,14 +21,14 @@ program main
 <div>
 
 | x |
-|---|
+| - |
 | 0 |
 
 </div>
 </details>
 
 ```fortran
-  n = 2; call callme
+n = 2; call callme
 ```
 
 <details>
@@ -38,14 +38,14 @@ program main
 Zeros of T(x), n = 2
 
 |          |         |
-|----------|---------|
+| -------- | ------- |
 | -0.57735 | 0.57735 |
 
 </div>
 </details>
 
 ```fortran
-  n = 3; call callme
+n = 3; call callme
 ```
 
 <details>
@@ -55,22 +55,22 @@ Zeros of T(x), n = 2
 Zeros of T(x), n = 3
 
 |         |             |        |
-|---------|-------------|--------|
+| ------- | ----------- | ------ |
 | -0.7746 | 3.71231E-16 | 0.7746 |
 
 </div>
 </details>
 
 ```fortran
-  contains
-  subroutine callme
-    pt = UltrasphericalZeros( n=n, lambda=lambda )
-    msg = "Zeros of T(x), n = " &
-        & // tostring( n )
-    call display(msg%chars())
-    astr = MdEncode( pt )
-    call display( astr%chars(), "" )
-  end subroutine
+contains
+subroutine callme
+  pt = UltrasphericalZeros( n=n, lambda=lambda )
+  msg = "Zeros of T(x), n = " &
+      & // tostring( n )
+  call display(msg%chars())
+  astr = MdEncode( pt )
+  call display( astr%chars(), "" )
+end subroutine
 ```
 
 ```fortran

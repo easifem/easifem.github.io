@@ -135,7 +135,8 @@ END INTERFACE
 ```
 
 !!! example "Example"
-    - [[Lagrange1D_test_1]]
+
+- [[Lagrange1D_test_1]]
 
 - The following function generates a set of n lagrange polynomials.
 
@@ -154,7 +155,8 @@ END INTERFACE
 ```
 
 !!! example "Example"
-    - [[Lagrange1D_test_1]]
+
+- [[Lagrange1D_test_1]]
 
 ### Lagrange1D_Pointer
 

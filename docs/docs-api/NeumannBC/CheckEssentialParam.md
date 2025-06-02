@@ -12,5 +12,3 @@ INTERFACE
   END SUBROUTINE CheckEssentialParam
 END INTERFACE
 ```
-
-

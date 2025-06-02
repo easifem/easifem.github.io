@@ -31,13 +31,13 @@ integer(i4b) :: ii, n
 ```
 
 !!! note "Monomials"
-    `Monomials1D` returns the monomials $x^0$ to $x^{n}$.
+`Monomials1D` returns the monomials $x^0$ to $x^{n}$.
 
 ```fortran
-  y1 = Monomials1D( order=5, varname="x" )
-  do ii = 1, SIZE( y1 )
-    call y1(ii)%display( "f(" // tostring( ii ) // ")=" )
-  end do
+y1 = Monomials1D( order=5, varname="x" )
+do ii = 1, SIZE( y1 )
+  call y1(ii)%display( "f(" // tostring( ii ) // ")=" )
+end do
 ```
 
 !!! example "result"
@@ -67,13 +67,13 @@ f(6)=x^5
 $$
 
 !!! note "Monomials"
-    `EvenMonomials1D` returns the monomials $x^0$ to $x^{2n}$.
+`EvenMonomials1D` returns the monomials $x^0$ to $x^{2n}$.
 
 ```fortran
-  y2 = EvenMonomials1D( order=5, varname="x" )
-  do ii = 1, SIZE( y2 )
-    call y2(ii)%display( "f(" // tostring( ii ) // ")=" )
-  end do
+y2 = EvenMonomials1D( order=5, varname="x" )
+do ii = 1, SIZE( y2 )
+  call y2(ii)%display( "f(" // tostring( ii ) // ")=" )
+end do
 ```
 
 !!! example "result"
@@ -90,13 +90,13 @@ f(3)=x^4
 $$
 
 !!! note "Monomials"
-    `OddMonomials1D` returns the monomials $x^1$ to $x^{2n+1}$.
+`OddMonomials1D` returns the monomials $x^1$ to $x^{2n+1}$.
 
 ```fortran
-  y3 = OddMonomials1D( order=5, varname="x" )
-  do ii = 1, SIZE( y3 )
-    call y3(ii)%display( "f(" // tostring( ii ) // ")=" )
-  end do
+y3 = OddMonomials1D( order=5, varname="x" )
+do ii = 1, SIZE( y3 )
+  call y3(ii)%display( "f(" // tostring( ii ) // ")=" )
+end do
 ```
 
 !!! example "result"

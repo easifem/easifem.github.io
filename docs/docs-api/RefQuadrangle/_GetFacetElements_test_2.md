@@ -23,7 +23,6 @@ END PROGRAM main
 <div>
 
 ```bash title="results"
-
 FacetElement(1): 
 element type : Line2
 xidimension :: 1
@@ -171,7 +170,6 @@ nptrs :
   1  2  
 baseContinuity: H1
 baseInterpol: LagrangeInterpolation
-
 ```
 
 </div>

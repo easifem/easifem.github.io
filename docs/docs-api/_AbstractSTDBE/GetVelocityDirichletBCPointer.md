@@ -1,6 +1,6 @@
 # GetVelocityDirichletBCPointer
 
-This routine returns the pointer to Dirichlet boundary condition of Velocity field in [AbstractSTDBE_](AbstractSTDBE_.md) kernel, that is  `obj%DBCForVelocity(dbcNo)%ptr`.
+This routine returns the pointer to Dirichlet boundary condition of Velocity field in [AbstractSTDBE_](AbstractSTDBE_.md) kernel, that is `obj%DBCForVelocity(dbcNo)%ptr`.
 
 - After obtaining the Dirichlet boundary condition pointer, user can set the boundary condition
 - `dbcNo` should be lesser than total dirichlet boundary condition

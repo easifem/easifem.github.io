@@ -14,13 +14,13 @@ TYPE, EXTENDS( AbstractFunction1D_ ) :: Polynomial3D_
 ```
 
 !!! note "degree"
-    Degrees of each monomial
+Degrees of each monomial
 
 !!! note "coeff"
-    Coefficient of each monomial
+Coefficient of each monomial
 
 !!! note "x"
-    A vector of [[Monomial3D_]]
+A vector of [[Monomial3D_]]
 
 ## ConstructorMethods
 
@@ -136,9 +136,10 @@ END INTERFACE
 ```
 
 !!! note "dim"
-    - dim=1 corresponds to $\frac{df}{dx}$
-    - dim=2 corresponds to $\frac{df}{dy}$
-    - dim=3 corresponds to $\frac{df}{dz}$
+
+- dim=1 corresponds to $\frac{df}{dx}$
+- dim=2 corresponds to $\frac{df}{dy}$
+- dim=3 corresponds to $\frac{df}{dz}$
 
 Example:
 
@@ -161,7 +162,7 @@ END INTERFACE
 ```
 
 !!! note "dim"
-    See the above remark on dim.
+See the above remark on dim.
 
 Example:
 
@@ -214,7 +215,7 @@ c = a + b
 where, a, b, c are given in following table.
 
 | a      | b      | c      |
-|--------|--------|--------|
+| ------ | ------ | ------ |
 | Poly3D | Poly3D | Poly3D |
 | Poly3D | Poly3D | Mono3D |
 | Poly3D | Mono3D | Poly3D |
@@ -258,7 +259,7 @@ c = a - b
 ```
 
 !!! note "a,b,c"
-    a,b,c are given above.
+a,b,c are given above.
 
 ## MultiplicationMethods
 
@@ -269,4 +270,4 @@ c = a * b
 ```
 
 !!! note "a,b,c"
-    a,b,c are given above.
+a,b,c are given above.

@@ -46,7 +46,8 @@ END INTERFACE
 ```
 
 !!! example "Example"
-    - [[Monomial3D_test_1]]
+
+- [[Monomial3D_test_1]]
 
 Interface-2:
 
@@ -68,14 +69,16 @@ END INTERFACE
 ```
 
 !!! example "Example"
-    - [[Monomial3D_test_1]]
+
+- [[Monomial3D_test_1]]
 
 ### Monomial3D_Pointer
 
 This function returns the pointer to a newly created instance of [[Monomial3D_]]. There are two fortran interfaces same as the one given above.
 
 !!! example "Example"
-    - [[Monomial3D_test_2]]
+
+- [[Monomial3D_test_2]]
 
 ### Deallocate
 
@@ -88,7 +91,8 @@ CALL obj%Deallocate()
 ```
 
 !!! example "Example"
-    - [[Monomial3D_test_1]]
+
+- [[Monomial3D_test_1]]
 
 ## GetMethods
 
@@ -109,7 +113,8 @@ END INTERFACE
 ```
 
 !!! example "Example"
-    - [[Monomial3D_test_3]]
+
+- [[Monomial3D_test_3]]
 
 ### EvalGradient
 
@@ -132,10 +137,11 @@ END INTERFACE
 ```
 
 !!! note "dim"
-    For `dim=1,2,3` we evaluate $\frac{dm}{dx}$, $\frac{dm}{dy}$, $\frac{dm}{dz}$, respectively.
+For `dim=1,2,3` we evaluate $\frac{dm}{dx}$, $\frac{dm}{dy}$, $\frac{dm}{dz}$, respectively.
 
 !!! example "Example"
-    - [[Monomial3D_test_4]]
+
+- [[Monomial3D_test_4]]
 
 ### Grad
 
@@ -154,28 +160,32 @@ END INTERFACE
 ```
 
 !!! example "Example"
-    - [[Monomial3D_test_5]]
+
+- [[Monomial3D_test_5]]
 
 ### GetStringForUID
 
 Returns a string for generating a unique id for the monomial.
 
 !!! example "Example"
-    - [[Monomial3D_test_6]]
+
+- [[Monomial3D_test_6]]
 
 ### GetDisplayString
 
 Returns a string for displaying the monomial.
 
 !!! example "Example"
-    - [[Monomial3D_test_6]]
+
+- [[Monomial3D_test_6]]
 
 ### GetDegree
 
 Returns the degree, $(n1,n2,n3)$, of the monomial.
 
 !!! example "Example"
-    - [[Monomial3D_test_6]]
+
+- [[Monomial3D_test_6]]
 
 ## IOMethods
 
@@ -196,12 +206,13 @@ END INTERFACE
 ```
 
 !!! example "Example"
-    - [[Monomial3D_test_1]]
-    - [[Monomial3D_test_2]]
-    - [[Monomial3D_test_3]]
-    - [[Monomial3D_test_4]]
-    - [[Monomial3D_test_5]]
-    - [[Monomial3D_test_6]]
+
+- [[Monomial3D_test_1]]
+- [[Monomial3D_test_2]]
+- [[Monomial3D_test_3]]
+- [[Monomial3D_test_4]]
+- [[Monomial3D_test_5]]
+- [[Monomial3D_test_6]]
 
 ## OperatorMethods
 
@@ -216,7 +227,8 @@ m3 = m1 * m2
 ```
 
 !!! example "Examples"
-    - [[Monomial3D_test_7]]
+
+- [[Monomial3D_test_7]]
 
 ### Assignment(=)
 
@@ -264,11 +276,13 @@ END INTERFACE
 ```
 
 !!! note "elemType"
-    elemType defines the element type. It can take following values:
-    - tetrahedron
-    - hexahedron
-    - pyramid
-    - prism
+elemType defines the element type. It can take following values:
+
+- tetrahedron
+- hexahedron
+- pyramid
+- prism
 
 !!! example "Examples"
-    - [[Monomial3D_test_8]]
+
+- [[Monomial3D_test_8]]

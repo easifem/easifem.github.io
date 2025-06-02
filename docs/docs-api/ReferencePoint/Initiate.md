@@ -28,11 +28,11 @@ The `SIZE(XiJ,1)` should be equal to 3, i.e., x,y,z coord. Also note that this r
 ### Example
 
 ```fortran
- type( ReferencePoint_ ) :: obj1
- real( dfp ) :: xij( 3, 1 )
- call random_number( xij )
- call initiate( obj=obj1, NSD=3, xij )
- call display( obj1, "obj1 : " )
+type( ReferencePoint_ ) :: obj1
+real( dfp ) :: xij( 3, 1 )
+call random_number( xij )
+call initiate( obj=obj1, NSD=3, xij )
+call display( obj1, "obj1 : " )
 ```
 
 ## ReferencePoint (Constructor)
@@ -42,9 +42,9 @@ This routine constructs an instance of [[ReferencePoint_]] element
 ### Example
 
 ```fortran
- type( ReferencePoint_ ) :: obj
- obj = ReferencePoint(nsd=3)
- call display( obj, 'obj : ' )
+type( ReferencePoint_ ) :: obj
+obj = ReferencePoint(nsd=3)
+call display( obj, 'obj : ' )
 ```
 
 ## ReferencePoint_Pointer

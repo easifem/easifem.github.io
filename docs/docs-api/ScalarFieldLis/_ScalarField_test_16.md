@@ -24,38 +24,38 @@ In this example
 ```
 
 ```fortran title="Open file for import"
-  CALL FPL_INIT()
-  CALL param%initiate()
-  CALL resultFile%initiate( filename="./result.h5", mode="READ" )
-  CALL resultFile%open()
+CALL FPL_INIT()
+CALL param%initiate()
+CALL resultFile%initiate( filename="./result.h5", mode="READ" )
+CALL resultFile%open()
 ```
 
-```fortran title="read domain"  
-  !> start creating domain
-  CALL meshfile%initiate( filename="./mesh.h5", mode="READ" )
-  CALL meshfile%open()
-  CALL dom%initiate( hdf5=meshfile, group="" )
-  !> end creating domain
+```fortran title="read domain"
+!> start creating domain
+CALL meshfile%initiate( filename="./mesh.h5", mode="READ" )
+CALL meshfile%open()
+CALL dom%initiate( hdf5=meshfile, group="" )
+!> end creating domain
 ```
 
 ```fortran title="initiate scalar field"
-  CALL SetScalarFieldParam( param=param, &
-    & fieldType=FIELD_TYPE_NORMAL, &
-    & name="U", &
-    & engine=engine)
-  CALL obj%initiate( param, dom )
-  CALL SetScalarFieldParam( param=param, &
-    & fieldType=FIELD_TYPE_NORMAL, &
-    & name="U2", &
-    & engine=engine)
-  CALL obj2%initiate( param, dom )
+CALL SetScalarFieldParam( param=param, &
+  & fieldType=FIELD_TYPE_NORMAL, &
+  & name="U", &
+  & engine=engine)
+CALL obj%initiate( param, dom )
+CALL SetScalarFieldParam( param=param, &
+  & fieldType=FIELD_TYPE_NORMAL, &
+  & name="U2", &
+  & engine=engine)
+CALL obj2%initiate( param, dom )
 ```
 
 ```fortran title="Setting multiple values using triplets"
-  realVec = [1.0, 3.0, 5.0]
-  CALL obj%set(istart=1, iend=5, stride=2, value=realVec )
-  CALL obj2%set(obj)
-  CALL obj2%Display("obj2 = ")
+realVec = [1.0, 3.0, 5.0]
+CALL obj%set(istart=1, iend=5, stride=2, value=realVec )
+CALL obj2%set(obj)
+CALL obj2%Display("obj2 = ")
 ```
 
 ```txt title="results"
@@ -93,7 +93,7 @@ In this example
 0.00000,   
 3.00000,   
 0.00000,   
-5.00000,   
+5.00000,
 ```
 
 ```fortran title="Cleanup"

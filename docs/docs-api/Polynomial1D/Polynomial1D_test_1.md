@@ -31,14 +31,14 @@ Initiate the object.
 $y=1+x+x^2+x^3$
 
 ```fortran
-  coeff = [1,1,1,1]
-  degree = [0,1,2,3]
-  f1=Polynomial1D( coeff=coeff, degree=degree, varname="x" )
-  call f1%display( 'f(x)=' )
+coeff = [1,1,1,1]
+degree = [0,1,2,3]
+f1=Polynomial1D( coeff=coeff, degree=degree, varname="x" )
+call f1%display( 'f(x)=' )
 ```
 
 !!! example "result"
-    f(x)=+1x^0+1x^1+1x^2+1x^3
+f(x)=+1x^0+1x^1+1x^2+1x^3
 
 ```fortran
 END PROGRAM main

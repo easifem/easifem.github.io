@@ -17,11 +17,11 @@ import TabItem from '@theme/TabItem';
 <TabItem value="interface" label="܀ Interface" default>
 
 ```fortran
-  MODULE PURE FUNCTION Sort(x, name) RESULT(ans)
-    INTEGER(Int8|Int16|Int32|Int64) | REAL(Real32|Real64), INTENT(IN) :: x(:)
-    CHARACTER(*), OPTIONAL, INTENT(IN) :: name
-    INTEGER(Int32) :: ans(SIZE(x))
-  END FUNCTION Sort
+MODULE PURE FUNCTION Sort(x, name) RESULT(ans)
+  INTEGER(Int8|Int16|Int32|Int64) | REAL(Real32|Real64), INTENT(IN) :: x(:)
+  CHARACTER(*), OPTIONAL, INTENT(IN) :: name
+  INTEGER(Int32) :: ans(SIZE(x))
+END FUNCTION Sort
 ```
 
 - `x` is a vector of reals or integers.

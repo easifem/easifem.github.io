@@ -64,7 +64,7 @@ INTERFACE
 END INTERFACE
 ```
 
-- N is  order of polynomial to compute.
+- N is order of polynomial to compute.
 - lambda is the polynomial parameter.
 - x: the point at which the polynomials are to be evaluated.
 - ans, the values of the Ultraspherical polynomials at the several points.

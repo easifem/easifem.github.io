@@ -13,41 +13,41 @@ program main
 ```
 
 ```fortran
-  order=1
-  i1 = LagrangeDOF_Tetrahedron(order=order)
-  i2 = (order+1)*(order+2)*(order+3)/6
-  call IS( i1, i2 )
-  order=2
-  i1 = LagrangeDOF_Tetrahedron(order=order)
-  i2 = (order+1)*(order+2)*(order+3)/6
-  call IS( i1, i2 )
-  order=3
-  i1 = LagrangeDOF_Tetrahedron(order=order)
-  i2 = (order+1)*(order+2)*(order+3)/6
-  call IS( i1, i2 )
+order=1
+i1 = LagrangeDOF_Tetrahedron(order=order)
+i2 = (order+1)*(order+2)*(order+3)/6
+call IS( i1, i2 )
+order=2
+i1 = LagrangeDOF_Tetrahedron(order=order)
+i2 = (order+1)*(order+2)*(order+3)/6
+call IS( i1, i2 )
+order=3
+i1 = LagrangeDOF_Tetrahedron(order=order)
+i2 = (order+1)*(order+2)*(order+3)/6
+call IS( i1, i2 )
 ```
 
 ```fortran
-  order=1
-  i1 = LagrangeInDOF_Tetrahedron(order=order)
-  i2 = (order-1)*(order-2)*(order-3)/6
-  call IS( i1, i2 )
-  order=2
-  i1 = LagrangeInDOF_Tetrahedron(order=order)
-  i2 = (order-1)*(order-2)*(order-3)/6
-  call IS( i1, i2 )
-  order=3
-  i1 = LagrangeInDOF_Tetrahedron(order=order)
-  i2 = (order-1)*(order-2)*(order-3)/6
-  call IS( i1, i2 )
+order=1
+i1 = LagrangeInDOF_Tetrahedron(order=order)
+i2 = (order-1)*(order-2)*(order-3)/6
+call IS( i1, i2 )
+order=2
+i1 = LagrangeInDOF_Tetrahedron(order=order)
+i2 = (order-1)*(order-2)*(order-3)/6
+call IS( i1, i2 )
+order=3
+i1 = LagrangeInDOF_Tetrahedron(order=order)
+i2 = (order-1)*(order-2)*(order-3)/6
+call IS( i1, i2 )
 ```
 
 ```fortran
-  order=1
-  degree=LagrangeDegree_Tetrahedron(order=order)
-  astr = MdEncode( degree )
-  call Display( astr, "degree(order="//tostring(order)//")=" //CHAR_LF )
-  call blanklines(nol=2)
+order=1
+degree=LagrangeDegree_Tetrahedron(order=order)
+astr = MdEncode( degree )
+call Display( astr, "degree(order="//tostring(order)//")=" //CHAR_LF )
+call blanklines(nol=2)
 ```
 
 <details>
@@ -57,7 +57,7 @@ program main
 degree(order=1)=
 
 | x | y | z |
-|---|---|---|
+| - | - | - |
 | 0 | 0 | 0 |
 | 1 | 0 | 0 |
 | 0 | 1 | 0 |
@@ -67,11 +67,11 @@ degree(order=1)=
 </details>
 
 ```fortran
-  order=2
-  degree=LagrangeDegree_Tetrahedron(order=order)
-  astr = MdEncode( degree )
-  call Display( astr, "degree(order="//tostring(order)//")=" //CHAR_LF )
-  call blanklines(nol=2)
+order=2
+degree=LagrangeDegree_Tetrahedron(order=order)
+astr = MdEncode( degree )
+call Display( astr, "degree(order="//tostring(order)//")=" //CHAR_LF )
+call blanklines(nol=2)
 ```
 
 <details>
@@ -81,7 +81,7 @@ degree(order=1)=
 degree(order=2)=
 
 | x | y | z |
-|---|---|---|
+| - | - | - |
 | 0 | 0 | 0 |
 | 1 | 0 | 0 |
 | 2 | 0 | 0 |
@@ -97,11 +97,11 @@ degree(order=2)=
 </details>
 
 ```fortran
-  order=3
-  degree=LagrangeDegree_Tetrahedron(order=order)
-  astr = MdEncode( degree )
-  call Display( astr, "degree(order="//tostring(order)//")=" //CHAR_LF )
-  call blanklines(nol=2)
+order=3
+degree=LagrangeDegree_Tetrahedron(order=order)
+astr = MdEncode( degree )
+call Display( astr, "degree(order="//tostring(order)//")=" //CHAR_LF )
+call blanklines(nol=2)
 ```
 
 <details>
@@ -111,7 +111,7 @@ degree(order=2)=
 degree(order=3)=
 
 | x | y | z |
-|---|---|---|
+| - | - | - |
 | 0 | 0 | 0 |
 | 1 | 0 | 0 |
 | 2 | 0 | 0 |

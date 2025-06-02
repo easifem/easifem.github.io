@@ -39,7 +39,7 @@ update: 15 Nov 2021
 
 check the validity of `setPrecondition(param)` for [[BlockMatrixField_]].
 
-``` fortran
+```fortran
 PreconditionOption = obj%linsol%getPreconditionOption()
 IF (PreconditionOption .NE. NO_PRECONDITION) THEN
   ierr = param%set("BlockMatrixField/preconditionName", PRECOND_ILUD)

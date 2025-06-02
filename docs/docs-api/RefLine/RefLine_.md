@@ -9,5 +9,3 @@ sidebar_position: 3
 ```fortran
 TYPE, EXTENDS(AbstractRefElement_) :: RefLine_
 ```
-
-

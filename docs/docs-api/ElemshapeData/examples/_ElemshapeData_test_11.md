@@ -11,9 +11,9 @@ This example is build upon example [[_ElemshapeData_test_3]], so make sure you f
 ## Usage
 
 !!! note ""
-    IMPORT modules and declare variables
+IMPORT modules and declare variables
 
-``` fortran
+```fortran
 PROGRAM main
     USE easifemBase
     IMPLICIT NONE
@@ -26,29 +26,29 @@ PROGRAM main
 ```
 
 !!! note ""
-    Initiate an instance of [[ReferenceTriangle_]]
+Initiate an instance of [[ReferenceTriangle_]]
 
 ```fortran
-    refelem = ReferenceTriangle( nsd = nsd )
+refelem = ReferenceTriangle( nsd = nsd )
 ```
 
 !!! note ""
-    Initiate Gauss-Legendre Quadrature points.
+Initiate Gauss-Legendre Quadrature points.
 
 ```fortran
-    CALL Initiate(obj=quad, refelem=refelem, order=order, quadratureType='GaussLegendre')
+CALL Initiate(obj=quad, refelem=refelem, order=order, quadratureType='GaussLegendre')
 ```
 
 !!! note ""
-    Initiate an instance of [[ElemshapeData_]] for [[ReferenceTriangle_]]. The code shown below ONLY initiates the local shape FUNCTION DATA.
+Initiate an instance of [[ElemshapeData_]] for [[ReferenceTriangle_]]. The code shown below ONLY initiates the local shape FUNCTION DATA.
 
 ```fortran
-    CALL Initiate( obj = obj, quad = quad, refelem = refelem, &
-      & ContinuityType= typeH1, InterpolType = TypeLagrangeInterpolation )
+CALL Initiate( obj = obj, quad = quad, refelem = refelem, &
+  & ContinuityType= typeH1, InterpolType = TypeLagrangeInterpolation )
 ```
 
 !!! note ""
-    Now we PASS the information about the physical element. The code shown below will complete the information of the shape FUNCTION in the physical element.
+Now we PASS the information about the physical element. The code shown below will complete the information of the shape FUNCTION in the physical element.
 
 - val: is the nodal coordinates of the element
 - N: is the shape FUNCTION used for interpolating the nodal coordinate
@@ -56,14 +56,14 @@ PROGRAM main
 - In the CASE of isoparameteric coordinate sysmtem, N and dNdXi is same as those stored inside `obj` ([[ElemshapeData_]]).
 
 ```fortran
-    CALL Set( obj=obj, val=xij(1:nsd, :), N=obj%N, dNdXi=obj%dNdXi )
+CALL Set( obj=obj, val=xij(1:nsd, :), N=obj%N, dNdXi=obj%dNdXi )
 ```
 
 !!! note ""
-    Display the content on terminal.
+Display the content on terminal.
 
 ```fortran
-    CALL Display( obj, "obj" )
+CALL Display( obj, "obj" )
 ```
 
 ??? example "Results"
@@ -120,11 +120,11 @@ PROGRAM main
     0.00000
 
 !!! note ""
-    Now let us CALL the GetProjectionOfdNdXt method.
+Now let us CALL the GetProjectionOfdNdXt method.
 
 ```fortran
-    CALL GetProjectionOfdNdXt(obj=obj, cdNdXt=cdNdXt, val=[1.0_DFP, 1.0_DFP])
-    CALL Display(cdNdXt, "cdNdXt = ")
+CALL GetProjectionOfdNdXt(obj=obj, cdNdXt=cdNdXt, val=[1.0_DFP, 1.0_DFP])
+CALL Display(cdNdXt, "cdNdXt = ")
 ```
 
 ??? example "Results"
@@ -136,7 +136,6 @@ PROGRAM main
     1.00000
     1.00000
     ```
-
 
 ```fortran
     CALL DEALLOCATE( obj )

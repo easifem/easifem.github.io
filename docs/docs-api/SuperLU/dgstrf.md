@@ -5,14 +5,14 @@
 The factorization has the form
 
 $$
-P_{r} \cdot A = L \cdot  U,
+P_{r} \cdot A = L \cdot U,
 $$
 
 - Pr is a row-permutation matrix
 - L is lower triangular with unit diagonal elements (lower trapezoidal if `A->nrow > A->ncol`)
 - U is upper triangular (upper trapezoidal if `A->nrow < A->ncol`).
 
- See supermatrix.h for the definition of 'SuperMatrix' structure.
+See supermatrix.h for the definition of 'SuperMatrix' structure.
 
 ## Interface
 
@@ -54,7 +54,7 @@ PUBLIC :: dgstrf
 ## options
 
 ```fortran
- (input) superlu_options_t*
+(input) superlu_options_t*
 ```
 
 The structure defines the input parameters to control how the LU decomposition will be performed.
@@ -205,13 +205,13 @@ See slu_util.h for the definition of 'SuperLUStat_t'.
 - `> 0:` if info = i, and `i` is
 
 ```txt
-   <= A->ncol: U(i,i) is exactly zero. The factorization has
-      been completed, but the factor U is exactly singular,
-      and division by zero will occur if it is used to solve a
-      system of equations.
-   > A->ncol: number of bytes allocated when memory allocation
-      failure occurred, plus A->ncol. If lwork = -1, it is
-      the estimated amount of space needed, plus A->ncol.
+<= A->ncol: U(i,i) is exactly zero. The factorization has
+   been completed, but the factor U is exactly singular,
+   and division by zero will occur if it is used to solve a
+   system of equations.
+> A->ncol: number of bytes allocated when memory allocation
+   failure occurred, plus A->ncol. If lwork = -1, it is
+   the estimated amount of space needed, plus A->ncol.
 ```
 
 ```fortran

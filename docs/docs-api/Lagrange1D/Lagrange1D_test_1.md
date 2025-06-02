@@ -27,7 +27,7 @@ integer(i4b) :: ii, order
 ```
 
 !!! note "Lagrange1D"
-    Initiate lagrange polynomial in one dimension
+Initiate lagrange polynomial in one dimension
 
 $$
 l_{1}(x)=1-x \\
@@ -35,12 +35,12 @@ l_{2}(x)=x
 $$
 
 ```fortran
-  x = [0.0,1.0]
-  order=1
-  f1=Lagrange1D( i=1, x=x, order=order, varname="x" )
-  call f1%display( 'f(x)=' )
-  f1=Lagrange1D( i=2, x=x, order=order, varname="x" )
-  call f1%display( 'f(x)=' )
+x = [0.0,1.0]
+order=1
+f1=Lagrange1D( i=1, x=x, order=order, varname="x" )
+call f1%display( 'f(x)=' )
+f1=Lagrange1D( i=2, x=x, order=order, varname="x" )
+call f1%display( 'f(x)=' )
 ```
 
 !!! example "result"
@@ -55,19 +55,19 @@ $$
 !!! note "Lagrange1D"
 
 ```fortran
-  order = 4_I4B
-  x = linspace(0.0_DFP, 1.0_DFP, order+1)
-  allocate( f(order+1) )
-  do ii = 1, order+1
-    f(ii) = Lagrange1D(ii, x=x, order=order, varname="x")
-    call f(ii)%display("l_{"//tostring(ii)//"}=")
-  end do
+order = 4_I4B
+x = linspace(0.0_DFP, 1.0_DFP, order+1)
+allocate( f(order+1) )
+do ii = 1, order+1
+  f(ii) = Lagrange1D(ii, x=x, order=order, varname="x")
+  call f(ii)%display("l_{"//tostring(ii)//"}=")
+end do
 ```
 
 !!! example "result"
 
 $$
-l_{1}=+1x^0-8.3333x^1+23.333x^2-26.667x^3+10.667x^4  \\
+l_{1}=+1x^0-8.3333x^1+23.333x^2-26.667x^3+10.667x^4 \\
 l_{2}=+16x^1-69.333x^2+96x^3-42.667x^4 \\
 l_{3}=-12x^1+76x^2-128x^3+64x^4 \\
 l_{4}=+5.3333x^1-37.333x^2+74.667x^3-42.667x^4 \\

@@ -12,7 +12,7 @@ tags:
 
 # JacobiSpace1D example 2
 
-- This example shows how to  get the recurrence coefficients.
+- This example shows how to get the recurrence coefficients.
 - Following methods are tested.
 - [[JacobiSpace1D_#GetRecurrenceCoeff]]
 - [[JacobiSpace1D_#GetRecurrenceCoeff2]]
@@ -36,22 +36,22 @@ integer(i4b) :: n
 ```
 
 !!! note "JacobiSpace1D_Pointer"
-    Construct an instance of `JacobiSpace1D_` by specifying $\alpha>-1.0$ and $\beta>-1.0$.
+Construct an instance of `JacobiSpace1D_` by specifying $\alpha>-1.0$ and $\beta>-1.0$.
 
 ```fortran
-  aptr => JacobiSpace1D_Pointer(alpha=0.0_DFP, beta=0.0_DFP)
+aptr => JacobiSpace1D_Pointer(alpha=0.0_DFP, beta=0.0_DFP)
 ```
 
 !!! note "GetRecurrenceCoeff"
 
 ```fortran
-  n = 10
-  coeff = aptr%GetRecurrenceCoeff(n=n)
-  call display(MdEncode(coeff), "coeff="//CHAR_LF)
+n = 10
+coeff = aptr%GetRecurrenceCoeff(n=n)
+call display(MdEncode(coeff), "coeff="//CHAR_LF)
 ```
 
 !!! example "result"
-    coeff=
+coeff=
 
     | $\alpha_{n}$ | $\beta_{n}$ |
     |--------------|-------------|
@@ -69,13 +69,13 @@ integer(i4b) :: n
 !!! note "GetRecurrenceCoeff2"
 
 ```fortran
-  n = 10
-  coeff = aptr%GetRecurrenceCoeff2(n=n)
-  call display(MdEncode(coeff), "coeff2="//CHAR_LF)
+n = 10
+coeff = aptr%GetRecurrenceCoeff2(n=n)
+call display(MdEncode(coeff), "coeff2="//CHAR_LF)
 ```
 
 !!! example "result"
-    coeff2=
+coeff2=
 
     | $a_{n}$ | $b_{n}$ | $c_{n}$ |
     |---------|---------|---------|
@@ -93,20 +93,20 @@ integer(i4b) :: n
 !!! note "GetAlpha"
 
 ```fortran
-  CALL Display(aptr%GetAlpha(n=2_I4B), "alpha_2=")
+CALL Display(aptr%GetAlpha(n=2_I4B), "alpha_2=")
 ```
 
 !!! note "GetBeta"
 
 ```fortran
-  CALL Display(aptr%GetBeta(n=2_I4B), "beta_2=")
+CALL Display(aptr%GetBeta(n=2_I4B), "beta_2=")
 ```
 
 !!! note "cleanup"
 
 ```fortran
-  CALL aptr%Deallocate()
-  Deallocate(aptr)
+CALL aptr%Deallocate()
+Deallocate(aptr)
 ```
 
 ```fortran

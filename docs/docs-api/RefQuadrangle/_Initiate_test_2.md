@@ -9,7 +9,6 @@ CALL obj%display('RefQuadrangle : ')
 END PROGRAM main
 ```
 
-
 <details>
 <summary>See results</summary>
 <div>
@@ -99,4 +98,3 @@ baseInterpol: HierarchyInterpolation
 
 </div>
 </details>
-

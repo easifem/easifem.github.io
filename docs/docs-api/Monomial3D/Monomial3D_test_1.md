@@ -28,17 +28,17 @@ character(len=*), parameter :: varname1="x", varname2="y", varname3="z"
 ```
 
 !!! note ""
-    Initiate the object. $f(x,y,z)=1$
+Initiate the object. $f(x,y,z)=1$
 
 ```fortran
-  n1=0; n2=0; n3=0
-  obj=Monomial3D( n1=n1, n2=n2, n3=n3, varname1=varname1, &
-    & varname2=varname2, varname3=varname3 )
-  call obj%display( 'f(x,y,z)=' )
+n1=0; n2=0; n3=0
+obj=Monomial3D( n1=n1, n2=n2, n3=n3, varname1=varname1, &
+  & varname2=varname2, varname3=varname3 )
+call obj%display( 'f(x,y,z)=' )
 ```
 
 !!! example "result"
-    f(x,y,z)=
+f(x,y,z)=
 
 !!! note ""
 $$
@@ -46,10 +46,10 @@ f(x,y,z)=x^1
 $$
 
 ```fortran
-  n1=1; n2=0; n3=0
-  obj=Monomial3D( n1=n1, n2=n2, n3=n3, varname1=varname1, &
-    & varname2=varname2, varname3=varname3 )
-  call obj%display( 'f(x,y,z)=' )
+n1=1; n2=0; n3=0
+obj=Monomial3D( n1=n1, n2=n2, n3=n3, varname1=varname1, &
+  & varname2=varname2, varname3=varname3 )
+call obj%display( 'f(x,y,z)=' )
 ```
 
 !!! example "result"
@@ -61,14 +61,14 @@ f(x,y,z)=y^1
 $$
 
 ```fortran
-  n1=0; n2=1; n3=0
-  obj=Monomial3D( n1=n1, n2=n2, n3=n3, varname1=varname1, &
-    & varname2=varname2, varname3=varname3 )
-  call obj%display( 'f(x,y,z)=' )
+n1=0; n2=1; n3=0
+obj=Monomial3D( n1=n1, n2=n2, n3=n3, varname1=varname1, &
+  & varname2=varname2, varname3=varname3 )
+call obj%display( 'f(x,y,z)=' )
 ```
 
 !!! example "result"
-    f(x,y,z)=y^1
+f(x,y,z)=y^1
 
 !!! note ""
 
@@ -77,14 +77,14 @@ f(x,y,z)=xyz
 $$
 
 ```fortran
-  n1=1; n2=1; n3=1
-  obj=Monomial3D( n1=n1, n2=n2, n3=n3, varname1=varname1, &
-    & varname2=varname2, varname3=varname3 )
-  call obj%display( 'f(x,y,z)=' )
+n1=1; n2=1; n3=1
+obj=Monomial3D( n1=n1, n2=n2, n3=n3, varname1=varname1, &
+  & varname2=varname2, varname3=varname3 )
+call obj%display( 'f(x,y,z)=' )
 ```
 
 !!! example "result"
-    f(x,y,z)=x^1 y^1 z^1
+f(x,y,z)=x^1 y^1 z^1
 
 !!! note ""
 
@@ -93,14 +93,14 @@ f(x,y)=x^2 y z
 $$
 
 ```fortran
-  n1=2; n2=1; n3=1
-  obj=Monomial3D( n1=n1, n2=n2, n3=n3, varname1=varname1, &
-    & varname2=varname2, varname3=varname3 )
-  call obj%display( 'f(x,y,z)=' )
+n1=2; n2=1; n3=1
+obj=Monomial3D( n1=n1, n2=n2, n3=n3, varname1=varname1, &
+  & varname2=varname2, varname3=varname3 )
+call obj%display( 'f(x,y,z)=' )
 ```
 
 !!! example "result"
-    f(x,y,z)=x^2 y^1 z^1
+f(x,y,z)=x^2 y^1 z^1
 
 ```fortran
 END PROGRAM main

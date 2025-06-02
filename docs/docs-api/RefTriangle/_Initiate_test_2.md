@@ -1,6 +1,6 @@
 In this example we create a reference triangle for Hierarchy polynomials.
 
-``` fortran
+```fortran
 PROGRAM main
 USE easifemBase
 USE easifemClasses
@@ -12,7 +12,6 @@ CALL obj%Initiate(nsd=2, &
 CALL obj%display('Triangle : ')
 END PROGRAM main
 ```
-
 
 <details>
 <summary>See results</summary>

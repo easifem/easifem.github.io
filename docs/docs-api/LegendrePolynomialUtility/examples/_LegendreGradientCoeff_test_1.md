@@ -22,45 +22,45 @@ program main
 ```
 
 ```fortran title "Plot settings"
-  CALL aplot%Initiate()
-  CALL aplot%Set( &
-    & device="svg", &
-    & filename=fname//"-%n.svg")
-  CALL aplot%figure()
-  CALL aplot%subplot(1,1,1)
-  CALL aplot%setXYLim([-1.0_DFP, 1.0_DFP], [ -15.0_DFP, 15.0_DFP])
-  CALL aplot%setTicks()
-  x = linspace(-1.0_DFP, 1.0_DFP, 101_I4B)
+CALL aplot%Initiate()
+CALL aplot%Set( &
+  & device="svg", &
+  & filename=fname//"-%n.svg")
+CALL aplot%figure()
+CALL aplot%subplot(1,1,1)
+CALL aplot%setXYLim([-1.0_DFP, 1.0_DFP], [ -15.0_DFP, 15.0_DFP])
+CALL aplot%setTicks()
+x = linspace(-1.0_DFP, 1.0_DFP, 101_I4B)
 ```
 
 ```fortran title "Prepare quadratures"
-  n = 20
-  call reallocate( pt, n+1, wt, n+1, fval, n+1 )
-  !!
-  call LegendreQuadrature( n=n+1, pt=pt, wt=wt, quadType=quadType )
+n = 20
+call reallocate( pt, n+1, wt, n+1, fval, n+1 )
+!!
+call LegendreQuadrature( n=n+1, pt=pt, wt=wt, quadType=quadType )
 ```
 
 ```fortran title "LegendreTransformation"
-  fval = func1(pt)
-  !!
-  fhat = LegendreTransform(n=n, coeff=fval, x=pt, w=wt, quadType=quadType)
-  !!
-  f1hat = LegendreGradientCoeff(n=n, coeff=fhat)
-  !!
+fval = func1(pt)
+!!
+fhat = LegendreTransform(n=n, coeff=fval, x=pt, w=wt, quadType=quadType)
+!!
+f1hat = LegendreGradientCoeff(n=n, coeff=fhat)
+!!
 ```
 
 ```fortran title "LegendreTransformation"
-  !! nodal values of derivative of function
-  f1val = dfunc1(pt)
-  !!
-  f1hat2 = LegendreTransform(n=n, coeff=f1val, x=pt, w=wt, quadType=quadType)
-  !!
-  call display( MdEncode(f1hat .colconcat. f1hat2), "")
-  !!
+!! nodal values of derivative of function
+f1val = dfunc1(pt)
+!!
+f1hat2 = LegendreTransform(n=n, coeff=f1val, x=pt, w=wt, quadType=quadType)
+!!
+call display( MdEncode(f1hat .colconcat. f1hat2), "")
+!!
 ```
 
 | $\tilde{f}^{(1)}_{n}$ | $\tilde{\partial f}_{n}$ |
-|-----------------------|--------------------------|
+| --------------------- | ------------------------ |
 | 8.30697E-13           | 8.29555E-13              |
 | -3.28493E-14          | 7.40033E-15              |
 | 1.1937                | 1.1937                   |
@@ -84,51 +84,51 @@ program main
 | 0                     | 5.52691E-02              |
 
 ```fortran title "Plotting"
-    CALL aplot%plot2D( x=x,y=LegendreInvTransform(n=n,  &
-      & x=x, coeff=f1hat), lineColor="k")
-    !!
-    CALL aplot%plot2D( x=x,y=LegendreInvTransform(n=n,  &
-      & x=x, coeff=f1hat2), lineColor="b")
-    !!
-    CALL aplot%plot2D( x=x,y=dfunc1(x), pointType=PS_DOT, lineWidth=0.0_DFP )
-    CALL aplot%setLabels("x","du(x)","")
-    !CALL aplot%show()
-    !CALL aplot%deallocate()
+CALL aplot%plot2D( x=x,y=LegendreInvTransform(n=n,  &
+  & x=x, coeff=f1hat), lineColor="k")
+!!
+CALL aplot%plot2D( x=x,y=LegendreInvTransform(n=n,  &
+  & x=x, coeff=f1hat2), lineColor="b")
+!!
+CALL aplot%plot2D( x=x,y=dfunc1(x), pointType=PS_DOT, lineWidth=0.0_DFP )
+CALL aplot%setLabels("x","du(x)","")
+!CALL aplot%show()
+!CALL aplot%deallocate()
 ```
 
 ```fortran title "Prepare quadratures"
-  error = zeros(30, 2, 1.0_DFP)
+error = zeros(30, 2, 1.0_DFP)
+!!
+DO n = 1, SIZE(error,1)
+  call reallocate( pt, n+1, wt, n+1, fval, n+1 )
   !!
-  DO n = 1, SIZE(error,1)
-    call reallocate( pt, n+1, wt, n+1, fval, n+1 )
-    !!
-    call LegendreQuadrature( n=n+1,  &
-      & pt=pt, wt=wt, quadType=quadType )
-    !!
-    fval = func1(pt)
-    !!
-    fhat = LegendreTransform(n=n,  &
-      & coeff=fval, x=pt, w=wt, quadType=quadType)
-    !!
-    f1hat = LegendreGradientCoeff(n=n,  coeff=fhat)
-    !!
-    !! nodal values of derivative of function
-    !!
-    f1val = dfunc1(pt)
-    !!
-    f1hat2 = LegendreTransform(n=n,  &
-      & coeff=f1val, x=pt, w=wt, quadType=quadType)
-    !!
-    error(n,1) = n
-    error(n,2) = NORM2( ABS(f1hat-f1hat2) )
-    !!
-  END DO
+  call LegendreQuadrature( n=n+1,  &
+    & pt=pt, wt=wt, quadType=quadType )
   !!
-  CALL display( MdEncode(error), "error=")
+  fval = func1(pt)
+  !!
+  fhat = LegendreTransform(n=n,  &
+    & coeff=fval, x=pt, w=wt, quadType=quadType)
+  !!
+  f1hat = LegendreGradientCoeff(n=n,  coeff=fhat)
+  !!
+  !! nodal values of derivative of function
+  !!
+  f1val = dfunc1(pt)
+  !!
+  f1hat2 = LegendreTransform(n=n,  &
+    & coeff=f1val, x=pt, w=wt, quadType=quadType)
+  !!
+  error(n,1) = n
+  error(n,2) = NORM2( ABS(f1hat-f1hat2) )
+  !!
+END DO
+!!
+CALL display( MdEncode(error), "error=")
 ```
 
 | order(n) | MAX(err)    |
-|----------|-------------|
+| -------- | ----------- |
 | 2        | 12.566      |
 | 4        | 16.409      |
 | 6        | 22.967      |

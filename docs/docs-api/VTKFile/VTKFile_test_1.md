@@ -28,16 +28,16 @@ program main
 ```
 
 ```fortran
-  call display(encodeVTKDataArray(i8, "ASCII"))
-  call display(encodeVTKDataArray(i16, "ASCII"))
-  call display(encodeVTKDataArray(i32, "ASCII"))
-  call display(encodeVTKDataArray(i8, "BINARY"))
-  call display(encodeVTKDataArray(i16, "BINARY"))
-  call display(encodeVTKDataArray(i32, "BINARY"))
-  call display(encodeVTKDataArray(r32, "ASCII"))
-  call display(encodeVTKDataArray(r64, "ASCII"))
-  call display(encodeVTKDataArray(r32, "BINARY"))
-  call display(encodeVTKDataArray(r64, "BINARY"))
+call display(encodeVTKDataArray(i8, "ASCII"))
+call display(encodeVTKDataArray(i16, "ASCII"))
+call display(encodeVTKDataArray(i32, "ASCII"))
+call display(encodeVTKDataArray(i8, "BINARY"))
+call display(encodeVTKDataArray(i16, "BINARY"))
+call display(encodeVTKDataArray(i32, "BINARY"))
+call display(encodeVTKDataArray(r32, "ASCII"))
+call display(encodeVTKDataArray(r64, "ASCII"))
+call display(encodeVTKDataArray(r32, "BINARY"))
+call display(encodeVTKDataArray(r64, "BINARY"))
 ```
 
 ```fortran

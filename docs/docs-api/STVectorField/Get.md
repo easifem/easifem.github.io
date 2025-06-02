@@ -27,11 +27,11 @@ END INTERFACE
 
 - If `globalnode` is present then this routine returns the space-time values at the `globalnode`. Note that the returned values are stored in `value` in `NODES_FMT` format. You can get the space-time nodal values by reshaping `value`, that is, `reshape(value, [spaceCompo, timeCompo])`.
 
-- If `spaceCompo` and `timeCompo` are present, then this routine returns all the nodal values of specified space-time component. The size of  `value` will be `tNodes`.
+- If `spaceCompo` and `timeCompo` are present, then this routine returns all the nodal values of specified space-time component. The size of `value` will be `tNodes`.
 
 - If `spaceCompo` is present and `timeCompo` is not present, then this routine returns nodal values of all time components in `value`. The data is stored in `NODES_FMT`. Therefore, by reshaping `value` as `reshape(value, [timeCompo, tNodes])` you can retrive data.
 
-- If `timeCompo` is present and `spaceCompo` is not present, then this routine returns  nodal values of all space components in `value`. The data is stored in `NODES_FMT`. Therefore, by reshaping `value` as `reshape(value, [spaceCompo, tNodes])` you can retrive data.
+- If `timeCompo` is present and `spaceCompo` is not present, then this routine returns nodal values of all space components in `value`. The data is stored in `NODES_FMT`. Therefore, by reshaping `value` as `reshape(value, [spaceCompo, tNodes])` you can retrive data.
 
 </TabItem>
 

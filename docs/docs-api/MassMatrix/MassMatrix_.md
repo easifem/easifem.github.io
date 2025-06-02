@@ -26,12 +26,11 @@ $$
 $$
 \int_{\Omega } N^{I} N^{J}d\Omega
 $$
-    
+
     You can learn more about this in
-    
+
     - [[MassMatrix_test_1]] for [[ReferenceLine_]] `Line2`
     - [[MassMatrix_test_2]] for [[ReferenceLine_]] `Line3`
-    - [[MassMatrix_test_3]] for mixed FEM type, Line2 and Line3 [[ReferenceLine_]] 
+    - [[MassMatrix_test_3]] for mixed FEM type, Line2 and Line3 [[ReferenceLine_]]
 
 - [ ] TODO add examples for creating mass matrix for triangle3 and triangle6 and 3D elements.
-

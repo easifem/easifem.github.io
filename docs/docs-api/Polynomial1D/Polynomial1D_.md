@@ -11,13 +11,13 @@ We can create an instance by calling Polynomial1D function.
 Interface
 
 ```fortran
-  MODULE PURE FUNCTION Polynomial1D(coeff, degree, varname) &
-    & RESULT(ans)
-    REAL(DFP), INTENT(IN) :: coeff(:)
-    INTEGER(I4B), INTENT(IN) :: degree(:)
-    CHARACTER(LEN=*), INTENT(IN) :: varname
-    TYPE(Polynomial1D_) :: ans
-  END FUNCTION Polynomial1D
+MODULE PURE FUNCTION Polynomial1D(coeff, degree, varname) &
+  & RESULT(ans)
+  REAL(DFP), INTENT(IN) :: coeff(:)
+  INTEGER(I4B), INTENT(IN) :: degree(:)
+  CHARACTER(LEN=*), INTENT(IN) :: varname
+  TYPE(Polynomial1D_) :: ans
+END FUNCTION Polynomial1D
 ```
 
 - `coeff` coefficient of polynomial
@@ -25,7 +25,8 @@ Interface
 - `varname` variable name
 
 !!! example "Example"
-    - [[Polynomial1D_test_1]]
+
+- [[Polynomial1D_test_1]]
 
 ### Polynomial1D_Pointer
 
@@ -48,17 +49,18 @@ Evaluate the function at a given point.
 Interface:
 
 ```fortran
-  MODULE PURE FUNCTION Polynomial1D(coeff, degree, &
-    & varname) RESULT(ans)
-    REAL(DFP), INTENT(IN) :: coeff(:)
-    INTEGER(I4B), INTENT(IN) :: degree(:)
-    CHARACTER(LEN=*), INTENT(IN) :: varname
-    TYPE(Polynomial1D_) :: ans
-  END FUNCTION Polynomial1D
+MODULE PURE FUNCTION Polynomial1D(coeff, degree, &
+  & varname) RESULT(ans)
+  REAL(DFP), INTENT(IN) :: coeff(:)
+  INTEGER(I4B), INTENT(IN) :: degree(:)
+  CHARACTER(LEN=*), INTENT(IN) :: varname
+  TYPE(Polynomial1D_) :: ans
+END FUNCTION Polynomial1D
 ```
 
 !!! example "Example"
-    - [[Polynomial1D_test_2]]
+
+- [[Polynomial1D_test_2]]
 
 ### EvalGradient
 
@@ -67,15 +69,16 @@ Evaluate first derivative of the polynomial at a given point.
 Interface:
 
 ```fortran
-  MODULE ELEMENTAL FUNCTION EvalGradient(obj, x) RESULT(ans)
-    CLASS(Polynomial1D_), INTENT(IN) :: obj
-    REAL(DFP), INTENT(IN) :: x
-    REAL(DFP) :: ans
-  END FUNCTION EvalGradient
+MODULE ELEMENTAL FUNCTION EvalGradient(obj, x) RESULT(ans)
+  CLASS(Polynomial1D_), INTENT(IN) :: obj
+  REAL(DFP), INTENT(IN) :: x
+  REAL(DFP) :: ans
+END FUNCTION EvalGradient
 ```
 
 !!! example "Example"
-    - [[Polynomial1D_test_2]]
+
+- [[Polynomial1D_test_2]]
 
 ### Grad
 
@@ -84,14 +87,15 @@ Returns the gradient of the polynomial as an instance of a polynomial.
 Interface:
 
 ```fortran
-  MODULE ELEMENTAL FUNCTION Grad(obj) RESULT(ans)
-    CLASS(Polynomial1D_), INTENT(IN) :: obj
-    TYPE(Polynomial1D_) :: ans
-  END FUNCTION Grad
+MODULE ELEMENTAL FUNCTION Grad(obj) RESULT(ans)
+  CLASS(Polynomial1D_), INTENT(IN) :: obj
+  TYPE(Polynomial1D_) :: ans
+END FUNCTION Grad
 ```
 
 !!! example "Example"
-    - [[Polynomial1D_test_2]]
+
+- [[Polynomial1D_test_2]]
 
 ### GetStringForUID
 
@@ -102,7 +106,8 @@ Returns the string for creating the UID. This routine is for internal use only.
 Returns the degrees of monomials.
 
 !!! example "Example"
-    - [[Polynomial1D_test_2]]
+
+- [[Polynomial1D_test_2]]
 
 ### GetDisplayString
 
@@ -133,7 +138,8 @@ Display the content of the polynomial.
 - We can add an instance of [[Polynomial1D_]] and a scalar to get an instance of [[Polynomial1D_]].
 
 !!! example "Examples"
-    - [[Polynomial1D_test_5.md]]
+
+- [[Polynomial1D_test_5.md]]
 
 ### OPERATOR(*)
 
@@ -144,7 +150,8 @@ Display the content of the polynomial.
 - We can multiply an instance of [[Polynomial1D_]] and a scalar to get an instance of [[Polynomial1D_]].
 
 !!! example "Examples"
-    - [[Polynomial1D_test_4.md]]
+
+- [[Polynomial1D_test_4.md]]
 
 ### OPERATOR(-)
 
@@ -155,7 +162,8 @@ Display the content of the polynomial.
 - We can subtract an instance of [[Polynomial1D_]] and a scalar to get an instance of [[Polynomial1D_]].
 
 !!! example "Examples"
-    - [[Polynomial1D_test_6.md]]
+
+- [[Polynomial1D_test_6.md]]
 
 ### ASSIGNMENT(=)
 

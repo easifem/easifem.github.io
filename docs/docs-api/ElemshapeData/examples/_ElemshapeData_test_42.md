@@ -10,9 +10,9 @@ This example demonstrates how to USE the `GetSpatialGradient` method for vector 
 ## Usage
 
 !!! note ""
-    IMPORT modules and declare variables
+IMPORT modules and declare variables
 
-``` fortran
+```fortran
 PROGRAM main
     USE easifemBase
     IMPLICIT NONE
@@ -30,53 +30,53 @@ PROGRAM main
 ```
 
 !!! note ""
-    Initiate an instance of [[ReferenceQuadrangle_]]
+Initiate an instance of [[ReferenceQuadrangle_]]
 
 ```fortran
-    refelem = ReferenceQuadrangle( nsd = nsd )
+refelem = ReferenceQuadrangle( nsd = nsd )
 ```
 
 !!! note ""
-    Initiate Gauss-Legendre Quadrature points.
+Initiate Gauss-Legendre Quadrature points.
 
 ```fortran
-    CALL Initiate(obj=quad, refelem=refelem, order=order, &
-        & quadratureType='GaussLegendre')
+CALL Initiate(obj=quad, refelem=refelem, order=order, &
+    & quadratureType='GaussLegendre')
 ```
 
 !!! note ""
-    Initiate an instance of [[ElemshapeData_]] for [[ReferenceQuadrangle_]]. The code shown below ONLY initiates the Spatial shape FUNCTION DATA.
+Initiate an instance of [[ElemshapeData_]] for [[ReferenceQuadrangle_]]. The code shown below ONLY initiates the Spatial shape FUNCTION DATA.
 
 ```fortran
-    CALL Initiate( obj = obj, quad = quad, refelem = refelem, &
-      & ContinuityType= typeH1, InterpolType = TypeLagrangeInterpolation )
-    CALL Set( obj=obj, val=xij, N=obj%N, dNdXi=obj%dNdXi )
+CALL Initiate( obj = obj, quad = quad, refelem = refelem, &
+  & ContinuityType= typeH1, InterpolType = TypeLagrangeInterpolation )
+CALL Set( obj=obj, val=xij, N=obj%N, dNdXi=obj%dNdXi )
 ```
 
 !!! note "GetSpatialGradient"
-    Vector variable, constant.
+Vector variable, constant.
 
 ```fortran
-    var1 = NodalVariable( ones(2, 1.0_DFP), &
-        & typeFEVariableVector, &
-        & typeFEVariableConstant )
-    CALL GetSpatialGradient(obj=obj, lg=var2, val=var1)
-    CALL Display( var2, "Vector + constant")
-    CALL Display( SpatialGradient(obj, var1), "Vector + constant")
+var1 = NodalVariable( ones(2, 1.0_DFP), &
+    & typeFEVariableVector, &
+    & typeFEVariableConstant )
+CALL GetSpatialGradient(obj=obj, lg=var2, val=var1)
+CALL Display( var2, "Vector + constant")
+CALL Display( SpatialGradient(obj, var1), "Vector + constant")
 ```
 
 !!! note "GetSpatialGradient"
-    Vector variable, space.
+Vector variable, space.
 
 ```fortran
-    var1 = NodalVariable( &
-        & reshape([1.0_DFP, 1.0_DFP, 1.0_DFP, 1.0_DFP, &
-        & 1.0_DFP,1.0_DFP,1.0_DFP,1.0_DFP], [2,4]), &
-        & typeFEVariableVector, &
-        & typeFEVariableSpace )
-    CALL GetSpatialGradient(obj=obj, lg=var2, val=var1)
-    CALL Display( var2, "Vector + space")
-    CALL Display( SpatialGradient(obj, var1), "Vector + space")
+var1 = NodalVariable( &
+    & reshape([1.0_DFP, 1.0_DFP, 1.0_DFP, 1.0_DFP, &
+    & 1.0_DFP,1.0_DFP,1.0_DFP,1.0_DFP], [2,4]), &
+    & typeFEVariableVector, &
+    & typeFEVariableSpace )
+CALL GetSpatialGradient(obj=obj, lg=var2, val=var1)
+CALL Display( var2, "Vector + space")
+CALL Display( SpatialGradient(obj, var1), "Vector + space")
 ```
 
 !!! settings "Cleanup"

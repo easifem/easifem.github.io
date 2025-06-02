@@ -12,7 +12,7 @@ tags:
 # FEVariable example 61
 
 !!! note ""
-    This example tests `ABS` operator. Scalar, Nodal Variable.
+This example tests `ABS` operator. Scalar, Nodal Variable.
 
 ## Use association
 
@@ -33,56 +33,56 @@ PROGRAM main
 !!! note "constant"
 
 ```fortran
-  obj = ABS(NodalVariable( &
-      & -2.0_DFP, &
-      & typeFEVariableScalar,    &
-      & typeFEVariableConstant ))
-  ans = NodalVariable( 2.0_DFP, &
-      & typeFEVariableScalar,    &
-      & typeFEVariableConstant )
-  CALL OK( obj .EQ. ans, "constant:" )
+obj = ABS(NodalVariable( &
+    & -2.0_DFP, &
+    & typeFEVariableScalar,    &
+    & typeFEVariableConstant ))
+ans = NodalVariable( 2.0_DFP, &
+    & typeFEVariableScalar,    &
+    & typeFEVariableConstant )
+CALL OK( obj .EQ. ans, "constant:" )
 ```
 
 !!! note "space"
 
 ```fortran
-  obj = ABS(NodalVariable( &
-      & -arange(1.0_DFP, 3.0_DFP), &
-      & typeFEVariableScalar, &
-      & typeFEVariableSpace ) )
-  ans = NodalVariable( &
-      & arange(1.0_DFP, 3.0_DFP), &
-      & typeFEVariableScalar,    &
-      & typeFEVariableSpace )
-  CALL OK( obj .EQ. ans, "space:" )
+obj = ABS(NodalVariable( &
+    & -arange(1.0_DFP, 3.0_DFP), &
+    & typeFEVariableScalar, &
+    & typeFEVariableSpace ) )
+ans = NodalVariable( &
+    & arange(1.0_DFP, 3.0_DFP), &
+    & typeFEVariableScalar,    &
+    & typeFEVariableSpace )
+CALL OK( obj .EQ. ans, "space:" )
 ```
 
 !!! note "time"
 
 ```fortran
-  obj = ABS(NodalVariable( &
-      & -arange(0.0_DFP, 3.0_DFP), &
-      & typeFEVariableScalar, &
-      & typeFEVariableTime ))
-  ans = NodalVariable( &
-      & arange(0.0_DFP, 3.0_DFP), &
-      & typeFEVariableScalar,    &
-      & typeFEVariableTime )
-  CALL OK( obj .EQ. ans, "time:" )
+obj = ABS(NodalVariable( &
+    & -arange(0.0_DFP, 3.0_DFP), &
+    & typeFEVariableScalar, &
+    & typeFEVariableTime ))
+ans = NodalVariable( &
+    & arange(0.0_DFP, 3.0_DFP), &
+    & typeFEVariableScalar,    &
+    & typeFEVariableTime )
+CALL OK( obj .EQ. ans, "time:" )
 ```
 
 !!! note "spacetime"
 
 ```fortran
-  obj = ABS(NodalVariable( &
-      & reshape(-arange(1.0_DFP, 6.0_DFP), [3,2]), &
-      & typeFEVariableScalar, &
-      & typeFEVariableSpaceTime ))
-  ans = NodalVariable( &
-      & reshape(arange(1.0_DFP, 6.0_DFP), [3,2]), &
-      & typeFEVariableScalar,    &
-      & typeFEVariableSpaceTime )
-  CALL OK( obj .EQ. ans, "spacetime" )
+obj = ABS(NodalVariable( &
+    & reshape(-arange(1.0_DFP, 6.0_DFP), [3,2]), &
+    & typeFEVariableScalar, &
+    & typeFEVariableSpaceTime ))
+ans = NodalVariable( &
+    & reshape(arange(1.0_DFP, 6.0_DFP), [3,2]), &
+    & typeFEVariableScalar,    &
+    & typeFEVariableSpaceTime )
+CALL OK( obj .EQ. ans, "spacetime" )
 ```
 
 ```fortran

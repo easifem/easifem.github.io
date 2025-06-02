@@ -26,100 +26,95 @@ integer(i4b), allocatable :: indices(:,:)
 ```
 
 !!! note "Initiate"
-    Initiate the object.
+Initiate the object.
 
 ```fortran
-  obj=MultiIndices(n=0, d=1)
-  indices = GetMultiIndices(obj=obj, upto=.true.)
-  CALL Display(indices, "indices=")
+obj=MultiIndices(n=0, d=1)
+indices = GetMultiIndices(obj=obj, upto=.true.)
+CALL Display(indices, "indices=")
 ```
 
-!!! example "result"
-    indices=
-    --------
-      0  0
+## !!! example "result"indices=
+
+0 0
 
 !!! note "n=1, d=1"
 
 ```fortran
-  obj=MultiIndices(n=1, d=1)
-  indices = GetMultiIndices(obj, .true.)
-  CALL Display(transpose(indices), "indices=")
+obj=MultiIndices(n=1, d=1)
+indices = GetMultiIndices(obj, .true.)
+CALL Display(transpose(indices), "indices=")
 ```
 
-!!! example "result"
-    indices=
-    --------
-    0  0
-    0  1
-    1  0
+## !!! example "result"indices=
+
+0 0
+0 1
+1 0
 
 !!! note "n=2, d=1"
 
 ```fortran
-  obj=MultiIndices(n=2, d=1)
-  indices = GetMultiIndices(obj, .true.)
-  CALL Display(transpose(indices), "indices=")
+obj=MultiIndices(n=2, d=1)
+indices = GetMultiIndices(obj, .true.)
+CALL Display(transpose(indices), "indices=")
 ```
 
-!!! example "result"
-    indices=
-    --------
-    0  0
-    0  1
-    1  0
-    0  2
-    1  1
-    2  0
+## !!! example "result"indices=
+
+0 0
+0 1
+1 0
+0 2
+1 1
+2 0
 
 !!! note "n=2, d=2"
 
 ```fortran
-  obj=MultiIndices(n=2, d=2)
-  indices = GetMultiIndices(obj, .true.)
-  CALL Display(transpose(indices), "indices=")
+obj=MultiIndices(n=2, d=2)
+indices = GetMultiIndices(obj, .true.)
+CALL Display(transpose(indices), "indices=")
 ```
 
-!!! example "result"
-    indices=
-    --------
-    0  0  0
-    0  0  1
-    0  1  0
-    1  0  0
-    0  0  2
-    0  1  1
-    0  2  0
-    1  0  1
-    1  1  0
-    2  0  0
+## !!! example "result"indices=
+
+0 0 0
+0 0 1
+0 1 0
+1 0 0
+0 0 2
+0 1 1
+0 2 0
+1 0 1
+1 1 0
+2 0 0
 
 !!! note "n=2, d=3"
 
 ```fortran
-  obj=MultiIndices(n=2, d=3)
-  indices = GetMultiIndices(obj, .true.)
-  CALL Display(transpose(indices), "indices=")
+obj=MultiIndices(n=2, d=3)
+indices = GetMultiIndices(obj, .true.)
+CALL Display(transpose(indices), "indices=")
 ```
 
-!!! example "result"
-    indices=
-    --------
-    0  0  0  0
-    0  0  0  1
-    0  0  1  0
-    0  1  0  0
-    1  0  0  0
-    0  0  0  2
-    0  0  1  1
-    0  0  2  0
-    0  1  0  1
-    0  1  1  0
-    0  2  0  0
-    1  0  0  1
-    1  0  1  0
-    1  1  0  0
-    2  0  0  0
+## !!! example "result"indices=
+
+0 0 0 0
+0 0 0 1
+0 0 1 0
+0 1 0 0
+1 0 0 0
+0 0 0 2
+0 0 1 1
+0 0 2 0
+0 1 0 1
+0 1 1 0
+0 2 0 0
+1 0 0 1
+1 0 1 0
+1 1 0 0
+2 0 0 0
 
 ```fortran
 END PROGRAM main

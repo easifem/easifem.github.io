@@ -54,8 +54,7 @@ CALL Display(TrilIndx(m=3,n=3,diagNo=-2), "(3,3) diagNo=-2, = " )
        3  1        
 (3,3) diagNo=-2, = 
 -------------------
-       3  1        
-
+       3  1
 ```
 
 </div>

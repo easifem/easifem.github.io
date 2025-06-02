@@ -2,9 +2,7 @@
 
 Get values from a toml table.
 
-
 ## Interface 1 (Get scalar values)
-
 
 ## Interface 2 (Get vector values)
 
@@ -34,4 +32,3 @@ Here DataType can be one of the following types:
 - `LOGICAL(LGT)`
 
 ## Interface 3 (Get matrix values)
-

@@ -18,25 +18,23 @@ tags:
 
 This module converts Fortran intrinsic types into Markdown format.
 
-## Example 1 
+## Example 1
 
 import EXAMPLE23 from "./_MdEncode_test_1.md";
 
 <EXAMPLE23 />
 
-
-## Example 2 
+## Example 2
 
 import EXAMPLE30 from "./_MdEncode_test_2.md";
 
 <EXAMPLE30 />
 
-## Example 3 
+## Example 3
 
 import EXAMPLE36 from "./_MdEncode_test_3.md";
 
 <EXAMPLE36 />
-
 
 ## Example 4
 
@@ -50,8 +48,7 @@ import EXAMPLE49 from "./_MdEncode_test_5.md";
 
 <EXAMPLE49 />
 
-
-## Example 6 
+## Example 6
 
 import EXAMPLE56 from "./_MdEncode_test_6.md";
 

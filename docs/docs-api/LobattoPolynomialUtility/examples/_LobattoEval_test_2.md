@@ -1,4 +1,4 @@
-This example shows the usage of `LobattoEval` method. 
+This example shows the usage of `LobattoEval` method.
 
 This routine evaluates Lobatto polynomial of order n, at several points.
 

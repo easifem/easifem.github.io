@@ -50,13 +50,12 @@ It represents the basis function family used for interpolation. Following values
 - `HierarchyInterpolation`
 - `HierarchyPolynomial`
 - `Hierarchy`
-- `OrthogonalInterpolation `
+- `OrthogonalInterpolation`
 - `OrthogonalPolynomial`
 - `Orthogonal`
-- `HermitInterpolation `
+- `HermitInterpolation`
 - `HermitPolynomial`
 - `Hermit`
-
 
 </TabItem>
 

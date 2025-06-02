@@ -10,8 +10,8 @@ Returns the facet matrix of a reference element.
 - 4 to NNS + 3 denotes the Local Nptrs
 
 ```fortran
-  MODULE PURE FUNCTION Facet_Matrix_RefElem(RefElem) RESULT(FM)
-    INTEGER(I4B), ALLOCATABLE :: FM(:, :)
-    CLASS(ReferenceElement_), INTENT(IN) :: RefElem
-  END FUNCTION Facet_Matrix_RefElem
+MODULE PURE FUNCTION Facet_Matrix_RefElem(RefElem) RESULT(FM)
+  INTEGER(I4B), ALLOCATABLE :: FM(:, :)
+  CLASS(ReferenceElement_), INTENT(IN) :: RefElem
+END FUNCTION Facet_Matrix_RefElem
 ```

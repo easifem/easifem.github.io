@@ -12,7 +12,7 @@ tags:
 # FEVariable example 65
 
 !!! note ""
-    This example tests `ABS` operator. Matrix, Nodal
+This example tests `ABS` operator. Matrix, Nodal
 
 ## Use association
 
@@ -33,57 +33,57 @@ PROGRAM main
 !!! note "constant"
 
 ```fortran
-  obj = ABS(NodalVariable( &
-        & reshape(-arange(1.0_DFP, 6.0_DFP), [3,2]), &
-        & typeFEVariableMatrix,    &
-        & typeFEVariableConstant ))
-  ans = NodalVariable( &
-        & reshape(arange(1.0_DFP, 6.0_DFP), [3,2]), &
-        & typeFEVariableMatrix,    &
-        & typeFEVariableConstant )
-  CALL OK( obj .eq. ans, 'constant' )
+obj = ABS(NodalVariable( &
+      & reshape(-arange(1.0_DFP, 6.0_DFP), [3,2]), &
+      & typeFEVariableMatrix,    &
+      & typeFEVariableConstant ))
+ans = NodalVariable( &
+      & reshape(arange(1.0_DFP, 6.0_DFP), [3,2]), &
+      & typeFEVariableMatrix,    &
+      & typeFEVariableConstant )
+CALL OK( obj .eq. ans, 'constant' )
 ```
 
 !!! note "space"
 
 ```fortran
-  obj = ABS(nodalvariable( &
-        & reshape(-arange(1.0_dfp, 12.0_dfp), [3,2,2]), &
-        & typefevariablematrix, &
-        & typefevariablespace ))
-  ans = nodalvariable( &
-        & reshape(arange(1.0_dfp, 12.0_dfp), [3,2,2]), &
-        & typefevariablematrix, &
-        & typefevariablespace )
-  CALL OK( obj .eq. ans, 'space')
+obj = ABS(nodalvariable( &
+      & reshape(-arange(1.0_dfp, 12.0_dfp), [3,2,2]), &
+      & typefevariablematrix, &
+      & typefevariablespace ))
+ans = nodalvariable( &
+      & reshape(arange(1.0_dfp, 12.0_dfp), [3,2,2]), &
+      & typefevariablematrix, &
+      & typefevariablespace )
+CALL OK( obj .eq. ans, 'space')
 ```
 
 !!! note "time"
 
 ```fortran
-  obj = ABS(nodalvariable( &
-        & reshape(-arange(1.0_dfp, 12.0_dfp), [3,2,2]), &
-        & typefevariablematrix, &
-        & typefevariabletime ))
-  ans = nodalvariable( &
-        & reshape(arange(1.0_dfp, 12.0_dfp), [3,2,2]), &
-        & typefevariablematrix, &
-        & typefevariabletime )
-  CALL OK( obj .eq. ans, 'time')
+obj = ABS(nodalvariable( &
+      & reshape(-arange(1.0_dfp, 12.0_dfp), [3,2,2]), &
+      & typefevariablematrix, &
+      & typefevariabletime ))
+ans = nodalvariable( &
+      & reshape(arange(1.0_dfp, 12.0_dfp), [3,2,2]), &
+      & typefevariablematrix, &
+      & typefevariabletime )
+CALL OK( obj .eq. ans, 'time')
 ```
 
 !!! note "spacetime"
 
 ```fortran
-  obj = ABS(NodalVariable( &
-        & reshape(-arange(1.0_DFP, 24.0_DFP), [3,2,2,2]), &
-        & typeFEVariableMatrix, &
-        & typeFEVariableSpaceTime ))
-  ans = NodalVariable( &
-        & reshape(arange(1.0_DFP, 24.0_DFP) , [3,2,2,2]), &
-        & typeFEVariableMatrix, &
-        & typeFEVariableSpaceTime )
-  CALL OK( obj .eq. ans, 'spacetime')
+obj = ABS(NodalVariable( &
+      & reshape(-arange(1.0_DFP, 24.0_DFP), [3,2,2,2]), &
+      & typeFEVariableMatrix, &
+      & typeFEVariableSpaceTime ))
+ans = NodalVariable( &
+      & reshape(arange(1.0_DFP, 24.0_DFP) , [3,2,2,2]), &
+      & typeFEVariableMatrix, &
+      & typeFEVariableSpaceTime )
+CALL OK( obj .eq. ans, 'spacetime')
 ```
 
 ```fortran

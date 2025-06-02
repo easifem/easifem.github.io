@@ -31,15 +31,15 @@ integer(i4b), parameter :: ipType=IP_EQUIDISTANCE
 !!! note "Order=1"
 
 ```fortran
-  order=1
-  call obj%Initiate(elemType=elemType, order=order, ipType=ipType)
-  call obj%Display( elemName // "order=" //tostring(order) )
+order=1
+call obj%Initiate(elemType=elemType, order=order, ipType=ipType)
+call obj%Display( elemName // "order=" //tostring(order) )
 ```
 
 !!! example "result"
-    order=1
-    Total Basis=3
-	
+order=1
+Total Basis=3
+
 $$
 N(1)=+1-1 y^1-1x^1
 $$
@@ -55,16 +55,16 @@ $$
 !!! note "Order=2"
 
 ```fortran
-  order=2
-  call blanklines(nol=3)
-  call obj%Initiate(elemType=elemType, order=order, ipType=ipType)
-  call obj%Display( elemName // "order=" //tostring(order) )
+order=2
+call blanklines(nol=3)
+call obj%Initiate(elemType=elemType, order=order, ipType=ipType)
+call obj%Display( elemName // "order=" //tostring(order) )
 ```
 
 !!! example "result"
-    order=2
-    Total Basis=6
-	
+order=2
+Total Basis=6
+
 $$
 N(1)=+1-3 y^1+2 y^2+4x^1 y^1-3x^1+2x^2
 $$
@@ -91,16 +91,16 @@ $$
 !!! note "Order=3"
 
 ```fortran
-  order=3
-  call blanklines(nol=3)
-  call obj%Initiate(elemType=elemType, order=order, ipType=ipType)
-  call obj%Display( elemName // "order=" //tostring(order) )
+order=3
+call blanklines(nol=3)
+call obj%Initiate(elemType=elemType, order=order, ipType=ipType)
+call obj%Display( elemName // "order=" //tostring(order) )
 ```
 
 !!! example "result"
-    order=3
-    Total Basis=10
-    
+order=3
+Total Basis=10
+
 $$
 N(1)=+1+9 y^2-5.5 y^1-4.5 y^3-13.5x^1 y^2+18x^1 y^1-5.5x^1+9x^2-13.5x^2 y^1-4.5x^3
 $$

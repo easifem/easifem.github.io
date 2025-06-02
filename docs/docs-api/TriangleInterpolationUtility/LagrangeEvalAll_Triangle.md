@@ -43,16 +43,15 @@ END INTERFACE LagrangeEvalAll_Triangle
 :::note `xij`
 :::
 
-`xij` is the interpolation points for Lagrange polynomials. `xij` is used for constructing the `coeff`. 
-
+`xij` is the interpolation points for Lagrange polynomials. `xij` is used for constructing the `coeff`.
 
 :::note `basisType`
 :::
 
-Type of basis functions used for constructing the Lagrange polynomial. Following values are allowed: 
+Type of basis functions used for constructing the Lagrange polynomial. Following values are allowed:
 
-- Monomials 
-- Orthogonal, Jacobi, Legendre, Ultraspherical, are all the same. 
+- Monomials
+- Orthogonal, Jacobi, Legendre, Ultraspherical, are all the same.
 - Hierarchical
 
 </TabItem>

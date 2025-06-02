@@ -20,7 +20,6 @@ Testing and showing usage of methods defined in [[IntVector_#Constructor-methods
 
 ## Usage
 
-
 ```fortran
 PROGRAM main
 USE easifemBase
@@ -28,14 +27,14 @@ TYPE(IntVector_) :: obj
 ```
 
 !!! note ""
-    Initiate an instance of [[IntVector_]] by specifying size.
+Initiate an instance of [[IntVector_]] by specifying size.
 
 ```fortran
 CALL ALLOCATE(obj=obj, dims=10)
 ```
 
 !!! note ""
-    Let us check if obj is initiated or not.
+Let us check if obj is initiated or not.
 
 ```fortran
 CALL OK(IsAllocated(obj), "IsAllocated(obj)")
@@ -48,28 +47,28 @@ CALL OK(IsInitiated(obj), "IsInitiated(obj)")
 ```
 
 !!! note ""
-    Size of the  [[IntVector_]]
+Size of the [[IntVector_]]
 
 ```fortran
 CALL OK( SIZE(obj) .EQ. 10, "SIZE(obj)")
 ```
 
 !!! note ""
-    Shape of the  [[IntVector_]]
+Shape of the [[IntVector_]]
 
 ```fortran
 CALL OK( ALL(SHAPE(obj) .EQ. [10]), "SHAPE(obj)")
 ```
 
 !!! note ""
-    GetTotalDimension of the  [[IntVector_]]
+GetTotalDimension of the [[IntVector_]]
 
 ```fortran
 CALL OK( GetTotalDimension(obj) .EQ. 1, "GetTotalDimension(obj)")
 ```
 
 !!! settings ""
-    Cleanup.
+Cleanup.
 
 ```fortran
 CALL DEALLOCATE(obj)

@@ -28,8 +28,8 @@ Initiate the object.
 $y=1$
 
 ```fortran
-  obj=Monomial1D( degree=0_I4B, varname="x" )
-  call obj%display( 'f(x)=' )
+obj=Monomial1D( degree=0_I4B, varname="x" )
+call obj%display( 'f(x)=' )
 ```
 
 ```txt
@@ -40,8 +40,8 @@ f(x)=x^0
 $y=x$
 
 ```fortran
-  obj=Monomial1D( degree=1_I4B, varname="x" )
-  call obj%display( 'f(x)=' )
+obj=Monomial1D( degree=1_I4B, varname="x" )
+call obj%display( 'f(x)=' )
 ```
 
 ```txt
@@ -52,8 +52,8 @@ f(x)=x^1
 $y=x^2$
 
 ```fortran
-  obj=Monomial1D( degree=2_I4B, varname="x" )
-  call obj%display( 'f(x)=' )
+obj=Monomial1D( degree=2_I4B, varname="x" )
+call obj%display( 'f(x)=' )
 ```
 
 ```txt

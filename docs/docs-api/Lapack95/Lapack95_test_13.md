@@ -17,7 +17,7 @@ tags:
   - SymGetInv
 ---
 
-This example shows the use of `SymGetLU`  and `SymGetInv` method defined in Lapack95.
+This example shows the use of `SymGetLU` and `SymGetInv` method defined in Lapack95.
 
 - We get LU decomposition of A in LU.
 - We get inverse in invA

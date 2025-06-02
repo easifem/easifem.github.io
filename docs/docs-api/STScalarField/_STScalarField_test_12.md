@@ -55,7 +55,6 @@ end program main
 ```
 
 ```txt title="results"
-
 fevar = 
 # RANK :: 0 (SCALAR)
 # VarType: SPACE & TIME
@@ -102,5 +101,5 @@ fevar =
 0.00000,  0.00000,   
 0.87583,  0.91986,   
 0.00000,  0.00000,   
-0.82736,  0.94632,   
+0.82736,  0.94632,
 ```

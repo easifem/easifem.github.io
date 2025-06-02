@@ -1,4 +1,3 @@
-
 ```fortran
 ! subroutine test0
 !   type( domain_) :: dom

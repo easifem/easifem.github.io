@@ -15,4 +15,3 @@ MODULE PURE FUNCTION LocalDivergence(obj, val) RESULT(Ans)
   TYPE(FEVariable_) :: ans
 END FUNCTION LocalDivergence
 ```
-

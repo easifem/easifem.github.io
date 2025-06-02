@@ -18,7 +18,6 @@ call display( alphacoeff .colconcat. betacoeff, "ans = ")
 end program main
 ```
 
-
 <details>
 <summary>See results</summary>
 <div>

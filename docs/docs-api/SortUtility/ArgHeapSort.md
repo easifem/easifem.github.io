@@ -18,10 +18,10 @@ Then, `array(arg)` will be sorted in increasing order.
 <TabItem value="interface" label="܀ Interface" default>
 
 ```fortran
-  MODULE PURE SUBROUTINE ArgHeapSort(array, arg)
-    INTEGER(Int8| Int16 | Int32 | Int64) | REAL(Real32| Real64), INTENT(IN) :: array(:)
-    INTEGER(I4B), INTENT(OUT) :: arg(0:)
-  END SUBROUTINE ArgHeapSort
+MODULE PURE SUBROUTINE ArgHeapSort(array, arg)
+  INTEGER(Int8| Int16 | Int32 | Int64) | REAL(Real32| Real64), INTENT(IN) :: array(:)
+  INTEGER(I4B), INTENT(OUT) :: arg(0:)
+END SUBROUTINE ArgHeapSort
 ```
 
 - Here, entries of `array` are NOT modified by the routine.

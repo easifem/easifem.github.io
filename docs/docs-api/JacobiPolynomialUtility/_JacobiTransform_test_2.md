@@ -14,14 +14,14 @@ program main
 ```
 
 ```fortran
-  n = 10
-  call reallocate( pt, n+1, wt, n+1 )
-  call JacobiQuadrature( n=n+1, alpha=alpha, beta=beta, &
-    & pt=pt, wt=wt, quadType=quadType )
-  u = SIN(4.0_DFP * pi * pt) .COLCONCAT. SIN(4.0_DFP * pi * pt)
-  uhat = JacobiTransform(n=n, alpha=alpha, beta=beta, coeff=u, &
-    & x=pt, w=wt, quadType=quadType)
-  CALL Display(uhat, "uhat=")
+n = 10
+call reallocate( pt, n+1, wt, n+1 )
+call JacobiQuadrature( n=n+1, alpha=alpha, beta=beta, &
+  & pt=pt, wt=wt, quadType=quadType )
+u = SIN(4.0_DFP * pi * pt) .COLCONCAT. SIN(4.0_DFP * pi * pt)
+uhat = JacobiTransform(n=n, alpha=alpha, beta=beta, coeff=u, &
+  & x=pt, w=wt, quadType=quadType)
+CALL Display(uhat, "uhat=")
 ```
 
 ```fortran

@@ -4,7 +4,7 @@ title: ConvertMarkdownToSource
 
 This method reads a markdown file and extracts the Fortran code blocks, converting them into a Fortran source file.
 
-## Interface 
+## Interface
 
 ```fortran
 INTERFACE
@@ -21,4 +21,3 @@ END INTERFACE
 import EXAMPLE21 from "./examples/_ConvertMarkdownToSource_test_1.md";
 
 <EXAMPLE21 />
-

@@ -16,8 +16,8 @@ tags:
 # STConvectiveMatrix example 32
 
 !!! note ""
-	This example shows how to USE the SUBROUTINE called `STConvectiveMatrix` to create a space-time convective matrix. Triangle3 in space and Line2 in time.
-    
+This example shows how to USE the SUBROUTINE called `STConvectiveMatrix` to create a space-time convective matrix. Triangle3 in space and Line2 in time.
+
 Here, we want to DO the following.
 
 $$
@@ -29,9 +29,9 @@ M(I,J,a,b)=\int_{I_{n}}\int_{\Omega}c\frac{\partial N^{I}T_{a}}{\partial t}\frac
 $$
 
 !!! warning ""
-    $c$ is scalar [[FEVariable_]], which can be a constant, or a FUNCTION of space-time, or some nonlinear FUNCTION.
+$c$ is scalar [[FEVariable_]], which can be a constant, or a FUNCTION of space-time, or some nonlinear FUNCTION.
 
-In this example, convective matrix is formed for 
+In this example, convective matrix is formed for
 
 - [[ReferenceTriangle_]] Triangle3 element for space
 - [[ReferenceLine_]] Line2 element for time
@@ -71,80 +71,80 @@ PROGRAM main
 ```
 
 !!! note ""
-    First, we initiate a [[ReferenceLine_]] element for time domain. Note that `nsd` should be 1 when making reference element for time domain. Generate the quadrature points, and initiates an instance of [[ElemshapeData_]].
+First, we initiate a [[ReferenceLine_]] element for time domain. Note that `nsd` should be 1 when making reference element for time domain. Generate the quadrature points, and initiates an instance of [[ElemshapeData_]].
 
 ```fortran
-    refelemForTime= ReferenceLine(nsd=1)
-    CALL Initiate(obj=quadFortime, &
-		& refelem=refelemForTime,&
-		& order=orderForTime, &
-      	& quadratureType="GaussLegendre" )
-    CALL Initiate( &
-    	& obj=time_elemsd, &
-	  	& quad=quadForTime, &
-		& refelem=refelemForTime, &
-      	& ContinuityType=typeH1,&
-		& InterpolType=TypeLagrangeInterpolation)
-    CALL Set(obj=time_elemsd, &
-		& val=tiJ, N=time_elemsd%N, &
-        & dNdXi=time_elemsd%dNdXi)
+  refelemForTime= ReferenceLine(nsd=1)
+  CALL Initiate(obj=quadFortime, &
+& refelem=refelemForTime,&
+& order=orderForTime, &
+    	& quadratureType="GaussLegendre" )
+  CALL Initiate( &
+  	& obj=time_elemsd, &
+ 	& quad=quadForTime, &
+& refelem=refelemForTime, &
+    	& ContinuityType=typeH1,&
+& InterpolType=TypeLagrangeInterpolation)
+  CALL Set(obj=time_elemsd, &
+& val=tiJ, N=time_elemsd%N, &
+      & dNdXi=time_elemsd%dNdXi)
 ```
 
 !!! note ""
-    Initiate [[STElemshapeData_]].
+Initiate [[STElemshapeData_]].
 
 ```fortran
-    CALL Initiate(obj=test, elemsd=time_elemsd)
+CALL Initiate(obj=test, elemsd=time_elemsd)
 ```
 
 !!! note ""
-    Generating shape functions for space-elements. Here, we are selecting a triangular element
+Generating shape functions for space-elements. Here, we are selecting a triangular element
 
 ```fortran
-    refelemForSpace = ReferenceTriangle(nsd=nsd)
-    CALL Initiate(obj=quadForSpace, &
-		& refelem=refelemForSpace, &
-		& order=orderForSpace, &
-		& quadratureType='GaussLegendre')
+  refelemForSpace = ReferenceTriangle(nsd=nsd)
+  CALL Initiate(obj=quadForSpace, &
+& refelem=refelemForSpace, &
+& order=orderForSpace, &
+& quadratureType='GaussLegendre')
 ```
 
 ```fortran
-    DO ii = 1, SIZE(test)
-      CALL Initiate( obj=test(ii), &
-	  	& quad=quadForSpace, &
-		& refelem=refelemForSpace, &
-        & ContinuityType=typeH1, &
-		& InterpolType=TypeLagrangeInterpolation)
-    END DO
-```
-
-!!! note ""
-    Setting the remaining DATA in obj. Here, `xija` are the space-time nodal coordinates.
-
-```fortran
-	CALL Reallocate(xija, nsd, nns, nnt)
-    DO ii = 1, nnt; xija(:, :, ii) = xij; END DO
-    DO ii = 1, SIZE(test)
-        CALL Set(obj=test(ii), &
-            & val=xija, &
-			& N=test(ii)%N, &
-            & dNdXi=test(ii)%dNdXi, &
-            & T=test(ii)%T)
-    END DO
+  DO ii = 1, SIZE(test)
+    CALL Initiate( obj=test(ii), &
+ 	& quad=quadForSpace, &
+& refelem=refelemForSpace, &
+      & ContinuityType=typeH1, &
+& InterpolType=TypeLagrangeInterpolation)
+  END DO
 ```
 
 !!! note ""
-    Let us now create the space-time convective matrix.
+Setting the remaining DATA in obj. Here, `xija` are the space-time nodal coordinates.
 
 ```fortran
-    cvar = NodalVariable(c, typeFEVariableScalar, typeFEVariableSpaceTime)
+CALL Reallocate(xija, nsd, nns, nnt)
+   DO ii = 1, nnt; xija(:, :, ii) = xij; END DO
+   DO ii = 1, SIZE(test)
+       CALL Set(obj=test(ii), &
+           & val=xija, &
+		& N=test(ii)%N, &
+           & dNdXi=test(ii)%dNdXi, &
+           & T=test(ii)%T)
+   END DO
+```
+
+!!! note ""
+Let us now create the space-time convective matrix.
+
+```fortran
+cvar = NodalVariable(c, typeFEVariableScalar, typeFEVariableSpaceTime)
 ```
 
 ```fortran
-    mat=ConvectiveMatrix(test=test, trial=test, &
-        & term1=del_t, term2=del_x_all, &
-        & c=cvar)
-    CALL Display(mat, "mat:")
+mat=ConvectiveMatrix(test=test, trial=test, &
+    & term1=del_t, term2=del_x_all, &
+    & c=cvar)
+CALL Display(mat, "mat:")
 ```
 
 ??? example "Results"
@@ -158,12 +158,11 @@ PROGRAM main
     -8.33333E-2   8.33333E-2  0.00000E+0  -8.33333E-2  0.00000E+0   8.33333E-2  -8.33333E-2   8.33333E-2  0.00000E+0  -8.33333E-2  0.00000E+0   8.33333E-2
     ```
 
-
 ```fortran
-    mat=ConvectiveMatrix(test=test, trial=test, &
-        & term1=del_x_all, term2=del_t, &
-        & c=cvar)
-    CALL Display(mat, "mat:")
+mat=ConvectiveMatrix(test=test, trial=test, &
+    & term1=del_x_all, term2=del_t, &
+    & c=cvar)
+CALL Display(mat, "mat:")
 ```
 
 ??? example "Results"

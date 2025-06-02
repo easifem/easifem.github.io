@@ -21,17 +21,17 @@ $$
 
 which is representd by:
 
-| a  |  b |
-|----|----|
-| 0  | 0  |
-| 1  | 0  |
-| 2  | 0  |
-| 0  | 1  |
-| 1  | 1  |
-| 2  | 1  |
-| 0  | 2  |
-| 1  | 2  |
-| 2  | 2  |
+| a | b |
+| - | - |
+| 0 | 0 |
+| 1 | 0 |
+| 2 | 0 |
+| 0 | 1 |
+| 1 | 1 |
+| 2 | 1 |
+| 0 | 2 |
+| 1 | 2 |
+| 2 | 2 |
 
 ## Interface
 
@@ -58,7 +58,7 @@ Order of Lagrange polynomial
 
 - The first col of `ans` denotes the exponent of `x`
 - The second col of `ans` denotes the exponent of `y`
-:::
+  :::
 
 </TabItem>
 

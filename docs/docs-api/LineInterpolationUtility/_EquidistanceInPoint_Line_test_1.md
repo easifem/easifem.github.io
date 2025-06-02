@@ -39,13 +39,13 @@ x1 =
 </details>
 
 ```fortran
-  call reallocate(x, 3, 2)
-  x(:,1)=[0.2,0.2,0.0]
-  x(:,2)=[0.2,0.6,0.0]
-  ans = EquidistanceInPoint_Line( order=1, xij=x )
-  call display( ans, "ans = ")
-  ans = EquidistanceInPoint_Line( order=2, xij=x )
-  call display( ans, "ans = ")
+call reallocate(x, 3, 2)
+x(:,1)=[0.2,0.2,0.0]
+x(:,2)=[0.2,0.6,0.0]
+ans = EquidistanceInPoint_Line( order=1, xij=x )
+call display( ans, "ans = ")
+ans = EquidistanceInPoint_Line( order=2, xij=x )
+call display( ans, "ans = ")
 ```
 
 <details>
@@ -70,12 +70,12 @@ We can also call the routine without specifying the `xij`. In this case the refe
 :::
 
 ```fortran
-  x = EquidistanceInPoint_Line( order=1 )
-  call display( x, "x = " )
-  x = EquidistanceInPoint_Line( order=2 )
-  call display( x, "x = " )
-  x = EquidistanceInPoint_Line( order=3 )
-  call display( x, "x = " )
+x = EquidistanceInPoint_Line( order=1 )
+call display( x, "x = " )
+x = EquidistanceInPoint_Line( order=2 )
+call display( x, "x = " )
+x = EquidistanceInPoint_Line( order=3 )
+call display( x, "x = " )
 ```
 
 <details>

@@ -19,31 +19,31 @@ program main
 ```
 
 ```fortran
-  CALL afile%initiate(filename=fname // ".csv", &
-    & status="NEW", action="WRITE")
-  CALL afile%open()
+CALL afile%initiate(filename=fname // ".csv", &
+  & status="NEW", action="WRITE")
+CALL afile%open()
 ```
 
 ```fortran
-  do n = 1, maxN
-  !!n = 10
-  call reallocate( pt, n+1, wt, n+1 )
-  call JacobiQuadrature( n=n+1, alpha=alpha, beta=beta, &
-    & pt=pt, wt=wt, quadType=quadType )
-  u = SIN(4.0_DFP * pi * pt)
-  uhat = JacobiTransform(n=n, alpha=alpha, beta=beta, coeff=u, &
-    & x=pt, w=wt, quadType=quadType)
-  x = 0.1
-  exact = SIN(4.0_DFP * pi * x)
-  ans = JacobiInvTransform(n=n, alpha=alpha, beta=beta, &
-    & x=x, coeff=uhat)
-  CALL afile%write( val=n, advance="NO")
-  CALL afile%write( val=ABS(exact-ans), advance="YES")
-  end do
+do n = 1, maxN
+!!n = 10
+call reallocate( pt, n+1, wt, n+1 )
+call JacobiQuadrature( n=n+1, alpha=alpha, beta=beta, &
+  & pt=pt, wt=wt, quadType=quadType )
+u = SIN(4.0_DFP * pi * pt)
+uhat = JacobiTransform(n=n, alpha=alpha, beta=beta, coeff=u, &
+  & x=pt, w=wt, quadType=quadType)
+x = 0.1
+exact = SIN(4.0_DFP * pi * x)
+ans = JacobiInvTransform(n=n, alpha=alpha, beta=beta, &
+  & x=x, coeff=uhat)
+CALL afile%write( val=n, advance="NO")
+CALL afile%write( val=ABS(exact-ans), advance="YES")
+end do
 ```
 
 ```fortran
-  CALL afile%deallocate()
+CALL afile%deallocate()
 ```
 
 ```fortran

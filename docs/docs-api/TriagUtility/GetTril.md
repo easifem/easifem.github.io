@@ -11,12 +11,12 @@ import TabItem from '@theme/TabItem';
 <TabItem value="interface" label="܀ Interface" default>
 
 ```fortran
-  MODULE PURE SUBROUTINE GetTril(A, diagNo, lu)
-    INTEGER(Int8| Int16 | Int32 | Int64) | REAL(Real32| Real64), INTENT(IN) :: A(:, :)
-    INTEGER(I4B), OPTIONAL, INTENT(IN) :: diagNo
-    !! diagonal number, default = 0
-    INTEGER(INT64), INTENT(OUT) :: lu(SIZE(A, 1), SIZE(A, 2))
-  END SUBROUTINE GetTril
+MODULE PURE SUBROUTINE GetTril(A, diagNo, lu)
+  INTEGER(Int8| Int16 | Int32 | Int64) | REAL(Real32| Real64), INTENT(IN) :: A(:, :)
+  INTEGER(I4B), OPTIONAL, INTENT(IN) :: diagNo
+  !! diagonal number, default = 0
+  INTEGER(INT64), INTENT(OUT) :: lu(SIZE(A, 1), SIZE(A, 2))
+END SUBROUTINE GetTril
 ```
 
 </TabItem>
@@ -35,7 +35,7 @@ import EXAMPLE34 from "./_GetTril_test_2.md";
 
 <EXAMPLE34 />
 
-</TabItem>  
+</TabItem>
 
 <TabItem value="close" label="↢ ">
 

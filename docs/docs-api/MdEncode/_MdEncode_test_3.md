@@ -24,18 +24,18 @@ END PROGRAM main
 <summary>See results</summary>
 <div>
 
-|  | Col heading |
-|  ---  |  ---  |
-| row-1 | 1 |
-| row-2 | 2 |
-| row-3 | 3 |
-| row-4 | 4 |
-| row-5 | 5 |
-| row-6 | 6 |
-| row-7 | 7 |
-| row-8 | 8 |
-| row-9 | 9 |
-| row-10 | 10 |
+|        | Col heading |
+| ------ | ----------- |
+| row-1  | 1           |
+| row-2  | 2           |
+| row-3  | 3           |
+| row-4  | 4           |
+| row-5  | 5           |
+| row-6  | 6           |
+| row-7  | 7           |
+| row-8  | 8           |
+| row-9  | 9           |
+| row-10 | 10          |
 
 </div>
 </details>

@@ -14,20 +14,20 @@ tags:
 # MassMatrix example 1
 
 !!! note ""
-    This example shows how to use the subroutine called `MassMatrix` to create a mass matrix in space domain.
-    
-Here, we want to do the following. 
+This example shows how to use the subroutine called `MassMatrix` to create a mass matrix in space domain.
+
+Here, we want to do the following.
 
 $$
 \int_{\Omega } N^{I}\rho N^{J}d\Omega
 $$
 
 !!! warning ""
-    `rho` can be a constant, or a function of spatial coordinates, or some nonlinear function.
-    
+`rho` can be a constant, or a function of spatial coordinates, or some nonlinear function.
+
 In this example, we use
 
-- [[ReferenceLine_]] element,  
+- [[ReferenceLine_]] element,
 - [[QuadraturePoint_]] are `GaussLegendre`
 - order of integrand is 2.
 
@@ -53,45 +53,45 @@ PROGRAM main
 ```
 
 !!! note ""
-    Let us now create the physical coordinate of the line element.
+Let us now create the physical coordinate of the line element.
 
 ```fortran
-    XiJ = RESHAPE([-1, 1], [1, 2])
+XiJ = RESHAPE([-1, 1], [1, 2])
 ```
 
 !!! note ""
-    Now  we create an instance of [[ReferenceLine_]].
+Now we create an instance of [[ReferenceLine_]].
 
 ```fortran
-    refelem = referenceline(nsd=1)
+refelem = referenceline(nsd=1)
 ```
 
 !!! note ""
-    Here, we create the quadrature points.
+Here, we create the quadrature points.
 
 ```fortran
-    CALL initiate( obj=quad, refelem=refelem, order=order, &
-        & quadratureType='GaussLegendre' )
+CALL initiate( obj=quad, refelem=refelem, order=order, &
+    & quadratureType='GaussLegendre' )
 ```
 
 !!! note ""
-    Initiate an instance of [[ElemshapeData_]]. You can learn more about it from [[ElemshapeData_test]] 
-    
+Initiate an instance of [[ElemshapeData_]]. You can learn more about it from [[ElemshapeData_test]]
+
 ```fortran
-    CALL initiate(obj=test, &
-        & quad=quad, &
-        & refelem=refelem, &
-        & ContinuityType=typeH1, &
-        & InterpolType=typeLagrangeInterpolation)
-    CALL Set( obj=test, val=xij, N=test%N, dNdXi=test%dNdXi)
+CALL initiate(obj=test, &
+    & quad=quad, &
+    & refelem=refelem, &
+    & ContinuityType=typeH1, &
+    & InterpolType=typeLagrangeInterpolation)
+CALL Set( obj=test, val=xij, N=test%N, dNdXi=test%dNdXi)
 ```
 
 !!! note ""
-    Let us now create the mass matrix.
+Let us now create the mass matrix.
 
 ```fortran
-    mat=MassMatrix(test=test, trial=test)
-    CALL Display(mat, "mat:")
+mat=MassMatrix(test=test, trial=test)
+CALL Display(mat, "mat:")
 ```
 
 ??? example "Results"
@@ -102,7 +102,6 @@ PROGRAM main
     0.666667  0.333333
     0.333333  0.666667
     ```
-
 
 !!! settings "Cleanup"
 

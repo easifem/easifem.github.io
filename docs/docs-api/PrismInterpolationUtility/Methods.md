@@ -11,7 +11,7 @@ Example:
 ## LagrangeDOF_Prism
 
 It returns the total number of dof for constructing the Lagrange polynomial on
- Prism.
+Prism.
 
 Example:
 

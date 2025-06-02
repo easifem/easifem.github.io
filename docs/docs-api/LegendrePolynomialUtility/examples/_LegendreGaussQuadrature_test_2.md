@@ -29,13 +29,13 @@ program main
 !!! note "test"
 
 ```fortran
-  n = 1; call callme
-  n = 2; call callme
-  n = 5; call callme
+n = 1; call callme
+n = 2; call callme
+n = 5; call callme
 ```
 
 !!! example "result"
-    Legendre Gauss Quadrature n = 1
+Legendre Gauss Quadrature n = 1
 
     |   |
     |---|
@@ -56,15 +56,15 @@ program main
 !!! settings "cleanup"
 
 ```fortran
-  contains
-  subroutine callme
-    call reallocate( pt, n )
-    call LegendreGaussQuadrature( n=n, pt=pt )
-    msg = "Legendre Gauss Quadrature n = " // tostring( n )
-    call display(msg%chars())
-    astr = MdEncode( pt )
-    call display( astr%chars(), "" )
-  end subroutine callme
+contains
+subroutine callme
+  call reallocate( pt, n )
+  call LegendreGaussQuadrature( n=n, pt=pt )
+  msg = "Legendre Gauss Quadrature n = " // tostring( n )
+  call display(msg%chars())
+  astr = MdEncode( pt )
+  call display( astr%chars(), "" )
+end subroutine callme
 ```
 
 ```fortran
