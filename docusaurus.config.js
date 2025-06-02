@@ -84,14 +84,12 @@ function create_doc_plugin({
   ];
 }
 
-const { webpackPlugin } = require("./plugins/webpack-plugin.cjs");
 const tailwindPlugin = require("./plugins/tailwind-plugin.cjs");
 const docs_plugins = docs.map((doc) => create_doc_plugin(doc));
 
 const plugins = [
   tailwindPlugin,
   ...docs_plugins,
-  webpackPlugin,
   ["drawio", {}],
 ];
 
