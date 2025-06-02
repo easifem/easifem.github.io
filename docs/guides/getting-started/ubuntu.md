@@ -83,11 +83,11 @@ go install github.com/easifem/easifemgo
 
 Now `easifemgo` is installed on your system mostly at `~/go/bin/easifemgo`
 
-:::info 
-It is recommended that you make a symlink or alias of easifemgo with name easifem. In the following text `easifem`  would mean `easifemgo`
+:::info
+It is recommended that you make a symlink or alias of easifemgo with name easifem. In the following text `easifem` would mean `easifemgo`
 :::
 
-Check 
+Check
 
 ```bash
 easifem --help

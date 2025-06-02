@@ -21,7 +21,6 @@ It is recommended that you read (and follow) the steps given below to quickly in
 <Tabs>
 <TabItem value="bash" label="bash/zsh" default>
 
-
 <span class="badge badge--info"> For bash/zsh shell </span>
 
 ```bash
@@ -75,6 +74,7 @@ set -gx CPPFLAGS "-I/opt/homebrew/opt/libomp/include"
 export LDFLAGS="-L/opt/homebrew/opt/libomp/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/libomp/include"
 ```
+
 :::
 
 ### Step 2: Install `easifem` CLI
@@ -204,4 +204,3 @@ source $HOME/.config/easifem/easifemvar.fish
 ```bash
 easifem install extpkgs base classes
 ```
-
