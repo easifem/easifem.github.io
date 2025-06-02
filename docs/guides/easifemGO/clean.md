@@ -3,7 +3,6 @@ sidebar_poisition: 5
 title: clean
 ---
 
-
 You can clean a plugin by using following command.
 
 ```bash
