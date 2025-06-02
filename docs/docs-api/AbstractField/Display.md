@@ -14,5 +14,3 @@ SUBROUTINE Display( obj, msg, unitNo )
 END SUBROUTINE Display
 END INTERFACE
 ```
-
-
