@@ -80,6 +80,8 @@ CALL hdf5file%DEALLOCATE()
 END PROGRAM main
 ```
 
+<!-- truncate -->
+
 ## Creating a structured mesh of quadrangles with two regions
 
 ![Very small mesh of quadrangles with two regions](/img/blog/very_small_quad4_mesh_two_region.svg)
