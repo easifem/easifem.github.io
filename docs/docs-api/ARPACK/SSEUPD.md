@@ -12,26 +12,26 @@ Optionally, it can also return:
 An orthonormal (Lanczos) basis is always computed. There is an additional storage cost of `n*nev` if both are requested (in this case a separate array Z must be supplied).
 :::
 
-These quantities are obtained from the Lanczos factorization computed by [SSAUPD](SSAUPD.md) for the linear operator `OP` prescribed by the `MODE` selection, see [IPARAM(7)](SSAUPD.md#iparam7) in SSAUPD documentation. Therefore, `SSAUPD` must be called before this routine is called. These approximate eigenvalues and vectors are commonly called `Ritz values` and `Ritz vectors` respectively.  They are referred to as such in the comments that follow.
+These quantities are obtained from the Lanczos factorization computed by [SSAUPD](SSAUPD.md) for the linear operator `OP` prescribed by the `MODE` selection, see [IPARAM(7)](SSAUPD.md#iparam7) in SSAUPD documentation. Therefore, `SSAUPD` must be called before this routine is called. These approximate eigenvalues and vectors are commonly called `Ritz values` and `Ritz vectors` respectively. They are referred to as such in the comments that follow.
 
 The computed orthonormal basis for the invariant subspace corresponding to these Ritz values is referred to as a Lanczos basis.
 
-See documentation in the header of the subroutine SSAUPD for a definition of OP as well as other terms and the relation of computed Ritz values and vectors of OP with respect to the given problem  `A*z = lambda*B*z`.
+See documentation in the header of the subroutine SSAUPD for a definition of OP as well as other terms and the relation of computed Ritz values and vectors of OP with respect to the given problem `A*z = lambda*B*z`.
 
-The approximate eigenvalues of the original problem are returned in ascending algebraic order.  The user may elect to call this routine once for each desired Ritz vector and store it peripherally if desired.
+The approximate eigenvalues of the original problem are returned in ascending algebraic order. The user may elect to call this routine once for each desired Ritz vector and store it peripherally if desired.
 
 There is also the option of computing a selected set of these vectors with a single call.
 
 ## Usage
 
 ```fortran
-  CALL SSEUPD( &
-    & RVEC, HOWMNY, SELECT, &
-    & D, Z, LDZ, SIGMA, BMAT, &
-    & N, WHICH, NEV, TOL, RESID, &
-    & NCV, V, LDV, IPARAM, &
-    & IPNTR, WORKD, WORKL, &
-    & LWORKL, INFO )
+CALL SSEUPD( &
+  & RVEC, HOWMNY, SELECT, &
+  & D, Z, LDZ, SIGMA, BMAT, &
+  & N, WHICH, NEV, TOL, RESID, &
+  & NCV, V, LDV, IPARAM, &
+  & IPNTR, WORKD, WORKL, &
+  & LWORKL, INFO )
 ```
 
 RVEC, LOGICAL, INPUT
@@ -43,10 +43,10 @@ RVEC, LOGICAL, INPUT
 
 Specifies whether Ritz vectors corresponding to the Ritz value approximations to the eigenproblem `A*z = lambda*B*z` are computed.
 
-|RVEC| task|
-|---|---|
-|`.FALSE.`| Compute Ritz values only.|
-|`.TRUE.`| Compute Ritz vectors.|
+| RVEC      | task                      |
+| --------- | ------------------------- |
+| `.FALSE.` | Compute Ritz values only. |
+| `.TRUE.`  | Compute Ritz vectors.     |
 
 ## HOWMNY
 
@@ -83,7 +83,7 @@ If `HOWMNY = 'A'`, `SELECT` is used as a workspace for reordering the Ritz value
 
 On exit, Z contains the B-orthonormal Ritz vectors of the eigensystem `A*z = lambda*B*z` corresponding to the Ritz value approximations.
 
-:::info If  `RVEC = .FALSE.` then Z is not referenced.
+:::info If `RVEC = .FALSE.` then Z is not referenced.
 :::
 
 :::note The array `Z` may be set equal to first `NEV` columns of the Arnoldi/Lanczos basis array `V` computed by SSAUPD.
@@ -94,7 +94,7 @@ On exit, Z contains the B-orthonormal Ritz vectors of the eigensystem `A*z = lam
 - Type: Integer.
 - Intent: INPUT
 
-The leading dimension of the array Z.  If Ritz vectors are desired, then  `LDZ .ge.  max( 1, N )`.  In any case,  `LDZ .ge. 1`.
+The leading dimension of the array Z. If Ritz vectors are desired, then `LDZ .ge.  max( 1, N )`. In any case, `LDZ .ge. 1`.
 
 ## SIGMA
 
@@ -133,11 +133,11 @@ Two of these parameters (`WORKL`, `INFO`) are also output parameters:
 
 ## WORKL
 
-Real  work array of length LWORKL.  (OUTPUT/WORKSPACE)
+Real work array of length LWORKL. (OUTPUT/WORKSPACE)
 
-- `WORKL(1:4*ncv)` contains information obtained in `ssaupd`.  They are not changed by `sseupd`.
+- `WORKL(1:4*ncv)` contains information obtained in `ssaupd`. They are not changed by `sseupd`.
 - `WORKL(4*ncv+1:ncv*ncv+8*ncv)` holds the untransformed Ritz values, the computed error estimates,
-and the associated eigenvector matrix of H.
+  and the associated eigenvector matrix of H.
 
 :::note `IPNTR(8:10)` contains the pointer into `WORKL` for addresses of the above information computed by SSEUPD.
 :::

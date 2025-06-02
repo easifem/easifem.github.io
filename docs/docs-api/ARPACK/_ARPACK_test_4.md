@@ -20,10 +20,10 @@ INTEGER( I4B ) :: ncv
 Getting the first five algebraic largest eigenvalues of a diagonal matrix.
 
 ```fortran title="Algebraic Largest Eigenvalue"
-  mat = zeros(100,100, 1.0_DFP)
-  call SetDiag(mat=mat, d=arange(1, SIZE(mat,1)), diagNo=0)
-  maxEV = SymLargestEigenVal(mat=mat, nev=5)
-  CALL Display(maxEV, "maxEV=")
+mat = zeros(100,100, 1.0_DFP)
+call SetDiag(mat=mat, d=arange(1, SIZE(mat,1)), diagNo=0)
+maxEV = SymLargestEigenVal(mat=mat, nev=5)
+CALL Display(maxEV, "maxEV=")
 ```
 
 ```txt title="results"
@@ -44,10 +44,10 @@ default value of `which` is `"LA"` which stands for largest absolute eigenvalue.
 :::
 
 ```fortran title="Absolute Largest Eigenvalue"
-  call SetDiag(mat=mat, d=arange(1, SIZE(mat,1)), diagNo=0)
-  mat(SIZE(mat,1), SIZE(mat,2) ) = -1000
-  maxEV = SymLargestEigenVal(mat=mat, nev=5, which="LM" )
-  CALL Display(maxEV, "max absolute EV=")
+call SetDiag(mat=mat, d=arange(1, SIZE(mat,1)), diagNo=0)
+mat(SIZE(mat,1), SIZE(mat,2) ) = -1000
+maxEV = SymLargestEigenVal(mat=mat, nev=5, which="LM" )
+CALL Display(maxEV, "max absolute EV=")
 ```
 
 ```txt title="results"

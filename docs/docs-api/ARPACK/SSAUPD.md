@@ -1,9 +1,9 @@
 # SSAUPD
 
-Reverse communication interface (RCI) for the Implicitly Restarted Arnoldi Iteration.  
+Reverse communication interface (RCI) for the Implicitly Restarted Arnoldi Iteration.
 
 For symmetric problems this reduces to a variant of the Lanczos
-method.  This method has been designed to compute approximations to a
+method. This method has been designed to compute approximations to a
 few eigenpairs of a linear operator represented by matrix $\mathcal{L}$, which is real and symmetric with respect to a real positive semi-definite symmetric matrix $B$, i.e.
 
 $$
@@ -100,7 +100,7 @@ So, we can use shift and inverted method to find the smallest value of $\lambda$
 ### Mode 4 (Buckling)
 
 $$
-{K} \cdot {x} = \lambda M \cdot  {x}
+{K} \cdot {x} = \lambda M \cdot {x}
 $$
 
 where,
@@ -165,7 +165,7 @@ $$
 or through an iterative method for solving these systems.
 
 - If an iterative method is used, the convergence test must be more stringent than the accuracy requirements for the eigenvalue approximations.
-:::
+  :::
 
 ## Smallest eigenvalue problem
 
@@ -229,7 +229,7 @@ CALL SSAUPD( &
 ```
 
 | Argument | Type           | Intent | Options                   |
-|:---------|:---------------|:-------|:--------------------------|
+| :------- | :------------- | :----- | :------------------------ |
 | IDO      | Int            | INOUT  |                           |
 | BMAT     | Char(1)        | IN     | I, G                      |
 | N        | Int            | IN     |                           |
@@ -260,41 +260,41 @@ These arguments are explained below.
 :::caution IDO must be zero on the first call to SSAUPD.
 :::
 
-IDO will be set internally to indicate the type of operation to be performed. Control is then given back to the calling routine which has the responsibility to carry out the requested operation and call SSAUPD with the result.  The operand is given in `WORKD(IPNTR(1))`, the result must be put in `WORKD(IPNTR(2))`.
+IDO will be set internally to indicate the type of operation to be performed. Control is then given back to the calling routine which has the responsibility to carry out the requested operation and call SSAUPD with the result. The operand is given in `WORKD(IPNTR(1))`, the result must be put in `WORKD(IPNTR(2))`.
 
 :::note If Mode = 2 see [Remark 5](#remarks)
 :::
 
-### IDO =  0
+### IDO = 0
 
 First call to the reverse communication interface
 
 ### IDO = -1
 
-Task to be performed:  $y = \mathcal{L} \cdot x$, where
+Task to be performed: $y = \mathcal{L} \cdot x$, where
 
 - `IPNTR(1)` is the pointer into `WORKD` for X,
 - `IPNTR(2)` is the pointer into `WORKD` for Y.
 - This is for the initialization phase to force the starting vector into the range of $\mathcal{L}$.
 
-### IDO =  1
+### IDO = 1
 
 Task to be peformed: $y = \mathcal{L} \cdot x$, where
 
 - `IPNTR(1)` is the pointer into `WORKD` for `X`,
 - `IPNTR(2)` is the pointer into `WORKD` for `Y`.
 
-:::note In <span class="badge badge--primary"> mode 3,4 and 5 </span>, the vector $B \cdot x$ is already available in `WORKD`(ipntr(3)).  It does not need to be recomputed in forming $\mathcal{L} \cdot x$.
+:::note In <span class="badge badge--primary"> mode 3,4 and 5 </span>, the vector $B \cdot x$ is already available in `WORKD`(ipntr(3)). It does not need to be recomputed in forming $\mathcal{L} \cdot x$.
 :::
 
-### IDO =  2
+### IDO = 2
 
-Compute  $y = B \cdot x$, where,
+Compute $y = B \cdot x$, where,
 
 - `IPNTR(1)` is the pointer into `WORKD` for `X`,
 - `IPNTR(2)` is the pointer into `WORKD` for `Y`.
 
-### IDO =  3
+### IDO = 3
 
 Compute the `IPARAM(8)` shifts where `IPNTR(11)` is the pointer into `WORKL` for placing the shifts. See [Remark 6](#remarks) below.
 
@@ -330,7 +330,7 @@ Specify which of the Ritz values of OP to compute.
 - 'SA' - compute the NEV smallest (algebraic) eigenvalues.
 - 'LM' - compute the NEV largest (in magnitude) eigenvalues.
 - 'SM' - compute the NEV smallest (in magnitude) eigenvalues.
-- 'BE' - compute NEV eigenvalues, half from each end of the spectrum.  When NEV is odd, compute one more from the high end than from the low end. (see remark 1 below)
+- 'BE' - compute NEV eigenvalues, half from each end of the spectrum. When NEV is odd, compute one more from the high end than from the low end. (see remark 1 below)
 
 ## NEV
 
@@ -380,14 +380,14 @@ On OUTPUT:
 :::info `NCV` should be less than or equal to `N`
 :::
 
-Number of columns of the matrix V (less than or equal to N). This will indicate how many Lanczos vectors are generated at each iteration.  After the startup phase in which `NEV` Lanczos vectors are generated, the algorithm generates `NCV-NEV` Lanczos vectors at each subsequent update iteration.
+Number of columns of the matrix V (less than or equal to N). This will indicate how many Lanczos vectors are generated at each iteration. After the startup phase in which `NEV` Lanczos vectors are generated, the algorithm generates `NCV-NEV` Lanczos vectors at each subsequent update iteration.
 
 :::note Most of the cost in generating each Lanczos vector is in the matrix-vector product $\mathcal{L} \cdot x$. See, [Remark 4](#remarks).
 :::
 
 ## V
 
-- Real  N by NCV array
+- Real N by NCV array
 - OUTPUT
 
 The NCV columns of V contain the Lanczos basis vectors.
@@ -404,26 +404,26 @@ Leading dimension of V exactly as declared in the calling program.
 - Integer array of length 11
 - INOUT
 
-|  |  | Options | Safe Default | Comment |
-| --- | --- | --- | --- | --- |
-| IPARAM (1) | ISHIFT | 1,2 | 1 | IN |
-| IPARAM (2) | LEVEC | NA | NA | IN: Deprecated |
-| IPARAM (3) | MAXITER |  |  | IN: Max iteration allowed OUT: no. of iteration performed. |
-| IPARAM (4) | NB | 1 | 1 | IN: Number of blocks |
-| IPARAM (5) | NCONV |  |  | OUT: Number of converged Ritz values  |
-| IPARAM (6) | IUPD | NA | NA | IN: Deprecated |
-| IPARAM (7) | MODE | 1,2,3,4,5 |  | IN: Mode of eigenvalue problem |
-| IPARAM (8) | NP |  |  | IN: See the docs |
-| IPARAM (9) | NUMOP |  |  | OUT: No. of `OP*x` operations performed |
-| IPARAM (10) | NUMOPB |  |  | OUT: No. of `B*x` operations performed. |
-| IPARAM (11) | NUMREO |  |  | OUT: No. of steps of re-orthogonalization |
+|             |         | Options   | Safe Default | Comment                                                    |
+| ----------- | ------- | --------- | ------------ | ---------------------------------------------------------- |
+| IPARAM (1)  | ISHIFT  | 1,2       | 1            | IN                                                         |
+| IPARAM (2)  | LEVEC   | NA        | NA           | IN: Deprecated                                             |
+| IPARAM (3)  | MAXITER |           |              | IN: Max iteration allowed OUT: no. of iteration performed. |
+| IPARAM (4)  | NB      | 1         | 1            | IN: Number of blocks                                       |
+| IPARAM (5)  | NCONV   |           |              | OUT: Number of converged Ritz values                       |
+| IPARAM (6)  | IUPD    | NA        | NA           | IN: Deprecated                                             |
+| IPARAM (7)  | MODE    | 1,2,3,4,5 |              | IN: Mode of eigenvalue problem                             |
+| IPARAM (8)  | NP      |           |              | IN: See the docs                                           |
+| IPARAM (9)  | NUMOP   |           |              | OUT: No. of `OP*x` operations performed                    |
+| IPARAM (10) | NUMOPB  |           |              | OUT: No. of `B*x` operations performed.                    |
+| IPARAM (11) | NUMREO  |           |              | OUT: No. of steps of re-orthogonalization                  |
 
 ### IPARAM(1)
 
 - It stands for `ISHIFT`, which is method for selecting the implicit shifts.
 - The shifts selected at each iteration are used to restart the Arnoldi iteration in an implicit fashion.
-- `ISHIFT = 0`: the shifts are provided by the user via reverse communication.  The `NCV` eigenvalues of the current tridiagonal matrix `T` are returned in the part of `WORKL` array corresponding to RITZ. See [remark 6](#remarks).
-- `ISHIFT = 1`: exact shifts with respect to the reduced tridiagonal matrix `T`.  This is equivalent to restarting the iteration with a starting vector that is a linear combination of Ritz vectors associated with the "wanted" Ritz values.
+- `ISHIFT = 0`: the shifts are provided by the user via reverse communication. The `NCV` eigenvalues of the current tridiagonal matrix `T` are returned in the part of `WORKL` array corresponding to RITZ. See [remark 6](#remarks).
+- `ISHIFT = 1`: exact shifts with respect to the reduced tridiagonal matrix `T`. This is equivalent to restarting the iteration with a starting vector that is a linear combination of Ritz vectors associated with the "wanted" Ritz values.
 
 ### IPARAM(2)
 
@@ -431,7 +431,7 @@ LEVEC: No longer referenced. See [remark 2](#remarks) below.
 
 ### IPARAM(3)
 
-- On INPUT:  maximum number of Arnoldi update iterations allowed.
+- On INPUT: maximum number of Arnoldi update iterations allowed.
 - On OUTPUT: actual number of Arnoldi update iterations taken.
 
 ### IPARAM(4)
@@ -461,7 +461,7 @@ LEVEC: No longer referenced. See [remark 2](#remarks) below.
 
 ### IPARAM(9)
 
-`NUMOP`: On OUTPUT,  total number of $\mathcal{L} \cdot x$ operations
+`NUMOP`: On OUTPUT, total number of $\mathcal{L} \cdot x$ operations
 
 ### IPARAM(10)
 
@@ -536,7 +536,7 @@ Upon termination WORKD(1:N) contains `B*RESID(1:N)`. If the Ritz vectors are des
 - Real work array of length `LWORKL`.
 - OUTPUT, WORKSPACE
 
-Private (replicated) array on each PE or array allocated on the front end.  See Data Distribution Note below.
+Private (replicated) array on each PE or array allocated on the front end. See Data Distribution Note below.
 
 ## LWORKL
 
@@ -563,25 +563,25 @@ Private (replicated) array on each PE or array allocated on the front end.  See 
 
 On output `INFO` represents the Error flag.
 
-| 0  | Normal exit.                                                                                                                                                                 |
-|:---|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1  | Maximum number of iterations taken. All possible eigenvalues of OP has been found. IPARAM(5) returns the number of wanted converged Ritz values.                             |
-| 2  | No longer an informational error. Deprecated starting with release 2 of ARPACK.                                                                                              |
-| 3  | No shifts could be applied during a cycle of the Implicitly restarted Arnoldi iteration. One possibility is to increase the size of NCV relative to NEV. See remark 4 below. |
-| -1 | N must be positive.                                                                                                                                                          |
-| -2 | NEV must be positive.                                                                                                                                                        |
-| -3 | NCV must be greater than NEV and less than or equal to N.                                                                                                                    |
-| -4 | The maximum number of Arnoldi update iterations allowed must be greater than zero.                                                                                           |
-|-5| WHICH must be one of 'LM'| 'SM'| 'LA'| 'SA' or 'BE'.|
-|-6| BMAT must be one of 'I' or 'G'.|
-|-7| Length of private work array WORKL is not sufficient.|
-|-8| Error return from trid. eigenvalue calculation. Informatinal error from LAPACK routine ssteqr.|
-|-9| Starting vector is zero.|
-|-10| IPARAM(7) must be 1|2|3|4|5.|
-|-11| IPARAM(7) = 1 and BMAT = 'G' are incompatible.|
-|-12| IPARAM(1) must be equal to 0 or 1.|
-|-13| NEV and WHICH = 'BE' are incompatible.|
-|-9999| Could not build an Arnoldi factorization. IPARAM(5) returns the size of the current Arnoldi factorization. The user is advised to check that enough workspace and array storage has been allocated.|
+| 0     | Normal exit.                                                                                                                                                                                        |
+| :---- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1     | Maximum number of iterations taken. All possible eigenvalues of OP has been found. IPARAM(5) returns the number of wanted converged Ritz values.                                                    |
+| 2     | No longer an informational error. Deprecated starting with release 2 of ARPACK.                                                                                                                     |
+| 3     | No shifts could be applied during a cycle of the Implicitly restarted Arnoldi iteration. One possibility is to increase the size of NCV relative to NEV. See remark 4 below.                        |
+| -1    | N must be positive.                                                                                                                                                                                 |
+| -2    | NEV must be positive.                                                                                                                                                                               |
+| -3    | NCV must be greater than NEV and less than or equal to N.                                                                                                                                           |
+| -4    | The maximum number of Arnoldi update iterations allowed must be greater than zero.                                                                                                                  |
+| -5    | WHICH must be one of 'LM'                                                                                                                                                                           |
+| -6    | BMAT must be one of 'I' or 'G'.                                                                                                                                                                     |
+| -7    | Length of private work array WORKL is not sufficient.                                                                                                                                               |
+| -8    | Error return from trid. eigenvalue calculation. Informatinal error from LAPACK routine ssteqr.                                                                                                      |
+| -9    | Starting vector is zero.                                                                                                                                                                            |
+| -10   | IPARAM(7) must be 1                                                                                                                                                                                 |
+| -11   | IPARAM(7) = 1 and BMAT = 'G' are incompatible.                                                                                                                                                      |
+| -12   | IPARAM(1) must be equal to 0 or 1.                                                                                                                                                                  |
+| -13   | NEV and WHICH = 'BE' are incompatible.                                                                                                                                                              |
+| -9999 | Could not build an Arnoldi factorization. IPARAM(5) returns the size of the current Arnoldi factorization. The user is advised to check that enough workspace and array storage has been allocated. |
 
 ## Remarks
 
@@ -639,10 +639,10 @@ NP  WORKL(IPNTR(11)+NP-1).
 ```
 
 - The eigenvalues of the current tridiagonal matrix are located in
-`WORKL(IPNTR(6))` through `WORKL(IPNTR(6)+NCV-1)`.
+  `WORKL(IPNTR(6))` through `WORKL(IPNTR(6)+NCV-1)`.
 - They are in the order defined by `WHICH`.
 - The associated Ritz estimates are located in `WORKL(IPNTR(8))`,
-`WORKL(IPNTR(8)+1)`, ... , `WORKL(IPNTR(8)+NCV-1)`.
+  `WORKL(IPNTR(8)+1)`, ... , `WORKL(IPNTR(8)+NCV-1)`.
 
 ## References
 
@@ -651,6 +651,6 @@ NP  WORKL(IPNTR(11)+NP-1).
 3. B.N. Parlett, "The Symmetric Eigenvalue Problem". Prentice-Hall, 1980.
 4. B.N. Parlett, B. Nour-Omid, "Towards a Black Box Lanczos Program", Computer Physics Communications, 53 (1989), pp 169-179.
 5. B. Nour-Omid, B.N. Parlett, T. Ericson, P.S. Jensen, "How to Implement the Spectral Transformation", Math. Comp., 48 (1987), pp 663-673.
-6. R.G. Grimes, J.G. Lewis and H.D. Simon, "A Shifted Block Lanczos Algorithm for Solving Sparse Symmetric Generalized Eigenproblems", SIAM J. Matr. Anal. Apps.,  January (1993).
+6. R.G. Grimes, J.G. Lewis and H.D. Simon, "A Shifted Block Lanczos Algorithm for Solving Sparse Symmetric Generalized Eigenproblems", SIAM J. Matr. Anal. Apps., January (1993).
 7. L. Reichel, W.B. Gragg, "Algorithm 686: FORTRAN Subroutines for Updating the QR decomposition", ACM TOMS, December 1990, Volume 16 Number 4, pp 369-377.
 8. R.B. Lehoucq, D.C. Sorensen, "Implementation of Some Spectral Transformations in a k-Step Arnoldi Method". In Preparation.

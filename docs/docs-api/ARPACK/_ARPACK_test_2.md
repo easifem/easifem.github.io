@@ -13,20 +13,20 @@ Implicit none
 Arguments to SAUPD
 
 | Argument | Type           | Intent | Value                   |
-|----------|----------------|--------|-------------------------|
+| -------- | -------------- | ------ | ----------------------- |
 | IDO      | Int            | INOUT  | 0                       |
-| BMAT     | Char(1)        | IN     | I                     |
+| BMAT     | Char(1)        | IN     | I                       |
 | N        | Int            | IN     | SIZE(A,1)               |
 | WHICH    | Char(2)        | IN     | LA                      |
 | NEV      | Int            | IN     | 1                       |
 | TOL      | Real32         | IN     | 1.0E-10                 |
-| RESID    | Real32(N)      | INOUT  | NA, as info `.EQ.` 0      |
-| NCV      | Int            | IN     | `3*N`                     |
+| RESID    | Real32(N)      | INOUT  | NA, as info `.EQ.` 0    |
+| NCV      | Int            | IN     | `3*N`                   |
 | V        | Real32(N, NCV) | OUT    |                         |
 | LDV      | Int            | IN     | SIZE(V,1)               |
 | IPARAM   | Int (11)       | INOUT  | See below               |
 | IPNTR    | Int (11)       | OUT    | NA                      |
-| WORKD    | Real32(`3*N`)    | INOUT  | NA                      |
+| WORKD    | Real32(`3*N`)  | INOUT  | NA                      |
 | WORKL    | Real32(LWORKL) | OUT    | NA                      |
 | LWORKL   | Int            | IN     | at least NCV**2 + 8*NCV |
 | INFO     | Int            | INOUT  | 0                       |
@@ -34,7 +34,7 @@ Arguments to SAUPD
 Arguments to IPARAM:
 
 |             |         | Options   | Selected value | Intent         |
-|-------------|---------|-----------|----------------|----------------|
+| ----------- | ------- | --------- | -------------- | -------------- |
 | IPARAM (1)  | ISHIFT  | 1,2       | 1              | IN             |
 | IPARAM (2)  | LEVEC   |           |                | IN: Deprecated |
 | IPARAM (3)  | MAXITER |           | `3*N`          | IN             |
@@ -58,10 +58,10 @@ INTEGER( I4B ) :: ncv
 Getting the algebraic largest eigenvalue of a diagonal matrix.
 
 ```fortran title="Algebraic Largest Eigenvalue"
-  mat = zeros(100,100, 1.0_DFP)
-  call SetDiag(mat=mat, d=arange(1, SIZE(mat,1)), diagNo=0)
-  maxEV = SymLargestEigenVal(mat=mat)
-  CALL Display(maxEV, "maxEV=")
+mat = zeros(100,100, 1.0_DFP)
+call SetDiag(mat=mat, d=arange(1, SIZE(mat,1)), diagNo=0)
+maxEV = SymLargestEigenVal(mat=mat)
+CALL Display(maxEV, "maxEV=")
 ```
 
 Getting the absolute largest eigenvalue of a diagonal matrix. In this case we
@@ -72,10 +72,10 @@ default value of `which` is `"LA"` which stands for largest ALGEBRAIC eigenvalue
 :::
 
 ```fortran title="Absolute Largest Eigenvalue"
-  call SetDiag(mat=mat, d=arange(1, SIZE(mat,1)), diagNo=0)
-  mat(SIZE(mat,1), SIZE(mat,2) ) = -1000
-  maxEV = SymLargestEigenVal(mat=mat, which="LM" )
-  CALL Display(maxEV, "max absolute EV=")
+call SetDiag(mat=mat, d=arange(1, SIZE(mat,1)), diagNo=0)
+mat(SIZE(mat,1), SIZE(mat,2) ) = -1000
+maxEV = SymLargestEigenVal(mat=mat, which="LM" )
+CALL Display(maxEV, "max absolute EV=")
 ```
 
 :::caution When `which="LA"`, the returned eigenvalue can be positive.
