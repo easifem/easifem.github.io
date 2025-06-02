@@ -10,7 +10,6 @@ Calling example:
 - `GetColumn(obj, globalnode(:), ivar, spacecompo, timecompo(:), value(:), nodefieldval, scale, addcontribution`
 - `GetColumn(obj, globalnode(:), ivar, spacecompo(:), timecompo, value(:), nodefieldval, scale, addcontribution`
 
-
 ## Interface
 
 ```fortran

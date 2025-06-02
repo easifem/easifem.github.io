@@ -1,6 +1,6 @@
 # SetRow
 
-Calling example 
+Calling example
 
 - `SetRow(obj, globalnode, idof, scalarval, vecval(:), nodefieldval)`
 - `SetRow(obj, globalnode, ivar, idof, scalarval, vecval(:), nodefieldval)`
@@ -9,7 +9,6 @@ Calling example
 - `SetRow(obj, globalnode, ivar, spacecompo(:), timecompo, scalarval, vecval(:), nodefieldval)`
 - `SetRow(obj, globalnode(:), ivar, spacecompo, timecompo(:), scalarval, vecval(:), nodefieldval)`
 - `SetRow(obj, globalnode(:), ivar, spacecompo(:), timecompo, scalarval, vecval(:), nodefieldval)`
-
 
 ## Interface
 

@@ -10,7 +10,6 @@ Calling example:
 - `GetRow(obj, globalnode(:), ivar, spacecompo, timecompo(:), value(:), nodefieldval, scale, addcontribution`
 - `GetRow(obj, globalnode(:), ivar, spacecompo(:), timecompo, value(:), nodefieldval, scale, addcontribution`
 
-
 # Interface
 
 ```fortran
@@ -47,7 +46,6 @@ END INTERFACE
 ```
 
 ```fortran
-
 INTERFACE
   SUBROUTINE getRow3(obj, globalNode, ivar, spacecompo, timecompo, &
     & VALUE, nodeFieldVal, scale, addContribution)
@@ -66,7 +64,6 @@ END INTERFACE
 ```
 
 ```fortran
-
 INTERFACE
   SUBROUTINE getRow4(obj, globalNode, ivar, spacecompo, timecompo, &
     & VALUE, nodeFieldVal, scale, addContribution)
@@ -85,7 +82,6 @@ END INTERFACE
 ```
 
 ```fortran
-
 INTERFACE
   SUBROUTINE getRow5(obj, globalNode, ivar, spacecompo, timecompo, &
     & VALUE, nodeFieldVal, scale, addContribution)
@@ -104,7 +100,6 @@ END INTERFACE
 ```
 
 ```fortran
-
 INTERFACE
   SUBROUTINE getRow6(obj, globalNode, ivar, spacecompo, timecompo, &
     & VALUE, nodeFieldVal, scale, addContribution)
@@ -123,7 +118,6 @@ END INTERFACE
 ```
 
 ```fortran
-
 INTERFACE
   SUBROUTINE getRow7(obj, globalNode, ivar, spacecompo, timecompo, &
     & VALUE, nodeFieldVal, scale, addContribution)

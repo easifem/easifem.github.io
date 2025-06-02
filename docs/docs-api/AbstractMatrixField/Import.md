@@ -19,14 +19,14 @@ END INTERFACE
 
 Following is the template
 
-| Variable     | Data type | Value    | Comment                                                      |
-| ------------ | --------- | -------- | ------------------------------------------------------------ |
-| `name`       | String    |          |                                                              |
-| `fieldType`  | String    |          |                                                              |
-| `matrixProp` | String    |          |                                                              |
-| `spaceCompo` |           |          |                                                              |
-| `timeCompo`* |           |          |                                                              |
-| `restart`*   | CHAR      | `T`, `F` |  |
-|              |           |          |                                                              |
+| Variable     | Data type | Value    | Comment |
+| ------------ | --------- | -------- | ------- |
+| `name`       | String    |          |         |
+| `fieldType`  | String    |          |         |
+| `matrixProp` | String    |          |         |
+| `spaceCompo` |           |          |         |
+| `timeCompo`* |           |          |         |
+| `restart`*   | CHAR      | `T`, `F` |         |
+|              |           |          |         |
 
 `restart` The default value is False. If it is true then it represents that we are restarting the simulation, in this case more information are necessary.
