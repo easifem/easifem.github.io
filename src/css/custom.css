@@ -121,25 +121,31 @@ html[data-theme='dark'] {
 /* Base Light Theme */
 @layer base {
   :root {
-    /* Doc-specific color variables based on Catppuccin Latte */
-    --docs-color-primary-100: var(--cat-peach);
-    --docs-color-primary-200: var(--cat-maroon);
+
+    /* Primary theme color */
+    --docs-color-primary: var(--cat-pink);
+    --docs-color-primary-tint: var(--cat-base);
+    --docs-color-primary-tint-light: rgba(254, 100, 11, 0.24);
+    --docs-color-primary-100: var(--cat-pink);
+    --docs-color-primary-200: var(--cat-pink);
+
+    --ifm-color-primary: var(--cat-pink);
+
     --docs-color-secondary-700: var(--cat-surface0);
     --docs-color-secondary-800: var(--cat-surface1);
     --docs-color-secondary-900: var(--cat-base);
     --docs-color-secondary-1000: var(--cat-crust);
+
     --docs-color-text-400: var(--cat-text);
-    
-    /* Primary theme color */
-    --docs-color-primary: var(--cat-peach);
-    --docs-color-primary-tint: var(--cat-base);
-    --docs-color-primary-tint-light: rgba(254, 100, 11, 0.24);
     
     /* Background colors */
     --docs-color-background: var(--cat-base);
     --docs-color-background-100: var(--cat-mantle);
     --docs-color-background-200: var(--cat-crust);
     --docs-color-background-300: var(--cat-surface0);
+    --ifm-background-surface-color: var(--cat-base);
+    --ifm-background-color: var(--cat-base);
+    --ifm-footer-background-color: var(--cat-surface0);
     
     /* Border and text colors */
     --docs-color-border: var(--cat-surface1);
@@ -147,9 +153,32 @@ html[data-theme='dark'] {
     --docs-color-text-100: var(--cat-subtext1);
     --docs-color-code-background: var(--cat-crust);
     --docs-table-color-border: var(--cat-surface2);
+    --ifm-toc-border-color: var(--cat-surface1);
+    --ifm-table-border-color: var(--docs-table-color-border);
+    --code-border-color: var(--cat-overlay0);
     
     /* UI Kit tokens */
     --dyte-colors-video-bg: 50 50 50;
+
+    /* Status colors */
+    --ifm-color-success: var(--cat-green);
+    --ifm-color-info: var(--cat-blue);
+    --ifm-color-warning: var(--cat-yellow);
+    --ifm-color-danger: var(--cat-red);
+    --ifm-color-caution: var(--cat-peach);
+    
+    /* UI elements */
+    --ifm-navbar-shadow: none;
+    --ifm-code-font-size: 92%;
+    --docusaurus-highlighted-code-line-bg: var(--cat-surface0);
+    --ifm-breadcrumb-item-background-active: transparent;
+    --ifm-breadcrumb-padding-horizontal: 0;
+    --ifm-color-content: var(--cat-text);
+
+    /* Docusaurus Theming */
+    --ifm-link-color: var(--cat-pink);
+    --ifm-tabs-color-active-border: var(--cat-lavender);
+    --ifm-tabs-color-active: var(--cat-green);
     
     /* Docusaurus Theming */
     --ifm-spacing-horizontal: 1.5rem;
@@ -162,40 +191,6 @@ html[data-theme='dark'] {
       'Fira Code', SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
       'Courier New', monospace;
     
-    /* Colors based on Latte */
-    --ifm-color-primary: var(--cat-peach);
-    --ifm-color-primary-dark: #e36011;
-    --ifm-color-primary-darker: #d15910;
-    --ifm-color-primary-darkest: #bf510e;
-    --ifm-color-primary-light: #fef9f5;
-    --ifm-color-primary-lighter: #e3e2d8;
-    --ifm-color-primary-lightest: #eeede7;
-    
-    /* Status colors */
-    --ifm-color-success: var(--cat-green);
-    --ifm-color-info: var(--cat-blue);
-    --ifm-color-warning: var(--cat-yellow);
-    --ifm-color-danger: var(--cat-red);
-    --ifm-color-caution: var(--cat-peach);
-    
-    /* UI elements */
-    --ifm-navbar-shadow: none;
-    --ifm-toc-border-color: var(--cat-surface1);
-    --ifm-table-border-color: var(--docs-table-color-border);
-    --code-border-color: var(--cat-overlay0);
-    --ifm-code-font-size: 92%;
-    --docusaurus-highlighted-code-line-bg: var(--cat-surface0);
-    --ifm-breadcrumb-item-background-active: transparent;
-    --ifm-breadcrumb-padding-horizontal: 0;
-    --ifm-background-surface-color: var(--cat-crust);
-    --ifm-background-color: var(--cat-crust);
-    --ifm-footer-background-color: var(--cat-mantle);
-    --ifm-color-content: var(--cat-text);
-
-    /* Docusaurus Theming */
-    --ifm-link-color: var(--cat-sky);
-    --ifm-tabs-color-active-border: var(--cat-rosewater);
-    --ifm-tabs-color-active: var(--cat-green);
   }
 
   body {
@@ -345,7 +340,7 @@ nav.menu {
 }
 
 .footer__cta a:hover {
-  background-color: var(--ifm-color-primary-darker);
+  background-color: var(--ifm-color-primary);
 }
 
 .footer__data {
@@ -558,7 +553,7 @@ html[data-theme='dark'] .theme-doc-sidebar-container div[title='Expand sidebar']
 
 .sections-menu-content {
   box-sizing: border-box;
-  background-color: var(--docs-color-background-100);
+  background-color: var(--docs-color-background);
   border-radius: 6px;
   padding: 6px 0;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
@@ -958,7 +953,7 @@ details {
   font-weight: 500;
   color: var(--docs-color-primary) !important;
   background: var(--docs-color-code-background) !important;
-  border: solid 2px var(--docs-color-code-background) !important;
+  border: solid 2px var(--docs-color-border) !important;
 }
 
 details code {

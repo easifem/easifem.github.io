@@ -95,7 +95,7 @@ const plugins = [
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  future: {v4: true},
+  future: { v4: true },
   ...meta,
   plugins,
   trailingSlash: false,
@@ -262,7 +262,8 @@ const config = {
       },
       prism: {
         additionalLanguages: ["fortran", "bash", "python", "toml", "cmake"],
-        theme: require("./src/plugins/prism_themes/tokyonight_night"),
+        theme: require("./src/plugins/prism_themes/catppuccin-latte"),
+        darkTheme: require("./src/plugins/prism_themes/catppuccin-mocha"),
         magicComments: [
           {
             className: "theme-code-block-highlighted-line",
