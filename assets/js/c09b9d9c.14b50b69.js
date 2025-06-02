@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkeasifem_docs=self.webpackChunkeasifem_docs||[]).push([[94336],{41015:s=>{s.exports=JSON.parse('{"tag":{"label":"plot","permalink":"/docs-api/tags/plot","allTagsPath":"/docs-api/tags","count":1,"items":[{"id":"PLPlot/index","title":"PLPlot","description":"","permalink":"/docs-api/PLPlot/"}],"unlisted":false}}')}}]);

@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkeasifem_docs=self.webpackChunkeasifem_docs||[]).push([[68541],{38405:s=>{s.exports=JSON.parse('{"tag":{"label":"gtk4","permalink":"/docs-api/tags/gtk-4","allTagsPath":"/docs-api/tags","count":1,"items":[{"id":"GTK4/index","title":"GTK4","description":"","permalink":"/docs-api/GTK4/"}],"unlisted":false}}')}}]);

@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkeasifem_docs=self.webpackChunkeasifem_docs||[]).push([[58002],{87986:e=>{e.exports=JSON.parse('{"tag":{"label":"xml","permalink":"/docs-api/tags/xml","allTagsPath":"/docs-api/tags","count":1,"items":[{"id":"XMLFile/index","title":"XMLFile","description":"","permalink":"/docs-api/XMLFile/"}],"unlisted":false}}')}}]);

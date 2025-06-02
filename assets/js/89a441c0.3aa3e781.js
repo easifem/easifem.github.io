@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkeasifem_docs=self.webpackChunkeasifem_docs||[]).push([[74545],{57410:(s,a,e)=>{e.r(a),e.d(a,{default:()=>t});e(36672);var c=e(85291),h=e(23420);function t(){const s=(0,c.W6)();return(0,h.jsx)(c.rd,{to:{pathname:"/api",search:"v=v2",hash:s.location.hash}})}}}]);
