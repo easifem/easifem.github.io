@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 title: MassMatrix example 4 
 author: Vikas Sharma, Ph.D.
@@ -38,16 +39,18 @@ This TYPE of mass matrix is useful when $rho$ is a constant.
 ## Usage
 
 ```fortran
+=======
+>>>>>>> 8a747609 (Adding documentation of mass matrix)
 PROGRAM main
-    USE easifemBase
-    IMPLICIT NONE
-    TYPE(Elemshapedata_) :: test, elemsdForsimplex, trial
-    TYPE(Quadraturepoint_) :: quad
-    TYPE(Referenceline_) :: simplexElem, refElemFortest, refElemFortrial
-    REAL(DFP), ALLOCATABLE :: mat(:, :), XiJ(:, :)
-    INTEGER( I4B ), PARAMETER :: orderFortest = 1, orderForTrial = 2
-```
+USE easifemBase
+IMPLICIT NONE
+TYPE(Elemshapedata_) :: test, elemsdForsimplex, trial
+TYPE(Quadraturepoint_) :: quad
+TYPE(Referenceline_) :: simplexElem, refElemFortest, refElemFortrial
+REAL(DFP), ALLOCATABLE :: mat(:, :), XiJ(:, :)
+INTEGER(I4B), PARAMETER :: orderFortest = 1, orderForTrial = 2
 
+<<<<<<< HEAD
 !!! note ""
 Let us now create the physical coordinate of the line element.
 
@@ -76,11 +79,31 @@ CALL initiate( obj=quad, refelem=simplexElem, order=orderForTest+orderForTrial, 
 Initiate an instance of [[ElemshapeData_]]. You can learn more about it from [[ElemshapeData_test]].
 
 ```fortran
+=======
+! Let us now create the physical coordinate of the line element.
+
+XiJ = RESHAPE([-1, 1], [1, 2])
+
+! Now  we create an instance of [[ReferenceLine_]].
+
+simplexElem = referenceline(nsd=1)
+    CALL simplexElem%LagrangeElement(order=orderForTest, highOrderObj=refElemForTest)
+    CALL simplexElem%LagrangeElement(order=orderForTrial, highOrderObj=refElemForTrial)
+
+! Here, we create the quadrature points.
+
+    CALL initiate( obj=quad, refelem=simplexElem, order=orderForTest+orderForTrial, &
+              quadratureType='GaussLegendre')
+
+! Initiate an instance of [[ElemshapeData_]]. You can learn more about it from [[ElemshapeData_test]].
+
+>>>>>>> 8a747609 (Adding documentation of mass matrix)
 CALL initiate(obj=elemsdForsimplex, &
     & quad=quad, &
     & refelem=simplexElem, &
     & ContinuityType=typeH1, &
     & InterpolType=typeLagrangeInterpolation)
+<<<<<<< HEAD
 ```
 
 !!! note ""
@@ -116,19 +139,32 @@ Let us now create the mass matrix.
 mat=MassMatrix(test=trial, trial=test)
 CALL Display(mat, "mat:")
 ```
+=======
 
-??? example "Results"
+! Initiate an instance of [[ElemeshapeData_]] for test function.
 
-    ```bash
-        mat:      
-    ----------------
-    0.33333  0.00000
-    0.00000  0.33333
-    0.66667  0.66667
-    ```
+CALL initiate(obj=test, &
+    & quad=quad, &
+    & refelem=refElemForTest, &
+    & ContinuityType=typeH1, &
+    & InterpolType=typeLagrangeInterpolation)
+CALL Set(obj=test, val=xij, N=elemsdForSimplex%N, &
+    & dNdXi=elemsdForSimplex%dNdXi)
 
-!!! settings "Cleanup"
+! Initiate an instance of [[ElemeshapeData_]] for trial function.
 
-```fortran
+CALL initiate(obj=trial, &
+    & quad=quad, &
+    & refelem=refElemForTrial, &
+    & ContinuityType=typeH1, &
+    & InterpolType=typeLagrangeInterpolation)
+CALL Set(obj=trial, val=xij, N=elemsdForSimplex%N, &
+    & dNdXi=elemsdForSimplex%dNdXi)
+>>>>>>> 8a747609 (Adding documentation of mass matrix)
+
+! Let us now create the mass matrix.
+
+mat = MassMatrix(test=trial, trial=test)
+CALL Display(mat, "mat:")
+
 END PROGRAM main
-```
