@@ -8,14 +8,14 @@ title: GetValue
 ```fortran
 INTERFACE GetValue
   MODULE SUBROUTINE GetValue(table, key, VALUE, default_value, &
-                                    origin, stat, isFound)
+                             origin, stat, isFound)
     TYPE(toml_table), INTENT(INOUT) :: table
     !! Toml table
     CHARACTER(*), INTENT(IN) :: key
     !! key
-    {DATA_TYPE}, INTENT(INOUT) :: VALUE
+    DataType, INTENT(INOUT) :: VALUE
     !! value in string
-    {DATA_TYPE}, INTENT(IN) :: default_value
+    DataType, INTENT(IN) :: default_value
     !! default value
     INTEGER(I4B), OPTIONAL, INTENT(INOUT) :: origin
     !! origin, necessary for debugging
@@ -27,7 +27,7 @@ INTERFACE GetValue
 END INTERFACE GetValue
 ```
 
-Following data types are supported.
+Following DataTypes are supported.
 
 - String
 - INTEGER(Int8 | Int16 | Int32 | Int64)
@@ -44,10 +44,10 @@ The generic interface for getting the vector values is as follows:
 ```fortran
 INTERFACE GetValue
   MODULE SUBROUTINE GetValue(table, key, VALUE, origin, stat, &
-                                      isFound)
+                             isFound)
     TYPE(toml_table), INTENT(INOUT) :: table
     CHARACTER(*), INTENT(IN) :: key
-    DATA_TYPE, ALLOCATABLE, INTENT(INOUT) :: VALUE(:)
+    DataType, ALLOCATABLE, INTENT(INOUT) :: VALUE(:)
     INTEGER(I4B), OPTIONAL, INTENT(INOUT) :: origin
     INTEGER(I4B), OPTIONAL, INTENT(INOUT) :: stat
     LOGICAL(LGT), OPTIONAL, INTENT(INOUT) :: isFound
@@ -60,10 +60,10 @@ The above method will allocate the value. If you want to avoid the allocation, t
 ```fortran
 INTERFACE GetValue_
   MODULE SUBROUTINE GetValue_(table, key, VALUE, tsize, origin, stat, &
-                                      isFound)
+                              isFound)
     TYPE(toml_table), INTENT(INOUT) :: table
     CHARACTER(*), INTENT(IN) :: key
-    DATA_TYPE, ALLOCATABLE, INTENT(INOUT) :: VALUE(:)
+    DataType, ALLOCATABLE, INTENT(INOUT) :: VALUE(:)
     INTEGER(I4B), INTENT(OUT) :: tsize
     INTEGER(I4B), OPTIONAL, INTENT(INOUT) :: origin
     INTEGER(I4B), OPTIONAL, INTENT(INOUT) :: stat
@@ -86,10 +86,10 @@ The generic interface for getting the matrix values is as follows:
 ```fortran
 INTERFACE GetValue
   MODULE SUBROUTINE GetValue(table, key, VALUE, origin, stat, &
-                                     isFound)
+                             isFound)
     TYPE(toml_table), INTENT(INOUT) :: table
     CHARACTER(*), INTENT(IN) :: key
-    DATA_TYPE, ALLOCATABLE, INTENT(INOUT) :: VALUE(:, :)
+    DataType, ALLOCATABLE, INTENT(INOUT) :: VALUE(:, :)
     INTEGER(I4B), OPTIONAL, INTENT(INOUT) :: origin
     INTEGER(I4B), OPTIONAL, INTENT(INOUT) :: stat
     LOGICAL(LGT), OPTIONAL, INTENT(INOUT) :: isFound
@@ -102,7 +102,7 @@ The above method will allocate the value. If you want to avoid the allocation, t
 ```fortran
 INTERFACE GetValue_
   MODULE SUBROUTINE GetValue_(table, key, VALUE, origin, stat, &
-                                            isFound, nrow, ncol)
+                              isFound, nrow, ncol)
     TYPE(toml_table), INTENT(INOUT) :: table
     CHARACTER(*), INTENT(IN) :: key
     INTEGER(INT8), INTENT(INOUT) :: VALUE(:, :)
