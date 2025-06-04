@@ -1,36 +1,42 @@
+!> author: Vikas Sharma, Ph. D.
+! date: 2025-06-03
+! summary: This example demonstrates the use of the `InitiateFaceConnectivity` method in the `FEMesh_` class to set up face connectivity for a 3D mesh.
+
 PROGRAM main
-USE easifemBase
-USE easifemClasses
+USE FEMesh_Class
+USE HDF5File_Class
+USE GlobalData
+USE Display_Method
+USE ExceptionHandler_Class, ONLY: e
+
 IMPLICIT NONE
-TYPE(Mesh_) :: obj
+
+TYPE(FEMesh_) :: obj
 TYPE(HDF5File_) :: meshfile
-CHARACTER(*), PARAMETER :: filename = "./meshdata/small_mesh_3d.h5"
+CHARACTER(*), PARAMETER :: filename = "./meshdata/small_hexa8_mesh.h5"
+CHARACTER(*), PARAMETER :: testname = "InitiateFaceConnectivity_test_2"
+
 INTEGER(I4B) :: iel, globalFaceCon(4, 6), localFaceCon(4, 6)
+
 CALL e%SetQuietMode(.TRUE.)
+
 CALL meshfile%Initiate(FileName=filename, MODE="READ")
+
 !Open the mesh file
 CALL meshfile%OPEN()
 CALL obj%SetShowTime(.TRUE.)
+
 !Initiate an instance of `Mesh_`
-CALL obj%Initiate(hdf5=meshfile, group="/volumeEntities_1")
+CALL obj%Initiate(hdf5=meshfile, dim=3)
+
 !Initiate an edge connectivity
 CALL obj%InitiateFaceConnectivity()
+
 !Display the content of mesh.
 CALL obj%DisplayMeshInfo(filename)
-! CALL obj%DisplayElementData("ElementData:")
-
-CALL ElemData_GetGlobalFaceCon(obj%elementData(1),  &
-  & globalFaceCon, localFaceCon)
-CALL Display(obj%elementData(1), "elementData(1): ")
-CALL Display(localFaceCon, "localFaceCon(1): ")
-CALL Display(globalFaceCon, "globalFaceCon(1): ")
-
-CALL ElemData_GetGlobalFaceCon(obj%elementData(2),  &
-  & globalFaceCon, localFaceCon)
-CALL Display(obj%elementData(2), "elementData(2): ")
-CALL Display(localFaceCon, "localFaceCon(2): ")
-CALL Display(globalFaceCon, "globalFaceCon(2): ")
 
 CALL obj%DEALLOCATE()
 CALL meshfile%DEALLOCATE()
+
+CALL Display("End of test: "//testname)
 END PROGRAM main
