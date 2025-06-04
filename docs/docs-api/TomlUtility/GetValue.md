@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-# GetValue
-
-Get values from a toml table.
-
-## Interface 1 (Get scalar values)
-
-## Interface 2 (Get vector values)
-=======
 ---
 sidebar_position: 2
 title: GetValue
@@ -49,22 +40,14 @@ The data type of default value should be same as the data type of value. However
 ## Get the vector values
 
 The generic interface for getting the vector values is as follows:
->>>>>>> aa503802 (Adding MassMatrix and TomlUtility)
 
 ```fortran
 INTERFACE GetValue
   MODULE SUBROUTINE GetValue(table, key, VALUE, origin, stat, &
-<<<<<<< HEAD
-                                     isFound)
-    TYPE(toml_table), INTENT(INOUT) :: table
-    CHARACTER(*), INTENT(IN) :: key
-    DataType, ALLOCATABLE, INTENT(INOUT) :: VALUE(:)
-=======
                                       isFound)
     TYPE(toml_table), INTENT(INOUT) :: table
     CHARACTER(*), INTENT(IN) :: key
     DATA_TYPE, ALLOCATABLE, INTENT(INOUT) :: VALUE(:)
->>>>>>> aa503802 (Adding MassMatrix and TomlUtility)
     INTEGER(I4B), OPTIONAL, INTENT(INOUT) :: origin
     INTEGER(I4B), OPTIONAL, INTENT(INOUT) :: stat
     LOGICAL(LGT), OPTIONAL, INTENT(INOUT) :: isFound
@@ -72,20 +55,6 @@ INTERFACE GetValue
 END INTERFACE GetValue
 ```
 
-<<<<<<< HEAD
-Here DataType can be one of the following types:
-
-- `INTEGER(Int8)`
-- `INTEGER(Int16)`
-- `INTEGER(Int32)`
-- `INTEGER(Int64)`
-- `REAL(Real32)`
-- `REAL(Real64)`
-- `TYPE(String)`
-- `LOGICAL(LGT)`
-
-## Interface 3 (Get matrix values)
-=======
 The above method will allocate the value. If you want to avoid the allocation, then use the following method.
 
 ```fortran
@@ -113,6 +82,15 @@ The value can have following data types:
 ## Get the matrix values
 
 The generic interface for getting the matrix values is as follows:
+# GetValue
+
+Get values from a toml table.
+
+
+## Interface 1 (Get scalar values)
+
+
+## Interface 2 (Get vector values)
 
 ```fortran
 INTERFACE GetValue
@@ -120,7 +98,7 @@ INTERFACE GetValue
                                      isFound)
     TYPE(toml_table), INTENT(INOUT) :: table
     CHARACTER(*), INTENT(IN) :: key
-    DATA_TYPE, ALLOCATABLE, INTENT(INOUT) :: VALUE(:, :)
+    DataType, ALLOCATABLE, INTENT(INOUT) :: VALUE(:)
     INTEGER(I4B), OPTIONAL, INTENT(INOUT) :: origin
     INTEGER(I4B), OPTIONAL, INTENT(INOUT) :: stat
     LOGICAL(LGT), OPTIONAL, INTENT(INOUT) :: isFound
@@ -152,4 +130,16 @@ The value can have following data types:
 
 - INTEGER(Int8 | Int16 | Int32 | Int64)
 - REAL(Real32 | Real64)
->>>>>>> aa503802 (Adding MassMatrix and TomlUtility)
+Here DataType can be one of the following types:
+
+- `INTEGER(Int8)`
+- `INTEGER(Int16)`
+- `INTEGER(Int32)`
+- `INTEGER(Int64)`
+- `REAL(Real32)`
+- `REAL(Real64)`
+- `TYPE(String)`
+- `LOGICAL(LGT)`
+
+## Interface 3 (Get matrix values)
+
