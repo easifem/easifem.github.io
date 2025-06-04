@@ -96,6 +96,9 @@ const plugins = [
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   future: { v4: true },
+  future: {
+    v4: true,
+  },
   ...meta,
   plugins,
   trailingSlash: false,
