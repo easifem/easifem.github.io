@@ -82,3 +82,42 @@ The value can have following data types:
 ## Get the matrix values
 
 The generic interface for getting the matrix values is as follows:
+
+```fortran
+INTERFACE GetValue
+  MODULE SUBROUTINE GetValue(table, key, VALUE, origin, stat, &
+                                     isFound)
+    TYPE(toml_table), INTENT(INOUT) :: table
+    CHARACTER(*), INTENT(IN) :: key
+    DATA_TYPE, ALLOCATABLE, INTENT(INOUT) :: VALUE(:, :)
+    INTEGER(I4B), OPTIONAL, INTENT(INOUT) :: origin
+    INTEGER(I4B), OPTIONAL, INTENT(INOUT) :: stat
+    LOGICAL(LGT), OPTIONAL, INTENT(INOUT) :: isFound
+  END SUBROUTINE GetValue
+END INTERFACE GetValue
+```
+
+The above method will allocate the value. If you want to avoid the allocation, then use the following method.
+
+```fortran
+INTERFACE GetValue_
+  MODULE SUBROUTINE GetValue_(table, key, VALUE, origin, stat, &
+                                            isFound, nrow, ncol)
+    TYPE(toml_table), INTENT(INOUT) :: table
+    CHARACTER(*), INTENT(IN) :: key
+    INTEGER(INT8), INTENT(INOUT) :: VALUE(:, :)
+    INTEGER(I4B), INTENT(OUT) :: nrow, ncol
+    INTEGER(I4B), OPTIONAL, INTENT(INOUT) :: origin
+    INTEGER(I4B), OPTIONAL, INTENT(INOUT) :: stat
+    LOGICAL(LGT), OPTIONAL, INTENT(INOUT) :: isFound
+  END SUBROUTINE GetValue_
+END INTERFACE GetValue_
+```
+
+- nrow is the number of rows written in the value.
+- ncol is the number of columns written in the value.
+
+The value can have following data types:
+
+- INTEGER(Int8 | Int16 | Int32 | Int64)
+- REAL(Real32 | Real64)

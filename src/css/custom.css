@@ -1285,3 +1285,17 @@ html[data-theme='dark'] .video_sidebar_header > div > a::before {
   content: ' ‹';
   margin-right: 4px;
 }
+
+.blog-wrapper .avatar__photo,
+.blogPost .avatar__photo,
+.blog article .avatar__photo,
+[class*='blogPost'] .avatar__photo {
+  border-radius: 30%;  /* Make it perfectly round */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+
+  object-fit: cover;  
+  aspect-ratio: 1 / 1; 
+  width: 60px;  
+  height: 60px; 
+}
