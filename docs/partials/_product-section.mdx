@@ -1,9 +1,9 @@
 import {
-  FlashRegular,
-  ArrowDownloadRegular,
-  CodeRegular,
-  CodeTextEditRegular,
-} from '@fluentui/react-icons';
+  Zap,
+  Download,
+  Code,
+  Edit
+} from 'react-feather';
 
 <CardSection
   id="Quickstart"
@@ -12,25 +12,25 @@ import {
 >
   <Card
     title="Getting Started"
-    icon={<FlashRegular />}
+    icon={<Zap />}
     to="/guides/getting-started/"
     description="Getting started with easifem, quickly install and run a hello world program!"
   />
   <Card
     title="Installation"
-    icon={<ArrowDownloadRegular />}
+    icon={<Download />}
     to="/guides/install"
     description="Get detailed information about installation, configuration, dependencies of easifem"
   />
   <Card
     title="Working with easifem"
-    icon={<CodeRegular />}
+    icon={<Code />}
     to="/guides/using-easifem"
     description="Learn how to build and link applications with easifem."
   />
   <Card
     title="IDE Integration"
-    icon={<CodeTextEditRegular />}
+    icon={<Edit />}
     to="/guides/ide"
     description="Learn how to configure language server for development with easifem in VSCode and Neovim"
   />

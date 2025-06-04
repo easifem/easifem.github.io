@@ -1,14 +1,14 @@
 import Link from "@docusaurus/Link";
 import {
-  AppFolderRegular,
-  BlurRegular,
-  BoardRegular,
-  BoxRegular,
-  ChatMultipleRegular,
-  LiveRegular,
-  MicRegular,
-  VideoRegular,
-} from "@fluentui/react-icons";
+  Folder,
+  EyeOff,
+  Layout,
+  Package,
+  MessageCircle,
+  Radio,
+  Mic,
+  Video,
+} from "react-feather";
 import { DiscordIcon, EasifemIcon } from "@site/src/icons";
 import ThemedImage from "@theme/ThemedImage";
 import clsx from "clsx";
@@ -18,7 +18,7 @@ const PRODUCTS = [
   {
     title: "easifemBase",
     link: "/about/easifemBase",
-    icon: AppFolderRegular,
+    icon: Folder,
     lightImage: "/static/landing-page/hero/easifemBase-light.svg",
     darkImage: "/static/landing-page/hero/easifemBase-dark.svg",
     text: "Base library for easifem.",
@@ -26,7 +26,7 @@ const PRODUCTS = [
   {
     title: "easifemClasses",
     link: "/about/easifemClasses",
-    icon: BlurRegular,
+    icon: EyeOff,
     lightImage: "/static/landing-page/hero/easifemClasses-light.svg",
     darkImage: "/static/landing-page/hero/easifemClasses-dark.svg",
     text: "High level classes and objects for numerical methods and algorithms.",

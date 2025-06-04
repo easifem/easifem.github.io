@@ -1,18 +1,15 @@
 import Link from "@docusaurus/Link";
 import {
-  AppsAddInRegular,
-  ArrowRightFilled,
-  CodeCircleRegular,
-  CubeRegular,
-  DesktopRegular,
-  DeveloperBoardRegular,
-  DocumentRegular,
-  OpenRegular,
-  RecordRegular,
-} from "@fluentui/react-icons";
+  ChevronRight,
+  Code,
+  Monitor,
+  Cpu,
+  FileText,
+  ExternalLink,
+  GitHub,
+} from "react-feather";
 import clsx from "clsx";
 import React from "react";
-import { ChevronRight, GitHub } from "react-feather";
 
 interface Guide {
   title: string;
@@ -24,19 +21,19 @@ interface Guide {
 const guides: Guide[] = [
   {
     title: "Getting started with easifemBase and easifemClasses",
-    icon: CodeCircleRegular,
+    icon: Code,
     text: "Quick installation of easifemBase, easifemClasses, and run some sample programs.",
     link: "/guides/getting-started",
   },
   {
     title: "A simple 💫 Hello World 🚀 program",
-    icon: DesktopRegular,
+    icon: Monitor,
     text: "Run a hello world program by using easifem.",
     link: "guides/learn-by-examples/hello-world",
   },
   {
     title: "Getting started with strings",
-    icon: DeveloperBoardRegular,
+    icon: Cpu,
     text: "Strings in easifem",
     link: "/guides/programming-basics/string",
   },
@@ -105,13 +102,13 @@ function Sample({ title, platform, blog, source, demo }: Sample) {
       <div className="flex items-center gap-2.5">
         {blog && (
           <Link to={blog} className="text-inherit">
-            <DocumentRegular className="h-5 w-5" />
+            <FileText className="h-5 w-5" />
           </Link>
         )}
 
         {demo && (
           <Link to={demo} className="text-inherit">
-            <OpenRegular className="h-5 w-5" />
+            <ExternalLink className="h-5 w-5" />
           </Link>
         )}
 
@@ -137,7 +134,7 @@ export default function GuidesAndSamples() {
           <h3 className="m-0">Getting started guides 📚</h3>
 
           <Link to="/guides" className="font-jakarta text-sm font-semibold">
-            View more guides <ArrowRightFilled className="ml-1" />
+            View more guides <ChevronRight className="ml-1" />
           </Link>
         </div>
 
@@ -161,7 +158,7 @@ export default function GuidesAndSamples() {
             to="https://github.com/vickysharma0812"
             className="font-jakarta text-sm font-semibold"
           >
-            All apps <ArrowRightFilled className="ml-1" />
+            All apps <ChevronRight className="ml-1" />
           </Link>
         </div>
 
