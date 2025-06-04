@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-PROGRAM main
-USE easifemBase
-
 PROGRAM main
 USE easifemBase
 
