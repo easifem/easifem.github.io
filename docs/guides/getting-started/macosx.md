@@ -21,6 +21,10 @@ It is recommended that you read (and follow) the steps given below to quickly in
 <Tabs>
 <TabItem value="bash" label="bash/zsh" default>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4d7e529d (removing conflicts in easifemGo)
 <span class="badge badge--info"> For bash/zsh shell </span>
 
 ```bash
