@@ -27,18 +27,18 @@ integer(i4b), allocatable :: degree( :, : )
 ```
 
 !!! note "Initiate"
-    Initiate the object.
+Initiate the object.
 $$
 y=1+x+y+xy
 $$
 
 ```fortran
-  coeff = [1,1,1,1]
-  call reallocate( degree, 4, 2 )
-  degree(:,1) = [0,1,0,1]
-  degree(:,2) = [0,0,1,1]
-  call f1%initiate( coeff, degree, "x", "y" )
-  call f1%display( 'f(x,y)=' )
+coeff = [1,1,1,1]
+call reallocate( degree, 4, 2 )
+degree(:,1) = [0,1,0,1]
+degree(:,2) = [0,0,1,1]
+call f1%initiate( coeff, degree, "x", "y" )
+call f1%display( 'f(x,y)=' )
 ```
 
 !!! note "Grad"
@@ -47,8 +47,8 @@ $$
 $$
 
 ```fortran
-    f2 = f1 .GRAD. 1
-    call f2%display( "dfdx=" )
+f2 = f1 .GRAD. 1
+call f2%display( "dfdx=" )
 ```
 
 !!! example "result"
@@ -62,8 +62,8 @@ $$
 $$
 
 ```fortran
-    f2 = f1 .GRAD. 2
-    call f2%display( "dfdy=" )
+f2 = f1 .GRAD. 2
+call f2%display( "dfdy=" )
 ```
 
 !!! example "result"

@@ -8,7 +8,7 @@ quadrature points.
 - The first quadrature point is $-1$
 - The second quadrature point is $+1$
 
-The remaining $n$ points are internal to $(-1, +1)$, and they are n-zeros of Jacobi  polynomial of order n with
+The remaining $n$ points are internal to $(-1, +1)$, and they are n-zeros of Jacobi polynomial of order n with
 respect to the following weight.
 
 $$

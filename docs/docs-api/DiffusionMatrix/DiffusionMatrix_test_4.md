@@ -14,9 +14,9 @@ tags:
 # DiffusionMatrix example 4
 
 !!! note ""
-    This example shows how to use the subroutine called `DiffusionMatrix` to create a Diffusion matrix in space domain.
-    
-Here, we want to do the following. 
+This example shows how to use the subroutine called `DiffusionMatrix` to create a Diffusion matrix in space domain.
+
+Here, we want to do the following.
 
 $$
 \int^{}_{\Omega } \frac{\partial N^{I}}{\partial x_{i}} \frac{\partial N^{J}}{\partial x_{i}} d\Omega
@@ -24,14 +24,12 @@ $$
 
 - Line2 element
 
-
 ## Modules and classes
 
 - [[ElemshapeData_]]
 - [[QuadraturePoint_]]
 - [[ReferenceLine_]]
 - [[FEVariable_]]
-
 
 ## Usage
 
@@ -48,41 +46,40 @@ PROGRAM main
     integer( I4B ), parameter :: order = 2
 ```
 
-
 !!! note ""
-    Now  we create an instance of [[ReferenceLine_]].
+Now we create an instance of [[ReferenceLine_]].
 
 ```fortran
-    refelem = referenceline(nsd=1)
+refelem = referenceline(nsd=1)
 ```
 
 !!! note ""
-    Here, we create the quadrature points.
+Here, we create the quadrature points.
 
 ```fortran
-    CALL initiate( obj=quad, refelem=refelem, order=order, &
-        & quadratureType='GaussLegendre' )
+CALL initiate( obj=quad, refelem=refelem, order=order, &
+    & quadratureType='GaussLegendre' )
 ```
 
 !!! note ""
-    Initiate an instance of [[ElemshapeData_]]. You can learn more about it from [[ElemshapeData_test]] 
-    
+Initiate an instance of [[ElemshapeData_]]. You can learn more about it from [[ElemshapeData_test]]
+
 ```fortran
-    CALL initiate(obj=test, &
-        & quad=quad, &
-        & refelem=refelem, &
-        & ContinuityType=typeH1, &
-        & InterpolType=typeLagrangeInterpolation)
-    CALL Set( obj=test, val=xij, N=test%N, dNdXi=test%dNdXi)
+CALL initiate(obj=test, &
+    & quad=quad, &
+    & refelem=refelem, &
+    & ContinuityType=typeH1, &
+    & InterpolType=typeLagrangeInterpolation)
+CALL Set( obj=test, val=xij, N=test%N, dNdXi=test%dNdXi)
 ```
 
 !!! note ""
-    Let us now create the mass matrix.
+Let us now create the mass matrix.
 
 ```fortran
-    kvar = NodalVariable(1.0_DFP, TypeFEVariableScalar, TypeFEVariableConstant)
-    mat=DiffusionMatrix(test=test, trial=test, k=kvar)
-    CALL Display(mat, "mat:")
+kvar = NodalVariable(1.0_DFP, TypeFEVariableScalar, TypeFEVariableConstant)
+mat=DiffusionMatrix(test=test, trial=test, k=kvar)
+CALL Display(mat, "mat:")
 ```
 
 ??? example "Results"
@@ -93,7 +90,6 @@ PROGRAM main
     0.500000  -0.500000
     -0.500000   0.500000
     ```
-
 
 !!! settings "Cleanup"
 

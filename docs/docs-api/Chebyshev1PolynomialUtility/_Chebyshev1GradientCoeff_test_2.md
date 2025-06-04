@@ -23,45 +23,45 @@ program main
 ```
 
 ```fortran title "Plot settings"
-  CALL aplot%Initiate()
-  CALL aplot%Set( &
-    & device="svg", &
-    & filename=fname//"-%n.svg")
-  CALL aplot%figure()
-  CALL aplot%subplot(1,1,1)
-  CALL aplot%setXYLim([-1.0_DFP, 1.0_DFP], [ -15.0_DFP, 15.0_DFP])
-  CALL aplot%setTicks()
+CALL aplot%Initiate()
+CALL aplot%Set( &
+  & device="svg", &
+  & filename=fname//"-%n.svg")
+CALL aplot%figure()
+CALL aplot%subplot(1,1,1)
+CALL aplot%setXYLim([-1.0_DFP, 1.0_DFP], [ -15.0_DFP, 15.0_DFP])
+CALL aplot%setTicks()
 ```
 
 ```fortran title "Prepare quadratures"
-  n = 20
-  call reallocate( pt, n+1, wt, n+1, fval, n+1 )
-  !!
-  call Chebyshev1Quadrature( n=n+1, pt=pt, wt=wt, quadType=quadType )
-  x = pt
+n = 20
+call reallocate( pt, n+1, wt, n+1, fval, n+1 )
+!!
+call Chebyshev1Quadrature( n=n+1, pt=pt, wt=wt, quadType=quadType )
+x = pt
 ```
 
 ```fortran title "Chebyshev1Transformation"
-  fval = func1(pt)
-  !!
-  fhat = Chebyshev1Transform(n=n, coeff=fval, x=pt, w=wt, quadType=quadType)
-  !!
-  f1hat = Chebyshev1GradientCoeff(n=n, coeff=fhat)
-  !!
+fval = func1(pt)
+!!
+fhat = Chebyshev1Transform(n=n, coeff=fval, x=pt, w=wt, quadType=quadType)
+!!
+f1hat = Chebyshev1GradientCoeff(n=n, coeff=fhat)
+!!
 ```
 
 ```fortran title "Chebyshev1Transformation"
-  !! nodal values of derivative of function
-  f1val = dfunc1(pt)
-  !!
-  f1hat2 = Chebyshev1Transform(n=n, coeff=f1val, x=pt, w=wt, quadType=quadType)
-  !!
-  call display( MdEncode(f1hat .colconcat. f1hat2), "")
-  !!
+!! nodal values of derivative of function
+f1val = dfunc1(pt)
+!!
+f1hat2 = Chebyshev1Transform(n=n, coeff=f1val, x=pt, w=wt, quadType=quadType)
+!!
+call display( MdEncode(f1hat .colconcat. f1hat2), "")
+!!
 ```
 
 | $\tilde{f}^{(1)}_{n}$ | $\tilde{\partial f}_{n}$ |
-|-----------------------|--------------------------|
+| --------------------- | ------------------------ |
 | 8.57115E-13           | -9.82217E-15             |
 | -0.34718              | -0.45626                 |
 | 1.69866E-12           | -9.05354E-15             |
@@ -85,49 +85,49 @@ program main
 | 0                     | -2.17817E-13             |
 
 ```fortran title "Plotting"
-    CALL aplot%plot2D( x=x,y=Chebyshev1InvTransform(n=n,  &
-      & x=x, coeff=f1hat), lineColor="r", lineWidth=2.0_DFP)
-    !!
-    CALL aplot%plot2D( x=x,y=Chebyshev1InvTransform(n=n,  &
-      & x=x, coeff=f1hat2), lineColor="b", lineWidth=2.0_DFP)
-    !!
-    CALL aplot%plot2D( x=x,y=dfunc1(x), pointType=PS_DOT, lineWidth=0.0_DFP )
-    CALL aplot%setLabels("x","du(x)","n="//tostring(n))
+CALL aplot%plot2D( x=x,y=Chebyshev1InvTransform(n=n,  &
+  & x=x, coeff=f1hat), lineColor="r", lineWidth=2.0_DFP)
+!!
+CALL aplot%plot2D( x=x,y=Chebyshev1InvTransform(n=n,  &
+  & x=x, coeff=f1hat2), lineColor="b", lineWidth=2.0_DFP)
+!!
+CALL aplot%plot2D( x=x,y=dfunc1(x), pointType=PS_DOT, lineWidth=0.0_DFP )
+CALL aplot%setLabels("x","du(x)","n="//tostring(n))
 ```
 
 ```fortran title "Prepare quadratures"
-  error = zeros(30, 2, 1.0_DFP)
+error = zeros(30, 2, 1.0_DFP)
+!!
+DO n = 1, SIZE(error,1)
+  call reallocate( pt, n+1, wt, n+1, fval, n+1 )
   !!
-  DO n = 1, SIZE(error,1)
-    call reallocate( pt, n+1, wt, n+1, fval, n+1 )
-    !!
-    call Chebyshev1Quadrature( n=n+1,  &
-      & pt=pt, wt=wt, quadType=quadType )
-    !!
-    fval = func1(pt)
-    !!
-    fhat = Chebyshev1Transform(n=n,  &
-      & coeff=fval, x=pt, w=wt, quadType=quadType)
-    !!
-    f1hat = Chebyshev1GradientCoeff(n=n,  coeff=fhat)
-    !!
-    !! nodal values of derivative of function
-    !!
-    f1val = dfunc1(pt)
-    !!
-    f1hat2 = Chebyshev1Transform(n=n,  &
-      & coeff=f1val, x=pt, w=wt, quadType=quadType)
-    !!
-    error(n,1) = n
-    error(n,2) = NORM2( ABS(f1hat-f1hat2) )
-    !!
-  END DO
+  call Chebyshev1Quadrature( n=n+1,  &
+    & pt=pt, wt=wt, quadType=quadType )
   !!
-  CALL display( MdEncode(error), "error=")
+  fval = func1(pt)
+  !!
+  fhat = Chebyshev1Transform(n=n,  &
+    & coeff=fval, x=pt, w=wt, quadType=quadType)
+  !!
+  f1hat = Chebyshev1GradientCoeff(n=n,  coeff=fhat)
+  !!
+  !! nodal values of derivative of function
+  !!
+  f1val = dfunc1(pt)
+  !!
+  f1hat2 = Chebyshev1Transform(n=n,  &
+    & coeff=f1val, x=pt, w=wt, quadType=quadType)
+  !!
+  error(n,1) = n
+  error(n,2) = NORM2( ABS(f1hat-f1hat2) )
+  !!
+END DO
+!!
+CALL display( MdEncode(error), "error=")
 ```
 
 |    |             |
-|----|-------------|
+| -- | ----------- |
 | 1  | 0.39506     |
 | 2  | 2.2722      |
 | 3  | 0.96551     |
@@ -140,18 +140,18 @@ program main
 | 30 | 5.49672E-02 |
 
 ```fortran title "Define function"
-  contains
-  elemental function func1(x) result(ans)
-    real(dfp), intent(in) :: x
-    real(dfp) :: ans
-    ans = 1.0/(1.0 + 16.0*x**2)
-  end function func1
-  !!
-  elemental function dfunc1(x) result(ans)
-    real(dfp), intent(in) :: x
-    real(dfp) :: ans
-    ans = -32.0 * x * func1(x)**2
-  end function dfunc1
+contains
+elemental function func1(x) result(ans)
+  real(dfp), intent(in) :: x
+  real(dfp) :: ans
+  ans = 1.0/(1.0 + 16.0*x**2)
+end function func1
+!!
+elemental function dfunc1(x) result(ans)
+  real(dfp), intent(in) :: x
+  real(dfp) :: ans
+  ans = -32.0 * x * func1(x)**2
+end function dfunc1
 ```
 
 ```fortran

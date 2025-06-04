@@ -13,7 +13,7 @@ b = SIZE(obj,2)
 
 - Total number of quadrature points are give by `SIZE(quad, 2)`
 - The weights are kept in the last row, that is `SIZE(quad,1)`
-:::
+  :::
 
 ## Interface
 

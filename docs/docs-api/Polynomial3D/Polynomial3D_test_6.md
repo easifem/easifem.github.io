@@ -41,9 +41,9 @@ m=xy
 $$
 
 ```fortran
-  m1 = Monomial2D( 1,1,"x","y" )
-  f1 = m1
-  call f1%display( 'f(x,y)=' )
+m1 = Monomial2D( 1,1,"x","y" )
+f1 = m1
+call f1%display( 'f(x,y)=' )
 ```
 
 !!! example "result"
@@ -56,8 +56,8 @@ $$
 Now we assign a polynomial a scalar value.
 
 ```fortran
-  f1 = 2
-  call f1%display( 'f(x,y)=')
+f1 = 2
+call f1%display( 'f(x,y)=')
 ```
 
 !!! example "result"
@@ -67,8 +67,8 @@ f(x,y)=+2x^0*y^0
 $$
 
 ```fortran
-  f1 = 2.0
-  call f1%display( 'f(x,y)=')
+f1 = 2.0
+call f1%display( 'f(x,y)=')
 ```
 
 !!! example "result"

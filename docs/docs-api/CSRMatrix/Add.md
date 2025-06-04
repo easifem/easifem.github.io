@@ -8,7 +8,7 @@ $$
 A = A + B
 $$
 
-Calling example: 
+Calling example:
 
 ```fortran
 ADD(obj, nodenum(:), value(:,:), scale)
@@ -86,7 +86,7 @@ INTERFACE
     REAL(DFP), INTENT(IN) :: scale
     !! Scale is used to scale the Val before adding it to the obj
   END SUBROUTINE add
-END INTERFACE 
+END INTERFACE
 ```
 
 </TabItem>
@@ -158,7 +158,6 @@ END INTERFACE
 </TabItem>
 </Tabs>
 
-
 ## Interface 4
 
 <Tabs>
@@ -186,7 +185,6 @@ END INTERFACE
 
 </TabItem>
 </Tabs>
-
 
 ## Interface 5
 
@@ -219,7 +217,6 @@ END INTERFACE
 </TabItem>
 </Tabs>
 
-
 ## Interface 6
 
 <Tabs>
@@ -246,7 +243,6 @@ END INTERFACE
 
 </TabItem>
 </Tabs>
-
 
 ## Interface 7
 
@@ -287,7 +283,6 @@ END INTERFACE
 
 </TabItem>
 </Tabs>
-
 
 ## Interface 7
 
@@ -321,7 +316,6 @@ END INTERFACE
 </TabItem>
 
 <TabItem value="example" label="️܀ See example">
-
 
 </TabItem>
 

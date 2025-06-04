@@ -17,4 +17,3 @@ MODULE PURE FUNCTION Divergence_2(obj, val) RESULT(Ans)
   TYPE(FEVariable_) :: ans
 END FUNCTION Divergence_2
 ```
-

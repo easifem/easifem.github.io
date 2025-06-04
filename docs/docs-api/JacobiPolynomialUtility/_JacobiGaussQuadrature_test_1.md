@@ -16,7 +16,7 @@ program main
 order = 1
 
 ```fortran
-  n = 1; call callme
+n = 1; call callme
 ```
 
 <details>
@@ -26,7 +26,7 @@ order = 1
 Zeros of J(x), n = 1 alpha=0 beta=0
 
 | pt | wt |
-|----|----|
+| -- | -- |
 | 0  | 2  |
 
 </div>
@@ -35,7 +35,7 @@ Zeros of J(x), n = 1 alpha=0 beta=0
 order = 2
 
 ```fortran
-  n = 2; call callme
+n = 2; call callme
 ```
 
 <details>
@@ -45,7 +45,7 @@ order = 2
 Zeros of J(x), n = 1 alpha=0 beta=0
 
 | pt       | wt |
-|----------|----|
+| -------- | -- |
 | -0.57735 | 1  |
 | 0.57735  | 1  |
 
@@ -55,7 +55,7 @@ Zeros of J(x), n = 1 alpha=0 beta=0
 order = 5
 
 ```fortran
-  n = 5; call callme
+n = 5; call callme
 ```
 
 <details>
@@ -65,7 +65,7 @@ order = 5
 Zeros of J(x), n = 5 alpha=0 beta=0
 
 | pt           | wt      |
-|--------------|---------|
+| ------------ | ------- |
 | -0.90618     | 0.23693 |
 | -0.53847     | 0.47863 |
 | -1.56541E-16 | 0.56889 |
@@ -76,17 +76,17 @@ Zeros of J(x), n = 5 alpha=0 beta=0
 </details>
 
 ```fortran
-  contains
-  subroutine callme
-    call reallocate( pt, n, wt, n )
-    call JacobiGaussQuadrature( n=n, alpha=alpha, beta=beta, pt=pt, wt=wt )
-    msg = "Zeros of J(x), n = " &
-        & // tostring( n ) // " alpha="//tostring( alpha ) // &
-        & " beta="//tostring( beta )
-    call display(msg%chars())
-    astr = MdEncode( pt .COLCONCAT. wt )
-    call display( astr%chars(), "" )
-  end subroutine callme
+contains
+subroutine callme
+  call reallocate( pt, n, wt, n )
+  call JacobiGaussQuadrature( n=n, alpha=alpha, beta=beta, pt=pt, wt=wt )
+  msg = "Zeros of J(x), n = " &
+      & // tostring( n ) // " alpha="//tostring( alpha ) // &
+      & " beta="//tostring( beta )
+  call display(msg%chars())
+  astr = MdEncode( pt .COLCONCAT. wt )
+  call display( astr%chars(), "" )
+end subroutine callme
 ```
 
 ```fortran

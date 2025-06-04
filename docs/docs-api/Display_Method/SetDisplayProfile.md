@@ -55,7 +55,7 @@ DispProfile is an instance of DISP_SETTINGS. You can pass following predefined g
 - style="UNDERLINE"
 - trim="FALSE"
 - ZEROAS="."
-:::
+  :::
 
 :::note DisplayProfilePrint
 
@@ -65,13 +65,13 @@ DispProfile is an instance of DISP_SETTINGS. You can pass following predefined g
 - style="UNDERLINE"
 - trim="FALSE"
 - ZEROAS=""
-:::
+  :::
 
 #### advance
 
 It can take following values:
 
-1. "YES",  go to the next line.
+1. "YES", go to the next line.
 2. "NO", stay on the same line.
 
 #### digmax

@@ -195,7 +195,7 @@ END INTERFACE
 - This routine sets the selected entries.
 
 ```txt
- vector( :, globalNode ) = value( :, : )
+vector( :, globalNode ) = value( :, : )
 ```
 
 ## Interface 9

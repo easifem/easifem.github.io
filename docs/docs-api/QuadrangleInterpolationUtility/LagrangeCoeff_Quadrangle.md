@@ -14,17 +14,17 @@ For example, for Lagrange polynomial of order 2, on equidistance grid, we have f
 
 coeff:
 
-| Basis  | $l_1$  | $l_2$  |  $l_3$ | $l_4$ | $l_5$ | $l_6$  | $l_7$  | $l_8$  | $l_9$ |
-| --- |  --- |  --- |  --- |  --- |  --- |  --- |  --- |  --- |  --- |
-| $1$  | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 |
-| $x$ | 0 | 0 | 0 | 0 | 0 | 0.5 | 0 | -0.5 | -0 |
-| $x^2$ | 0 | 0 | -0 | 0 | 0 | 0.5 | 0 | 0.5 | -1 |
-| $y$ | 0 | 0 | 0 | 0 | -0.5 | 0 | 0.5 | 0 | -0 |
-| $xy$ | 0.25 | -0.25 | 0.25 | -0.25 | 0 | 0 | 0 | 0 | -0 |
-| $x^2 y$ | -0.25 | -0.25 | 0.25 | 0.25 | 0.5 | -0 | -0.5 | 0 | -0 |
-| $y^2$ | 0 | 0 | 0 | 0 | 0.5 | 0 | 0.5 | 0 | -1 |
-| $xy^2$ | -0.25 | 0.25 | 0.25 | -0.25 | 0 | -0.5 | 0 | 0.5 | -0 |
-| $x^2 y^2$ | 0.25 | 0.25 | 0.25 | 0.25 | -0.5 | -0.5 | -0.5 | -0.5 | 1 |
+| Basis     | $l_1$ | $l_2$ | $l_3$ | $l_4$ | $l_5$ | $l_6$ | $l_7$ | $l_8$ | $l_9$ |
+| --------- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
+| $1$       | 0     | 0     | 0     | 0     | 0     | 0     | 0     | 0     | 1     |
+| $x$       | 0     | 0     | 0     | 0     | 0     | 0.5   | 0     | -0.5  | -0    |
+| $x^2$     | 0     | 0     | -0    | 0     | 0     | 0.5   | 0     | 0.5   | -1    |
+| $y$       | 0     | 0     | 0     | 0     | -0.5  | 0     | 0.5   | 0     | -0    |
+| $xy$      | 0.25  | -0.25 | 0.25  | -0.25 | 0     | 0     | 0     | 0     | -0    |
+| $x^2 y$   | -0.25 | -0.25 | 0.25  | 0.25  | 0.5   | -0    | -0.5  | 0     | -0    |
+| $y^2$     | 0     | 0     | 0     | 0     | 0.5   | 0     | 0.5   | 0     | -1    |
+| $xy^2$    | -0.25 | 0.25  | 0.25  | -0.25 | 0     | -0.5  | 0     | 0.5   | -0    |
+| $x^2 y^2$ | 0.25  | 0.25  | 0.25  | 0.25  | -0.5  | -0.5  | -0.5  | -0.5  | 1     |
 
 ## Interface 1
 
@@ -195,7 +195,7 @@ The number of columns of xij should be equal to the total number of degrees of f
 - Chebyshev
 - Ultraspherical
 - Heirarchical
-:::
+  :::
 
 :::info `refQuadrangle`
 Reference Quadrangle can be `UNIT` or `BIUNIT`.
@@ -205,7 +205,7 @@ Reference Quadrangle can be `UNIT` or `BIUNIT`.
 
 - `alpha` and `beta` are needed when basisType is Jacobi
 - `lambda` is needed when basisType is Ultraspherical
-:::
+  :::
 
 </TabItem>
 
@@ -309,7 +309,7 @@ Basis type in x and y direction. They can take following values:
 - Chebyshev
 - Ultraspherical
 - Heirarchical
-:::
+  :::
 
 :::info `refQuadrangle`
 Reference Quadrangle can be `UNIT` or `BIUNIT`.
@@ -319,10 +319,10 @@ Reference Quadrangle can be `UNIT` or `BIUNIT`.
 
 - `alpha1` and `beta1` are needed when `basisType1` is Jacobi
 - `lambda1` is needed when `basisType1` is Ultraspherical
-:::
+  :::
 
 :::info `alpha2, beta2, lambda2`
 
 - `alpha2` and `beta2` are needed when `basisType2` is Jacobi
 - `lambda2` is needed when `basisType2` is Ultraspherical
-:::
+  :::

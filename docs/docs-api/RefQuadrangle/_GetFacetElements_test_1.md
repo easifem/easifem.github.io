@@ -22,7 +22,6 @@ END PROGRAM main
 <summary>See results</summary>
 <div>
 
-
 ```bash title="results"
 FacetElement(1): 
 element type : Line2

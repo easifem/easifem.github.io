@@ -43,7 +43,7 @@ calculated using the `globalNode`, `idof`, and `ivar`.
 
 - If `value` is present then the vector is returned inside the rank 1 vector
 - If `nodeFieldVal` is present then the row is returned inside the
-node field
+  node field
 
 </TabItem>
 
@@ -82,7 +82,7 @@ calculated using the (`globalNode`, `ivar`, `spacecompo`, `timecompo`).
 
 - If `value` is present then the vector is returned inside the rank 1 vector
 - If `nodeFieldVal` is present then the row is returned inside the
-node field
+  node field
 
 </TabItem>
 
@@ -121,7 +121,7 @@ calculated using the (`globalNode`, `ivar`, `spacecompo`, `timecompo`).
 
 - If `value` is present then the vector is returned inside the rank 1 vector
 - If `nodeFieldVal` is present then the row is returned inside the
-node field
+  node field
 
 </TabItem>
 
@@ -160,7 +160,7 @@ calculated using the (`globalNode`, `ivar`, `spacecompo`, `timecompo`).
 
 - If `value` is present then the vector is returned inside the rank 1 vector
 - If `nodeFieldVal` is present then the row is returned inside the
-node field
+  node field
 
 </TabItem>
 
@@ -199,7 +199,7 @@ calculated using the (`globalNode`, `ivar`, `spacecompo`, `timecompo`).
 
 - If `value` is present then the vector is returned inside the rank 1 vector
 - If `nodeFieldVal` is present then the row is returned inside the
-node field
+  node field
 
 </TabItem>
 
@@ -238,7 +238,7 @@ calculated using the (`globalNode`, `ivar`, `spacecompo`, `timecompo`).
 
 - If `value` is present then the vector is returned inside the rank 1 vector
 - If `nodeFieldVal` is present then the row is returned inside the
-node field
+  node field
 
 </TabItem>
 

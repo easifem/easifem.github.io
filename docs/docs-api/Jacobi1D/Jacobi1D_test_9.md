@@ -32,37 +32,37 @@ real( dfp ), parameter :: a = -1.0_DFP, alpha=0.0_DFP, beta=0.0_DFP
 ### n=1
 
 ```fortran
-  n = 1
-  obj=Jacobi1D(varname="x", n=n, alpha=alpha, beta=beta)
-  x = obj%GaussRadauQuadrature(a)
-  call display( x, "pt | wt for n="//tostring(n) )
+n = 1
+obj=Jacobi1D(varname="x", n=n, alpha=alpha, beta=beta)
+x = obj%GaussRadauQuadrature(a)
+call display( x, "pt | wt for n="//tostring(n) )
 ```
 
 ### n=2
 
 ```fortran
-  n = 2
-  obj=Jacobi1D(varname="x", n=n, alpha=alpha, beta=beta)
-  x = obj%GaussRadauQuadrature(a)
-  call display( x, "pt | wt for n="//tostring(n) )
+n = 2
+obj=Jacobi1D(varname="x", n=n, alpha=alpha, beta=beta)
+x = obj%GaussRadauQuadrature(a)
+call display( x, "pt | wt for n="//tostring(n) )
 ```
 
 ### n=3
 
 ```fortran
-  n = 3
-  obj=Jacobi1D(varname="x", n=n, alpha=alpha, beta=beta)
-  x = obj%GaussRadauQuadrature(a)
-  call display( x, "pt | wt for n="//tostring(n) )
+n = 3
+obj=Jacobi1D(varname="x", n=n, alpha=alpha, beta=beta)
+x = obj%GaussRadauQuadrature(a)
+call display( x, "pt | wt for n="//tostring(n) )
 ```
 
 ### n=4
 
 ```fortran
-  n = 4
-  obj=Jacobi1D(varname="x", n=n, alpha=alpha, beta=beta)
-  x = obj%GaussRadauQuadrature(a)
-  call display( x, "pt | wt for n="//tostring(n) )
+n = 4
+obj=Jacobi1D(varname="x", n=n, alpha=alpha, beta=beta)
+x = obj%GaussRadauQuadrature(a)
+call display( x, "pt | wt for n="//tostring(n) )
 ```
 
 ```fortran

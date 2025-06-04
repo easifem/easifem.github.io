@@ -1,15 +1,15 @@
-import React, { forwardRef } from 'react';
-import * as Select from '@radix-ui/react-select';
-import clsx from 'clsx';
-import { Check, ChevronDown, ChevronUp } from 'react-feather';
+import * as Select from "@radix-ui/react-select";
+import clsx from "clsx";
+import React, { forwardRef } from "react";
+import { Check, ChevronDown, ChevronUp } from "react-feather";
 
 const SectionsMenu = forwardRef(
-  ({ defaultValue = '', values = [], children, className, ...props }, ref) => {
+  ({ defaultValue = "", values = [], children, className, ...props }, ref) => {
     return (
       <Select.Root defaultValue={defaultValue} ref={ref} {...props}>
         <Select.Trigger
           aria-label="Select Section"
-          className={clsx('sections-menu-trigger', className)}
+          className={clsx("sections-menu-trigger", className)}
         >
           <Select.Value />
           <Select.Icon>
@@ -17,7 +17,7 @@ const SectionsMenu = forwardRef(
           </Select.Icon>
         </Select.Trigger>
 
-        <Select.Content className={clsx('sections-menu-content', className)}>
+        <Select.Content className={clsx("sections-menu-content", className)}>
           <Select.ScrollUpButton className="sections-menu-scrollButton">
             <ChevronUp />
           </Select.ScrollUpButton>
@@ -28,7 +28,7 @@ const SectionsMenu = forwardRef(
                 <Select.Item
                   value={docId}
                   key={docId}
-                  className={clsx('sections-menu-item')}
+                  className={clsx("sections-menu-item")}
                   disabled={disabled}
                 >
                   <Select.ItemText>
@@ -52,7 +52,7 @@ const SectionsMenu = forwardRef(
         </Select.Content>
       </Select.Root>
     );
-  }
+  },
 );
 
 export default SectionsMenu;

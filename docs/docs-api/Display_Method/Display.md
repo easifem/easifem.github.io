@@ -1,6 +1,6 @@
 # Display
 
-Display function prints  variable on the screen.
+Display function prints variable on the screen.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

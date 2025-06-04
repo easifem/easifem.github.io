@@ -14,7 +14,7 @@ More information about the external packages used in the easifem are given [here
 
 Below we provide details of installing the external packages by using [easifem cli](/guides/easifemGO).
 
-## easifem cli 
+## easifem cli
 
 The easiest way to install the above-mentioned external packages is through `easifem` command line application (cli).
 
@@ -33,4 +33,3 @@ easifem install openblas superlu lis metis scotch arpack fftw gtk-fortran lapack
 - The packages will be stored at `EASIFEM_SOURCE_DIR/<pkg-name>`
 - The packages will be built at `EASIFEM_BUILD_DIR/<pkg-name>`
 - The packages will be installed at `EASIFEM_INSTALL_DIR/<pkg-name>`
-

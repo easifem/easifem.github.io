@@ -27,13 +27,13 @@ import TabItem from '@theme/TabItem';
 <TabItem value="interface" label="܀ Interface" default>
 
 ```fortran
-  MODULE PURE FUNCTION Sym(mat, from) RESULT(ans)
-    INTEGER(Int8| Int16 | Int32 | Int64) | REAL(Real32| Real64), INTENT(IN) :: mat(:, :)
-    CHARACTER(1), INTENT(IN) :: from
-    !! from = "U", then upper triangular part must be provided
-    !! from = "L", then lower triangular part must be provided
-    INTEGER(INT8) :: ans(SIZE(mat, 1), SIZE(mat, 2))
-  END FUNCTION Sym
+MODULE PURE FUNCTION Sym(mat, from) RESULT(ans)
+  INTEGER(Int8| Int16 | Int32 | Int64) | REAL(Real32| Real64), INTENT(IN) :: mat(:, :)
+  CHARACTER(1), INTENT(IN) :: from
+  !! from = "U", then upper triangular part must be provided
+  !! from = "L", then lower triangular part must be provided
+  INTEGER(INT8) :: ans(SIZE(mat, 1), SIZE(mat, 2))
+END FUNCTION Sym
 ```
 
 </TabItem>

@@ -17,7 +17,7 @@ tags:
   - SymLUSolve
 ---
 
-This example shows the use of `SymGetLU`  and `SymLUSolve` method defined in Lapack95.
+This example shows the use of `SymGetLU` and `SymLUSolve` method defined in Lapack95.
 
 - We get LU decomposition of A in A itself.
 - In this example there is only one rhs

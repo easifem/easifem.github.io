@@ -27,47 +27,47 @@ character(len=256) :: varname(2)
 ```
 
 !!! note "Initiate"
-    Initiate the object.
-	
+Initiate the object.
+
 $$
 f(x,y)=x^2 y
 $$
 
 ```fortran
-  f1=Monomial2D( 2, 1, "x", "y" )
+f1=Monomial2D( 2, 1, "x", "y" )
 ```
 
 !!! note "Grad"
-    Evaluating gradient
-	
+Evaluating gradient
+
 $$
 \frac{df}{dx} = 2xy
 $$
 
 ```fortran
-  f2 = f1 .GRAD. 1
-  CALL f2%Display( "f1 .GRAD. 1 = ")
+f2 = f1 .GRAD. 1
+CALL f2%Display( "f1 .GRAD. 1 = ")
 ```
 
 !!! example "result"
-    f1 .GRAD. 1 =x^1*y^1
-    Note that [[Monomial2D_]] does not contains the coefficient.
+f1 .GRAD. 1 =x^1*y^1
+Note that [[Monomial2D_]] does not contains the coefficient.
 
 !!! note "Grad"
-    Evaluating gradient
-	
+Evaluating gradient
+
 $$
 \frac{df}{dy} = x^2
 $$
 
 ```fortran
-  f3 = f1 .GRAD. 2
-  CALL f3%Display( "f1 .GRAD. 2 = ")
+f3 = f1 .GRAD. 2
+CALL f3%Display( "f1 .GRAD. 2 = ")
 ```
 
 !!! example "result"
-    f1 .GRAD. 2 =x^2*y^0
-    Note that [[Monomial2D_]] does not contains the coefficient.
+f1 .GRAD. 2 =x^2*y^0
+Note that [[Monomial2D_]] does not contains the coefficient.
 
 ```fortran
 END PROGRAM main

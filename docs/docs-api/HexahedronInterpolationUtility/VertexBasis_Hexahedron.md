@@ -16,15 +16,15 @@ import TabItem from '@theme/TabItem';
 <Tabs>
 <TabItem value="interface" label="܀ Interface" default>
 
- ```fortran
+```fortran
 INTERFACE VertexBasis_Hexahedron
-  MODULE PURE FUNCTION VertexBasis_Hexahedron1(x, y, z) &
-     & RESULT(ans)
-    REAL(DFP), INTENT(IN) :: x(:), y(:), z(:)
-    !! point of evaluation
-    REAL(DFP) :: ans(SIZE(x), 8)
-    !! ans(:,v1) basis function of vertex v1 at all points
-  END FUNCTION VertexBasis_Hexahedron1
+ MODULE PURE FUNCTION VertexBasis_Hexahedron1(x, y, z) &
+    & RESULT(ans)
+   REAL(DFP), INTENT(IN) :: x(:), y(:), z(:)
+   !! point of evaluation
+   REAL(DFP) :: ans(SIZE(x), 8)
+   !! ans(:,v1) basis function of vertex v1 at all points
+ END FUNCTION VertexBasis_Hexahedron1
 END INTERFACE VertexBasis_Hexahedron
 ```
 

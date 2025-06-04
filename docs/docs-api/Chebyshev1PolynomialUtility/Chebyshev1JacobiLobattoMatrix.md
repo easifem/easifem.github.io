@@ -16,7 +16,6 @@ INTERFACE
     REAL(DFP), OPTIONAL, INTENT(OUT) :: betaCoeff(0:)
   END SUBROUTINE Chebyshev1JacobiLobattoMatrix
 END INTERFACE
-
 ```
 
 ## Examples

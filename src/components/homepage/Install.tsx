@@ -1,5 +1,5 @@
-import React from 'react';
-import Link from '@docusaurus/Link';
+import Link from "@docusaurus/Link";
+import React from "react";
 
 function SDK({ icon, to, name }: { icon: string; name: string; to?: string }) {
   return (
@@ -20,14 +20,13 @@ export default function Install() {
         Installation
       </span>
 
-      <h3 className="mb-12 text-4xl">Install easifem ☀️ </h3>
+      <h3 className="mb-12 text-4xl">Install easifem ☀️</h3>
 
       <div className="mb-10">
         <h4 className="mb-2 text-2xl">Linux</h4>
 
         <p className="mb-6 text-text-400">
-          Select your <span className="font-semibold">Linux</span> distro and
-          follow the easy installation instructions.
+          Select your <span className="font-semibold">Linux</span> distro and follow the easy installation instructions.
         </p>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4">
@@ -58,8 +57,7 @@ export default function Install() {
         <h4 className="mb-2 text-2xl">MacOS</h4>
 
         <p className="mb-6 text-text-400">
-          Select the <span className="font-semibold">architecture</span> of your
-          MacOS and follow the instructions.
+          Select the <span className="font-semibold">architecture</span> of your MacOS and follow the instructions.
         </p>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4">

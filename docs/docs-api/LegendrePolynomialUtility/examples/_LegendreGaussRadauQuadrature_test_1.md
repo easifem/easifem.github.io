@@ -32,7 +32,7 @@ end program main
 Legendre Gauss Radau points, n+1 = 3
 
 | pt      | wt      |
-|---------|---------|
+| ------- | ------- |
 | -1      | 0.22222 |
 | -0.2899 | 1.025   |
 | 0.6899  | 0.75281 |
@@ -40,7 +40,7 @@ Legendre Gauss Radau points, n+1 = 3
 Legendre Gauss Radau points, n+1 = 3
 
 | pt      | wt      |
-|---------|---------|
+| ------- | ------- |
 | -0.6899 | 0.75281 |
 | 0.2899  | 1.025   |
 | 1       | 0.22222 |

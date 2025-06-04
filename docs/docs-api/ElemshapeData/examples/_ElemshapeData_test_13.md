@@ -7,7 +7,7 @@ $$
 $$
 
 $$
-\nabla \Vert mathbf{v}  \Vert / \Vert (\nabla \Vert mathbf{v} \Vert) \Vert
+\nabla \Vert mathbf{v} \Vert / \Vert (\nabla \Vert mathbf{v} \Vert) \Vert
 $$
 
 ## Modules and classes
@@ -19,9 +19,9 @@ $$
 ## Usage
 
 !!! note ""
-    IMPORT modules and declare variables
+IMPORT modules and declare variables
 
-``` fortran
+```fortran
 PROGRAM main
     USE easifemBase
     IMPLICIT NONE
@@ -42,30 +42,30 @@ PROGRAM main
 ```
 
 !!! note ""
-    Initiate an instance of [[ReferenceQuadrangle_]]
+Initiate an instance of [[ReferenceQuadrangle_]]
 
 ```fortran
-    refelem = ReferenceQuadrangle( nsd = nsd )
+refelem = ReferenceQuadrangle( nsd = nsd )
 ```
 
 !!! note ""
-    Initiate Gauss-Legendre Quadrature points.
+Initiate Gauss-Legendre Quadrature points.
 
 ```fortran
-    CALL Initiate(obj=quad, refelem=refelem, order=order, &
-        & quadratureType='GaussLegendre')
+CALL Initiate(obj=quad, refelem=refelem, order=order, &
+    & quadratureType='GaussLegendre')
 ```
 
 !!! note ""
-    Initiate an instance of [[ElemshapeData_]] for [[ReferenceQuadrangle_]]. The code shown below ONLY initiates the local shape FUNCTION DATA.
+Initiate an instance of [[ElemshapeData_]] for [[ReferenceQuadrangle_]]. The code shown below ONLY initiates the local shape FUNCTION DATA.
 
 ```fortran
-    CALL Initiate( obj = obj, quad = quad, refelem = refelem, &
-      & ContinuityType= typeH1, InterpolType = TypeLagrangeInterpolation )
+CALL Initiate( obj = obj, quad = quad, refelem = refelem, &
+  & ContinuityType= typeH1, InterpolType = TypeLagrangeInterpolation )
 ```
 
 !!! note ""
-    Now we PASS the information about the physical element. The code shown below will complete the information of the shape FUNCTION in the physical element.
+Now we PASS the information about the physical element. The code shown below will complete the information of the shape FUNCTION in the physical element.
 
 - val: is the nodal coordinates of the element
 - N: is the shape FUNCTION used for interpolating the nodal coordinate
@@ -73,49 +73,46 @@ PROGRAM main
 - In the CASE of isoparameteric coordinate sysmtem, N and dNdXi is same as those stored inside `obj` ([[ElemshapeData_]]).
 
 ```fortran
-    CALL Set( obj=obj, val=xij, N=obj%N, dNdXi=obj%dNdXi )
+CALL Set( obj=obj, val=xij, N=obj%N, dNdXi=obj%dNdXi )
 ```
 
 !!! note ""
-    Now let us CALL the GetUnitNormal method.
+Now let us CALL the GetUnitNormal method.
 
 ```fortran
-    CALL GetUnitNormal(obj=obj, r=r, val=v1)
-    CALL Display(r, "r = ")
+CALL GetUnitNormal(obj=obj, r=r, val=v1)
+CALL Display(r, "r = ")
 ```
 
 ??? example "Results"
 
-
 !!! note ""
-    Getnormal for vector
+Getnormal for vector
 
 ```fortran
-    CALL GetUnitNormal(obj=obj, r=r, val=v2)
-    CALL Display(r, "r = ")
+CALL GetUnitNormal(obj=obj, r=r, val=v2)
+CALL Display(r, "r = ")
 ```
 
 !!! note ""
-    GetUnitNormal for [[FEVariable_]]
+GetUnitNormal for [[FEVariable_]]
 
 ```fortran
-    fevar = NodalVariable(v1, typeFEVariableScalar, typeFEVariableSpace)
-    CALL GetUnitNormal(obj=obj, r=r, val=fevar)
-    CALL Display(r, "r=")
+fevar = NodalVariable(v1, typeFEVariableScalar, typeFEVariableSpace)
+CALL GetUnitNormal(obj=obj, r=r, val=fevar)
+CALL Display(r, "r=")
 ```
 
 !!! note ""
-    GetUnitNormal for [[FEVariable_]]
+GetUnitNormal for [[FEVariable_]]
 
 ```fortran
-    fevar = NodalVariable(v2, typeFEVariableVector, typeFEVariableSpace)
-    CALL GetUnitNormal(obj=obj, r=r, val=fevar)
-    CALL Display(r, "r=")
+fevar = NodalVariable(v2, typeFEVariableVector, typeFEVariableSpace)
+CALL GetUnitNormal(obj=obj, r=r, val=fevar)
+CALL Display(r, "r=")
 ```
-
 
 !!! settings "Cleanup"
-
 
 ```fortran
     CALL DEALLOCATE( obj )

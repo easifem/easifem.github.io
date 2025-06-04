@@ -23,9 +23,9 @@ On 13-July-2018, when I tried to compile this module using ifort then there was 
 ## Structure
 
 ```fortran
- TYPE, PUBLIC :: Tensor_
-    REAL( DFP ), ALLOCATABLE, DIMENSION( :, : ) :: T
-    INTEGER( I4B ) :: NSD
+TYPE, PUBLIC :: Tensor_
+   REAL( DFP ), ALLOCATABLE, DIMENSION( :, : ) :: T
+   INTEGER( I4B ) :: NSD
 ```
 
 ## Description
@@ -366,7 +366,7 @@ R = RotationPart( obj )
 
 **VectorProduct**
 
-We have defined `VectorProduct()` function for computing the cross product( also known as vector product ), It returns a length 3 vector. `VectorProduct(u,v)` is $u \times v$. `VectorProduct(u,v,w)`  is equivalent to $u \times ( v \times w )$
+We have defined `VectorProduct()` function for computing the cross product( also known as vector product ), It returns a length 3 vector. `VectorProduct(u,v)` is $u \times v$. `VectorProduct(u,v,w)` is equivalent to $u \times ( v \times w )$
 
 ```fortran
 Vec = VectorProduct( u, v )
@@ -478,13 +478,13 @@ obj = Rank2Tensor( obj2 )
 Interface
 
 ```fortran
- SUBROUTINE Initiate1( obj )
-    CLASS( Tensor_ ), INTENT( INOUT ) :: obj
-    IF( ALLOCATED( obj%T ) ) DEALLOCATE( obj%T )
-    ALLOCATE( obj%T( 3, 3 ) )
-    obj%NSD = 3
-    obj%T = 0.0_DFP
- END SUBROUTINE Initiate1
+SUBROUTINE Initiate1( obj )
+   CLASS( Tensor_ ), INTENT( INOUT ) :: obj
+   IF( ALLOCATED( obj%T ) ) DEALLOCATE( obj%T )
+   ALLOCATE( obj%T( 3, 3 ) )
+   obj%NSD = 3
+   obj%T = 0.0_DFP
+END SUBROUTINE Initiate1
 ```
 
 Description
@@ -496,9 +496,9 @@ See the above code.
 Interface
 
 ```fortran
- SUBROUTINE Initiate2( obj, A )
-    CLASS( Tensor_ ), INTENT( INOUT ) :: obj
-    REAL( DFP ), DIMENSION( :, : ), INTENT( IN ) :: A
+SUBROUTINE Initiate2( obj, A )
+   CLASS( Tensor_ ), INTENT( INOUT ) :: obj
+   REAL( DFP ), DIMENSION( :, : ), INTENT( IN ) :: A
 ```
 
 Description
@@ -529,11 +529,11 @@ See the code above
 Interface
 
 ```fortran
- SUBROUTINE Initiate4( obj, A, VoigtType )
-    USE Voigt
-    CLASS( Tensor_ ), INTENT( INOUT ) :: obj
-    REAL( DFP ), DIMENSION( : ), INTENT( IN ) :: A
-    CHARACTER( LEN = * ), INTENT( IN ) :: VoigtType
+SUBROUTINE Initiate4( obj, A, VoigtType )
+   USE Voigt
+   CLASS( Tensor_ ), INTENT( INOUT ) :: obj
+   REAL( DFP ), DIMENSION( : ), INTENT( IN ) :: A
+   CHARACTER( LEN = * ), INTENT( IN ) :: VoigtType
 ```
 
 Description
@@ -545,9 +545,9 @@ Coverts a Voigt vector into a tensor.
 Interface
 
 ```fortran
- SUBROUTINE Initiate5( obj, obj2 )
-    CLASS( Tensor_ ), INTENT( INOUT ) :: obj
-    CLASS( Tensor_ ), INTENT( IN ) :: obj2
+SUBROUTINE Initiate5( obj, obj2 )
+   CLASS( Tensor_ ), INTENT( INOUT ) :: obj
+   CLASS( Tensor_ ), INTENT( IN ) :: obj2
 ```
 
 Description
@@ -576,13 +576,13 @@ Description
 Interface
 
 ```fortran
- FUNCTION Constructor2( A )
-    CLASS( Tensor_ ), POINTER :: Constructor2
-    REAL( DFP ), DIMENSION( :, : ), INTENT( IN ) :: A
-    Error_Flag = .FALSE.
-    ALLOCATE( Tensor_ :: Constructor2 )
-    CALL Constructor2%Initiate( A )
- END FUNCTION Constructor2
+FUNCTION Constructor2( A )
+   CLASS( Tensor_ ), POINTER :: Constructor2
+   REAL( DFP ), DIMENSION( :, : ), INTENT( IN ) :: A
+   Error_Flag = .FALSE.
+   ALLOCATE( Tensor_ :: Constructor2 )
+   CALL Constructor2%Initiate( A )
+END FUNCTION Constructor2
 ```
 
 Description
@@ -733,10 +733,10 @@ Description
 Interface
 
 ```fortran
- INTEGER( I4B ) FUNCTION getNSD( obj )
-    CLASS( Tensor_ ), INTENT( IN ) :: obj
-    getNSD = obj%NSD
- END FUNCTION getNSD
+INTEGER( I4B ) FUNCTION getNSD( obj )
+   CLASS( Tensor_ ), INTENT( IN ) :: obj
+   getNSD = obj%NSD
+END FUNCTION getNSD
 ```
 
 ### getTensor
@@ -770,11 +770,11 @@ END SUBROUTINE getTensor_1
 <mark>Type-2</mark>
 
 ```fortran
- SUBROUTINE getTensor_2( obj, Vec, VoigtType )
-    USE Voigt
-    CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
-    REAL( DFP ), ALLOCATABLE, DIMENSION( : ), INTENT( INOUT ) :: Vec
-    CHARACTER( LEN = * ), INTENT( IN ) :: VoigtType
+SUBROUTINE getTensor_2( obj, Vec, VoigtType )
+   USE Voigt
+   CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
+   REAL( DFP ), ALLOCATABLE, DIMENSION( : ), INTENT( INOUT ) :: Vec
+   CHARACTER( LEN = * ), INTENT( IN ) :: VoigtType
 ```
 
 Description
@@ -784,9 +784,9 @@ If `obj%NSD` is 2 then `Vec` has length 4. Note that `Vec` is reallocated by the
 <mark>Type-3</mark>
 
 ```fortran
- SUBROUTINE getTensor_3( T, obj )
-    CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
-    REAL( DFP ), ALLOCATABLE, DIMENSION( :, : ), INTENT( OUT ) :: T
+SUBROUTINE getTensor_3( T, obj )
+   CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
+   REAL( DFP ), ALLOCATABLE, DIMENSION( :, : ), INTENT( OUT ) :: T
 ```
 
 > This subroutine is used for overloading the assignment operator. Now we can obtain the value using `Mat = obj`.
@@ -796,10 +796,10 @@ If `obj%NSD` is 2 then `Vec` has length 4. Note that `Vec` is reallocated by the
 <mark>Type-1</mark>
 
 ```fortran
- FUNCTION TensorTimesScalar_1( obj, Scalar )
-    CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
-    REAL( DFP ), INTENT( IN ) :: Scalar
-    REAL( DFP ), DIMENSION( 3, 3 ) :: TensorTimesScalar_1
+FUNCTION TensorTimesScalar_1( obj, Scalar )
+   CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
+   REAL( DFP ), INTENT( IN ) :: Scalar
+   REAL( DFP ), DIMENSION( 3, 3 ) :: TensorTimesScalar_1
 ```
 
 `obj * 2.0_DFP` returns a (3,3) matrix.
@@ -807,10 +807,10 @@ If `obj%NSD` is 2 then `Vec` has length 4. Note that `Vec` is reallocated by the
 <mark>Type-2</mark>
 
 ```fortran
- FUNCTION TensorTimesScalar_2( Scalar, obj )
-    CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
-    REAL( DFP ), INTENT( IN ) :: Scalar
-    REAL( DFP ), DIMENSION( 3, 3 ) :: TensorTimesScalar_2
+FUNCTION TensorTimesScalar_2( Scalar, obj )
+   CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
+   REAL( DFP ), INTENT( IN ) :: Scalar
+   REAL( DFP ), DIMENSION( 3, 3 ) :: TensorTimesScalar_2
 ```
 
 `2.0_DFP * obj` returns a (3,3) matrix.
@@ -818,10 +818,10 @@ If `obj%NSD` is 2 then `Vec` has length 4. Note that `Vec` is reallocated by the
 <mark>Type-3</mark>
 
 ```fortran
- FUNCTION TensorTimesScalar_3( obj, Scalar )
-    CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
-    INTEGER( I4B ), INTENT( IN ) :: Scalar
-    REAL( DFP ), DIMENSION( 3, 3 ) :: TensorTimesScalar_3
+FUNCTION TensorTimesScalar_3( obj, Scalar )
+   CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
+   INTEGER( I4B ), INTENT( IN ) :: Scalar
+   REAL( DFP ), DIMENSION( 3, 3 ) :: TensorTimesScalar_3
 ```
 
 `obj * 2` returns a (3,3) matrix.
@@ -829,10 +829,10 @@ If `obj%NSD` is 2 then `Vec` has length 4. Note that `Vec` is reallocated by the
 <mark>Type-4</mark>
 
 ```fortran
- FUNCTION TensorTimesScalar_4( Scalar, obj )
-    CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
-    INTEGER( I4B ), INTENT( IN ) :: Scalar
-    REAL( DFP ), DIMENSION( 3, 3 ) :: TensorTimesScalar_4
+FUNCTION TensorTimesScalar_4( Scalar, obj )
+   CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
+   INTEGER( I4B ), INTENT( IN ) :: Scalar
+   REAL( DFP ), DIMENSION( 3, 3 ) :: TensorTimesScalar_4
 ```
 
 `2 * obj` returns a (3,3) matrix.
@@ -840,9 +840,9 @@ If `obj%NSD` is 2 then `Vec` has length 4. Note that `Vec` is reallocated by the
 <mark>Type-5</mark>
 
 ```fortran
- FUNCTION TensorTimesTensor( obj, obj2 )
-    CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj, obj2
-    REAL( DFP ), DIMENSION( 3, 3 ) :: TensorTimesTensor
+FUNCTION TensorTimesTensor( obj, obj2 )
+   CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj, obj2
+   REAL( DFP ), DIMENSION( 3, 3 ) :: TensorTimesTensor
 ```
 
 `obj1 * obj2` perfoms element wise multiplication
@@ -850,10 +850,10 @@ If `obj%NSD` is 2 then `Vec` has length 4. Note that `Vec` is reallocated by the
 <mark>Type-6</mark>
 
 ```fortran
- FUNCTION TensorTimesVector( obj, Vec )
-    CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
-    REAL( DFP ), DIMENSION( : ), INTENT( IN ) :: Vec
-    REAL( DFP ), DIMENSION( 3 ) :: TensorTimesVector
+FUNCTION TensorTimesVector( obj, Vec )
+   CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
+   REAL( DFP ), DIMENSION( : ), INTENT( IN ) :: Vec
+   REAL( DFP ), DIMENSION( 3 ) :: TensorTimesVector
 ```
 
 `obj * Vec` returns array of length-3 after performing matrix vector multiplication. Symbolically, $w = T \cdot v$
@@ -888,10 +888,10 @@ Vec2 = T * [1.d0]
 <mark>Type-7</mark>
 
 ```fortran
- FUNCTION VectorTimesTensor( Vec, obj )
-    CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
-    REAL( DFP ), DIMENSION( : ), INTENT( IN ) :: Vec
-    REAL( DFP ), DIMENSION( 3 ) :: VectorTimesTensor
+FUNCTION VectorTimesTensor( Vec, obj )
+   CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
+   REAL( DFP ), DIMENSION( : ), INTENT( IN ) :: Vec
+   REAL( DFP ), DIMENSION( 3 ) :: VectorTimesTensor
 ```
 
 `Vec * obj` returns array of length-3 after performing matrix vector multiplication. Symbolically $w = v \cdot T$
@@ -926,19 +926,19 @@ Vec2 = [1.d0] * T
 <mark>Type-8</mark>
 
 ```fortran
- FUNCTION TensorTimesMat( obj, Mat )
-    CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
-    REAL( DFP ), DIMENSION( 3, 3 ), INTENT( IN ) :: Mat
-    REAL( DFP ), DIMENSION( 3, 3 ) :: TensorTimesMat
+FUNCTION TensorTimesMat( obj, Mat )
+   CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
+   REAL( DFP ), DIMENSION( 3, 3 ), INTENT( IN ) :: Mat
+   REAL( DFP ), DIMENSION( 3, 3 ) :: TensorTimesMat
 ```
 
 <mark>Type-9</mark>
 
 ```fortran
- FUNCTION MatTimesTensor( Mat, obj )
-    CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
-    REAL( DFP ), DIMENSION( 3, 3 ), INTENT( IN ) :: Mat
-    REAL( DFP ), DIMENSION( 3, 3 ) :: MatTimesTensor
+FUNCTION MatTimesTensor( Mat, obj )
+   CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
+   REAL( DFP ), DIMENSION( 3, 3 ), INTENT( IN ) :: Mat
+   REAL( DFP ), DIMENSION( 3, 3 ) :: MatTimesTensor
 ```
 
 ### MatMul
@@ -946,46 +946,45 @@ Vec2 = [1.d0] * T
 <mark>Type-1</mark>
 
 ```fortran
- FUNCTION MatMul_1( obj, obj2 )
-    CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj, obj2
-    REAL( DFP ), DIMENSION( 3, 3 ) :: MatMul_1
+FUNCTION MatMul_1( obj, obj2 )
+   CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj, obj2
+   REAL( DFP ), DIMENSION( 3, 3 ) :: MatMul_1
 ```
 
 <mark>Type-2</mark>
 
 ```fortran
- FUNCTION MatMul_2( obj, Mat2 )
-    CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
-    REAL( DFP ), DIMENSION( 3, 3 ), INTENT( IN ) :: Mat2
-    REAL( DFP ), DIMENSION( 3, 3 ) :: MatMul_2
-
+FUNCTION MatMul_2( obj, Mat2 )
+   CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
+   REAL( DFP ), DIMENSION( 3, 3 ), INTENT( IN ) :: Mat2
+   REAL( DFP ), DIMENSION( 3, 3 ) :: MatMul_2
 ```
 
 <mark>Type-3</mark>
 
 ```fortran
- FUNCTION MatMul_3( Mat2, obj )
-    CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
-    REAL( DFP ), DIMENSION( 3, 3 ), INTENT( IN ) :: Mat2
-    REAL( DFP ), DIMENSION( 3, 3 ) :: MatMul_3
+FUNCTION MatMul_3( Mat2, obj )
+   CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
+   REAL( DFP ), DIMENSION( 3, 3 ), INTENT( IN ) :: Mat2
+   REAL( DFP ), DIMENSION( 3, 3 ) :: MatMul_3
 ```
 
 <mark>Type-4</mark>
 
 ```fortran
- FUNCTION VectorTimesTensor( Vec, obj )
-    CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
-    REAL( DFP ), DIMENSION( : ), INTENT( IN ) :: Vec
-    REAL( DFP ), DIMENSION( 3 ) :: VectorTimesTensor
+FUNCTION VectorTimesTensor( Vec, obj )
+   CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
+   REAL( DFP ), DIMENSION( : ), INTENT( IN ) :: Vec
+   REAL( DFP ), DIMENSION( 3 ) :: VectorTimesTensor
 ```
 
 <mark>Type-5</mark>
 
 ```fortran
- FUNCTION TensorTimesVector( obj, Vec )
-    CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
-    REAL( DFP ), DIMENSION( : ), INTENT( IN ) :: Vec
-    REAL( DFP ), DIMENSION( 3 ) :: TensorTimesVector
+FUNCTION TensorTimesVector( obj, Vec )
+   CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
+   REAL( DFP ), DIMENSION( : ), INTENT( IN ) :: Vec
+   REAL( DFP ), DIMENSION( 3 ) :: TensorTimesVector
 ```
 
 ### Dyadic Product/Otimes
@@ -993,27 +992,27 @@ Vec2 = [1.d0] * T
 <mark>Type-1</mark>
 
 ```fortran
- FUNCTION Tensor_Dyadic_Tensor( obj, obj2 )
-    CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj, obj2
-    REAL( DFP ), DIMENSION( 6, 6 ) :: Tensor_Dyadic_Tensor
+FUNCTION Tensor_Dyadic_Tensor( obj, obj2 )
+   CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj, obj2
+   REAL( DFP ), DIMENSION( 6, 6 ) :: Tensor_Dyadic_Tensor
 ```
 
 <mark>Type-2</mark>
 
 ```fortran
- FUNCTION Tensor_Dyadic_Mat( obj, Mat )
-    CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
-    REAL( DFP ), DIMENSION( 3, 3 ), INTENT( IN ) :: Mat
-    REAL( DFP ), DIMENSION( 6, 6 ) :: Tensor_Dyadic_Mat
+FUNCTION Tensor_Dyadic_Mat( obj, Mat )
+   CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
+   REAL( DFP ), DIMENSION( 3, 3 ), INTENT( IN ) :: Mat
+   REAL( DFP ), DIMENSION( 6, 6 ) :: Tensor_Dyadic_Mat
 ```
 
 <mark>Type-3</mark>
 
 ```fortran
- FUNCTION Mat_Dyadic_Tensor( Mat, obj )
-    CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
-    REAL( DFP ), DIMENSION( 3, 3 ), INTENT( IN ) :: Mat
-    REAL( DFP ), DIMENSION( 6, 6 ) :: Mat_Dyadic_Tensor
+FUNCTION Mat_Dyadic_Tensor( Mat, obj )
+   CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
+   REAL( DFP ), DIMENSION( 3, 3 ), INTENT( IN ) :: Mat
+   REAL( DFP ), DIMENSION( 6, 6 ) :: Mat_Dyadic_Tensor
 ```
 
 > Note that .Otimes. always return a (6,6) matrix. If you want to use (4,4) or (3,3) matrix then use `Mat4_From_Mat6`, and `Mat3_From_Mat6` function.
@@ -1103,8 +1102,8 @@ DummyMat .Otimes. T=
 Example of getting (4,4) array from (6,6) array
 
 ```fortran
-    DummyMat = Mat4_From_Mat6( DummyMat .Otimes. T )
-    CALL Display_Array( DummyMat, "DummyMat = Mat4_From_Mat6( DummyMat .Otimes. T ) ")
+DummyMat = Mat4_From_Mat6( DummyMat .Otimes. T )
+CALL Display_Array( DummyMat, "DummyMat = Mat4_From_Mat6( DummyMat .Otimes. T ) ")
 ```
 
 Result
@@ -1121,9 +1120,9 @@ DummyMat = Mat4_From_Mat6( DummyMat .Otimes. T )=
 ### Transpose
 
 ```fortran
- FUNCTION Transpose_1( obj )
-    CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
-    REAL( DFP ), DIMENSION( 3, 3 ) :: Transpose_1
+FUNCTION Transpose_1( obj )
+   CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
+   REAL( DFP ), DIMENSION( 3, 3 ) :: Transpose_1
 ```
 
 > Returns a (3,3) matrix.
@@ -1133,11 +1132,11 @@ DummyMat = Mat4_From_Mat6( DummyMat .Otimes. T )=
 Type-1
 
 ```fortran
- FUNCTION obj_Add_obj( obj, obj2 )
-    CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj, obj2
-    REAL( DFP ), DIMENSION( 3, 3 ) :: obj_Add_obj
-    obj_Add_obj = obj%T + obj2%T
- END FUNCTION obj_Add_obj
+FUNCTION obj_Add_obj( obj, obj2 )
+   CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj, obj2
+   REAL( DFP ), DIMENSION( 3, 3 ) :: obj_Add_obj
+   obj_Add_obj = obj%T + obj2%T
+END FUNCTION obj_Add_obj
 ```
 
 Example : `obj + obj2`
@@ -1145,12 +1144,12 @@ Example : `obj + obj2`
 Type-2
 
 ```fortran
- FUNCTION obj_Add_Mat( obj, Mat )
-    CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
-    REAL( DFP ), DIMENSION( 3, 3 ), INTENT( IN ) :: Mat
-    REAL( DFP ), DIMENSION( 3, 3 ) :: obj_Add_Mat
-    obj_Add_Mat = obj%T + Mat
- END FUNCTION obj_Add_Mat
+FUNCTION obj_Add_Mat( obj, Mat )
+   CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
+   REAL( DFP ), DIMENSION( 3, 3 ), INTENT( IN ) :: Mat
+   REAL( DFP ), DIMENSION( 3, 3 ) :: obj_Add_Mat
+   obj_Add_Mat = obj%T + Mat
+END FUNCTION obj_Add_Mat
 ```
 
 Example: `obj + Mat`
@@ -1158,12 +1157,12 @@ Example: `obj + Mat`
 Type-3
 
 ```fortran
- FUNCTION Mat_Add_obj( Mat, obj )
-    CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
-    REAL( DFP ), DIMENSION( 3, 3 ), INTENT( IN ) :: Mat
-    REAL( DFP ), DIMENSION( 3, 3 ) :: Mat_Add_obj
-    Mat_Add_obj = obj%T + Mat
- END FUNCTION Mat_Add_obj
+FUNCTION Mat_Add_obj( Mat, obj )
+   CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
+   REAL( DFP ), DIMENSION( 3, 3 ), INTENT( IN ) :: Mat
+   REAL( DFP ), DIMENSION( 3, 3 ) :: Mat_Add_obj
+   Mat_Add_obj = obj%T + Mat
+END FUNCTION Mat_Add_obj
 ```
 
 Example: `Mat + obj`
@@ -1173,11 +1172,11 @@ Example: `Mat + obj`
 Type-1
 
 ```fortran
- FUNCTION obj_Minus_obj( obj, obj2 )
-    CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj, obj2
-    REAL( DFP ), DIMENSION( 3, 3 ) :: obj_Minus_obj
-    obj_Minus_obj = obj%T - obj2%T
- END FUNCTION obj_Minus_obj
+FUNCTION obj_Minus_obj( obj, obj2 )
+   CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj, obj2
+   REAL( DFP ), DIMENSION( 3, 3 ) :: obj_Minus_obj
+   obj_Minus_obj = obj%T - obj2%T
+END FUNCTION obj_Minus_obj
 ```
 
 Example : `obj - obj2`
@@ -1185,12 +1184,12 @@ Example : `obj - obj2`
 Type-2
 
 ```fortran
- FUNCTION obj_Minus_Mat( obj, Mat )
-    CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
-    REAL( DFP ), DIMENSION( 3, 3 ), INTENT( IN ) :: Mat
-    REAL( DFP ), DIMENSION( 3, 3 ) :: obj_Minus_Mat
-    obj_Minus_Mat = obj%T - Mat
- END FUNCTION obj_Minus_Mat
+FUNCTION obj_Minus_Mat( obj, Mat )
+   CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
+   REAL( DFP ), DIMENSION( 3, 3 ), INTENT( IN ) :: Mat
+   REAL( DFP ), DIMENSION( 3, 3 ) :: obj_Minus_Mat
+   obj_Minus_Mat = obj%T - Mat
+END FUNCTION obj_Minus_Mat
 ```
 
 Example: `obj - Mat`
@@ -1198,12 +1197,12 @@ Example: `obj - Mat`
 Type-3
 
 ```fortran
- FUNCTION Mat_Minus_obj( Mat, obj )
-    CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
-    REAL( DFP ), DIMENSION( 3, 3 ), INTENT( IN ) :: Mat
-    REAL( DFP ), DIMENSION( 3, 3 ) :: Mat_Minus_obj
-    Mat_Minus_obj = obj%T - Mat
- END FUNCTION Mat_Minus_obj
+FUNCTION Mat_Minus_obj( Mat, obj )
+   CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
+   REAL( DFP ), DIMENSION( 3, 3 ), INTENT( IN ) :: Mat
+   REAL( DFP ), DIMENSION( 3, 3 ) :: Mat_Minus_obj
+   Mat_Minus_obj = obj%T - Mat
+END FUNCTION Mat_Minus_obj
 ```
 
 Example: `Mat - obj`
@@ -1215,9 +1214,9 @@ Example: `Mat - obj`
 Type-1
 
 ```fortran
- FUNCTION VectorProduct2( u, v )
-    REAL( DFP ), DIMENSION( : ), INTENT( IN ) :: u, v
-    REAL( DFP ), DIMENSION( 3 ) :: VectorProduct2
+FUNCTION VectorProduct2( u, v )
+   REAL( DFP ), DIMENSION( : ), INTENT( IN ) :: u, v
+   REAL( DFP ), DIMENSION( 3 ) :: VectorProduct2
 ```
 
 Description
@@ -1227,9 +1226,9 @@ Computes $u \times v$
 Type-2
 
 ```fortran
- FUNCTION VectorProduct3( u, v, w )
-    REAL( DFP ), DIMENSION( 3 ), INTENT( IN ) :: u, v, w
-    REAL( DFP ), DIMENSION( 3 ) :: VectorProduct3
+FUNCTION VectorProduct3( u, v, w )
+   REAL( DFP ), DIMENSION( 3 ), INTENT( IN ) :: u, v, w
+   REAL( DFP ), DIMENSION( 3 ) :: VectorProduct3
 ```
 
 Description
@@ -1239,9 +1238,9 @@ Computes $u \times ( v \times w )$
 ### BoxProduct
 
 ```fortran
- REAL( DFP ) FUNCTION BoxProduct( u, v, w )
-    USE Utility, ONLY: Det
-    REAL( DFP ), DIMENSION( 3 ), INTENT( IN ) :: u, v, w
+REAL( DFP ) FUNCTION BoxProduct( u, v, w )
+   USE Utility, ONLY: Det
+   REAL( DFP ), DIMENSION( 3 ), INTENT( IN ) :: u, v, w
 ```
 
 Description
@@ -1270,8 +1269,8 @@ Example
 ### getAngle
 
 ```Fortran
- REAL( DFP ) FUNCTION getAngle( u, v )
-    REAL( DFP ), DIMENSION( : ), INTENT( IN ) :: u, v
+REAL( DFP ) FUNCTION getAngle( u, v )
+   REAL( DFP ), DIMENSION( : ), INTENT( IN ) :: u, v
 ```
 
 Returns angle between two vectors
@@ -1288,9 +1287,9 @@ Example
 ### getProjection
 
 ```fortran
- FUNCTION getProjection( u, v )
-    REAL( DFP ), DIMENSION( 3 ), INTENT( IN ) :: u, v
-    REAL( DFP ), DIMENSION( 3 ) :: getProjection
+FUNCTION getProjection( u, v )
+   REAL( DFP ), DIMENSION( 3 ), INTENT( IN ) :: u, v
+   REAL( DFP ), DIMENSION( 3 ) :: getProjection
 ```
 
 Project u on v. New Operator is defined `u .ProjectOn. v`.
@@ -1317,9 +1316,9 @@ Example
 ### UnitVector
 
 ```fortran
- FUNCTION UnitVector( u )
-    REAL( DFP ), DIMENSION( 3 ), INTENT( IN ) :: u
-    REAL( DFP ), DIMENSION( 3 ) :: UnitVector
+FUNCTION UnitVector( u )
+   REAL( DFP ), DIMENSION( 3 ), INTENT( IN ) :: u
+   REAL( DFP ), DIMENSION( 3 ) :: UnitVector
 ```
 
 Returns the unit vector.
@@ -1327,11 +1326,11 @@ Returns the unit vector.
 ### DotProduct
 
 ```fortran
- FUNCTION DotProduct( u, v )
-    REAL( DFP ), DIMENSION( : ), INTENT( IN ) :: u, v
-    REAL( DFP ) :: DotProduct
-    DotProduct = DOT_PRODUCT( u, v )
- END FUNCTION DotProduct
+FUNCTION DotProduct( u, v )
+   REAL( DFP ), DIMENSION( : ), INTENT( IN ) :: u, v
+   REAL( DFP ) :: DotProduct
+   DotProduct = DOT_PRODUCT( u, v )
+END FUNCTION DotProduct
 ```
 
 Returns the dot product, used for defining the operator `u .dot. v`
@@ -1339,19 +1338,19 @@ Returns the dot product, used for defining the operator `u .dot. v`
 Example
 
 ```fortran
-    Vec1 = [1.d0, -1.d0, 0.d0]
-    Vec2 = [-1.d0, 1.d0, 0.d0]
-    dp = Vec1 .dot. Vec2
+Vec1 = [1.d0, -1.d0, 0.d0]
+Vec2 = [-1.d0, 1.d0, 0.d0]
+dp = Vec1 .dot. Vec2
 ```
 
 ### getNormalComponent
 
 ```fortran
- FUNCTION getNormalComponent( u, v )
-    REAL( DFP ), DIMENSION( 3 ), INTENT( IN ) :: u, v
-    REAL( DFP ), DIMENSION( 3 ) :: getNormalComponent
-    getNormalComponent = u - ( u .ProjectOn. v )
- END FUNCTION getNormalComponent
+FUNCTION getNormalComponent( u, v )
+   REAL( DFP ), DIMENSION( 3 ), INTENT( IN ) :: u, v
+   REAL( DFP ), DIMENSION( 3 ) :: getNormalComponent
+   getNormalComponent = u - ( u .ProjectOn. v )
+END FUNCTION getNormalComponent
 ```
 
 Returns component of `u` that is normal to `v`. New operator is defined `u .ComponentNormalTo. v`
@@ -1402,27 +1401,27 @@ Example
 ### Vector2D
 
 ```fortran
- FUNCTION Vector2D( u )
-    REAL( DFP ), DIMENSION( : ), INTENT( IN ) :: u
-    REAL( DFP ), DIMENSION( 2 ) :: Vector2D
-    Vector2D = 0.0_DFP
-    SELECT CASE( SIZE( U ) )
-    CASE( 1 )
-        Vector2D( 1 ) = U( 1 )
-    CASE DEFAULT
-        Vector2D( 1: 2 ) = U( 1: 2 )
-    END SELECT
- END FUNCTION Vector2D
+FUNCTION Vector2D( u )
+   REAL( DFP ), DIMENSION( : ), INTENT( IN ) :: u
+   REAL( DFP ), DIMENSION( 2 ) :: Vector2D
+   Vector2D = 0.0_DFP
+   SELECT CASE( SIZE( U ) )
+   CASE( 1 )
+       Vector2D( 1 ) = U( 1 )
+   CASE DEFAULT
+       Vector2D( 1: 2 ) = U( 1: 2 )
+   END SELECT
+END FUNCTION Vector2D
 ```
 
 ### Vector1D
 
 ```fortran
- FUNCTION Vector1D( u )
-    REAL( DFP ), DIMENSION( : ), INTENT( IN ) :: u
-    REAL( DFP ), DIMENSION( 1 ) :: Vector1D
-    Vector1D( 1 ) = u( 1 )
- END FUNCTION Vector1D
+FUNCTION Vector1D( u )
+   REAL( DFP ), DIMENSION( : ), INTENT( IN ) :: u
+   REAL( DFP ), DIMENSION( 1 ) :: Vector1D
+   Vector1D( 1 ) = u( 1 )
+END FUNCTION Vector1D
 ```
 
 > We have made BoxProduct, VectorProduct, Box, getAngle, getProjection, UnitVector, getParallelComponent, getNormalComponent, Vector2D, Vector3D, Vector1D public. These functions can be used as vector functions.
@@ -1435,13 +1434,11 @@ Example
 Method
 
 ```fortran
-
 ```
 
 Function
 
 ```fortran
-
 ```
 
 ### Symmetric Part
@@ -1449,21 +1446,21 @@ Function
 Method
 
 ```fortran
- FUNCTION m_SymmetricPart( obj )
-    CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
-    REAL( DFP ), DIMENSION( 3, 3 ) :: m_SymmetricPart
-    m_SymmetricPart = 0.5_DFP * ( obj%T + TRANSPOSE( obj%T ) )
- END FUNCTION m_SymmetricPart
+FUNCTION m_SymmetricPart( obj )
+   CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
+   REAL( DFP ), DIMENSION( 3, 3 ) :: m_SymmetricPart
+   m_SymmetricPart = 0.5_DFP * ( obj%T + TRANSPOSE( obj%T ) )
+END FUNCTION m_SymmetricPart
 ```
 
 Function
 
 ```fortran
- FUNCTION f_SymmetricPart( Mat )
-    REAL( DFP ), DIMENSION( :, : ), INTENT( IN ) :: Mat
-    REAL( DFP ), DIMENSION( SIZE( Mat, 1 ), SIZE( Mat, 2 ) ) :: f_SymmetricPart
-    f_SymmetricPart = 0.5_DFP * ( Mat + TRANSPOSE( Mat ) )
- END FUNCTION f_SymmetricPart
+FUNCTION f_SymmetricPart( Mat )
+   REAL( DFP ), DIMENSION( :, : ), INTENT( IN ) :: Mat
+   REAL( DFP ), DIMENSION( SIZE( Mat, 1 ), SIZE( Mat, 2 ) ) :: f_SymmetricPart
+   f_SymmetricPart = 0.5_DFP * ( Mat + TRANSPOSE( Mat ) )
+END FUNCTION f_SymmetricPart
 ```
 
 ### AntiSymmetric Part
@@ -1471,22 +1468,22 @@ Function
 Method
 
 ```fortran
- FUNCTION m_AntiSymmetricPart( obj )
-    CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
-    REAL( DFP ), DIMENSION( 3, 3 ) :: m_AntiSymmetricPart
-    m_AntiSymmetricPart = 0.5_DFP * ( obj%T - TRANSPOSE( obj%T ) )
- END FUNCTION m_AntiSymmetricPart
+FUNCTION m_AntiSymmetricPart( obj )
+   CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
+   REAL( DFP ), DIMENSION( 3, 3 ) :: m_AntiSymmetricPart
+   m_AntiSymmetricPart = 0.5_DFP * ( obj%T - TRANSPOSE( obj%T ) )
+END FUNCTION m_AntiSymmetricPart
 ```
 
 Function
 
 ```fortran
- FUNCTION f_AntiSymmetricPart( Mat )
-    REAL( DFP ), DIMENSION( :, : ), INTENT( IN ) :: Mat
-    REAL( DFP ), DIMENSION( SIZE( Mat, 1 ), SIZE( Mat, 2 ) ) :: &
-                                                        f_AntiSymmetricPart
-    f_AntiSymmetricPart = 0.5_DFP * ( Mat - TRANSPOSE( Mat ) )
- END FUNCTION f_AntiSymmetricPart
+FUNCTION f_AntiSymmetricPart( Mat )
+   REAL( DFP ), DIMENSION( :, : ), INTENT( IN ) :: Mat
+   REAL( DFP ), DIMENSION( SIZE( Mat, 1 ), SIZE( Mat, 2 ) ) :: &
+                                                       f_AntiSymmetricPart
+   f_AntiSymmetricPart = 0.5_DFP * ( Mat - TRANSPOSE( Mat ) )
+END FUNCTION f_AntiSymmetricPart
 ```
 
 ### Hydrostatic Part
@@ -1494,23 +1491,23 @@ Function
 Method
 
 ```fortran
- FUNCTION m_HydrostaticPart( obj )
-    USE Utility, ONLY : Eye
-    CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
-    REAL( DFP ), DIMENSION( 3, 3 ) :: m_HydrostaticPart
-    m_HydrostaticPart = Trace( obj ) * Eye( 3 ) / 3
- END FUNCTION m_HydrostaticPart
+FUNCTION m_HydrostaticPart( obj )
+   USE Utility, ONLY : Eye
+   CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
+   REAL( DFP ), DIMENSION( 3, 3 ) :: m_HydrostaticPart
+   m_HydrostaticPart = Trace( obj ) * Eye( 3 ) / 3
+END FUNCTION m_HydrostaticPart
 ```
 
 Function
 
 ```fortran
- FUNCTION f_HydrostaticPart( Mat )
-    USE Utility, ONLY : Eye
-    REAL( DFP ), DIMENSION( 3, 3 ), INTENT( IN ) :: Mat
-    REAL( DFP ), DIMENSION( 3, 3 ) :: f_HydrostaticPart
-    f_HydrostaticPart = Trace( Mat ) * Eye( 3 ) / 3
- END FUNCTION f_HydrostaticPart
+FUNCTION f_HydrostaticPart( Mat )
+   USE Utility, ONLY : Eye
+   REAL( DFP ), DIMENSION( 3, 3 ), INTENT( IN ) :: Mat
+   REAL( DFP ), DIMENSION( 3, 3 ) :: f_HydrostaticPart
+   f_HydrostaticPart = Trace( Mat ) * Eye( 3 ) / 3
+END FUNCTION f_HydrostaticPart
 ```
 
 ### Deviatoric Part
@@ -1528,11 +1525,11 @@ Method
 Function
 
 ```fortran
- FUNCTION f_DeviatoricPart( Mat )
-    REAL( DFP ), DIMENSION( 3, 3 ), INTENT( IN ) :: Mat
-    REAL( DFP ), DIMENSION( 3, 3 ) :: f_DeviatoricPart
-    f_DeviatoricPart = Mat - HydrostaticPart( Mat )
- END FUNCTION f_DeviatoricPart
+FUNCTION f_DeviatoricPart( Mat )
+   REAL( DFP ), DIMENSION( 3, 3 ), INTENT( IN ) :: Mat
+   REAL( DFP ), DIMENSION( 3, 3 ) :: f_DeviatoricPart
+   f_DeviatoricPart = Mat - HydrostaticPart( Mat )
+END FUNCTION f_DeviatoricPart
 ```
 
 ## Invariants
@@ -1562,29 +1559,29 @@ There is a generic method _Double\_DotProduct_ and module-function called _Doubl
 Type-1
 
 ```fortran
- REAL( DFP ) FUNCTION DoubleDot_Product1( obj, obj2 )
-    CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj, obj2
-    DoubleDot_Product1 = SUM( obj * obj2 )
- END FUNCTION DoubleDot_Product1
+REAL( DFP ) FUNCTION DoubleDot_Product1( obj, obj2 )
+   CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj, obj2
+   DoubleDot_Product1 = SUM( obj * obj2 )
+END FUNCTION DoubleDot_Product1
 ```
 
 Type-2
 
 ```fortran
- REAL( DFP ) FUNCTION DoubleDot_Product2( obj, A )
-    CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
-    REAL( DFP ), DIMENSION( :, : ), INTENT( IN ) :: A
-    DoubleDot_Product2 = SUM( obj * A )
- END FUNCTION DoubleDot_Product2
+REAL( DFP ) FUNCTION DoubleDot_Product2( obj, A )
+   CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
+   REAL( DFP ), DIMENSION( :, : ), INTENT( IN ) :: A
+   DoubleDot_Product2 = SUM( obj * A )
+END FUNCTION DoubleDot_Product2
 ```
 
 Type-3
 
 ```fortran
- REAL( DFP ) FUNCTION DoubleDot_Product3( A, B )
-    REAL( DFP ), DIMENSION( :, : ), INTENT( IN ) :: A, B
-    DoubleDot_Product3 = SUM( A * B )
- END FUNCTION DoubleDot_Product3
+REAL( DFP ) FUNCTION DoubleDot_Product3( A, B )
+   REAL( DFP ), DIMENSION( :, : ), INTENT( IN ) :: A, B
+   DoubleDot_Product3 = SUM( A * B )
+END FUNCTION DoubleDot_Product3
 ```
 
 Type-4
@@ -1622,16 +1619,16 @@ Type-5
 Type-6
 
 ```fortran
- REAL( DFP ) FUNCTION DoubleDot_Product6( A, VoigtType_A, B, VoigtType_B )
-    REAL( DFP ), DIMENSION( : ), INTENT( IN ) :: A, B
-    CHARACTER( LEN = * ), INTENT( IN ) :: VoigtType_A, VoigtType_B
-    TYPE( Rank2Tensor_ ) :: T1, T2
-    T1 = Rank2Tensor( A, VoigtType_A )
-    T2 = Rank2Tensor( B, VoigtType_B )
-    DoubleDot_Product6 = SUM( T1 * T2 )
-    CALL T1%Deallocate( )
-    CALL T2%Deallocate( )
- END FUNCTION DoubleDot_Product6
+REAL( DFP ) FUNCTION DoubleDot_Product6( A, VoigtType_A, B, VoigtType_B )
+   REAL( DFP ), DIMENSION( : ), INTENT( IN ) :: A, B
+   CHARACTER( LEN = * ), INTENT( IN ) :: VoigtType_A, VoigtType_B
+   TYPE( Rank2Tensor_ ) :: T1, T2
+   T1 = Rank2Tensor( A, VoigtType_A )
+   T2 = Rank2Tensor( B, VoigtType_B )
+   DoubleDot_Product6 = SUM( T1 * T2 )
+   CALL T1%Deallocate( )
+   CALL T2%Deallocate( )
+END FUNCTION DoubleDot_Product6
 ```
 
 We have also defined two operators called `.DoubleDot.` and `.Contraction.`
@@ -1726,33 +1723,33 @@ $$
 Method
 
 ```fortran
- REAL( DFP ) FUNCTION  m_Invariant_J2( obj )
-    CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
-    REAL( DFP ), ALLOCATABLE :: S( :, : )
-    IF( isDeviatoric( obj ) ) THEN
-         m_Invariant_J2 = 0.5_DFP * ( obj .Contraction. obj )
-    ELSE
-        S = DeviatoricPart( obj )
-        m_Invariant_J2 = 0.5_DFP * ( S .Contraction. S )
-    END IF
-    IF( ALLOCATED( S ) ) DEALLOCATE( S )
- END FUNCTION  m_Invariant_J2
+REAL( DFP ) FUNCTION  m_Invariant_J2( obj )
+   CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
+   REAL( DFP ), ALLOCATABLE :: S( :, : )
+   IF( isDeviatoric( obj ) ) THEN
+        m_Invariant_J2 = 0.5_DFP * ( obj .Contraction. obj )
+   ELSE
+       S = DeviatoricPart( obj )
+       m_Invariant_J2 = 0.5_DFP * ( S .Contraction. S )
+   END IF
+   IF( ALLOCATED( S ) ) DEALLOCATE( S )
+END FUNCTION  m_Invariant_J2
 ```
 
 Module Function
 
 ```fortran
- REAL( DFP ) FUNCTION  f_Invariant_J2( Mat )
-    REAL( DFP ), DIMENSION( :, : ), INTENT( IN ) :: Mat
-    REAL( DFP ), ALLOCATABLE :: S( :, : )
-    IF( isDeviatoric( Mat ) ) THEN
-         f_Invariant_J2 = 0.5_DFP * ( Mat .Contraction. Mat )
-    ELSE
-        S = DeviatoricPart( Mat )
-        f_Invariant_J2 = 0.5_DFP * ( S .Contraction. S )
-    END IF
-    IF( ALLOCATED( S ) ) DEALLOCATE( S )
- END FUNCTION  f_Invariant_J2
+REAL( DFP ) FUNCTION  f_Invariant_J2( Mat )
+   REAL( DFP ), DIMENSION( :, : ), INTENT( IN ) :: Mat
+   REAL( DFP ), ALLOCATABLE :: S( :, : )
+   IF( isDeviatoric( Mat ) ) THEN
+        f_Invariant_J2 = 0.5_DFP * ( Mat .Contraction. Mat )
+   ELSE
+       S = DeviatoricPart( Mat )
+       f_Invariant_J2 = 0.5_DFP * ( S .Contraction. S )
+   END IF
+   IF( ALLOCATED( S ) ) DEALLOCATE( S )
+END FUNCTION  f_Invariant_J2
 ```
 
 ### Invariant J3
@@ -1764,33 +1761,33 @@ $$
 Method
 
 ```fortran
- REAL( DFP ) FUNCTION  m_Invariant_J3( obj )
-    CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
-    REAL( DFP ), ALLOCATABLE :: S( :, : )
-    IF( isDeviatoric( obj ) ) THEN
-         m_Invariant_J3 = Invariant_I3( obj )
-    ELSE
-        S = DeviatoricPart( obj )
-        m_Invariant_J3 =  Invariant_I3( S )
-    END IF
-    IF( ALLOCATED( S ) ) DEALLOCATE( S )
- END FUNCTION  m_Invariant_J3
+REAL( DFP ) FUNCTION  m_Invariant_J3( obj )
+   CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
+   REAL( DFP ), ALLOCATABLE :: S( :, : )
+   IF( isDeviatoric( obj ) ) THEN
+        m_Invariant_J3 = Invariant_I3( obj )
+   ELSE
+       S = DeviatoricPart( obj )
+       m_Invariant_J3 =  Invariant_I3( S )
+   END IF
+   IF( ALLOCATED( S ) ) DEALLOCATE( S )
+END FUNCTION  m_Invariant_J3
 ```
 
 Module Function
 
 ```fortran
- REAL( DFP ) FUNCTION  f_Invariant_J3( Mat )
-    REAL( DFP ), DIMENSION( :, : ), INTENT( IN ) :: Mat
-    REAL( DFP ), ALLOCATABLE :: S( :, : )
-    IF( isDeviatoric( Mat ) ) THEN
-         f_Invariant_J3 = Invariant_I3( Mat )
-    ELSE
-        S = DeviatoricPart( Mat )
-        f_Invariant_J3 =  Invariant_I3( S )
-    END IF
-    IF( ALLOCATED( S ) ) DEALLOCATE( S )
- END FUNCTION  f_Invariant_J3
+REAL( DFP ) FUNCTION  f_Invariant_J3( Mat )
+   REAL( DFP ), DIMENSION( :, : ), INTENT( IN ) :: Mat
+   REAL( DFP ), ALLOCATABLE :: S( :, : )
+   IF( isDeviatoric( Mat ) ) THEN
+        f_Invariant_J3 = Invariant_I3( Mat )
+   ELSE
+       S = DeviatoricPart( Mat )
+       f_Invariant_J3 =  Invariant_I3( S )
+   END IF
+   IF( ALLOCATED( S ) ) DEALLOCATE( S )
+END FUNCTION  f_Invariant_J3
 ```
 
 ### LodeAngle
@@ -1820,7 +1817,6 @@ Type-1
             f_LodeAngle_1 = ACOS( Dummy ) / 3.0_DFP
     END SELECT
  END FUNCTION f_LodeAngle_1
-
 ```
 
 Type-2
@@ -1856,11 +1852,11 @@ Type-3
 Type-1
 
 ```fortran
- FUNCTION f_Rank2PullBack_1( T, F, indx1, indx2 )
-    USE Utility, ONLY: det, INV
-    REAL( DFP ), DIMENSION( :, : ), INTENT( IN ) ::  T, F
-    REAL( DFP ), DIMENSION( SIZE( T, 1 ), SIZE( T, 2 ) ) ::  f_Rank2PullBack_1
-    CHARACTER( LEN = * ), INTENT( IN ) :: indx1, indx2
+FUNCTION f_Rank2PullBack_1( T, F, indx1, indx2 )
+   USE Utility, ONLY: det, INV
+   REAL( DFP ), DIMENSION( :, : ), INTENT( IN ) ::  T, F
+   REAL( DFP ), DIMENSION( SIZE( T, 1 ), SIZE( T, 2 ) ) ::  f_Rank2PullBack_1
+   CHARACTER( LEN = * ), INTENT( IN ) :: indx1, indx2
 ```
 
 Description
@@ -1928,12 +1924,12 @@ To be added later. See page-123 of Hashiguchi and Yamakawa, 2014.
 Type-5
 
 ```fortran
- FUNCTION f_VecPullBack_1( Vec, F, indx1 )
-    USE Utility, ONLY: det, INV
-    REAL( DFP ), DIMENSION( : ), INTENT( IN ) ::  Vec
-    REAL( DFP ), DIMENSION( :, : ), INTENT( IN ) ::  F
-    REAL( DFP ), DIMENSION( SIZE( Vec ) ) ::  f_VecPullBack_1
-    CHARACTER( LEN = * ), INTENT( IN ) :: indx1
+FUNCTION f_VecPullBack_1( Vec, F, indx1 )
+   USE Utility, ONLY: det, INV
+   REAL( DFP ), DIMENSION( : ), INTENT( IN ) ::  Vec
+   REAL( DFP ), DIMENSION( :, : ), INTENT( IN ) ::  F
+   REAL( DFP ), DIMENSION( SIZE( Vec ) ) ::  f_VecPullBack_1
+   CHARACTER( LEN = * ), INTENT( IN ) :: indx1
 ```
 
 Type-6
@@ -1959,11 +1955,11 @@ Type-6
 Type-1
 
 ```fortran
- FUNCTION f_Rank2PushForward_1( T, F, indx1, indx2 )
-    USE Utility, ONLY: det, INV
-    REAL( DFP ), DIMENSION( :, : ), INTENT( IN ) ::  T, F
-    REAL( DFP ), DIMENSION( SIZE( T, 1 ), SIZE( T, 2 ) ) ::  f_Rank2PushForward_1
-    CHARACTER( LEN = * ), INTENT( IN ) :: indx1, indx2
+FUNCTION f_Rank2PushForward_1( T, F, indx1, indx2 )
+   USE Utility, ONLY: det, INV
+   REAL( DFP ), DIMENSION( :, : ), INTENT( IN ) ::  T, F
+   REAL( DFP ), DIMENSION( SIZE( T, 1 ), SIZE( T, 2 ) ) ::  f_Rank2PushForward_1
+   CHARACTER( LEN = * ), INTENT( IN ) :: indx1, indx2
 ```
 
 Description
@@ -2031,12 +2027,12 @@ To be added later. See page-123 of Hashiguchi and Yamakawa, 2014.
 Type-5
 
 ```fortran
- FUNCTION f_VecPushForward_1( Vec, F, indx1 )
-    USE Utility, ONLY: det, INV
-    REAL( DFP ), DIMENSION( : ), INTENT( IN ) ::  Vec
-    REAL( DFP ), DIMENSION( :, : ), INTENT( IN ) ::  F
-    REAL( DFP ), DIMENSION( SIZE( Vec ) ) ::  f_VecPushForward_1
-    CHARACTER( LEN = * ), INTENT( IN ) :: indx1
+FUNCTION f_VecPushForward_1( Vec, F, indx1 )
+   USE Utility, ONLY: det, INV
+   REAL( DFP ), DIMENSION( : ), INTENT( IN ) ::  Vec
+   REAL( DFP ), DIMENSION( :, : ), INTENT( IN ) ::  F
+   REAL( DFP ), DIMENSION( SIZE( Vec ) ) ::  f_VecPushForward_1
+   CHARACTER( LEN = * ), INTENT( IN ) :: indx1
 ```
 
 Type-6
@@ -2241,22 +2237,22 @@ Type-2
 Type-1
 
 ```fortran
- FUNCTION f_getRotationPart( Mat )
-    USE LinearAlgebra, ONLY: JacobiMethod
-    USE Utility, ONLY: IMAXLOC, INV
-    REAL( DFP ), DIMENSION( :, : ), INTENT( IN ) :: Mat
-    REAL( DFP ), DIMENSION( SIZE( Mat, 1 ), SIZE( Mat, 2 ) ) :: f_getRotationPart
+FUNCTION f_getRotationPart( Mat )
+   USE LinearAlgebra, ONLY: JacobiMethod
+   USE Utility, ONLY: IMAXLOC, INV
+   REAL( DFP ), DIMENSION( :, : ), INTENT( IN ) :: Mat
+   REAL( DFP ), DIMENSION( SIZE( Mat, 1 ), SIZE( Mat, 2 ) ) :: f_getRotationPart
 ```
 
 Type-2
 
 ```fortran
- FUNCTION m_getRotationPart( obj )
-    CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
-    REAL( DFP ), DIMENSION( 3, 3 ) :: m_getRotationPart
- REAL( DFP ), ALLOCATABLE :: Mat( :, : )
- Mat = obj
- m_getRotationPart = f_getRotationPart( Mat )
- DEALLOCATE( Mat )
- END FUNCTION m_getRotationPart
+FUNCTION m_getRotationPart( obj )
+   CLASS( Rank2Tensor_ ), INTENT( IN ) :: obj
+   REAL( DFP ), DIMENSION( 3, 3 ) :: m_getRotationPart
+REAL( DFP ), ALLOCATABLE :: Mat( :, : )
+Mat = obj
+m_getRotationPart = f_getRotationPart( Mat )
+DEALLOCATE( Mat )
+END FUNCTION m_getRotationPart
 ```

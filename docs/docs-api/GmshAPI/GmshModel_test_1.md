@@ -37,89 +37,89 @@ PROGRAM main
 !!! note "declare variables"
 
 ```fortran
-  type(gmsh_) :: gmsh
+type(gmsh_) :: gmsh
 ```
 
 - Instance of [[Gmsh_]] engine
 
 ```fortran
-  integer(i4b) :: ierr, names_n
-  type(string), allocatable :: names(:)
-  character(gmsh_api_max_str_len) :: name
-  type(string), allocatable :: strs(:)
+integer(i4b) :: ierr, names_n
+type(string), allocatable :: names(:)
+character(gmsh_api_max_str_len) :: name
+type(string), allocatable :: strs(:)
 ```
 
 !!! note "Gmsh/Initialize"
 
 ```fortran
-  ierr = gmsh%initialize()
+ierr = gmsh%initialize()
 ```
 
 !!! note "GmshModel/Add"
 
 ```fortran
-  ierr = gmsh%model%add("t1")
-  ierr = gmsh%model%add("t2")
-  ierr = gmsh%model%add("t3")
+ierr = gmsh%model%add("t1")
+ierr = gmsh%model%add("t2")
+ierr = gmsh%model%add("t3")
 ```
 
 !!! note "GmshModel/List"
 
 ```fortran
-  block
-  INTEGER( I4B ) :: ii
-  ierr = gmsh%model%list(names)
-  call display( ierr, "size of names = ")
-  do ii = 1, ierr
-    call display( names(ii), "names = ")
-  end do
-  end block
+block
+INTEGER( I4B ) :: ii
+ierr = gmsh%model%list(names)
+call display( ierr, "size of names = ")
+do ii = 1, ierr
+  call display( names(ii), "names = ")
+end do
+end block
 ```
 
 !!! note "GmshModel/GetCurrent"
 
 ```fortran
-  ierr = gmsh%model%getCurrent(name)
-  call display(name, 'name: ')
+ierr = gmsh%model%getCurrent(name)
+call display(name, 'name: ')
 ```
 
 !!! note "GmshModel/SetCurrent"
 
 ```fortran
-  ierr = gmsh%model%setCurrent('t1')
-  ierr = gmsh%model%getCurrent(name)
-  call display(name, 'name: ')
+ierr = gmsh%model%setCurrent('t1')
+ierr = gmsh%model%getCurrent(name)
+call display(name, 'name: ')
 ```
 
 !!! note "GmshModel/SetFileName"
 
 ```fortran
-  ierr = gmsh%model%setFileName('t1.geo')
+ierr = gmsh%model%setFileName('t1.geo')
 ```
 
 !!! note "GmshModel/GetFileName"
 
 ```fortran
-  ierr = gmsh%model%getFileName(name)
-  call display(name, 'name: ')
+ierr = gmsh%model%getFileName(name)
+call display(name, 'name: ')
 ```
 
 !!! note "GmshModel/Remove"
 
 ```fortran
-  ierr = gmsh%model%remove()
+ierr = gmsh%model%remove()
 ```
 
 !!! note "Gmsh/Clear"
 
 ```fortran
-  ierr = gmsh%clear()
+ierr = gmsh%clear()
 ```
 
 !!! note "Gmsh/Finalize"
 
 ```fortran
-  ierr = gmsh%finalize()
+ierr = gmsh%finalize()
 ```
 
 ```fortran

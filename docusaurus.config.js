@@ -84,27 +84,18 @@ function create_doc_plugin({
   ];
 }
 
-const { webpackPlugin } = require("./plugins/webpack-plugin.cjs");
 const tailwindPlugin = require("./plugins/tailwind-plugin.cjs");
 const docs_plugins = docs.map((doc) => create_doc_plugin(doc));
 
 const plugins = [
   tailwindPlugin,
   ...docs_plugins,
-  webpackPlugin,
   ["drawio", {}],
-  // [
-  //   'docusaurus-plugin-content-gists',
-  //   {
-  //     enabled: true,
-  //     verbose: true,
-  //     personalAccessToken: process.env.GITHUB_PERSONAL_ACCESS_TOKEN,
-  //   },
-  // ],
 ];
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
+  future: { v4: true },
   ...meta,
   plugins,
   trailingSlash: false,
@@ -126,6 +117,7 @@ const config = {
           id: "blog",
           routeBasePath: "/blog",
         },
+        // commenting the theme
         theme: {
           customCss: [
             require.resolve("./src/css/custom.css"),
@@ -216,14 +208,6 @@ const config = {
                 label: "easifemClasses",
                 href: "https://www.easifem.com/guides/getting-started/easifemClasses",
               },
-              {
-                label: "easifemMaterials",
-                href: "https://www.easifem.com/guides/getting-started/easifemMaterials",
-              },
-              {
-                label: "easifemKernels",
-                href: "https://www.easifem.com/guides/getting-started/easifemKernels",
-              },
             ],
           },
           {
@@ -278,7 +262,8 @@ const config = {
       },
       prism: {
         additionalLanguages: ["fortran", "bash", "python", "toml", "cmake"],
-        theme: require("./src/plugins/prism_themes/tokyonight_night"),
+        theme: require("./src/plugins/prism_themes/catppuccin-latte"),
+        darkTheme: require("./src/plugins/prism_themes/catppuccin-mocha"),
         magicComments: [
           {
             className: "theme-code-block-highlighted-line",
@@ -306,23 +291,6 @@ const config = {
         contextualSearch: false,
       },
     }),
-  // webpack: {
-  //   jsLoader: (isServer) => ({
-  //     loader: require.resolve('swc-loader'),
-  //     options: {
-  //       jsc: {
-  //         parser: {
-  //           syntax: 'typescript',
-  //           tsx: true,
-  //         },
-  //         target: 'es2017',
-  //       },
-  //       module: {
-  //         type: isServer ? 'commonjs' : 'es6',
-  //       },
-  //     },
-  //   }),
-  // },
 };
 
 module.exports = config;

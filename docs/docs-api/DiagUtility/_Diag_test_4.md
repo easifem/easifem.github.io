@@ -12,22 +12,22 @@ program main
 ## Declare variables
 
 ```fortran title="variables"
-  real( DFP ), allocatable :: mat(:, :)
-  integer(I4B), allocatable :: d(:)
+real( DFP ), allocatable :: mat(:, :)
+integer(I4B), allocatable :: d(:)
 ```
 
 ## Form diagonal
 
 ```fortran title="form random diagonal"
-  call reallocate(d, 5)
-  d = [1,2,3,4,5]
+call reallocate(d, 5)
+d = [1,2,3,4,5]
 ```
 
 ## For diag matrix
 
 ```fortran title="diagonal matrix"
-  mat = Diag(d)
-  call display( MdEncode(mat), "mat = " )
+mat = Diag(d)
+call display( MdEncode(mat), "mat = " )
 ```
 
 ## Results
@@ -35,7 +35,7 @@ program main
 mat =
 
 |   |   |   |   |   |
-|---|---|---|---|---|
+| - | - | - | - | - |
 | 1 | 0 | 0 | 0 | 0 |
 | 0 | 2 | 0 | 0 | 0 |
 | 0 | 0 | 3 | 0 | 0 |

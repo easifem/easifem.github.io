@@ -35,4 +35,3 @@ import EXAMPLE12 from "./_GetFacetElements_test_1.md";
 
 </TabItem>
 </Tabs>
-

@@ -25,30 +25,30 @@ program main
 ```
 
 ```fortran title="order=1; pe1=1; pe2=1; pe3=1"
-  BLOCK
-    real(dfp), allocatable :: ans(:,:)
-    integer(i4b) :: ii, order, pe1, pe2, pe3
-    type( VTKPlot_ ) :: aplot
-    character(len=*), parameter :: fname="./results/"
-    !!
-    order=1; pe1=1; pe2=1; pe3=1
-    !!
-    ans = BarycentricHeirarchicalBasis_Triangle(&
-      & order=order, pe1=pe1, pe2=pe2, pe3=pe3, &
-      & lambda=lambda, refTriangle="UNIT")
-    !!
-    do ii  = 1, size(ans,2)
-      call aplot%scatter3D(x=xij(1,:), y=xij(2, :), z=ans(:,ii), &
-        & filename=fname//"Pbary( order=" // tostring(order) // &
-          & ", pe1="//tostring(pe1) // &
-          & ", pe2="//tostring(pe2) // &
-          & ", pe3="//tostring(pe3) // &
-          & " )" // tostring(ii) // &
-          & ".vtp", &
-        & label="P")
-    end do
-    !!
-  END BLOCK
+BLOCK
+  real(dfp), allocatable :: ans(:,:)
+  integer(i4b) :: ii, order, pe1, pe2, pe3
+  type( VTKPlot_ ) :: aplot
+  character(len=*), parameter :: fname="./results/"
+  !!
+  order=1; pe1=1; pe2=1; pe3=1
+  !!
+  ans = BarycentricHeirarchicalBasis_Triangle(&
+    & order=order, pe1=pe1, pe2=pe2, pe3=pe3, &
+    & lambda=lambda, refTriangle="UNIT")
+  !!
+  do ii  = 1, size(ans,2)
+    call aplot%scatter3D(x=xij(1,:), y=xij(2, :), z=ans(:,ii), &
+      & filename=fname//"Pbary( order=" // tostring(order) // &
+        & ", pe1="//tostring(pe1) // &
+        & ", pe2="//tostring(pe2) // &
+        & ", pe3="//tostring(pe3) // &
+        & " )" // tostring(ii) // &
+        & ".vtp", &
+      & label="P")
+  end do
+  !!
+END BLOCK
 ```
 
 <!-- | | | | -->
@@ -57,30 +57,30 @@ program main
 <!---->
 
 ```fortran title="order=3; pe1=3; pe2=3; pe3=3"
-  BLOCK
-    real(dfp), allocatable :: ans(:,:)
-    integer(i4b) :: ii, order, pe1, pe2, pe3
-    type( VTKPlot_ ) :: aplot
-    character(len=*), parameter :: fname="./results/"
-    !!
-    order=3; pe1=3; pe2=3; pe3=3
-    !!
-    ans = BarycentricHeirarchicalBasis_Triangle(&
-      & order=order, pe1=pe1, pe2=pe2, pe3=pe3, &
-      & lambda=lambda, refTriangle="UNIT")
-    !!
-    do ii  = 1, size(ans,2)
-      call aplot%scatter3D(x=xij(1,:), y=xij(2, :), z=ans(:,ii), &
-        & filename=fname//"Pbary( order=" // tostring(order) // &
-          & ", pe1="//tostring(pe1) // &
-          & ", pe2="//tostring(pe2) // &
-          & ", pe3="//tostring(pe3) // &
-          & " )" // tostring(ii) // &
-          & ".vtp", &
-        & label="P")
-    end do
-    !!
-  END BLOCK
+BLOCK
+  real(dfp), allocatable :: ans(:,:)
+  integer(i4b) :: ii, order, pe1, pe2, pe3
+  type( VTKPlot_ ) :: aplot
+  character(len=*), parameter :: fname="./results/"
+  !!
+  order=3; pe1=3; pe2=3; pe3=3
+  !!
+  ans = BarycentricHeirarchicalBasis_Triangle(&
+    & order=order, pe1=pe1, pe2=pe2, pe3=pe3, &
+    & lambda=lambda, refTriangle="UNIT")
+  !!
+  do ii  = 1, size(ans,2)
+    call aplot%scatter3D(x=xij(1,:), y=xij(2, :), z=ans(:,ii), &
+      & filename=fname//"Pbary( order=" // tostring(order) // &
+        & ", pe1="//tostring(pe1) // &
+        & ", pe2="//tostring(pe2) // &
+        & ", pe3="//tostring(pe3) // &
+        & " )" // tostring(ii) // &
+        & ".vtp", &
+      & label="P")
+  end do
+  !!
+END BLOCK
 ```
 
 <!-- | | | | -->
@@ -92,30 +92,30 @@ program main
 <!-- | ![](./Pbary-333/Pbary-333-10.png) |  |  | -->
 
 ```fortran title="order=4; pe1=4; pe2=4; pe3=4"
-  BLOCK
-    real(dfp), allocatable :: ans(:,:)
-    integer(i4b) :: ii, order, pe1, pe2, pe3
-    type( VTKPlot_ ) :: aplot
-    character(len=*), parameter :: fname="./results/"
-    !!
-    order=4; pe1=4; pe2=4; pe3=4
-    !!
-    ans = BarycentricHeirarchicalBasis_Triangle(&
-      & order=order, pe1=pe1, pe2=pe2, pe3=pe3, &
-      & lambda=lambda, refTriangle="UNIT")
-    !!
-    do ii  = 1, size(ans,2)
-      call aplot%scatter3D(x=xij(1,:), y=xij(2, :), z=ans(:,ii), &
-        & filename=fname//"Pbary( order=" // tostring(order) // &
-          & ", pe1="//tostring(pe1) // &
-          & ", pe2="//tostring(pe2) // &
-          & ", pe3="//tostring(pe3) // &
-          & " )" // tostring(ii) // &
-          & ".vtp", &
-        & label="P")
-    end do
-    !!
-  END BLOCK
+BLOCK
+  real(dfp), allocatable :: ans(:,:)
+  integer(i4b) :: ii, order, pe1, pe2, pe3
+  type( VTKPlot_ ) :: aplot
+  character(len=*), parameter :: fname="./results/"
+  !!
+  order=4; pe1=4; pe2=4; pe3=4
+  !!
+  ans = BarycentricHeirarchicalBasis_Triangle(&
+    & order=order, pe1=pe1, pe2=pe2, pe3=pe3, &
+    & lambda=lambda, refTriangle="UNIT")
+  !!
+  do ii  = 1, size(ans,2)
+    call aplot%scatter3D(x=xij(1,:), y=xij(2, :), z=ans(:,ii), &
+      & filename=fname//"Pbary( order=" // tostring(order) // &
+        & ", pe1="//tostring(pe1) // &
+        & ", pe2="//tostring(pe2) // &
+        & ", pe3="//tostring(pe3) // &
+        & " )" // tostring(ii) // &
+        & ".vtp", &
+      & label="P")
+  end do
+  !!
+END BLOCK
 ```
 
 <!-- | | | | -->
@@ -127,57 +127,57 @@ program main
 <!-- | ![](./Pbary-444/Pbary-444-13.png) | ![](./Pbary-444/Pbary-444-14.png) | ![](./Pbary-444/Pbary-444-15.png) | -->
 
 ```fortran title="order=5; pe1=5; pe2=5; pe3=5"
-  BLOCK
-    real(dfp), allocatable :: ans(:,:)
-    integer(i4b) :: ii, order, pe1, pe2, pe3
-    type( VTKPlot_ ) :: aplot
-    character(len=*), parameter :: fname="./results/"
-    !!
-    order=5; pe1=5; pe2=5; pe3=5
-    !!
-    ans = BarycentricHeirarchicalBasis_Triangle(&
-      & order=order, pe1=pe1, pe2=pe2, pe3=pe3, &
-      & lambda=lambda, refTriangle="UNIT")
-    !!
-    do ii  = 1, size(ans,2)
-      call aplot%scatter3D(x=xij(1,:), y=xij(2, :), z=ans(:,ii), &
-        & filename=fname//"Pbary( order=" // tostring(order) // &
-          & ", pe1="//tostring(pe1) // &
-          & ", pe2="//tostring(pe2) // &
-          & ", pe3="//tostring(pe3) // &
-          & " )" // tostring(ii) // &
-          & ".vtp", &
-        & label="P")
-    end do
-    !!
-  END BLOCK
+BLOCK
+  real(dfp), allocatable :: ans(:,:)
+  integer(i4b) :: ii, order, pe1, pe2, pe3
+  type( VTKPlot_ ) :: aplot
+  character(len=*), parameter :: fname="./results/"
+  !!
+  order=5; pe1=5; pe2=5; pe3=5
+  !!
+  ans = BarycentricHeirarchicalBasis_Triangle(&
+    & order=order, pe1=pe1, pe2=pe2, pe3=pe3, &
+    & lambda=lambda, refTriangle="UNIT")
+  !!
+  do ii  = 1, size(ans,2)
+    call aplot%scatter3D(x=xij(1,:), y=xij(2, :), z=ans(:,ii), &
+      & filename=fname//"Pbary( order=" // tostring(order) // &
+        & ", pe1="//tostring(pe1) // &
+        & ", pe2="//tostring(pe2) // &
+        & ", pe3="//tostring(pe3) // &
+        & " )" // tostring(ii) // &
+        & ".vtp", &
+      & label="P")
+  end do
+  !!
+END BLOCK
 ```
 
 ```fortran title="order=5; pe1=1; pe2=5; pe3=3"
-  BLOCK
-    real(dfp), allocatable :: ans(:,:)
-    integer(i4b) :: ii, order, pe1, pe2, pe3
-    type( VTKPlot_ ) :: aplot
-    character(len=*), parameter :: fname="./results/"
-    !!
-    order=5; pe1=1; pe2=5; pe3=3
-    !!
-    ans = BarycentricHeirarchicalBasis_Triangle(&
-      & order=order, pe1=pe1, pe2=pe2, pe3=pe3, &
-      & lambda=lambda, refTriangle="UNIT")
-    !!
-    do ii  = 1, size(ans,2)
-      call aplot%scatter3D(x=xij(1,:), y=xij(2, :), z=ans(:,ii), &
-        & filename=fname//"Pbary( order=" // tostring(order) // &
-          & ", pe1="//tostring(pe1) // &
-          & ", pe2="//tostring(pe2) // &
-          & ", pe3="//tostring(pe3) // &
-          & " )" // tostring(ii) // &
-          & ".vtp", &
-        & label="P")
-    end do
-    !!
-  END BLOCK
+BLOCK
+  real(dfp), allocatable :: ans(:,:)
+  integer(i4b) :: ii, order, pe1, pe2, pe3
+  type( VTKPlot_ ) :: aplot
+  character(len=*), parameter :: fname="./results/"
+  !!
+  order=5; pe1=1; pe2=5; pe3=3
+  !!
+  ans = BarycentricHeirarchicalBasis_Triangle(&
+    & order=order, pe1=pe1, pe2=pe2, pe3=pe3, &
+    & lambda=lambda, refTriangle="UNIT")
+  !!
+  do ii  = 1, size(ans,2)
+    call aplot%scatter3D(x=xij(1,:), y=xij(2, :), z=ans(:,ii), &
+      & filename=fname//"Pbary( order=" // tostring(order) // &
+        & ", pe1="//tostring(pe1) // &
+        & ", pe2="//tostring(pe2) // &
+        & ", pe3="//tostring(pe3) // &
+        & " )" // tostring(ii) // &
+        & ".vtp", &
+      & label="P")
+  end do
+  !!
+END BLOCK
 ```
 
 ```fortran

@@ -30,14 +30,14 @@ program main
 ```
 
 ```fortran
-  n = 10
-  allocate(LU(n,n), A(n,n), D(n), E(n), ipiv(n))
+n = 10
+allocate(LU(n,n), A(n,n), D(n), E(n), ipiv(n))
 ```
 
 ```comment
-  CALL random_number(A)
-  A = A * 10
-  A = SYM(A)
+CALL random_number(A)
+A = A * 10
+A = SYM(A)
 ```
 
 ```fortran

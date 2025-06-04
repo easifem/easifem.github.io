@@ -28,9 +28,9 @@ integer(i4b) :: ii
 ### n=1
 
 ```fortran
-  obj = ChebyshevFirst1D(varname="x", n=1)
-  call Display( "T(n=1) := " )
-  call obj%Display( "=>" )
+obj = ChebyshevFirst1D(varname="x", n=1)
+call Display( "T(n=1) := " )
+call obj%Display( "=>" )
 ```
 
 ```txt
@@ -43,10 +43,10 @@ J(n=1, alpha=0.0, beta=0.0) :=
 ### n=2
 
 ```fortran
-  call blanklines( nol=5 )
-  obj = ChebyshevFirst1D(varname="x", n=2)
-  call Display( "J(n=2, alpha=0.0, beta=0.0) := " )
-  call obj%Display( "=>" )
+call blanklines( nol=5 )
+obj = ChebyshevFirst1D(varname="x", n=2)
+call Display( "J(n=2, alpha=0.0, beta=0.0) := " )
+call obj%Display( "=>" )
 ```
 
 ```txt
@@ -60,10 +60,10 @@ J(n=2, alpha=0.0, beta=0.0) :=
 ### n=3
 
 ```fortran
-  call blanklines( nol=5 )
-  obj = ChebyshevFirst1D(varname="x", n=3)
-  call Display( "J(n=3, alpha=0.0, beta=0.0) := " )
-  call obj%Display( "=>" )
+call blanklines( nol=5 )
+obj = ChebyshevFirst1D(varname="x", n=3)
+call Display( "J(n=3, alpha=0.0, beta=0.0) := " )
+call obj%Display( "=>" )
 ```
 
 ```txt
@@ -78,10 +78,10 @@ J(n=3, alpha=0.0, beta=0.0) :=
 ### n=4
 
 ```fortran
-  call blanklines( nol=5 )
-  obj = Jacobi1D(varname="x", n=4, alpha=0.0_DFP, beta=0.0_DFP)
-  call Display( "J(n=4, alpha=0.0, beta=0.0) := " )
-  call obj%Display( "=>" )
+call blanklines( nol=5 )
+obj = Jacobi1D(varname="x", n=4, alpha=0.0_DFP, beta=0.0_DFP)
+call Display( "J(n=4, alpha=0.0, beta=0.0) := " )
+call obj%Display( "=>" )
 ```
 
 ```txt

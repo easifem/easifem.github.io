@@ -10,8 +10,8 @@ PROGRAM main
 NodalVariable, scalar, constant
 
 ```fortran
-  obj = NodalVariable( 1.0_DFP, typeFEVariableScalar, typeFEVariableConstant )
-  CALL Display(obj, "NodalVariable, Scalar, Constant")
+obj = NodalVariable( 1.0_DFP, typeFEVariableScalar, typeFEVariableConstant )
+CALL Display(obj, "NodalVariable, Scalar, Constant")
 ```
 
 Results
@@ -25,9 +25,9 @@ VALUE :: 1.00000
 NodalVariable, scalar, space
 
 ```fortran
-  obj = NodalVariable( arange(0.0_DFP, 3.0_DFP), typeFEVariableScalar, &
-      & typeFEVariableSpace )
-  CALL Display(obj, "NodalVariable, scalar, space")
+obj = NodalVariable( arange(0.0_DFP, 3.0_DFP), typeFEVariableScalar, &
+    & typeFEVariableSpace )
+CALL Display(obj, "NodalVariable, scalar, space")
 ```
 
 Results
@@ -46,9 +46,9 @@ VALUE
 NodalVariable, scalar, time
 
 ```fortran
-  obj = NodalVariable( arange(0.0_DFP, 3.0_DFP), typeFEVariableScalar, &
-      & typeFEVariableTime )
-  CALL Display(obj, "NodalVariable, scalar, time")
+obj = NodalVariable( arange(0.0_DFP, 3.0_DFP), typeFEVariableScalar, &
+    & typeFEVariableTime )
+CALL Display(obj, "NodalVariable, scalar, time")
 ```
 
 Results
@@ -68,10 +68,10 @@ VALUE
 NodalVariable, scalar, space-time
 
 ```fortran
-  obj = NodalVariable( reshape(arange(1.0_DFP, 6.0_DFP), [3,2]), &
-      & typeFEVariableScalar, &
-      & typeFEVariableSpaceTime )
-  CALL Display(obj, "NodalVariable, scalar, space-time")
+obj = NodalVariable( reshape(arange(1.0_DFP, 6.0_DFP), [3,2]), &
+    & typeFEVariableScalar, &
+    & typeFEVariableSpaceTime )
+CALL Display(obj, "NodalVariable, scalar, space-time")
 ```
 
 Results

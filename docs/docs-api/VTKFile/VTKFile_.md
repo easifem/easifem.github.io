@@ -1,6 +1,6 @@
 # Structure
 
-`VTKFile_` class is a child of [[XMLFile_]]. It is used for visualizing the results using `vtk` library or `paraview`.  You can find more details on the [Website](https://kitware.github.io/vtk-examples/site/VTKFileFormats)
+`VTKFile_` class is a child of [[XMLFile_]]. It is used for visualizing the results using `vtk` library or `paraview`. You can find more details on the [Website](https://kitware.github.io/vtk-examples/site/VTKFileFormats)
 
 The major motivation for XML based VTKFile was to facilitate data streaming and parallel I/O. Some features of the format include support for compression, portable binary encoding, random access, big endian and little endian byte order, multiple file representation of piece data, and new file extensions for different VTK dataset types. XML provides many features as well, especially the ability to extend a file format with application specific tags.
 
@@ -228,7 +228,7 @@ MODULE FUNCTION EncodeVTKDataArray( x, y, z, fmt ) RESULT( Ans )
 END FUNCTION EncodeVTKDataArray
 ```
 
-- `x,y,z` can be Rank-1, Rank-2, Rank-3 of type `Int8`, `Int16`, `Int32`, `Int64`,  `Real32`, and `Real64`
+- `x,y,z` can be Rank-1, Rank-2, Rank-3 of type `Int8`, `Int16`, `Int32`, `Int64`, `Real32`, and `Real64`
 - `ans` is the encoded string
 - The encoding of Rank-1 is "x(1) y(1) z(1) ... x(N) y(N) z(N)"
 - The encoding of Rank-2 is in column major "x(1,jj) y(1, jj) z(1,jj) ... x(N,jj) y(N,jj) z(N,jj)".
@@ -441,11 +441,11 @@ END SUBROUTINE WriteVerts
 **Cells** — The Cells element defines cells explicitly by specifying point connectivity and cell types. It contains three DataArray elements. The first array specifies the point `connectivity`. All the cells’ point lists are concatenated together. The second array specifies the `offset` into the connectivity array for the end of each cell. The third array specifies the `type` of each cell.
 
 ```xml
-  <Cells>
-    <DataArray type="Int32" Name="connectivity" .../>
-    <DataArray type="Int32" Name="offsets" .../>
-    <DataArray type="UInt8" Name="types" .../>
-  </Cells>
+<Cells>
+  <DataArray type="Int32" Name="connectivity" .../>
+  <DataArray type="Int32" Name="offsets" .../>
+  <DataArray type="UInt8" Name="types" .../>
+</Cells>
 ```
 
 ### WriteCells
@@ -466,11 +466,11 @@ END INTERFACE
 Every dataset describes the data associated with its points and cells with PointData and CellData XML elements as follows:
 
 ```xml
-  <PointData Scalars="Temperature" Vectors="Velocity">
-    <DataArray Name="Velocity" .../>
-    <DataArray Name="Temperature" .../>
-    <DataArray Name="Pressure" .../>
-  </PointData>
+<PointData Scalars="Temperature" Vectors="Velocity">
+  <DataArray Name="Velocity" .../>
+  <DataArray Name="Temperature" .../>
+  <DataArray Name="Pressure" .../>
+</PointData>
 ```
 
 We specify `PointData` or `CellData` by using the [[#WriteDataArrayLocationTag]]. We can write DataArray element by using [[#WriteDataArrayTag]]. The content inside the DataArray can also be written by using [[#WriteDataArrayTag]]. One can also use the [[#WriteDataArray]] method to write the content in simple way.
@@ -568,7 +568,7 @@ MODULE SUBROUTINE WriteDataArray( obj, name, x, isTuples, numberOfComponents )
 END SUBROUTINE WriteDataArray
 ```
 
-- Here `x` can be a rank-1,2,3,4 array of Fortran intrinsic type  Int8/Int16/Int32/Int64, Real32/Real64
+- Here `x` can be a rank-1,2,3,4 array of Fortran intrinsic type Int8/Int16/Int32/Int64, Real32/Real64
 - `isTuples`
 - `numberOfComponents` For rank-1 array, by default the number of components will be 1. For rank>1, the number of components will be the size of first dimension, that is, SIZE(x,1).
 

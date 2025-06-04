@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
---- 
+---
 
 # Configuration
 
@@ -10,7 +10,7 @@ After getting the configuring files go inside the directory.
 cd ${HOME}/.config/easifem
 ```
 
-There you will find a file  called `easifem.toml` with the following lines.
+There you will find a file called `easifem.toml` with the following lines.
 
 ```bash
 envName="dev"
@@ -36,7 +36,7 @@ Here, `envName` is the name of the active environment.
 - `buildStaticLibs`: specifies whether to build static libraries or not.
 - `buildSystem`: specifies the build system to be used. Currently, it should be `cmake`.
 
-You can modify `easifem.toml` as per your need. You can also add more environments in the configuration file as  shown below.
+You can modify `easifem.toml` as per your need. You can also add more environments in the configuration file as shown below.
 
 ```bash
 envName="release"
@@ -62,6 +62,6 @@ buildStaticLibs = false
 buildSystem = "cmake"
 ```
 
-:::info 
+:::info
 When we set envName="release" in the configuration file, the active environment will be `release`.
 :::

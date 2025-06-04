@@ -1,3 +1,7 @@
+!> author: Vikas Sharma, Ph. D.
+! date: 2025-05-30
+! summary:  Read a 2D quadrangle mesh with two regions from an HDF5 file
+
 PROGRAM main
 USE FEMesh_Class, only: FEMesh_
 USE HDF5File_Class, only: HDF5File_
@@ -9,7 +13,7 @@ IMPLICIT NONE
 TYPE(FEMesh_) :: obj
 TYPE(HDF5File_) :: meshfile
 CHARACTER(LEN=*), PARAMETER :: filename = &
-                       "../../Mesh/examples/meshdata/small_mesh_two_region.h5"
+                       "./meshdata/very_small_quad4_mesh_two_region.h5"
 INTEGER(I4B), PARAMETER :: nsd = 2
 INTEGER(I4B), PARAMETER :: entities(2) = [1, 2]
 

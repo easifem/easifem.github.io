@@ -1,6 +1,6 @@
 This example demonstrates how to use `addMaterial` to add new material to [[LinearStaticCDR_]] kernel.
 
-``` fortran
+```fortran
 PROGRAM main
     USE easifemBase
     USE easifemClasses

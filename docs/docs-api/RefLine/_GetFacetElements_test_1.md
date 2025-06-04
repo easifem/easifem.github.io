@@ -26,64 +26,59 @@ END PROGRAM main
 
 **Facet Element 1**
 
-|  |  |
-|  ---  |  ---  |
-| Element type | Point1 |
-| Xidimension | 0 |
-| NSD | 1 |
-| tPoints | 1 |
-| tLines | 0 |
-| tSurfaces | 0 |
-| tVolumes | 0 |
-| BaseContinuity | H1 |
+|                   |                       |
+| ----------------- | --------------------- |
+| Element type      | Point1                |
+| Xidimension       | 0                     |
+| NSD               | 1                     |
+| tPoints           | 1                     |
+| tLines            | 0                     |
+| tSurfaces         | 0                     |
+| tVolumes          | 0                     |
+| BaseContinuity    | H1                    |
 | BaseInterpolation | LagrangeInterpolation |
-
 
 Nodal Coordinates:
 
-|  |  |
-|  ---  |  ---  |
+|   |    |
+| - | -- |
 | x | -1 |
 
+PointTopology( 1 ) :
 
-PointTopology( 1 ) : 
-
-|  |  |
-|  ---  |  ---  |
+|              |        |
+| ------------ | ------ |
 | Element type | Point1 |
-| Xidimension | 0 |
-| Nptrs | 1 |
-
+| Xidimension  | 0      |
+| Nptrs        | 1      |
 
 **Facet Element 2**
 
-|  |  |
-|  ---  |  ---  |
-| Element type | Point1 |
-| Xidimension | 0 |
-| NSD | 1 |
-| tPoints | 1 |
-| tLines | 0 |
-| tSurfaces | 0 |
-| tVolumes | 0 |
-| BaseContinuity | H1 |
+|                   |                       |
+| ----------------- | --------------------- |
+| Element type      | Point1                |
+| Xidimension       | 0                     |
+| NSD               | 1                     |
+| tPoints           | 1                     |
+| tLines            | 0                     |
+| tSurfaces         | 0                     |
+| tVolumes          | 0                     |
+| BaseContinuity    | H1                    |
 | BaseInterpolation | LagrangeInterpolation |
-
 
 Nodal Coordinates:
 
-|  |  |
-|  ---  |  ---  |
+|   |   |
+| - | - |
 | x | 1 |
 
+PointTopology( 1 ) :
 
-PointTopology( 1 ) : 
-
-|  |  |
-|  ---  |  ---  |
+|              |        |
+| ------------ | ------ |
 | Element type | Point1 |
-| Xidimension | 0 |
-| Nptrs | 1 |
+| Xidimension  | 0      |
+| Nptrs        | 1      |
 
 </div>
 </details>

@@ -11,7 +11,7 @@ Example:
 ## LagrangeDOF_Pyramid
 
 It returns the total number of dof for constructing the Lagrange polynomial on
- Pyramid.
+Pyramid.
 
 Example:
 

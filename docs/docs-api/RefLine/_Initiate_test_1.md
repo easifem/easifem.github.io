@@ -1,4 +1,4 @@
-``` fortran
+```fortran
 PROGRAM main
 USE easifemBase
 USE easifemClasses
@@ -14,55 +14,49 @@ END PROGRAM main
 <summary>See results</summary>
 <div>
 
-`Line2` : 
+`Line2` :
 
-|  |  |
-|  :---  |  ---:  |
-| Element type | Line2 |
-| Xidimension | 1 |
-| NSD | 1 |
-| tPoints | 2 |
-| tLines | 1 |
-| tSurfaces | 0 |
-| tVolumes | 0 |
-| BaseContinuity | H1 |
+|                   |                       |
+| :---------------- | --------------------: |
+| Element type      |                 Line2 |
+| Xidimension       |                     1 |
+| NSD               |                     1 |
+| tPoints           |                     2 |
+| tLines            |                     1 |
+| tSurfaces         |                     0 |
+| tVolumes          |                     0 |
+| BaseContinuity    |                    H1 |
 | BaseInterpolation | LagrangeInterpolation |
 
 Nodal Coordinates:
 
-|  |   |  |
-|  ---  | ---  | ---  |
-| x |-1 |1 |
+|   |    |   |
+| - | -- | - |
+| x | -1 | 1 |
 
-`PointTopology`( 1 ) : 
+`PointTopology`( 1 ) :
 
-|  |  |
-|  ---  |  ---  |
+|              |        |
+| ------------ | ------ |
 | Element type | Point1 |
-| Xidimension | 0 |
-| Nptrs | 1 |
+| Xidimension  | 0      |
+| Nptrs        | 1      |
 
+`PointTopology`( 2 ) :
 
-`PointTopology`( 2 ) : 
-
-|  |  |
-|  ---  |  ---  |
+|              |        |
+| ------------ | ------ |
 | Element type | Point1 |
-| Xidimension | 0 |
-| Nptrs | 2 |
+| Xidimension  | 0      |
+| Nptrs        | 2      |
 
+`EdgeTopology`( 1 ) :
 
-
-`EdgeTopology`( 1 ) : 
-
-|  |   |   | 
-|  ---  |  ---  |  ---  | 
-| Element type | Line2 |  | 
-| Xidimension | 1 |  | 
-| Nptrs | 1 | 2 | 
-
-
+|              |       |   |
+| ------------ | ----- | - |
+| Element type | Line2 |   |
+| Xidimension  | 1     |   |
+| Nptrs        | 1     | 2 |
 
 </div>
 </details>
-

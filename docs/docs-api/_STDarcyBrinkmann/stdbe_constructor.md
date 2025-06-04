@@ -10,8 +10,9 @@ update: 15 Nov 2021
 ### CheckEssentialParam
 
 !!! note ""
-	To set the essential material parameter of [[STDarcyBrinkmann_]] instance we need to call the method called `CheckEssentialParam()`. See the example given below.
+To set the essential material parameter of [[STDarcyBrinkmann_]] instance we need to call the method called `CheckEssentialParam()`. See the example given below.
 
 ### Initiate
+
 !!! note ""
-	The following code demonstrates how we can initiate the `StaticLinearElastic` kernel by using `Initiate` method.
+The following code demonstrates how we can initiate the `StaticLinearElastic` kernel by using `Initiate` method.

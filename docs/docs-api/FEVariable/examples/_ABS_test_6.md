@@ -12,7 +12,7 @@ tags:
 # FEVariable example 66
 
 !!! note ""
-    This example tests `ABS` operator. Matrix, Quadrature
+This example tests `ABS` operator. Matrix, Quadrature
 
 ## Use association
 
@@ -33,57 +33,57 @@ PROGRAM main
 !!! note "constant"
 
 ```fortran
-  obj = ABS(QuadratureVariable( &
-        & reshape(-arange(1.0_DFP, 6.0_DFP), [3,2]), &
-        & typeFEVariableMatrix,    &
-        & typeFEVariableConstant ))
-  ans = QuadratureVariable( &
-        & reshape(arange(1.0_DFP, 6.0_DFP), [3,2]), &
-        & typeFEVariableMatrix,    &
-        & typeFEVariableConstant )
-  CALL OK( obj .eq. ans, 'constant' )
+obj = ABS(QuadratureVariable( &
+      & reshape(-arange(1.0_DFP, 6.0_DFP), [3,2]), &
+      & typeFEVariableMatrix,    &
+      & typeFEVariableConstant ))
+ans = QuadratureVariable( &
+      & reshape(arange(1.0_DFP, 6.0_DFP), [3,2]), &
+      & typeFEVariableMatrix,    &
+      & typeFEVariableConstant )
+CALL OK( obj .eq. ans, 'constant' )
 ```
 
 !!! note "space"
 
 ```fortran
-  obj = ABS(Quadraturevariable( &
-        & reshape(-arange(1.0_dfp, 12.0_dfp), [3,2,2]), &
-        & typefevariablematrix, &
-        & typefevariablespace ))
-  ans = Quadraturevariable( &
-        & reshape(arange(1.0_dfp, 12.0_dfp), [3,2,2]), &
-        & typefevariablematrix, &
-        & typefevariablespace )
-  CALL OK( obj .eq. ans, 'space')
+obj = ABS(Quadraturevariable( &
+      & reshape(-arange(1.0_dfp, 12.0_dfp), [3,2,2]), &
+      & typefevariablematrix, &
+      & typefevariablespace ))
+ans = Quadraturevariable( &
+      & reshape(arange(1.0_dfp, 12.0_dfp), [3,2,2]), &
+      & typefevariablematrix, &
+      & typefevariablespace )
+CALL OK( obj .eq. ans, 'space')
 ```
 
 !!! note "time"
 
 ```fortran
-  obj = ABS(Quadraturevariable( &
-        & reshape(-arange(1.0_dfp, 12.0_dfp), [3,2,2]), &
-        & typefevariablematrix, &
-        & typefevariabletime ))
-  ans = Quadraturevariable( &
-        & reshape(arange(1.0_dfp, 12.0_dfp), [3,2,2]), &
-        & typefevariablematrix, &
-        & typefevariabletime )
-  CALL OK( obj .eq. ans, 'time')
+obj = ABS(Quadraturevariable( &
+      & reshape(-arange(1.0_dfp, 12.0_dfp), [3,2,2]), &
+      & typefevariablematrix, &
+      & typefevariabletime ))
+ans = Quadraturevariable( &
+      & reshape(arange(1.0_dfp, 12.0_dfp), [3,2,2]), &
+      & typefevariablematrix, &
+      & typefevariabletime )
+CALL OK( obj .eq. ans, 'time')
 ```
 
 !!! note "spacetime"
 
 ```fortran
-  obj = ABS(QuadratureVariable( &
-        & reshape(-arange(1.0_DFP, 24.0_DFP), [3,2,2,2]), &
-        & typeFEVariableMatrix, &
-        & typeFEVariableSpaceTime ))
-  ans = QuadratureVariable( &
-        & reshape(arange(1.0_DFP, 24.0_DFP) , [3,2,2,2]), &
-        & typeFEVariableMatrix, &
-        & typeFEVariableSpaceTime )
-  CALL OK( obj .eq. ans, 'spacetime')
+obj = ABS(QuadratureVariable( &
+      & reshape(-arange(1.0_DFP, 24.0_DFP), [3,2,2,2]), &
+      & typeFEVariableMatrix, &
+      & typeFEVariableSpaceTime ))
+ans = QuadratureVariable( &
+      & reshape(arange(1.0_DFP, 24.0_DFP) , [3,2,2,2]), &
+      & typeFEVariableMatrix, &
+      & typeFEVariableSpaceTime )
+CALL OK( obj .eq. ans, 'spacetime')
 ```
 
 ```fortran

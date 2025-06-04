@@ -9,9 +9,9 @@ This example demonstrates how initiates an instance of [[ElemshapeData_]] for [[
 ## Usage
 
 !!! note ""
-    Import modules and declare variables
+Import modules and declare variables
 
-``` fortran
+```fortran
 PROGRAM main
     USE easifemBase
     IMPLICIT NONE
@@ -23,29 +23,29 @@ PROGRAM main
 ```
 
 !!! note ""
-    Create an instance of [[ReferenceLine_]] element of order 2. That is `Line3` element.
+Create an instance of [[ReferenceLine_]] element of order 2. That is `Line3` element.
 
 ```fortran
-    refelem = ReferenceLine( nsd = nsd )
+refelem = ReferenceLine( nsd = nsd )
 ```
 
 !!! note ""
-    Create an instance of [[QuadraturePoint_]]. Here we are creating Gauss-Legendre Quadrature points.
+Create an instance of [[QuadraturePoint_]]. Here we are creating Gauss-Legendre Quadrature points.
 
 ```fortran
-    quad = GaussLegendreQuadrature( refelem = refelem, order = order )
+quad = GaussLegendreQuadrature( refelem = refelem, order = order )
 ```
 
 !!! note ""
-    Let us initiate an instance of [[ElemshapeData_]]. The code shown below only initiates the local shape function data.
+Let us initiate an instance of [[ElemshapeData_]]. The code shown below only initiates the local shape function data.
 
 ```fortran
-    CALL Initiate( obj = obj, quad = quad, refelem = refelem, &
-      & ContinuityType= typeH1, InterpolType = TypeLagrangeInterpolation )
+CALL Initiate( obj = obj, quad = quad, refelem = refelem, &
+  & ContinuityType= typeH1, InterpolType = TypeLagrangeInterpolation )
 ```
 
 !!! note ""
-    Now we pass the information about the physical element. The code shown below will complete the information of the shape function in the physical element.
+Now we pass the information about the physical element. The code shown below will complete the information of the shape function in the physical element.
 
 - val: is the nodal coordinates of the element
 - N: is the shape function used for interpolating the nodal coordinate
@@ -53,17 +53,17 @@ PROGRAM main
 - In the case of isoparameteric coordinate sysmtem, N and dNdXi is same as those stored inside `obj` ([[ElemshapeData_]]).
 
 !!! note ""
-    Now we pass the information about the physical element. The code shown below will complete the information of the shape function in the physical element.
+Now we pass the information about the physical element. The code shown below will complete the information of the shape function in the physical element.
 
 ```fortran
-    CALL Set( obj=obj, val=xij(1:nsd, :), N=obj%N, dNdXi=obj%dNdXi )
+CALL Set( obj=obj, val=xij(1:nsd, :), N=obj%N, dNdXi=obj%dNdXi )
 ```
 
 !!! note ""
-    Display the content on the terminal.
+Display the content on the terminal.
 
 ```fortran
-    CALL Display( obj, "obj" )
+CALL Display( obj, "obj" )
 ```
 
 ??? example "Results"

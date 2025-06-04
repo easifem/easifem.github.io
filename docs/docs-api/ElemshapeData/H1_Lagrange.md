@@ -12,4 +12,3 @@ END SUBROUTINE H1_Lagrange
 ```
 
 This method belongs to the generic method [[#Initiate]].
-

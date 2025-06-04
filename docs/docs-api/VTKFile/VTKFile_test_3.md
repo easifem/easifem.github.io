@@ -60,11 +60,11 @@ program main
 ```
 
 ```fortran
-  CALL Display(encodeVTKDataArray(i8a, i8b, i8c, "ASCII"), "i8 :: ")
-  CALL Display(encodeVTKDataArray(i16a, i16b, i16c, "ASCII"), "i16 :: ")
-  CALL Display(encodeVTKDataArray(i32a, i32b, i32c, "ASCII"), "i32 :: ")
-  CALL Display(encodeVTKDataArray(r32a, r32b, r32c, "ASCII"), "r32 :: ")
-  CALL Display(encodeVTKDataArray(r64a, r64b, r64c, "ASCII"), "r64 :: ")
+CALL Display(encodeVTKDataArray(i8a, i8b, i8c, "ASCII"), "i8 :: ")
+CALL Display(encodeVTKDataArray(i16a, i16b, i16c, "ASCII"), "i16 :: ")
+CALL Display(encodeVTKDataArray(i32a, i32b, i32c, "ASCII"), "i32 :: ")
+CALL Display(encodeVTKDataArray(r32a, r32b, r32c, "ASCII"), "r32 :: ")
+CALL Display(encodeVTKDataArray(r64a, r64b, r64c, "ASCII"), "r64 :: ")
 ```
 
 ```fortran

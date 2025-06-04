@@ -15,7 +15,6 @@ tags:
 
 # UnscaledLobatto
 
-
 ## Methods
 
 import DocCardList from '@theme/DocCardList';

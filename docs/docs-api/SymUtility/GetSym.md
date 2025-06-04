@@ -28,12 +28,12 @@ import TabItem from '@theme/TabItem';
 <TabItem value="interface" label="܀ Interface" default>
 
 ```fortran
-  MODULE PURE SUBROUTINE GetSym(mat, from)
-    INTEGER(Int8| Int16 | Int32 | Int64) | REAL(Real32| Real64), INTENT(INOUT) :: mat(:, :)
-    CHARACTER(1), INTENT(IN) :: from
-    !! from = "U", then upper triangular part must be provided
-    !! from = "L", then lower triangular part must be provided
-  END SUBROUTINE GetSym
+MODULE PURE SUBROUTINE GetSym(mat, from)
+  INTEGER(Int8| Int16 | Int32 | Int64) | REAL(Real32| Real64), INTENT(INOUT) :: mat(:, :)
+  CHARACTER(1), INTENT(IN) :: from
+  !! from = "U", then upper triangular part must be provided
+  !! from = "L", then lower triangular part must be provided
+END SUBROUTINE GetSym
 ```
 
 </TabItem>

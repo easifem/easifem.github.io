@@ -51,9 +51,9 @@ contained inside param, which is an instance of [ParameterList_](../ParameterLis
 In addition, [Domain_](../Domain/Domain_.md) `dom` is target to the pointer `obj%domain`.
 
 - Param contains both essential and optional parameters which are used in
-constructing the matrix field
+  constructing the matrix field
 - dom is a pointer to a domain, where we are interested in constructing the
-matrix
+  matrix
 
 ESSENTIAL PARAMETERS are
 
@@ -107,8 +107,7 @@ Initiate by copying from other fields. This routine initiates the `obj` [MatrixF
 If `copyFull, copyStructure, usePointer` are absent then this subroutine,
 copies the value of the matrix from obj2 to obj.
 
-At present, the routine works for `copyFull=.TRUE., copyStructure=.TRUE.,
-usePointer=.TRUE.`, which equivalent to the default behavior.
+At present, the routine works for `copyFull=.TRUE., copyStructure=.TRUE., usePointer=.TRUE.`, which equivalent to the default behavior.
 
 - [ ] TODO Add functionality for other options too.
 

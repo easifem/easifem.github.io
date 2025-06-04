@@ -15,7 +15,7 @@ title: CommandLineInterface example-3
 ## Usage
 
 !!! note ""
-    Importing necessary modules and declaring variables
+Importing necessary modules and declaring variables
 
 ```fortran
 PROGRAM main
@@ -35,7 +35,7 @@ INTEGER(I4B) :: error
 #CommandLineInterface/Initiate
 
 !!! example ""
-    Initiating an instance of [[CommandLineInterface_]]
+Initiating an instance of [[CommandLineInterface_]]
 
 ```fortran
 CALL cli%initiate( &
@@ -56,9 +56,9 @@ CALL cli%initiate( &
 #CommandLineInterface/Add
 
 !!! note ""
-    Adding command line arguments
+Adding command line arguments
 
-``` fortran
+```fortran
 CALL cli%add(switch='--input',switch_ab='-i',help='name of input markdown file',&
      & required=.TRUE., act='store', error=error)
 IF (error .NE. 0) &
@@ -75,9 +75,9 @@ IF (error .NE. 0) &
 #CommandLineInterface/Get
 
 !!! message ""
-    Getting commmand line agruments
+Getting commmand line agruments
 
-``` fortran
+```fortran
 CALL cli%get(switch='-i', val=mdfilename, error=error)
 IF (error .NE. 0) &
      & CALL e%raiseError(modName//"::"//myName//" - "// &
@@ -102,9 +102,9 @@ CALL e%raiseInformation(modName//"::"//myName//" - "// &
 #TxtFile/ConvertMarkdownToSource
 
 !!! note ""
-	Initiating an instance of [[TxtFile_]]
+Initiating an instance of [[TxtFile_]]
 
-``` fortran
+```fortran
 CALL srcfile%Initiate(filename=srcfilename, status="REPLACE", &
     & ACTION="WRITE")
 CALL srcfile%OPEN()

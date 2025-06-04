@@ -7,15 +7,15 @@ real( DFP ), allocatable :: b( :, : )
 ```
 
 ```fortran
-  b = RecursiveNode3D(order=2, ipType=Equidistance, &
-    & domain="unit")
-  call Display(MdEncode(transpose(b)), "b=")
+b = RecursiveNode3D(order=2, ipType=Equidistance, &
+  & domain="unit")
+call Display(MdEncode(transpose(b)), "b=")
 ```
 
 b=
 
 | x1  | x2  | x3  |
-|-----|-----|-----|
+| --- | --- | --- |
 | 0   | 0   | 0   |
 | 0   | 0   | 0.5 |
 | 0   | 0   | 1   |
@@ -28,15 +28,15 @@ b=
 | 1   | 0   | 0   |
 
 ```fortran
-  b = RecursiveNode3D(order=2, ipType=Equidistance, &
-    & domain="biunit")
-  call Display(MdEncode(transpose(b)), "b=")
+b = RecursiveNode3D(order=2, ipType=Equidistance, &
+  & domain="biunit")
+call Display(MdEncode(transpose(b)), "b=")
 ```
 
 b=
 
 | x1 | x2 | x3 |
-|----|----|----|
+| -- | -- | -- |
 | -1 | -1 | -1 |
 | -1 | -1 | 0  |
 | -1 | -1 | 1  |
@@ -49,15 +49,15 @@ b=
 | 1  | -1 | -1 |
 
 ```fortran
-  b = RecursiveNode3D(order=2, ipType=Equidistance, &
-    & domain="barycentric")
-  call Display(MdEncode(transpose(b)), "b=")
+b = RecursiveNode3D(order=2, ipType=Equidistance, &
+  & domain="barycentric")
+call Display(MdEncode(transpose(b)), "b=")
 ```
 
 b=
 
 | b0  | b1  | b2  | b3  |
-|-----|-----|-----|-----|
+| --- | --- | --- | --- |
 | 0   | 0   | 0   | 1   |
 | 0   | 0   | 0.5 | 0.5 |
 | 0   | 0   | 1   | 0   |
@@ -72,15 +72,15 @@ b=
 !!! note "Equilateral"
 
 ```fortran
-  b = RecursiveNode3D(order=2, ipType=Equidistance, &
-    & domain="Equilateral")
-  call Display(MdEncode(transpose(b)), "b=")
+b = RecursiveNode3D(order=2, ipType=Equidistance, &
+  & domain="Equilateral")
+call Display(MdEncode(transpose(b)), "b=")
 ```
 
 b=
 
 | x1           | x2       | x3       |
-|--------------|----------|----------|
+| ------------ | -------- | -------- |
 | -1           | -0.57735 | -0.40825 |
 | -0.5         | -0.28868 | 0.40825  |
 | 0            | 0        | 1.2247   |

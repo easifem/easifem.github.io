@@ -41,16 +41,16 @@ PROGRAM MAIN
 ```
 
 !!! note ""
-    Plotting a two dimensional structured grid.
+Plotting a two dimensional structured grid.
 
 ```fortran
-  x = linspace( 0.0_DFP, 1.0_DFP, 5)
-  y = linspace( 0.0_DFP, 1.0_DFP, 5)
-  CALL obj%initiate( )
-  func => f
-  CALL obj%plot( x, y, func, "./test_2.vts")
-  CALL obj%deallocate()
-  func => NULL()
+x = linspace( 0.0_DFP, 1.0_DFP, 5)
+y = linspace( 0.0_DFP, 1.0_DFP, 5)
+CALL obj%initiate( )
+func => f
+CALL obj%plot( x, y, func, "./test_2.vts")
+CALL obj%deallocate()
+func => NULL()
 ```
 
 ```fortran

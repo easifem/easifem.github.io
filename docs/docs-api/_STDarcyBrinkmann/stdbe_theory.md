@@ -6,4 +6,3 @@ update: 15 Nov 2021
 ---
 
 # STDarcyBrinkmann Theory
-

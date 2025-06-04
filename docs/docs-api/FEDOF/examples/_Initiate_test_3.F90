@@ -1,3 +1,7 @@
+!> author: Vikas Sharma, Ph. D.
+! date:   
+! summary:  Initiate fedof with H1 and Heirarchical bases, order is a vector.
+
 PROGRAM main
 USE FEDOF_Class
 USE FEDomain_Class
@@ -15,7 +19,7 @@ TYPE(FEDOF_) :: fedof
 TYPE(FEDomain_) :: dom
 CLASS(AbstractMesh_), POINTER :: meshptr => NULL()
 CHARACTER(*), PARAMETER :: filename = &
-  & "../../Mesh/examples/meshdata/small_mesh.h5"
+   "../../FEMesh/examples/meshdata/small_tri3_mesh.h5"
 TYPE(HDF5File_) :: meshfile
 LOGICAL(LGT) :: isok
 INTEGER(I4B) :: found, want, order, ii, iel

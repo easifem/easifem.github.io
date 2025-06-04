@@ -27,19 +27,19 @@ type(Monomial1D_) :: y0, y1, y2, y3, ans
 Initiate the object.
 
 ```fortran
-  y0=Monomial1D( degree=0_I4B, varname="x" )
-  y1=Monomial1D( degree=1_I4B, varname="x" )
-  y2=Monomial1D( degree=2_I4B, varname="x" )
+y0=Monomial1D( degree=0_I4B, varname="x" )
+y1=Monomial1D( degree=1_I4B, varname="x" )
+y2=Monomial1D( degree=2_I4B, varname="x" )
 ```
 
 !!! note "Multiplication"
-    We can multiply a monomial with another monomial.
+We can multiply a monomial with another monomial.
 
 ```fortran
-  ans = y1 * y0
-  call ans%display( "f(x) = ")
-  ans = y1 * y2
-  call ans%display( "f(x) = ")
+ans = y1 * y0
+call ans%display( "f(x) = ")
+ans = y1 * y2
+call ans%display( "f(x) = ")
 ```
 
 ```txt

@@ -5,7 +5,7 @@ Returns the total number of degrees of freedom internal to hexahedron.
 The total number of degree of freedom is given by:
 
 $$
-t_{dof}=(p-1)*(q-1)*(r-1)
+t_{dof}=(p-1)_(q-1)_(r-1)
 $$
 
 ## Interface 1

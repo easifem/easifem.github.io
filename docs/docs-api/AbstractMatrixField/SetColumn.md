@@ -10,7 +10,6 @@ Calling example
 - `SetColumn(obj, globalnode(:), ivar, spacecompo, timecompo(:), scalarval, vecval(:), nodefieldval)`
 - `SetColumn(obj, globalnode(:), ivar, spacecompo(:), timecompo, scalarval, vecval(:), nodefieldval)`
 
-
 ## Interface
 
 ```fortran
@@ -42,11 +41,9 @@ INTERFACE
     CLASS(AbstractNodeField_), OPTIONAL, INTENT(IN) :: nodeFieldVal
   END SUBROUTINE setColumn2
 END INTERFACE
-
 ```
 
 ```fortran
-
 INTERFACE
   SUBROUTINE setColumn3(obj, globalNode, ivar, spacecompo, &
     & timecompo, scalarVal, vecVal, nodeFieldVal)
@@ -61,7 +58,6 @@ INTERFACE
     CLASS(AbstractNodeField_), OPTIONAL, INTENT(IN) :: nodeFieldVal
   END SUBROUTINE setColumn3
 END INTERFACE
-
 ```
 
 ```fortran
@@ -79,7 +75,6 @@ INTERFACE
     CLASS(AbstractNodeField_), OPTIONAL, INTENT(IN) :: nodeFieldVal
   END SUBROUTINE setColumn4
 END INTERFACE
-
 ```
 
 ```fortran
@@ -97,7 +92,6 @@ INTERFACE
     CLASS(AbstractNodeField_), OPTIONAL, INTENT(IN) :: nodeFieldVal
   END SUBROUTINE setColumn5
 END INTERFACE
-
 ```
 
 ```fortran
@@ -115,7 +109,6 @@ INTERFACE
     CLASS(AbstractNodeField_), OPTIONAL, INTENT(IN) :: nodeFieldVal
   END SUBROUTINE setColumn6
 END INTERFACE
-
 ```
 
 ```fortran

@@ -27,14 +27,13 @@ TYPE(HDF5File_) :: hdf5file
 CALL FPL_Init()
 CALL param%Initiate()
 
-CALL SetGmshStructuredMeshParam( &
-  & param=param,  &
-  & filename=title//".msh", &
-  & pointsOnAxis1=pointsOnAxis1,  &
-  & pointsOnAxis2=pointsOnAxis2,  &
-  & transfinitePointsOnAxis1=transfinitePointsOnAxis1,  &
-  & transfinitePointsOnAxis2=transfinitePointsOnAxis2,  &
-  & recombineAll=.TRUE.)
+CALL SetGmshStructuredMeshParam(param=param, &
+  filename=title//".msh", &
+  pointsOnAxis1=pointsOnAxis1, &
+  pointsOnAxis2=pointsOnAxis2, &
+  transfinitePointsOnAxis1=transfinitePointsOnAxis1, &
+  transfinitePointsOnAxis2=transfinitePointsOnAxis2, &
+  recombineAll=.TRUE.)
 
 CALL obj%Initiate(param)
 

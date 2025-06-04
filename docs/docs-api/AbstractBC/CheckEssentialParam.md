@@ -6,8 +6,6 @@ Check essential parameters required for constructing the [AbstractBC](./Abstract
 This routine is for internal use only.
 :::
 
-<span class="badge badge--secondary"> @ConstructorMethods </span>
-
 ## Interface
 
 ```fortran

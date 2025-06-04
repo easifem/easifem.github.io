@@ -10,7 +10,7 @@ title: ReferenceElement example 1
 
 ## Usage
 
-``` fortran
+```fortran
 PROGRAM main
 TYPE( ReferenceTopology_ ) :: obj
 obj = ReferenceTopology( nptrs = [1,2,3], name=Triangle3 )

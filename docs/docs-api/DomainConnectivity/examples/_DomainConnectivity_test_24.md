@@ -25,38 +25,36 @@ PROGRAM main
 Open the mesh file for cellDomain
 
 ```fortran
-  CALL cellDomainFile%Initiate( FileName=cellDomainFileName, MODE="READ" )
-  CALL cellDomainFile%Open()
+CALL cellDomainFile%Initiate( FileName=cellDomainFileName, MODE="READ" )
+CALL cellDomainFile%Open()
 ```
 
 Initiate the cellDomain
 
 ```fortran
-  CALL cellDomain%Initiate( cellDomainFile, "")
+CALL cellDomain%Initiate( cellDomainFile, "")
 ```
 
 Make a pointer to cellMesh and facet mesh
 
 ```fortran
-  facetMesh => cellDomain%getMeshPointer( dim=1, entityNum=7 )
+facetMesh => cellDomain%getMeshPointer( dim=1, entityNum=7 )
 ```
 
 Initiate FacetTOCellData.
 
 ```fortran
-  CALL obj%InitiateFacetToCellData( &
-   & facetMesh=facetMesh, &
-    & cellDomain=cellDomain)
-  !CALL obj%DisplayFacetToCellData( msg="facetToCell=" )
+CALL obj%InitiateFacetToCellData( &
+ & facetMesh=facetMesh, &
+  & cellDomain=cellDomain)
+!CALL obj%DisplayFacetToCellData( msg="facetToCell=" )
 ```
-
 
 ```fortran
 CALL OK(obj%MasterCellNumber(localElement=1) .eq. 46, "masterCellNumber ")
 CALL OK(ALL(obj%MasterCellNumber(localElement=[1,3]) .eq. [46,27]), &
  & "masterCellNumber ")
 ```
-
 
 ```fortran
 CALL OK(ALL(obj%MasterDimTag(localElement=1) .eq. [2,1]), "masterDimTag ")
@@ -66,7 +64,6 @@ CALL OK( &
  & "masterDimTag ")
 ```
 
-
 ```fortran
 CALL OK(ALL(obj%SlaveDimTag(localElement=1) .eq. [2,2]), "slaveDimTag ")
 CALL OK( &
@@ -74,7 +71,6 @@ CALL OK( &
  & RESHAPE( [2,2,2,2], [2,2] )), &
  & "slaveDimTag ")
 ```
-
 
 ```fortran
 CALL OK(obj%SlaveCellNumber(localElement=1) .eq. 59, "slaveCellNumber ")
@@ -82,7 +78,6 @@ CALL OK(ALL(obj%SlaveCellNumber(localElement=[1,3]) .eq. [59, 55]), &
  & "slaveCellNumber ")
 ```
 
-
 ```fortran
 CALL OK(ALL(obj%SlaveDimTag(localElement=1) .eq. [2,2]), "slaveDimTag ")
 CALL OK( &
@@ -90,7 +85,6 @@ CALL OK( &
  & RESHAPE( [2,2,2,2], [2,2] )), &
  & "slaveDimTag ")
 ```
-
 
 ```fortran
 CALL OK(obj%MasterFacetLocalID(localElement=1) .eq. 1, "masterFacetLocalID ")
@@ -100,7 +94,6 @@ CALL OK( &
  & "masterFacetLocalID ")
 ```
 
-
 ```fortran
 CALL OK(obj%SlaveFacetLocalID(localElement=1) .eq. 1, "slaveFacetLocalID ")
 CALL OK( &
@@ -109,7 +102,6 @@ CALL OK( &
  & "slaveFacetLocalID ")
 ```
 
-
 ```fortran
 CALL OK(obj%GlobalFacetID(localElement=1) .eq. 23, "globalFacetID ")
 CALL OK( &
@@ -117,7 +109,6 @@ CALL OK( &
  & [23, 25]), &
  & "globalFacetID ")
 ```
-
 
 ```fortran
   CALL cellDomainFile%Deallocate()

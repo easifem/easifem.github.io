@@ -1,3 +1,7 @@
+!> author: Vikas Sharma, Ph. D.
+! date: 2025-06-01
+! summary:  Initiate fedof for H1 and Heirarchical bases, order is a vector.
+
 PROGRAM main
 USE FEDOF_Class
 USE FEDomain_Class
@@ -15,7 +19,7 @@ TYPE(FEDOF_) :: fedof
 TYPE(FEDomain_) :: dom
 CLASS(AbstractMesh_), POINTER :: meshptr => NULL()
 CHARACTER(*), PARAMETER :: filename = &
-  & "../../Mesh/examples/meshdata/small_mesh.h5"
+                           "../../FEMesh/examples/meshdata/small_tri3_mesh.h5"
 TYPE(HDF5File_) :: meshfile
 INTEGER(I4B) :: found, want
 INTEGER(I4B), ALLOCATABLE :: cellOrder(:)
@@ -34,28 +38,28 @@ CALL fedof%Initiate(baseContinuity="H1", baseInterpolation="Heirarchical", &
 !CALL fedof%Display("FEDOF:")
 found = fedof%GetTotalDOF()
 want = meshptr%GetTotalNodes()
-CALL OK(found == want, "Total DOF (order=1): ")
+CALL IS(found, want, "Total DOF (order=1): ")
 
 cellOrder = 2
 CALL fedof%Initiate(baseContinuity="H1", baseInterpolation="Heirarchical", &
                     order=cellOrder, mesh=meshptr)
 found = fedof%GetTotalDOF()
 want = meshptr%GetTotalNodes() + meshptr%GetTotalFaces()
-CALL OK(found == want, "Total DOF (order=2): ")
+CALL IS(found, want, "Total DOF (order=2): ")
 
 cellOrder = 3
 CALL fedof%Initiate(baseContinuity="H1", baseInterpolation="Heirarchical", &
                     order=cellOrder, mesh=meshptr)
 found = fedof%GetTotalDOF()
 want = meshptr%GetTotalNodes() + 2*meshptr%GetTotalFaces() + meshptr%GetTotalCells()
-CALL OK(found == want, "Total DOF (order=3): ")
+CALL IS(found, want, "Total DOF (order=3): ")
 
 cellOrder = 4
 CALL fedof%Initiate(baseContinuity="H1", baseInterpolation="Heirarchical", &
                     order=cellOrder, mesh=meshptr)
 found = fedof%GetTotalDOF()
 want = meshptr%GetTotalNodes() + 3*meshptr%GetTotalFaces() + 3*meshptr%GetTotalCells()
-CALL OK(found == want, "Total DOF (order=4): ")
+CALL IS(found, want, "Total DOF (order=4): ")
 
 !CALL dom%Display("domain:")
 CALL dom%DEALLOCATE()

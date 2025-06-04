@@ -8,10 +8,9 @@ sidebar_position: 2
 
 - To see the full structure of this class go to [RefLine_](./RefLine_.md).
 
-
 ### Initiate
 
-Use [Initiate](./Initiate.md) to <span class="badge badge--info">  construct an instance </span>. An example is shows below:
+Use [Initiate](./Initiate.md) to <span class="badge badge--info"> construct an instance </span>. An example is shows below:
 
 import EXAMPLE13 from "./_Initiate_test_1.md";
 
@@ -31,18 +30,4 @@ import EXAMPLE28 from "./_GetFacetElements_test_1.md";
 
 ### Getting nodal coordinates
 
-To get nodal coordinates of element use [GetNodeCoord](./GetNodeCoord.md). 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+To get nodal coordinates of element use [GetNodeCoord](./GetNodeCoord.md).

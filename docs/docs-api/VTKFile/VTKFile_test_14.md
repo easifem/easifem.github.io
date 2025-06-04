@@ -29,28 +29,28 @@ PROGRAM main
 ```
 
 ```fortran
-    CALL Display( "Testing ExportToVTK" )
-    CALL domainFile%initiate( filename="./mesh.h5", mode="READ" )
-    CALL domainFile%open()
+CALL Display( "Testing ExportToVTK" )
+CALL domainFile%initiate( filename="./mesh.h5", mode="READ" )
+CALL domainFile%open()
 ```
 
 !!! note "Initiate Mesh"
 
 ```fortran
-    CALL obj%Initiate(hdf5=domainFile, group="/surfaceEntities_1" )
+CALL obj%Initiate(hdf5=domainFile, group="/surfaceEntities_1" )
 ```
 
 !!! note ""
-    Get nodal coordinates of the mesh.
+Get nodal coordinates of the mesh.
 
 ```fortran
-    CALL obj%getNodeCoord(nodeCoord=nodeCoord, hdf5=domainFile, &
-        & group="/nodeCoord")
+CALL obj%getNodeCoord(nodeCoord=nodeCoord, hdf5=domainFile, &
+    & group="/nodeCoord")
 ```
 
 !!! note ""
-    Export mesh to [[VTKFile_]] format. This will write the information of
-    mesh inside the `surfaceEntities_1.vtu` file.
+Export mesh to [[VTKFile_]] format. This will write the information of
+mesh inside the `surfaceEntities_1.vtu` file.
 
 The file will have the following properties
 
@@ -61,9 +61,9 @@ The file will have the following properties
 Note that we have set `CloseTag` to `.false.` since we want to write more information.
 
 ```fortran
-    CALL obj%ExportToVTK(vtkFile=vtkFile, nodeCoord=nodeCoord, &
-        & filename="./surfaceEntities_1.vtu", OpenTag=.TRUE., &
-        & Content=.TRUE., CloseTag=.FALSE.)
+CALL obj%ExportToVTK(vtkFile=vtkFile, nodeCoord=nodeCoord, &
+    & filename="./surfaceEntities_1.vtu", OpenTag=.TRUE., &
+    & Content=.TRUE., CloseTag=.FALSE.)
 ```
 
 !!! note "Write node data"
@@ -71,64 +71,63 @@ Note that we have set `CloseTag` to `.false.` since we want to write more inform
 Because it is nodal data, we mention location as `node`. Also we want to open the PointData tag, since we have initiated writing the data.
 
 ```fortran
-    CALL vtkFile%WriteDataArray(location=String('node'), &
-        & action=String('open'))
+CALL vtkFile%WriteDataArray(location=String('node'), &
+    & action=String('open'))
 ```
 
 Let us prepare the noda data for pressure.
 
 ```fortran
-    CALL reallocate(pressure, obj%getTotalNodes())
-    CALL random_NUMBER(pressure); pressure = pressure * 10
+CALL reallocate(pressure, obj%getTotalNodes())
+CALL random_NUMBER(pressure); pressure = pressure * 10
 ```
 
 Now that the data is ready, let us flush it in the [[VTKFile_]].
 
 ```fortran
-    CALL vtkFile%WriteDataArray(name=String("node_data"), &
-        & x=pressure, numberOfComponents=1)
+CALL vtkFile%WriteDataArray(name=String("node_data"), &
+    & x=pressure, numberOfComponents=1)
 ```
 
 If you want to write more point data, then add it below.
 
 ```fortran
-    CALL vtkFile%WriteDataArray(name=String("pressure"), &
-        & x=pressure, numberOfComponents=1)
+CALL vtkFile%WriteDataArray(name=String("pressure"), &
+    & x=pressure, numberOfComponents=1)
 ```
 
 Now that we are done with writing point data, let us close the `<PointData>` tag.
 
 ```fortran
-    CALL vtkFile%WriteDataArray(location=String('node'), &
-        & action=String('close'))
+CALL vtkFile%WriteDataArray(location=String('node'), &
+    & action=String('close'))
 ```
 
 !!! note "Write Cell Data"
 
 ```fortran
-    CALL vtkFile%WriteDataArray(location=String('cell'), &
-        & action=String('open'))
+CALL vtkFile%WriteDataArray(location=String('cell'), &
+    & action=String('open'))
 ```
 
 ```fortran
-    CALL reallocate(pressure, obj%getTotalElements())
-    CALL random_NUMBER(pressure); pressure = pressure * 10
+CALL reallocate(pressure, obj%getTotalElements())
+CALL random_NUMBER(pressure); pressure = pressure * 10
 ```
 
 ```fortran
-    CALL vtkFile%WriteDataArray(name=String("cell_data"), &
-        & x=pressure, numberOfComponents=1)
+CALL vtkFile%WriteDataArray(name=String("cell_data"), &
+    & x=pressure, numberOfComponents=1)
 ```
 
 ```fortran
-    CALL vtkFile%WriteDataArray(location=String('cell'), &
-        & action=String('close'))
+CALL vtkFile%WriteDataArray(location=String('cell'), &
+    & action=String('close'))
 ```
 
-
 ```fortran
-    CALL vtkFile%WritePiece()
-    CALL vtkFile%Close()
+CALL vtkFile%WritePiece()
+CALL vtkFile%Close()
 ```
 
 !!! settings "Cleanup"

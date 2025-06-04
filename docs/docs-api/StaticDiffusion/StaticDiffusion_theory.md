@@ -13,7 +13,7 @@ $$
 -\nabla\cdot\nu\left(\nabla u\right)=f
 $$
 
-where, 
+where,
 
 - $\nu:=\nu(\mathbf{x})$ is the diffusivity coefficient
 - $f=f(\mathbf{x})$ is the source term.
@@ -44,10 +44,9 @@ $$
 
 - [ ] TODO add description of weak boundary condition.
 
-
 ## Galerkin FEM
 
-### Variation form 
+### Variation form
 
 $$
 \int_{\Omega}\nabla w\cdot\nu\nabla u {d\Omega}-\int_{\Gamma_{mix}}{awu}dS=\int_{\Gamma_{h}}whdS+\int_{\Gamma_{mix}}wcdS+\int_{\Omega}wfd\Omega

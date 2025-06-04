@@ -68,7 +68,6 @@ END INTERFACE
 Method to delete a file. The generic interface is given below.
 
 ```fortran
-
 ABSTRACT INTERFACE
   SUBROUTINE Delete(obj)
     IMPORT :: AbstractFile_
@@ -84,14 +83,12 @@ END INTERFACE
 Add surrogate to the module error handler.
 
 ```fortran
-
 INTERFACE
 MODULE SUBROUTINE addSurrogate( obj, UserObj )
   CLASS( AbstractFile_ ), INTENT( INOUT ) :: obj
   TYPE( ExceptionHandler_ ), INTENT( IN ) :: UserObj
 END SUBROUTINE addSurrogate
 END INTERFACE
-
 ```
 
 ### Deallocate
@@ -105,7 +102,6 @@ MODULE SUBROUTINE Deallocate( obj, delete )
   LOGICAL( LGT ), OPTIONAL, INTENT( IN ) :: delete
 END SUBROUTINE Deallocate
 END INTERFACE
-
 ```
 
 ## SetMethods
@@ -134,7 +130,6 @@ MODULE SUBROUTINE setFileName( obj, fileName )
   TYPE( String ), INTENT( IN ) :: fileName
 END SUBROUTINE setFileName
 END INTERFACE
-
 ```
 
 ### SetFileExt
@@ -174,7 +169,6 @@ MODULE SUBROUTINE setOpenStat( obj, stat )
   LOGICAL( LGT ), INTENT( IN ) :: stat
 END SUBROUTINE setOpenStat
 END INTERFACE
-
 ```
 
 ### SetReadStat
@@ -188,7 +182,6 @@ MODULE SUBROUTINE setReadStat( obj, stat )
   LOGICAL( LGT ), INTENT( IN ) :: stat
 END SUBROUTINE setReadStat
 END INTERFACE
-
 ```
 
 ### SetWriteStat
@@ -202,7 +195,6 @@ MODULE SUBROUTINE setWriteStat( obj, stat )
   LOGICAL( LGT ), INTENT( IN ) :: stat
 END SUBROUTINE setWriteStat
 END INTERFACE
-
 ```
 
 ## GetMethods
@@ -231,7 +223,6 @@ MODULE FUNCTION getFileName( obj ) RESULT( fileName )
   TYPE( String ) :: fileName
 END FUNCTION getFileName
 END INTERFACE
-
 ```
 
 ### GetFileExt
@@ -245,7 +236,6 @@ MODULE FUNCTION getFileExt( obj ) RESULT( Ext )
   TYPE( String ) :: Ext
 END FUNCTION getFileExt
 END INTERFACE
-
 ```
 
 ### GetFileParts
@@ -261,7 +251,6 @@ MODULE PURE SUBROUTINE getFileParts( obj, path, fileName, ext )
   TYPE( String ), INTENT( OUT ) :: ext
 END SUBROUTINE getFileParts
 END INTERFACE
-
 ```
 
 ## EnquireMethods
@@ -316,5 +305,4 @@ MODULE FUNCTION isWrite( obj ) RESULT( ans )
   LOGICAL( LGT ) :: ans
 END FUNCTION isWrite
 END INTERFACE
-
 ```

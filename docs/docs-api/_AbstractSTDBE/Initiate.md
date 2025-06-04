@@ -2,7 +2,6 @@
 
 This method should be implemented by the children of `AbstractSTDBE_` kernel.
 
-
 ```fortran
 INTERFACE
   MODULE SUBROUTINE SSF_Initiate(obj, param, dom, domains)

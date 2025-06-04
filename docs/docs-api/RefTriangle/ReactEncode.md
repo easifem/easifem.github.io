@@ -2,7 +2,7 @@
 
 This method converts the data into an react element.
 
-## Interface 
+## Interface
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

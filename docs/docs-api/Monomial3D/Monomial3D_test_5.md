@@ -31,15 +31,15 @@ character(len=*), parameter :: varname1="x", varname2="y", varname3="z"
 ```
 
 !!! note ""
-    Initiate the following monomial.
+Initiate the following monomial.
 $$
 f(x,y)=x^2 y z
 $$
 
 ```fortran
-  n1=2; n2=1; n3=1
-  obj=Monomial3D( n1=n1, n2=n2, n3=n3, varname1=varname1, &
-    & varname2=varname2, varname3=varname3 )
+n1=2; n2=1; n3=1
+obj=Monomial3D( n1=n1, n2=n2, n3=n3, varname1=varname1, &
+  & varname2=varname2, varname3=varname3 )
 ```
 
 !!! note "Grad"
@@ -56,20 +56,20 @@ $$
 $$
 
 ```fortran
-  ans = obj%Grad(dim=1)
-  call ans%Display( "dfdx = " )
-  !!
-  ans = obj%Grad(dim=2)
-  call ans%Display( "dfdy = " )
-  !!
-  ans = obj%Grad(dim=3)
-  call ans%Display( "dfdz = " )
+ans = obj%Grad(dim=1)
+call ans%Display( "dfdx = " )
+!!
+ans = obj%Grad(dim=2)
+call ans%Display( "dfdy = " )
+!!
+ans = obj%Grad(dim=3)
+call ans%Display( "dfdz = " )
 ```
 
 !!! example "result"
-    dfdx =x^1 y^1 z^1
-    dfdy =x^2 z^1
-    dfdz =x^2 y^1
+dfdx =x^1 y^1 z^1
+dfdy =x^2 z^1
+dfdz =x^2 y^1
 
 ```fortran
 END PROGRAM main

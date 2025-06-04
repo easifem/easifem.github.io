@@ -1,12 +1,21 @@
+!> author: Vikas Sharma, Ph. D.
+! date: 2025-05-30
+! summary:  Generate a 2D quadrangle mesh with two regions
+
 PROGRAM main
-USE easifemBase
-USE easifemClasses
+USE GmshStructuredMesh_Class
+USE Gmsh_Class
+USE FPL
+USE GlobalData
+USE MSHFile_Class
+USE HDF5File_Class
+
 IMPLICIT NONE
 
 TYPE(GmshStructuredMesh_) :: obj
 TYPE(Gmsh_) :: gmsh
 TYPE(ParameterList_) :: param
-CHARACTER(*), PARAMETER :: title = "small_mesh_two_region"
+CHARACTER(*), PARAMETER :: title = "very_small_quad4_mesh_two_region"
 REAL(DFP), PARAMETER :: pointsOnAxis1(3) = [0.0, 1.0, 2.0]
 REAL(DFP), PARAMETER :: pointsOnAxis2(2) = [0.0, 1.0]
 
@@ -22,13 +31,13 @@ CALL FPL_Init()
 CALL param%Initiate()
 
 CALL SetGmshStructuredMeshParam( &
-  & param=param,  &
-  & filename=title//".msh", &
-  & pointsOnAxis1=pointsOnAxis1,  &
-  & pointsOnAxis2=pointsOnAxis2,  &
-  & transfinitePointsOnAxis1=transfinitePointsOnAxis1,  &
-  & transfinitePointsOnAxis2=transfinitePointsOnAxis2,  &
-  & recombineAll=.TRUE.)
+  param=param, &
+  filename=title//".msh", &
+  pointsOnAxis1=pointsOnAxis1, &
+  pointsOnAxis2=pointsOnAxis2, &
+  transfinitePointsOnAxis1=transfinitePointsOnAxis1, &
+  transfinitePointsOnAxis2=transfinitePointsOnAxis2, &
+  recombineAll=.TRUE.)
 
 CALL obj%Initiate(param)
 

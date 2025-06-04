@@ -4,7 +4,8 @@ sidebar_position: 4
 
 # Initiate
 
-This method initiates an instance of `FEDOF`. There are several ways to initiate an instance of `FEDOF`.
+This method initiates an instance of `FEDOF`.
+There are several ways to initiate an instance of `FEDOF`.
 
 ## Interface 1
 
@@ -87,10 +88,7 @@ END INTERFACE
 ## Interface 4
 
 This routine is similar to the interface 2, but the order of the element is defined for global element numbers.
-
-The number of rows in order is equal to 2, the first row contains the global element number the second row contains the order.
-
-This routine will make `order0(:)` from `order(:,:)` and call `Initiate2`.
+`order` is a two-dimensional array. The number of rows in order is equal to 2, the first row contains the global element number the second row contains the order. This routine will make `order0(:)` from `order(:,:)` and call `Initiate2`.
 
 ```fortran
 INTERFACE
@@ -121,3 +119,48 @@ INTERFACE
   END SUBROUTINE Initiate
 END INTERFACE
 ```
+
+## Examples
+
+<Tabs>
+<TabItem value="example-1" label="Example 1">
+
+import EXAMPLE129 from "./examples/_Initiate_test_1.md";
+
+<EXAMPLE129 />
+
+</TabItem>
+
+<TabItem value="example-2" label="Example 2">
+
+import EXAMPLE139 from "./examples/_Initiate_test_2.md";
+
+<EXAMPLE139 />
+
+</TabItem>
+
+<TabItem value="example-3" label="Example 3">
+
+import EXAMPLE147 from "./examples/_Initiate_test_3.md";
+
+<EXAMPLE147 />
+
+</TabItem>
+
+<TabItem value="example-4" label="Example 4">
+
+import EXAMPLE153 from "./examples/_Initiate_test_4.md";
+
+<EXAMPLE153 />
+
+</TabItem>
+
+<TabItem value="example-5" label="Example 5">
+
+import EXAMPLE162 from "./examples/_Initiate_test_5.md";
+
+<EXAMPLE162 />
+
+</TabItem>
+
+</Tabs>

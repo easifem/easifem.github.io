@@ -9,9 +9,9 @@ program main
 ```
 
 ```fortran
-  intvec = [ 5, 4, 3, 2, 1 ]
-  call QuickSort( vect1=intvec, low=1, high=SIZE(intvec) )
-  call display( intvec, "intvec = " )
+intvec = [ 5, 4, 3, 2, 1 ]
+call QuickSort( vect1=intvec, low=1, high=SIZE(intvec) )
+call display( intvec, "intvec = " )
 ```
 
 <details>
@@ -32,9 +32,9 @@ intvec =
 </details>
 
 ```fortran
-  realvec = [ 5, 4, 3, 2, 1 ]
-  call QuickSort( realvec, 1, SIZE( realvec ) )
-  call display( realvec, "realvec = " )
+realvec = [ 5, 4, 3, 2, 1 ]
+call QuickSort( realvec, 1, SIZE( realvec ) )
+call display( realvec, "realvec = " )
 ```
 
 <details>
@@ -48,7 +48,7 @@ realvec =
  2.00000  
  3.00000  
  4.00000  
- 5.00000  
+ 5.00000
 ```
 
 </div>

@@ -10,8 +10,8 @@
 // Reference: https://github.com/pester/docs/blob/main/src/components/PesterDataTable/PesterDataTable.js
 //
 //
+import { flexRender, getCoreRowModel, getSortedRowModel, useReactTable } from "@tanstack/react-table";
 import React from "react";
-import { flexRender, useReactTable, getCoreRowModel, getSortedRowModel } from '@tanstack/react-table'
 import "./style.css";
 
 // our pester.dev specific react-table
@@ -44,10 +44,12 @@ const PesterDataTable = ({
                 onClick={header.column.getToggleSortingHandler()}
               >
                 {flexRender(header.column.columnDef.header, header.getContext())}
-                <span>{{
-                  asc: ' ▲',
-                  desc: ' ▼',
-                }[header.column.getIsSorted()] ?? ''}</span>
+                <span>
+                  {{
+                    asc: " ▲",
+                    desc: " ▼",
+                  }[header.column.getIsSorted()] ?? ""}
+                </span>
               </th>
             ))}
           </tr>
@@ -66,7 +68,7 @@ const PesterDataTable = ({
                   >
                     {flexRender(
                       cell.column.columnDef.cell,
-                      cell.getContext()
+                      cell.getContext(),
                     )}
                   </td>
                 );

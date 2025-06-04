@@ -13,27 +13,25 @@ CALL display(mdencode(deg), "degrees: ")
 END PROGRAM main
 ```
 
-
 <details>
 <summary>See results</summary>
 <div>
 
+degrees:
 
-degrees: 
-
-| a |  b |  c | 
-|  --- |  --- |  --- | 
-| 0 | 0 | 0 | 
-| 1 | 0 | 0 | 
-| 0 | 1 | 0 | 
-| 1 | 1 | 0 | 
-| 0 | 0 | 1 | 
-| 1 | 0 | 1 | 
-| 0 | 1 | 1 | 
-| 1 | 1 | 1 | 
+| a | b | c |
+| - | - | - |
+| 0 | 0 | 0 |
+| 1 | 0 | 0 |
+| 0 | 1 | 0 |
+| 1 | 1 | 0 |
+| 0 | 0 | 1 |
+| 1 | 0 | 1 |
+| 0 | 1 | 1 |
+| 1 | 1 | 1 |
 
 $$
-1, x, y, xy, z, xz, yz, xyz 
+1, x, y, xy, z, xz, yz, xyz
 $$
 
 </div>

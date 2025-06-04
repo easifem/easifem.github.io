@@ -430,7 +430,7 @@ This subroutine update the state of the kernel after convergence.
 - Get `velocity0` from `velocity`
 - Get `pressure0` from `pressure`
 
-If `reset` is true then reset `velocity`,  `pressure` and `sol` to zero.
+If `reset` is true then reset `velocity`, `pressure` and `sol` to zero.
 
 ```fortran
 INTERFACE

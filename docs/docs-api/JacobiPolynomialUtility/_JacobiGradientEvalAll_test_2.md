@@ -14,19 +14,19 @@ program main
 ```
 
 ```fortran
-  !!
-  n=5
-  x = [-0.1, 0.0, 0.1]
-  exact = LegendreGradientEvalAll(n=n, x=x)
-  ans = JacobiGradientEvalAll(n=n, alpha=alpha, beta=beta, x=x)
-  call OK( ALL(SOFTEQ( exact, ans, tol)), "")
-  !!
-  n=10
-  x = [-0.1, 0.0, 0.1]
-  exact = LegendreGradientEvalAll(n=n, x=x)
-  ans = JacobiGradientEvalAll(n=n, alpha=alpha, beta=beta, x=x)
-  call OK( ALL(SOFTEQ( exact, ans, tol)), "")
-  !!
+!!
+n=5
+x = [-0.1, 0.0, 0.1]
+exact = LegendreGradientEvalAll(n=n, x=x)
+ans = JacobiGradientEvalAll(n=n, alpha=alpha, beta=beta, x=x)
+call OK( ALL(SOFTEQ( exact, ans, tol)), "")
+!!
+n=10
+x = [-0.1, 0.0, 0.1]
+exact = LegendreGradientEvalAll(n=n, x=x)
+ans = JacobiGradientEvalAll(n=n, alpha=alpha, beta=beta, x=x)
+call OK( ALL(SOFTEQ( exact, ans, tol)), "")
+!!
 ```
 
 ```fortran

@@ -8,6 +8,5 @@ title: setenv
 Currently this `subcommand` is not used.
 
 :::info ToDo
-In the future this `subcommand` will be used to change the  active environment, and to query the environment variables.
+In the future this `subcommand` will be used to change the active environment, and to query the environment variables.
 :::
-

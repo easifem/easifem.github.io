@@ -13,5 +13,3 @@ SUBROUTINE checkEssentialParam( obj, param )
 END SUBROUTINE checkEssentialParam
 END INTERFACE
 ```
-
-

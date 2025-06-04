@@ -79,7 +79,7 @@ ipiv =
 info = 0
 ```
 
-Using  `ipiv` in `SYCONV` to get `LDL` factorization
+Using `ipiv` in `SYCONV` to get `LDL` factorization
 
 ```fortran title="conversion to ldl"
 n = SIZE(mat, 1)

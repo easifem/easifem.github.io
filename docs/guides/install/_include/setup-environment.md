@@ -1,16 +1,16 @@
 To install `easifem` you need to define following environment variables in your shell.
 
-- **`EASIFEM_INSTALL_DIR`**: The location of file system where easifem  will be installed. For example, `/opt`, `${HOME}`, `/usr/local/`. Default location is `$HOME/.easifem/easifem/install/`.
+- **`EASIFEM_INSTALL_DIR`**: The location of file system where easifem will be installed. For example, `/opt`, `${HOME}`, `/usr/local/`. Default location is `$HOME/.easifem/easifem/install/`.
 - **`EASIFEM_SOURCE_DIR`**: The location of file system where the source code of easifem will be downloaded. For example, `~/.easifem/easifem/src/`.
 - **`EASIFEM_BUILD_DIR`**: The location of file system where build files will be stored. These files are necessary for installation, and after installation you can remove them if you want. Always keep your build directory separated from your source and install directory. For example, `~/.easifem/easifem/build/`.
 
 The above-mentioned environment variables are the fundamental environment variables, which are used for defining other variables as shown in the following table.
 
-| Env-var name              | description                                                                                      | example                                         |
-| :------------------------ | :----------------------------------------------------------------------------------------------- | :---------------------------------------------- |
-| **`EASIFEM_INSTALL_DIR`** | Location of file system where EASIFEM library will install its components and external packages. | `~/.easifem/easifem/install/`                           |
-| **`EASIFEM_SOURCE_DIR`**  | Location of file system where the source code will be downloaded.                                | `~/.easifem/easifem/src/`                               |
-| **`EASIFEM_BUILD_DIR`**   | Location of file system where the build files will be stored.                                    | `~/.easifem/easifem/build/`                             |
+| Env-var name              | description                                                                                      | example                                 |
+| :------------------------ | :----------------------------------------------------------------------------------------------- | :-------------------------------------- |
+| **`EASIFEM_INSTALL_DIR`** | Location of file system where EASIFEM library will install its components and external packages. | `~/.easifem/easifem/install/`           |
+| **`EASIFEM_SOURCE_DIR`**  | Location of file system where the source code will be downloaded.                                | `~/.easifem/easifem/src/`               |
+| **`EASIFEM_BUILD_DIR`**   | Location of file system where the build files will be stored.                                    | `~/.easifem/easifem/build/`             |
 | **`EASIFEM_BASE`**        | Location where `easifemBase` library will be installed.                                          | `EASIFEM_BASE=EASIFEM_INSTALL_DIR/base` |
 | **`EASIFEM_CLASSES`**     | Location where `easifemClasses` library will be installed.                                       | `EASIFEM_INSTALL_DIR/classes`           |
 | **`EASIFEM_MATERIALS`**   | Location where `easifemMaterials` library will be installed.                                     | `EASIFEM_INSTALL_DIR/materials`         |
@@ -28,7 +28,7 @@ First, make sure you have successfully installed the `easifem` CLI as mentioned 
 
 You can set up the environment variables in the configuration file `easifem.toml` as mentioned [here](/guides/easifemGO/config)
 
-The easifem command line  application creates `easifemvar.sh` and `easifemvar.fish` files (in `~/.config/easifem/`) which adds some path to `LD_LIBRARY_PATH` path. The first is useful if your shell is bash or zsh, and the latter file is useful for fish shell. 
+The easifem command line application creates `easifemvar.sh` and `easifemvar.fish` files (in `~/.config/easifem/`) which adds some path to `LD_LIBRARY_PATH` path. The first is useful if your shell is bash or zsh, and the latter file is useful for fish shell.
 
 - For `bash` and `zsh` shell, the name of the file is `easifemvar.sh`
 - For `fish` shell, the name of the file is `easifemvar.fish`.
@@ -127,4 +127,3 @@ echo $EASIFEM_INSTALL_DIR
 
 </TabItem>
 </Tabs>
-

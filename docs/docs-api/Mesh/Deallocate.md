@@ -2,10 +2,9 @@
 
 Deallocate the data stored in the mesh object.
 
-:::info 
+:::info
 This method is overloaded in Mesh.
 :::
-
 
 ```fortran
 INTERFACE

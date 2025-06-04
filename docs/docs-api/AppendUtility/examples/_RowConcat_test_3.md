@@ -7,8 +7,8 @@ PROGRAM main
 We can also concat the columns of two matrices.
 
 ```fortran
-    call display( RowConcat(a=reshape([1,2,3,4], [2,2]), &
-        & b=reshape([5,6,7,8], [2,2]) ), "RowConcat=" )
+call display( RowConcat(a=reshape([1,2,3,4], [2,2]), &
+    & b=reshape([5,6,7,8], [2,2]) ), "RowConcat=" )
 ```
 
 <details>
@@ -21,15 +21,15 @@ RowConcat=
    1  3   
    2  4   
    5  7   
-   6  8   
+   6  8
 ```
 
 </div>
 </details>
 
 ```fortran
-    call display( RowConcat(a=reshape(arange(1,9), [3,3]), &
-        & b=reshape(arange(10,13), [2,2]) ), "RowConcat=" )
+call display( RowConcat(a=reshape(arange(1,9), [3,3]), &
+    & b=reshape(arange(10,13), [2,2]) ), "RowConcat=" )
 ```
 
 <details>
@@ -50,8 +50,8 @@ RowConcat=
 </details>
 
 ```fortran
-    call display( RowConcat(a=reshape(arange(1,4), [2,2]), &
-        & b=reshape(arange(5,13), [3,3]) ), "RowConcat=" )
+call display( RowConcat(a=reshape(arange(1,4), [2,2]), &
+    & b=reshape(arange(5,13), [3,3]) ), "RowConcat=" )
 ```
 
 <details>

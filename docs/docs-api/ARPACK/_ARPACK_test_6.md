@@ -26,11 +26,11 @@ Getting the <span class="badge badge--primary"> ALGEBRAIC </span> Smallest eigen
 <TabItem value="command " label="🖳 Command" default>
 
 ```fortran {4}
-  mat = zeros(100,100, 1.0_DFP)
-  call SetDiag(mat=mat, d=arange(1, SIZE(mat,1)), diagNo=0)
-  mat(1,1) = -1
-  minEigenVal = SymSmallestEigenVal(mat=mat )
-  CALL Display(minEigenVal, "smallest Algebraic eigen val =")
+mat = zeros(100,100, 1.0_DFP)
+call SetDiag(mat=mat, d=arange(1, SIZE(mat,1)), diagNo=0)
+mat(1,1) = -1
+minEigenVal = SymSmallestEigenVal(mat=mat )
+CALL Display(minEigenVal, "smallest Algebraic eigen val =")
 ```
 
 </TabItem>
@@ -57,8 +57,8 @@ smallest Algebraic eigen val =2.00000
 <TabItem value="command " label="🖳 Command" default>
 
 ```fortran
-  minEigenVal = SymSmallestEigenVal(mat=mat, which="SM")
-  call display(minEigenVal, "smallest absolute eigen val=")
+minEigenVal = SymSmallestEigenVal(mat=mat, which="SM")
+call display(minEigenVal, "smallest absolute eigen val=")
 ```
 
 </TabItem>

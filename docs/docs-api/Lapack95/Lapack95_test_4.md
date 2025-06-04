@@ -77,7 +77,7 @@ exact L is given by:
  1.50000   1.00000   1.00000
 ```
 
-Computed L  $\tilde{L}$ is given below.
+Computed L $\tilde{L}$ is given below.
 
 ```txt
        L, permuted =

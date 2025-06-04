@@ -1,8 +1,8 @@
-import React from 'react';
-import Link from '@docusaurus/Link';
-import { ArrowUpRight } from 'react-feather';
-import Head from '@docusaurus/Head';
-import ThemedImage from '@theme/ThemedImage';
+import Head from "@docusaurus/Head";
+import Link from "@docusaurus/Link";
+import ThemedImage from "@theme/ThemedImage";
+import React from "react";
+import { ArrowUpRight } from "react-feather";
 
 export default function APIReferenceSection() {
   return (
@@ -23,9 +23,8 @@ export default function APIReferenceSection() {
         <div className="flex-1">
           <h2 className="text-4xl">REST API Reference</h2>
           <p className="text-zinc-400">
-            Don&apos;t worry, they are&apos;t complex. Use our
-            developer-friendly REST APIs and integrate video and voice communication
-            into your web, mobile, or desktop applications programmatically.
+            Don&apos;t worry, they are&apos;t complex. Use our developer-friendly REST APIs and integrate video and
+            voice communication into your web, mobile, or desktop applications programmatically.
           </p>
           <Link
             href="/api"
@@ -81,8 +80,8 @@ export default function APIReferenceSection() {
         <div className="flex flex-1 justify-end">
           <ThemedImage
             sources={{
-              light: '/static/landing-page/api-ref-light.png',
-              dark: '/static/landing-page/api-ref-dark.png',
+              light: "/static/landing-page/api-ref-light.png",
+              dark: "/static/landing-page/api-ref-dark.png",
             }}
             alt="API Reference Preview"
             loading="lazy"

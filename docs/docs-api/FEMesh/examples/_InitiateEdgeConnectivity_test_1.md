@@ -1,4 +1,4 @@
-In this example we show the usage of `InitiateEdgeConnectivity` method. 
+In this example we show the usage of `InitiateEdgeConnectivity` method.
 
 ```fortran
 PROGRAM main

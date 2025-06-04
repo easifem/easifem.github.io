@@ -25,18 +25,18 @@ PROGRAM main
 ```
 
 ```fortran title="Open file for import"
-  CALL FPL_INIT()
-  CALL param%initiate()
-  CALL resultFile%initiate( filename="./result.h5", mode="READ" )
-  CALL resultFile%open()
+CALL FPL_INIT()
+CALL param%initiate()
+CALL resultFile%initiate( filename="./result.h5", mode="READ" )
+CALL resultFile%open()
 ```
 
 ```fortran title="read domain"
-  !> start creating domain
-  CALL meshfile%initiate( filename="./mesh.h5", mode="READ" )
-  CALL meshfile%open()
-  CALL dom%initiate( hdf5=meshfile, group="" )
-  !> end creating domain
+!> start creating domain
+CALL meshfile%initiate( filename="./mesh.h5", mode="READ" )
+CALL meshfile%open()
+CALL dom%initiate( hdf5=meshfile, group="" )
+!> end creating domain
 ```
 
 ```fortran title="initiate scalar field"
@@ -54,10 +54,10 @@ PROGRAM main
 ```
 
 ```fortran title="Setting multiple values using triplets"
-  CALL Reallocate(realVec, dom%getTotalNodes())
-  CALL RANDOM_NUMBER(realVec)
-  CALL obj%set(value=realVec)
-  CALL obj%Display("obj = ")
+CALL Reallocate(realVec, dom%getTotalNodes())
+CALL RANDOM_NUMBER(realVec)
+CALL obj%set(value=realVec)
+CALL obj%Display("obj = ")
 ```
 
 ```txt title="results"
@@ -70,13 +70,13 @@ PROGRAM main
 0.371526,   
 0.956193,   
 0.684259,   
-0.335780,   
+0.335780,
 ```
 
 ```fortran title="Setting multiple values using triplets"
-  CALL RANDOM_NUMBER(realVec)
-  CALL obj2%set(value=realVec)
-  CALL obj2%Display("obj2 = ")
+CALL RANDOM_NUMBER(realVec)
+CALL obj2%set(value=realVec)
+CALL obj2%Display("obj2 = ")
 ```
 
 ```txt title="results"
@@ -89,12 +89,12 @@ PROGRAM main
 0.497695,   
 0.054821,   
 0.674551,   
-0.935478,   
+0.935478,
 ```
 
 ```fortran title="obj=obj+scale*obj2"
-  CALL obj%set(obj2=obj2, scale=1.0_DFP, addContribution=.TRUE.)
-  CALL obj%Display("obj =")
+CALL obj%set(obj2=obj2, scale=1.0_DFP, addContribution=.TRUE.)
+CALL obj%Display("obj =")
 ```
 
 ```txt title="results"
@@ -107,7 +107,7 @@ PROGRAM main
 0.86922,   
 1.01101,   
 1.35881,   
-1.27126,   
+1.27126,
 ```
 
 ```fortran title="Cleanup"

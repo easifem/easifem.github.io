@@ -108,10 +108,10 @@ IF `addContribution` and `scale` is ABSENT then:
 - This subroutine sets a block of data to matrix.
 - This block data is contained in `value(:,:)`
 - The size of `value` should be `tdof *size( globalNode )`, where
- `tdof` is the total degrees of freedom
+  `tdof` is the total degrees of freedom
 - `globalNode` contains the global node number
 - `storageFMT` is the storage format of `value(:,:)`, it can be `DOF_FMT`, or
- `FMT_NODES`.
+  `FMT_NODES`.
 
 If `addContribution` and `scale` are present then:
 

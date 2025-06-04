@@ -178,7 +178,7 @@ The `ElemdataType_` is private but you can use its instance called `TypeElem`. F
 
 This module exposes following methods.
 
-## Elemdata_Copy 
+## Elemdata_Copy
 
 - Copy obj2 to obj1
 
@@ -338,7 +338,8 @@ END SUBROUTINE
 
 ## Elemdata_GetConnectivity
 
-This subroutine returns the connectivity of the element. 
+This subroutine returns the connectivity of the element.
+
 - tsize is the size of data written in con
 - con is the connectivity array, it should be allocated
 - opt is the type of connectivity, following options are allowed
@@ -489,7 +490,6 @@ END FUNCTION Elemdata_GetTotalEdgeDOF
 ```
 
 ## Elemdata_GetTotalFaceDOF
-
 
 This function returns the total number of face dofs on the face of an element.
 All dofs are internal to face, that is edge and vertex dof are not included.

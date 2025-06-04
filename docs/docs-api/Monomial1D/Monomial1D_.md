@@ -99,7 +99,7 @@ Example:
 
 ### OPERATOR(.Grad.)
 
-Returns the gradient of Monomial in terms of Monomial. For example, if the  monomial is $x^{n}$, then `.GRAD.` operator returns monomial representing $x^{n-1}$.
+Returns the gradient of Monomial in terms of Monomial. For example, if the monomial is $x^{n}$, then `.GRAD.` operator returns monomial representing $x^{n-1}$.
 
 Interface:
 
@@ -117,7 +117,7 @@ Example:
 - [[Monomial1D_test_4.md]]
 
 !!! note "Grad"
-    Note that you can also use `obj%Grad()` function to get the gradient.
+Note that you can also use `obj%Grad()` function to get the gradient.
 
 ### GetStringForUID
 
@@ -139,7 +139,8 @@ END INTERFACE
 ```
 
 !!! example "Examples"
-    - [[Monomial1D_test_6]]
+
+- [[Monomial1D_test_6]]
 
 ### GetDisplayString
 
@@ -156,8 +157,9 @@ Returns the coefficient of monomial, which is always 1.0.
 Display the monomial on the screen.
 
 !!! example "Examples"
-    - [[Monomial1D_test_1]]
-    - [[Monomial1D_test_2]]
+
+- [[Monomial1D_test_1]]
+- [[Monomial1D_test_2]]
 
 ## OperatorMethods
 
@@ -166,7 +168,8 @@ Display the monomial on the screen.
 OPERATOR(*) multiplies two Monomial.
 
 !!! example "Examples"
-    - [[Monomial1D_test_2.md]]
+
+- [[Monomial1D_test_2.md]]
 
 ### ASSIGNMENT(=)
 
@@ -201,7 +204,8 @@ END INTERFACE
 ```
 
 !!! example "Examples"
-    - [[Monomial1D_test_5.md]]
+
+- [[Monomial1D_test_5.md]]
 
 ## EvenMonomials1D
 
@@ -223,7 +227,8 @@ END INTERFACE
 ```
 
 !!! example "Examples"
-    - [[Monomial1D_test_5.md]]
+
+- [[Monomial1D_test_5.md]]
 
 ## OddMonomials1D
 
@@ -245,4 +250,5 @@ END INTERFACE
 ```
 
 !!! example "Examples"
-    - [[Monomial1D_test_5.md]]
+
+- [[Monomial1D_test_5.md]]

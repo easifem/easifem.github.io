@@ -1,6 +1,6 @@
 This example tests the `SetMeshFacetElement` method of the domain.
 
-``` fortran
+```fortran
 PROGRAM main
   USE easifemBase
   USE easifemClasses

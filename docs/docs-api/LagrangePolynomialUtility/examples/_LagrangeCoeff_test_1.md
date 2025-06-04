@@ -10,16 +10,16 @@ real(dfp), parameter :: tol=1.0E-10
 Line LagrangeCoeff
 
 ```fortran
-  i = 1; elemType=Line; order=1
-  xij = zeros(1, 2, 1.0)
-  xij(1, : ) = [0,1]
-  coeff = LagrangeCoeff(order=order, elemType=elemType, i=i, xij=xij)
-  ans = [1.0, -1.0]
-  call ok( all(softeq(coeff, ans, tol)), "")
-  i = 2
-  coeff = LagrangeCoeff(order=order, elemType=elemType, i=i, xij=xij)
-  ans=[0.0, 1.0]
-  call ok( all(softeq(coeff, ans, tol)), "")
+i = 1; elemType=Line; order=1
+xij = zeros(1, 2, 1.0)
+xij(1, : ) = [0,1]
+coeff = LagrangeCoeff(order=order, elemType=elemType, i=i, xij=xij)
+ans = [1.0, -1.0]
+call ok( all(softeq(coeff, ans, tol)), "")
+i = 2
+coeff = LagrangeCoeff(order=order, elemType=elemType, i=i, xij=xij)
+ans=[0.0, 1.0]
+call ok( all(softeq(coeff, ans, tol)), "")
 ```
 
 ```fortran

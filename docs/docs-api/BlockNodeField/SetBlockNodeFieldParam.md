@@ -49,14 +49,14 @@ END INTERFACE
 
 Parameters required for constructing an instance of `BlockNodeField_` class are given below
 
-| name          | data type |        value         |                       comment |
-|:------------- |:---------:|:--------------------:| -----------------------------:|
-| engine        |  String   |   `NATIVE_SERIAL`    |                               |
+| name            | data type |        value         |                       comment |
+| :-------------- | :-------: | :------------------: | ----------------------------: |
+| engine          |  String   |   `NATIVE_SERIAL`    |                               |
 | `name(:)`       |  String   |                      |             Name of the field |
 | `fieldType(:)`  |  String   | `NORMAL`, `CONSTANT` |                               |
 | `spaceCompo(:)` |  Integer  |                      |   Number of spatial component |
 | `timeCompo(:)`  |  Integer  |                      | Number of temporal components |
-|               |           |                      |                               |
+|                 |           |                      |                               |
 
 This routine sets the essential parameters required for constructing the `BlockNodeField_`.
 

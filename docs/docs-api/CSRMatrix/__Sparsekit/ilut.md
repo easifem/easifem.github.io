@@ -23,11 +23,11 @@ SAMPLE ACCELERATOR AND LU SOLVERS:
 ## ILUT
 
 ```fortran
-  subroutine ilut(n,a,ja,ia,lfil,droptol,alu,jlu,ju,iwk,w,jw,ierr)
-  implicit none
-  integer n
-  real*8 a(*),alu(*),w(n+1),droptol
-  integer ja(*),ia(n+1),jlu(*),ju(n),jw(2*n),lfil,iwk,ierr
+subroutine ilut(n,a,ja,ia,lfil,droptol,alu,jlu,ju,iwk,w,jw,ierr)
+implicit none
+integer n
+real*8 a(*),alu(*),w(n+1),droptol
+integer ja(*),ia(n+1),jlu(*),ju(n),jw(2*n),lfil,iwk,ierr
 ```
 
 Incomplete LU factorization with dual truncation mechanism.
@@ -72,11 +72,11 @@ The diagonal elements of the input matrix must be nonzero (at least 'structurall
 ## ILUTP
 
 ```fortran
-  subroutine ilutp(n,a,ja,ia,lfil,droptol,permtol,mbloc,alu,
-    jlu,ju,iwk,w,jw,iperm,ierr)
-    integer n,ja(*),ia(n+1),lfil,jlu(*),ju(n),jw(2*n),iwk,
-      iperm(2*n),ierr
-    real*8 a(*), alu(*), w(n+1), droptol
+subroutine ilutp(n,a,ja,ia,lfil,droptol,permtol,mbloc,alu,
+  jlu,ju,iwk,w,jw,iperm,ierr)
+  integer n,ja(*),ia(n+1),lfil,jlu(*),ju(n),jw(2*n),iwk,
+    iperm(2*n),ierr
+  real*8 a(*), alu(*), w(n+1), droptol
 ```
 
 LUTP preconditioner: ILUT with pivoting, incomplete LU factorization with dual truncation mechanism
@@ -119,9 +119,9 @@ To avoid permuting the solution vectors arrays for each lu-solve, the matrix a i
 To permute the matrix back to its original state use the loop:
 
 ```fortran
-  do k=ia(1), ia(n+1)-1
-     ja(k) = iperm(ja(k))
-  enddo
+do k=ia(1), ia(n+1)-1
+   ja(k) = iperm(ja(k))
+enddo
 ```
 
 ## ILUD
@@ -129,11 +129,11 @@ To permute the matrix back to its original state use the loop:
 ILUD preconditioner: incomplete LU factorization with standard droppoing strategy
 
 ```fortran
-  subroutine ilud(n,a,ja,ia,alph,tol,alu,jlu,ju,iwk,w,jw,ierr)
-  implicit none
-  integer n
-  real*8 a(*),alu(*),w(2*n),tol, alph
-  integer ja(*),ia(n+1),jlu(*),ju(n),jw(2*n),iwk,ierr
+subroutine ilud(n,a,ja,ia,alph,tol,alu,jlu,ju,iwk,w,jw,ierr)
+implicit none
+integer n
+real*8 a(*),alu(*),w(2*n),tol, alph
+integer ja(*),ia(n+1),jlu(*),ju(n),jw(2*n),iwk,ierr
 ```
 
 > This routine computes the ILU factorization with standard threshold dropping: at ith step of elimination, an element a(i,j) in row i is dropped if it satisfies the criterion:
@@ -179,12 +179,12 @@ WORK ARRAYS
 ILUDP preconditioner, incomplete LU factorization with standard droppoing strategy.
 
 ```fortran
-  subroutine iludp(n,a,ja,ia,alph,droptol,permtol,mbloc,alu,
-  jlu,ju,iwk,w,jw,iperm,ierr)
-  implicit none
-  integer n,ja(*),ia(n+1),mbloc,jlu(*),ju(n),jw(2*n),iwk,
-  iperm(2*n),ierr
-  real*8 a(*), alu(*), w(2*n), alph, droptol, permtol
+subroutine iludp(n,a,ja,ia,alph,droptol,permtol,mbloc,alu,
+jlu,ju,iwk,w,jw,iperm,ierr)
+implicit none
+integer n,ja(*),ia(n+1),mbloc,jlu(*),ju(n),jw(2*n),iwk,
+iperm(2*n),ierr
+real*8 a(*), alu(*), w(2*n), alph, droptol, permtol
 ```
 
 ON ENTRY
@@ -235,11 +235,11 @@ enddo
 ILU WITH LEVEL OF FILL-IN OF K (ILU(k))
 
 ```fortran
-  subroutine iluk(n,a,ja,ia,lfil,alu,jlu,ju,levs,iwk,w,jw,ierr)
-  implicit none
-  integer n
-  real*8 a(*),alu(*),w(n)
-  integer ja(*),ia(n+1),jlu(*),ju(n),levs(*),jw(3*n),lfil,iwk,ierr
+subroutine iluk(n,a,ja,ia,lfil,alu,jlu,ju,levs,iwk,w,jw,ierr)
+implicit none
+integer n
+real*8 a(*),alu(*),w(n)
+integer ja(*),ia(n+1),jlu(*),ju(n),levs(*),jw(3*n),lfil,iwk,ierr
 ```
 
 ON ENTRY
@@ -284,9 +284,9 @@ This is not implemented efficiently storage-wise. For example: Only the part of 
 ## LUSOL
 
 ```fortran
-  subroutine lusol(n, y, x, alu, jlu, ju)
-   real*8 x(n), y(n), alu(*)
-  integer n, jlu(*), ju(*)
+subroutine lusol(n, y, x, alu, jlu, ju)
+ real*8 x(n), y(n), alu(*)
+integer n, jlu(*), ju(*)
 ```
 
 This routine solves the system `LU x = y`, given an LU decomposition of a matrix stored in (`ALU, JLU, JU`) modified sparse row format (MSR)
@@ -308,9 +308,9 @@ Routine is in place: `CALL LUSOL (n, x, x, alu, jlu, ju)` will solve the system 
 ## LUTSOL
 
 ```fortran
-  subroutine lutsol(n, y, x, alu, jlu, ju)
-   real*8 x(n), y(n), alu(*)
-  integer n, jlu(*), ju(*)
+subroutine lutsol(n, y, x, alu, jlu, ju)
+ real*8 x(n), y(n), alu(*)
+integer n, jlu(*), ju(*)
 ```
 
 This routine solves the system Transp(LU) x = y, given an LU decomposition of a matrix stored in (alu, jlu, ju) modified sparse row format. Transp(M) is the transpose of M.

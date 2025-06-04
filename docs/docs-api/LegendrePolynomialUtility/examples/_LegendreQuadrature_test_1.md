@@ -17,11 +17,11 @@ program main
 :::
 
 ```fortran
-  n = 2; quadType=Gauss; call callme
+n = 2; quadType=Gauss; call callme
 ```
 
 | pt       | wt |
-|----------|----|
+| -------- | -- |
 | -0.57735 | 1  |
 | 0.57735  | 1  |
 
@@ -29,11 +29,11 @@ program main
 :::
 
 ```fortran
-  n = 3; quadType=GaussRadauLeft; call callme
+n = 3; quadType=GaussRadauLeft; call callme
 ```
 
 | pt      | wt      |
-|---------|---------|
+| ------- | ------- |
 | -1      | 0.22222 |
 | -0.2899 | 1.025   |
 | 0.6899  | 0.75281 |
@@ -42,11 +42,11 @@ program main
 :::
 
 ```fortran
-  n = 3; quadType=GaussRadauRight; call callme
+n = 3; quadType=GaussRadauRight; call callme
 ```
 
 | pt      | wt      |
-|---------|---------|
+| ------- | ------- |
 | -0.6899 | 0.75281 |
 | 0.2899  | 1.025   |
 | 1       | 0.22222 |
@@ -55,11 +55,11 @@ program main
 :::
 
 ```fortran
-  n = 4; quadType=GaussLobatto; call callme
+n = 4; quadType=GaussLobatto; call callme
 ```
 
 | pt       | wt      |
-|----------|---------|
+| -------- | ------- |
 | -1       | 0.16667 |
 | -0.44721 | 0.83333 |
 | 0.44721  | 0.83333 |

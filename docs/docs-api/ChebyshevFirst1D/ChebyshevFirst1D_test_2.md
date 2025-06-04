@@ -28,11 +28,11 @@ integer(i4b) :: ii
 Let us generate 100 Chebyshev1 polynomials
 
 ```fortran
-  DO ii = 1, 1000000
-    obj=ChebyshevFirst1D(varname="x", n=100)
-    call obj%Deallocate()
-  END DO
-  Read( *, * ) ii
+DO ii = 1, 1000000
+  obj=ChebyshevFirst1D(varname="x", n=100)
+  call obj%Deallocate()
+END DO
+Read( *, * ) ii
 ```
 
 ```fortran

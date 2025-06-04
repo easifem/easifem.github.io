@@ -12,7 +12,7 @@ tags:
 
 # BeFoR64
 
-This library is developed by [Mr. Szaghi](https://github.com/szaghi). It is for *base64* encoding/decoding for modern Fortran projects.
+This library is developed by [Mr. Szaghi](https://github.com/szaghi). It is for _base64_ encoding/decoding for modern Fortran projects.
 
 Modern Fortran standards (2003+) have introduced better support for strings manipulations. Exploiting such new Fortran capabilities, BeFoR64 provides an easy to use module library for encoding and decoding Fortran types (binary internal representation) in ascii-base64-encoded string.
 

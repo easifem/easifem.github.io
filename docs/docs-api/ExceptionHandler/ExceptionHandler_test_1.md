@@ -47,9 +47,9 @@ CALL e%raiseInformation(modName//"::"//myName//" - "// &
 Result:
 
 [💚 INFORMATION ✅]
-  [🚀 Module ] ExceptionHandler_test_1.F90
-  [🎇 Method ] main()
-  [🔊 Message] Hello world
+[🚀 Module ] ExceptionHandler_test_1.F90
+[🎇 Method ] main()
+[🔊 Message] Hello world
 
 - [[ExceptionHandler_#RaiseWarning]]
 
@@ -59,9 +59,9 @@ CALL e%raiseWarning(modName//"::"//myName//" - "// &
 ```
 
 [⚠ WARNING ❗]
-  [🚀 Module ] ExceptionHandler_test_1.F90
-  [🎇 Method ] main()
-  [🔊 Message] Hello world
+[🚀 Module ] ExceptionHandler_test_1.F90
+[🎇 Method ] main()
+[🔊 Message] Hello world
 
 - [[ExceptionHandler_#RaiseDebug]]
 
@@ -71,9 +71,9 @@ CALL e%raiseDebug(modName//"::"//myName//" - "// &
 ```
 
 [❓ DEBUG 🐛]
-  [🚀 Module ] ExceptionHandler_test_1.F90
-  [🎇 Method ] main()
-  [🔊 Message] Hello world
+[🚀 Module ] ExceptionHandler_test_1.F90
+[🎇 Method ] main()
+[🔊 Message] Hello world
 
 - [[ExceptionHandler_#RaiseError]]
 
@@ -83,9 +83,9 @@ CALL e%raiseError(modName//"::"//myName//" - "// &
 ```
 
 [❎ ERROR ⛔]
-  [🚀 Module ] ExceptionHandler_test_1.F90
-  [🎇 Method ] main()
-  [🔊 Message] Hello world
+[🚀 Module ] ExceptionHandler_test_1.F90
+[🎇 Method ] main()
+[🔊 Message] Hello world
 
 ```fortran
 END PROGRAM main

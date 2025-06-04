@@ -2,13 +2,13 @@
 
 This function returns Gauss Legendre Radau quadrature points of a given order.
 
-<span class="badge badge--success"> Generic name:  GaussLegendreRadauLeftQuadrature </span>
+<span class="badge badge--success"> Generic name: GaussLegendreRadauLeftQuadrature </span>
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::note
-For line-element n point Gauss Legendre Radau rule has $2n-2$ degree of accuracy.  
+For line-element n point Gauss Legendre Radau rule has $2n-2$ degree of accuracy.\
 :::
 
 ## Interface 1
@@ -63,4 +63,3 @@ INTERFACE
   END FUNCTION GaussLegendreRadauLeftQuadrature
 END INTERFACE
 ```
-

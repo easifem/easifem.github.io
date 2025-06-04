@@ -37,26 +37,26 @@ y=1+x+y+xy
 $$
 
 ```fortran
-  coeff = [1,1,1,1]
-  call reallocate( degree, 4, 2 )
-  degree(:,1) = [0,1,0,1]
-  degree(:,2) = [0,0,1,1]
-  call f1%initiate( coeff, degree, "x", "y" )
-  call f1%display( 'f(x,y)=' )
+coeff = [1,1,1,1]
+call reallocate( degree, 4, 2 )
+degree(:,1) = [0,1,0,1]
+degree(:,2) = [0,0,1,1]
+call f1%initiate( coeff, degree, "x", "y" )
+call f1%display( 'f(x,y)=' )
 ```
 
 !!! note "Eval"
 
 ```fortran
-  x = 1.0; y=1.0
-  ans = f1%Eval( x, y )
-  exact = 1+x+y+x*y
-  CALL ISABS( ans, exact, tol )
-  !!
-  x = 1.0; y=0.0
-  ans = f1%Eval( x, y )
-  exact = 1+x+y+x*y
-  CALL ISABS( ans, exact, tol)
+x = 1.0; y=1.0
+ans = f1%Eval( x, y )
+exact = 1+x+y+x*y
+CALL ISABS( ans, exact, tol )
+!!
+x = 1.0; y=0.0
+ans = f1%Eval( x, y )
+exact = 1+x+y+x*y
+CALL ISABS( ans, exact, tol)
 ```
 
 !!! note "EvalGradient"
@@ -67,10 +67,10 @@ $$
 $$
 
 ```fortran
-  x=1.0; y=1.0
-  ans = f1%EvalGradient( x, y, dim=1_I4B )
-  exact = 1+y
-  CALL ISABS( ans, exact, tol)
+x=1.0; y=1.0
+ans = f1%EvalGradient( x, y, dim=1_I4B )
+exact = 1+y
+CALL ISABS( ans, exact, tol)
 ```
 
 !!! note "EvalGradient"
@@ -81,10 +81,10 @@ $$
 $$
 
 ```fortran
-  x=1.0; y=0.0
-  ans = f1%EvalGradient( x, y, dim=2_I4B )
-  exact = 1+x
-  CALL ISABS( ans, exact, tol)
+x=1.0; y=0.0
+ans = f1%EvalGradient( x, y, dim=2_I4B )
+exact = 1+x
+CALL ISABS( ans, exact, tol)
 ```
 
 ```fortran

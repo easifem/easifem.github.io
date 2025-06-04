@@ -28,5 +28,3 @@ coeff = LagrangeCoeff_Hexahedron(&
 
 END PROGRAM main
 ```
-
-

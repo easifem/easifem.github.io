@@ -17,22 +17,20 @@ ans = QuadraturePoint_Tetrahedron(&
   & refTetrahedron=refTetrahedron%chars())
 
 CALL Display(mdencode(ans) , "ans" // char_lf2 )
-
 ```
 
 <details>
 <summary>See results</summary>
 <div>
 
-
 Ans
 
-|  | 
-|  --- | 
-| 0.25 | 
-| 0.25 | 
-| 0.25 | 
-| 0.16667 | 
+|         |
+| ------- |
+| 0.25    |
+| 0.25    |
+| 0.25    |
+| 0.16667 |
 
 </div>
 </details>
@@ -52,12 +50,12 @@ CALL Display(mdencode(ans) , "ans" // char_lf2 )
 
 Ans
 
-|  | 
-|  --- | 
-| -0.5 | 
-| -0.5 | 
-| -0.5 | 
-| 1.3333 | 
+|        |
+| ------ |
+| -0.5   |
+| -0.5   |
+| -0.5   |
+| 1.3333 |
 
 ```fortran
 refTetrahedron = "UNIT"
@@ -73,7 +71,6 @@ ans = QuadraturePoint_Tetrahedron(&
 CALL Display(mdencode(ans) , "ans" // char_lf2 )
 
 END PROGRAM main
-
 ```
 
 <details>
@@ -82,14 +79,12 @@ END PROGRAM main
 
 Ans
 
-|  | 
-|  --- | 
-| 0.25 | 
-| 0.25 | 
-| 0.25 | 
-| 0.16667 | 
+|         |
+| ------- |
+| 0.25    |
+| 0.25    |
+| 0.25    |
+| 0.16667 |
 
 </div>
 </details>
-
-

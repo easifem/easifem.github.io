@@ -11,7 +11,7 @@ tags:
 # FEVariable example 32c
 
 !!! note ""
-    This example tests * operator. Vector, Quadrature
+This example tests * operator. Vector, Quadrature
 
 ## Use association
 
@@ -31,87 +31,87 @@ PROGRAM main
 !!! note "constant * constant"
 
 ```fortran
-  obj = QuadratureVariable( arange(1.0_DFP, 3.0_DFP), &
-      & typeFEVariableVector,    &
-      & typeFEVariableConstant ) &
-      * QuadratureVariable( arange(1.0_DFP, 3.0_DFP), &
-      & typeFEVariableVector,    &
-      & typeFEVariableConstant )
-  CALL Display(obj, "constant * constant")
+obj = QuadratureVariable( arange(1.0_DFP, 3.0_DFP), &
+    & typeFEVariableVector,    &
+    & typeFEVariableConstant ) &
+    * QuadratureVariable( arange(1.0_DFP, 3.0_DFP), &
+    & typeFEVariableVector,    &
+    & typeFEVariableConstant )
+CALL Display(obj, "constant * constant")
 ```
 
 ```fortran
-  obj = QuadratureVariable( arange(1.0_DFP, 3.0_DFP), &
-      & typeFEVariableVector,    &
-      & typeFEVariableConstant ) &
-      * 1.0_DFP
-  CALL Display(obj, "constant * constant")
+obj = QuadratureVariable( arange(1.0_DFP, 3.0_DFP), &
+    & typeFEVariableVector,    &
+    & typeFEVariableConstant ) &
+    * 1.0_DFP
+CALL Display(obj, "constant * constant")
 ```
 
 !!! note "space * constant"
 
 ```fortran
-  call display("=================================")
-  obj = QuadratureVariable( reshape(arange(1.0_DFP, 6.0_DFP), [3,2]), &
-      & typeFEVariableVector, &
-      & typeFEVariableSpace ) &
-      * QuadratureVariable( arange(1.0_DFP, 3.0_DFP), &
-      & typeFEVariableVector,    &
-      & typeFEVariableConstant )
-  CALL Display(obj, "space * constant")
+call display("=================================")
+obj = QuadratureVariable( reshape(arange(1.0_DFP, 6.0_DFP), [3,2]), &
+    & typeFEVariableVector, &
+    & typeFEVariableSpace ) &
+    * QuadratureVariable( arange(1.0_DFP, 3.0_DFP), &
+    & typeFEVariableVector,    &
+    & typeFEVariableConstant )
+CALL Display(obj, "space * constant")
 ```
 
 ```fortran
-  call display("=================================")
-  obj = QuadratureVariable( reshape(arange(1.0_DFP, 6.0_DFP), [3,2]), &
-      & typeFEVariableVector, &
-      & typeFEVariableSpace ) &
-      * 1.0_DFP
-  CALL Display(obj, "space * constant")
+call display("=================================")
+obj = QuadratureVariable( reshape(arange(1.0_DFP, 6.0_DFP), [3,2]), &
+    & typeFEVariableVector, &
+    & typeFEVariableSpace ) &
+    * 1.0_DFP
+CALL Display(obj, "space * constant")
 ```
 
 !!! note "time * constant"
 
 ```fortran
-  call display("=================================")
-  obj = QuadratureVariable( reshape(arange(1.0_DFP, 6.0_DFP), [3,2]), &
-      & typeFEVariableVector, &
-      & typeFEVariableTime ) &
-      * QuadratureVariable( arange(1.0_DFP, 3.0_DFP), &
-      & typeFEVariableVector,    &
-      & typeFEVariableConstant )
-  CALL Display(obj, "time * constant")
+call display("=================================")
+obj = QuadratureVariable( reshape(arange(1.0_DFP, 6.0_DFP), [3,2]), &
+    & typeFEVariableVector, &
+    & typeFEVariableTime ) &
+    * QuadratureVariable( arange(1.0_DFP, 3.0_DFP), &
+    & typeFEVariableVector,    &
+    & typeFEVariableConstant )
+CALL Display(obj, "time * constant")
 ```
 
 ```fortran
-  call display("=================================")
-  obj = QuadratureVariable( reshape(arange(1.0_DFP, 6.0_DFP), [3,2]), &
-      & typeFEVariableVector, &
-      & typeFEVariableTime ) &
-      * 1.0_DFP
-  CALL Display(obj, "time * constant")
+call display("=================================")
+obj = QuadratureVariable( reshape(arange(1.0_DFP, 6.0_DFP), [3,2]), &
+    & typeFEVariableVector, &
+    & typeFEVariableTime ) &
+    * 1.0_DFP
+CALL Display(obj, "time * constant")
 ```
 
 !!! note "spacetime * constant"
 
 ```fortran
-  call display("=================================")
-  obj = QuadratureVariable( reshape(arange(1.0_DFP, 12.0_DFP), [3,2,2]), &
-      & typeFEVariableVector, &
-      & typeFEVariableSpaceTime ) &
-      * QuadratureVariable( arange(1.0_DFP, 3.0_DFP), &
-      & typeFEVariableVector,    &
-      & typeFEVariableConstant )
-  CALL Display(obj, "spacetime * constant")
+call display("=================================")
+obj = QuadratureVariable( reshape(arange(1.0_DFP, 12.0_DFP), [3,2,2]), &
+    & typeFEVariableVector, &
+    & typeFEVariableSpaceTime ) &
+    * QuadratureVariable( arange(1.0_DFP, 3.0_DFP), &
+    & typeFEVariableVector,    &
+    & typeFEVariableConstant )
+CALL Display(obj, "spacetime * constant")
 ```
 
 ```fortran
-  call display("=================================")
-  obj = QuadratureVariable( reshape(arange(1.0_DFP, 12.0_DFP), [3,2,2]), &
-      & typeFEVariableVector, &
-      & typeFEVariableSpaceTime ) &
-      * 1.0_DFP
-  CALL Display(obj, "spacetime * constant")
+call display("=================================")
+obj = QuadratureVariable( reshape(arange(1.0_DFP, 12.0_DFP), [3,2,2]), &
+    & typeFEVariableVector, &
+    & typeFEVariableSpaceTime ) &
+    * 1.0_DFP
+CALL Display(obj, "spacetime * constant")
 ```
 
 ```fortran

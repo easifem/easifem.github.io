@@ -12,7 +12,7 @@ tags:
 # FEVariable example 62
 
 !!! note ""
-    This example tests `ABS` operator. Scalar, Quadrature Variable.
+This example tests `ABS` operator. Scalar, Quadrature Variable.
 
 ## Use association
 
@@ -33,56 +33,56 @@ PROGRAM main
 !!! note "constant"
 
 ```fortran
-  obj = ABS(QuadratureVariable( &
-      & -2.0_DFP, &
-      & typeFEVariableScalar,    &
-      & typeFEVariableConstant ))
-  ans = QuadratureVariable( 2.0_DFP, &
-      & typeFEVariableScalar,    &
-      & typeFEVariableConstant )
-  CALL OK( obj .EQ. ans, "constant:" )
+obj = ABS(QuadratureVariable( &
+    & -2.0_DFP, &
+    & typeFEVariableScalar,    &
+    & typeFEVariableConstant ))
+ans = QuadratureVariable( 2.0_DFP, &
+    & typeFEVariableScalar,    &
+    & typeFEVariableConstant )
+CALL OK( obj .EQ. ans, "constant:" )
 ```
 
 !!! note "space"
 
 ```fortran
-  obj = ABS(QuadratureVariable( &
-      & -arange(1.0_DFP, 3.0_DFP), &
-      & typeFEVariableScalar, &
-      & typeFEVariableSpace ) )
-  ans = QuadratureVariable( &
-      & arange(1.0_DFP, 3.0_DFP), &
-      & typeFEVariableScalar,    &
-      & typeFEVariableSpace )
-  CALL OK( obj .EQ. ans, "space:" )
+obj = ABS(QuadratureVariable( &
+    & -arange(1.0_DFP, 3.0_DFP), &
+    & typeFEVariableScalar, &
+    & typeFEVariableSpace ) )
+ans = QuadratureVariable( &
+    & arange(1.0_DFP, 3.0_DFP), &
+    & typeFEVariableScalar,    &
+    & typeFEVariableSpace )
+CALL OK( obj .EQ. ans, "space:" )
 ```
 
 !!! note "time"
 
 ```fortran
-  obj = ABS(QuadratureVariable( &
-      & -arange(0.0_DFP, 3.0_DFP), &
-      & typeFEVariableScalar, &
-      & typeFEVariableTime ))
-  ans = QuadratureVariable( &
-      & arange(0.0_DFP, 3.0_DFP), &
-      & typeFEVariableScalar,    &
-      & typeFEVariableTime )
-  CALL OK( obj .EQ. ans, "time:" )
+obj = ABS(QuadratureVariable( &
+    & -arange(0.0_DFP, 3.0_DFP), &
+    & typeFEVariableScalar, &
+    & typeFEVariableTime ))
+ans = QuadratureVariable( &
+    & arange(0.0_DFP, 3.0_DFP), &
+    & typeFEVariableScalar,    &
+    & typeFEVariableTime )
+CALL OK( obj .EQ. ans, "time:" )
 ```
 
 !!! note "spacetime"
 
 ```fortran
-  obj = ABS(QuadratureVariable( &
-      & reshape(-arange(1.0_DFP, 6.0_DFP), [3,2]), &
-      & typeFEVariableScalar, &
-      & typeFEVariableSpaceTime ))
-  ans = QuadratureVariable( &
-      & reshape(arange(1.0_DFP, 6.0_DFP), [3,2]), &
-      & typeFEVariableScalar,    &
-      & typeFEVariableSpaceTime )
-  CALL OK( obj .EQ. ans, "spacetime" )
+obj = ABS(QuadratureVariable( &
+    & reshape(-arange(1.0_DFP, 6.0_DFP), [3,2]), &
+    & typeFEVariableScalar, &
+    & typeFEVariableSpaceTime ))
+ans = QuadratureVariable( &
+    & reshape(arange(1.0_DFP, 6.0_DFP), [3,2]), &
+    & typeFEVariableScalar,    &
+    & typeFEVariableSpaceTime )
+CALL OK( obj .EQ. ans, "spacetime" )
 ```
 
 ```fortran

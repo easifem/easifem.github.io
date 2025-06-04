@@ -43,7 +43,7 @@ yay -Sy gcc gcc-fortran openmp curl git python3 cmake ninja lapack openblas hdf5
 
 If you face any problem installing plplot with fortran binding, then follow the instruction given below.
 
-```bash 
+```bash
 mkdir -pv ~/temp 
 cd ~/temp 
 git clone https://github.com/easifem/archlinux-plplot-fortran.git

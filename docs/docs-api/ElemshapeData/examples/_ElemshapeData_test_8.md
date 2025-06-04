@@ -9,4 +9,3 @@ This example demonstrates how to initiate an instance of [[ElemshapeData_]] for 
 - [[ReferenceTriangle_]]
 
 ## Usage
-

@@ -2,7 +2,6 @@
 
 Norm 1 of scalar field.
 
-
 ## Interface
 
 ```fortran

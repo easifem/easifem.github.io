@@ -55,23 +55,23 @@ PROGRAM main
 ```
 
 ```fortran
-  CALL SetSparsity(obj)
+CALL SetSparsity(obj)
 ```
 
 ```fortran
-  obj = 1.0_DFP
+obj = 1.0_DFP
 ```
 
 ```fortran
-  CALL Reallocate( m2, 2*(dofobj .tdof. 1), 2*(dofobj .tdof. 1) )
-  m2 = 2.0_DFP
-  CALL Add( obj=obj, inodenum=[1,2], jnodenum=[1,2], ivar=1, jvar=1, &
-    & value=m2, scale=1.0_DFP)
+CALL Reallocate( m2, 2*(dofobj .tdof. 1), 2*(dofobj .tdof. 1) )
+m2 = 2.0_DFP
+CALL Add( obj=obj, inodenum=[1,2], jnodenum=[1,2], ivar=1, jvar=1, &
+  & value=m2, scale=1.0_DFP)
 ```
 
 ```fortran
-  m2=obj
-  CALL Display(m2, 'test9:')
+m2=obj
+CALL Display(m2, 'test9:')
 ```
 
 ```fortran

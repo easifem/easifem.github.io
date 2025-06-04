@@ -113,19 +113,18 @@ export const columns = [
     accessorKey: "description",
     className: "pester-data-table left",
     cell: ({ cell, row: { original } }) => (
-      <span> {cell.getValue()} <a href={`${original.config}`} target="blank" rel="noreferrer noopener">
-        {"🚀 More..."}
-      </a>
+      <span>
+        {cell.getValue()}{" "}
+        <a href={`${original.config}`} target="blank" rel="noreferrer noopener">
+          {"🚀 More..."}
+        </a>
       </span>
     ),
-
   },
   {
     header: "Command",
     accessorKey: "cmd",
     className: "pester-data-table left",
-    cell: ({ cell, row: { original } }) => (
-      <code> {cell.getValue()} </code>
-    ),
+    cell: ({ cell, row: { original } }) => <code>{cell.getValue()}</code>,
   },
 ];

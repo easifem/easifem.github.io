@@ -8,5 +8,4 @@ INTERFACE
     CLASS(AbstractSteadyStokes_), INTENT(INOUT) :: obj
   END SUBROUTINE SSF_InitiateFields
 END INTERFACE
-
 ```

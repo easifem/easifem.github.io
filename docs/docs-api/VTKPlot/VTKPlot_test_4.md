@@ -27,16 +27,16 @@ PROGRAM MAIN
 ```
 
 !!! note ""
-    Plotting a two dimensional structured grid.
+Plotting a two dimensional structured grid.
 
 ```fortran
-  CALL MeshGrid( x=x, y = y, &
-    & xgv=linspace( 0.0_DFP, 1.0_DFP, 5), &
-    & ygv=linspace( 0.0_DFP, 1.0_DFP, 5) &
-    & )
-  CALL obj%initiate( )
-  CALL obj%plot( x, y, "./test_4.vts")
-  CALL obj%deallocate()
+CALL MeshGrid( x=x, y = y, &
+  & xgv=linspace( 0.0_DFP, 1.0_DFP, 5), &
+  & ygv=linspace( 0.0_DFP, 1.0_DFP, 5) &
+  & )
+CALL obj%initiate( )
+CALL obj%plot( x, y, "./test_4.vts")
+CALL obj%deallocate()
 ```
 
 ```fortran

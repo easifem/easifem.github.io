@@ -1,4 +1,4 @@
-``` fortran
+```fortran
 PROGRAM main
     USE easifemBase
     USE easifemClasses
@@ -19,65 +19,65 @@ PROGRAM main
 ```
 
 !!! note ""
-    Initiate an instance of [[ParameterList_]].
+Initiate an instance of [[ParameterList_]].
 
 ```fortran
-    CALL FPL_INIT(); CALL param%initiate()
+CALL FPL_INIT(); CALL param%initiate()
 ```
 
 !!! note ""
-    Set parameters for [[StaticDiffusion_]] kernel.
+Set parameters for [[StaticDiffusion_]] kernel.
 
 ```fortran
-    CALL SetStaticDiffusionParam( param=param, &
-      & engine="NATIVE_SERIAL", &
-      & coordinateSystem=KERNEL_2D, &
-      & tMaterials=tMaterials, &
-      & tDirichletBC=tDirichletBC, &
-      & domainFile=domainFileName, &
-      & baseContinuity="H1", &
-      & baseInterpolation="LagrangeInterpolation", &
-      & quadratureType="GaussLegendre" )
+CALL SetStaticDiffusionParam( param=param, &
+  & engine="NATIVE_SERIAL", &
+  & coordinateSystem=KERNEL_2D, &
+  & tMaterials=tMaterials, &
+  & tDirichletBC=tDirichletBC, &
+  & domainFile=domainFileName, &
+  & baseContinuity="H1", &
+  & baseInterpolation="LagrangeInterpolation", &
+  & quadratureType="GaussLegendre" )
 ```
 
 Here, `baseContinuity`, `baseInterpolation`, and `quadratureType` are OPTIONAL.
 
 !!! note ""
-    Setting parameters for [[LinSolver_]]
+Setting parameters for [[LinSolver_]]
 
 ```fortran
-    CALL SetLinSolverParam( &
-      & param=param, &
-      & solverName=solverName,&
-      & preconditionOption=preconditionOption, &
-      & convergenceIn=convergenceIn, &
-      & convergenceType=convergenceType, &
-      & maxIter=maxIter, &
-      & relativeToRHS=.TRUE., &
-      & KrylovSubspaceSize=KrylovSubspaceSize, &
-      & rtol=1.0D-10, &
-      & atol=1.0D-10 )
+CALL SetLinSolverParam( &
+  & param=param, &
+  & solverName=solverName,&
+  & preconditionOption=preconditionOption, &
+  & convergenceIn=convergenceIn, &
+  & convergenceType=convergenceType, &
+  & maxIter=maxIter, &
+  & relativeToRHS=.TRUE., &
+  & KrylovSubspaceSize=KrylovSubspaceSize, &
+  & rtol=1.0D-10, &
+  & atol=1.0D-10 )
 ```
 
 !!! note ""
-    Initiate the computation domain.
+Initiate the computation domain.
 
 ```fortran
-    CALL domainFile%Initiate(filename=domainFileName, mode="READ")
-    CALL domainFile%Open()
-    CALL dom%Initiate( domainFile, '' )
-    CALL domainFile%Deallocate()
+CALL domainFile%Initiate(filename=domainFileName, mode="READ")
+CALL domainFile%Open()
+CALL dom%Initiate( domainFile, '' )
+CALL domainFile%Deallocate()
 ```
 
 !!! note ""
-    Set parameters for [[StaticDiffusion_]] kernel.
+Set parameters for [[StaticDiffusion_]] kernel.
 
 ```fortran
-    CALL obj%Initiate( param=param, dom=dom )
+CALL obj%Initiate( param=param, dom=dom )
 ```
 
 ```fortran
-    CALL obj%Display( "StaticDiffusion :: ")
+CALL obj%Display( "StaticDiffusion :: ")
 ```
 
 ??? example "Results"

@@ -16,7 +16,7 @@ tags:
 
 # Quadrangle
 
-This module contains  useful routines for creating polynomials on triangles.
+This module contains useful routines for creating polynomials on triangles.
 
 ## Methods
 

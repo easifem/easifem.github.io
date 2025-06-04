@@ -1,6 +1,6 @@
 # InitiateFacetElements
 
-This routine initiates the facet element information for every mesh of the domain. 
+This routine initiates the facet element information for every mesh of the domain.
 
 More details are given in the following pages.
 

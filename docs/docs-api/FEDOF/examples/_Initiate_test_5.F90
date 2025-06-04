@@ -11,6 +11,7 @@ USE Display_Method
 USE GlobalData
 USE Test_Method
 USE ExceptionHandler_Class, ONLY: e, EXCEPTION_INFORMATION
+USE BaseType, ONLY: poly => TypePolynomialOpt
 
 IMPLICIT NONE
 
@@ -18,10 +19,10 @@ TYPE(FEDOF_) :: fedof
 TYPE(FEDomain_) :: dom
 CLASS(AbstractMesh_), POINTER :: meshptr => NULL()
 CHARACTER(*), PARAMETER :: filename = &
-  & "../../Mesh/examples/meshdata/small_tri6_mesh.h5"
+                           "../../FEMesh/examples/meshdata/small_tri6_mesh.h5"
 TYPE(HDF5File_) :: meshfile
 INTEGER(I4B) :: found, want
-INTEGER(I4B), PARAMETER :: order = 2
+INTEGER(I4B), PARAMETER :: order = 2, ipType = poly%monomial
 CHARACTER(*), PARAMETER :: baseContinuity = "H1"
 CHARACTER(*), PARAMETER :: baseInterpolation = "Lagrange"
 
@@ -32,7 +33,7 @@ CALL dom%Initiate(meshfile, '')
 
 meshptr => dom%GetMeshPointer()
 
-CALL fedof%Initiate(baseContinuity=baseContinuity, &
+CALL fedof%Initiate(baseContinuity=baseContinuity, ipType=ipType, &
                     baseInterpolation=baseInterpolation, &
                     order=order, &
                     mesh=meshptr)

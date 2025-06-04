@@ -51,7 +51,7 @@ END INTERFACE
 If user has information about the number of rows `nrow`, number of columns `ncol` of sparse matrix, then the above interface can be used to initiate an instance of `CSRMatrix_`.
 
 - `dof` and `matrixProp` are optional.
-    - `dof` is DOF object, and it is used to initiate `obj%csr`, CSRSparsity field.
+  - `dof` is DOF object, and it is used to initiate `obj%csr`, CSRSparsity field.
 
 </TabItem>
 

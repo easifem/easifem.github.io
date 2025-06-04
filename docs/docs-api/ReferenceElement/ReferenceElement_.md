@@ -44,7 +44,7 @@ END TYPE ReferenceElement_
 Codimension of element.
 
 | xidim |                 |
-|:-----:|:---------------:|
+| :---: | :-------------: |
 |   0   |      point      |
 |   1   | curve (or line) |
 |   2   |     surface     |

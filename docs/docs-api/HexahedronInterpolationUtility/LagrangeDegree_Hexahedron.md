@@ -5,7 +5,7 @@ This subroutine returns the monomial degrees (basis) for lagrange polynomials.
 Lagrange polynomial of order $p,q,r$ is given by
 
 $$
-l(x,y,z) = \text{span} \left\{  x^{a} y^{b} z^{c} \vert a=0,1,\cdots, p; b=0, 1, \cdots, q; c=0,1,\cdots, r \right\}
+l(x,y,z) = \text{span} \left\{ x^{a} y^{b} z^{c} \vert a=0,1,\cdots, p; b=0, 1, \cdots, q; c=0,1,\cdots, r \right\}
 $$
 
 Calling example:
@@ -76,7 +76,7 @@ END INTERFACE LagrangeDegree_Hexahedron
 - `p` is order in x direction
 - `q` is order in y direction
 - `r` is order in z direction
-:::
+  :::
 
 </TabItem>
 

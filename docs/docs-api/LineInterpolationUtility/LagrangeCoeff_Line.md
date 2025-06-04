@@ -40,7 +40,7 @@ ith polynomial
 - Interpolation points
 - SIZE(xij,1) is equal to 1
 - SIZE(xij,2) is equal to order+1
-:::
+  :::
 
 :::note `ans`
 `order+1` coefficients of ith Lagrange polynomial.
@@ -96,7 +96,7 @@ ith polynomial
 - Vandermonde matrix
 - The jth col of v denotes the values of basis function on interpolation points.
 - The ith row of v denotes the values of all basis function on ith interpolation points.
-:::
+  :::
 
 :::note `ans`
 `order+1` coefficients of ith Lagrange polynomial.
@@ -148,7 +148,7 @@ ith polynomial
 - LU decomposition of Vandermonde matrix
 - The jth col of v denotes the values of basis function on interpolation points.
 - The ith row of v denotes the values of all basis function on ith interpolation points.
-:::
+  :::
 
 :::note `ipiv`
 `ipiv` is returned by Lapack when performing `LU` decomposition.
@@ -267,7 +267,7 @@ Currently, we can specify following types of orthogonal polynomials:
 - [x] Chebyshev
 - [x] Lobatto
 - [x] UnscaledLobatto
-:::
+      :::
 
 :::note `alpha, beta`
 alpha and beta are parameters of Jacobi Polynomials. They should be present when `orthopol` is equal to `Jacobi`

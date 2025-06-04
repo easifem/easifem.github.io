@@ -1,13 +1,23 @@
+!> author: Vikas Sharma, Ph. D.
+! date: 2025-06-03
+! summary:  This code generates a simple 3D mesh using GmshStructuredMesh_Class
+
 PROGRAM main
-USE easifemBase
-USE easifemClasses
 USE GlobalData
+USE GmshStructuredMesh_Class
+USE Gmsh_Class
+USE MSHFile_Class
+USE HDF5File_Class
+USE FPL, ONLY: FPL_Init, ParameterList_
+USE Display_Method
+
 IMPLICIT NONE
 
 TYPE(GmshStructuredMesh_) :: obj
 TYPE(Gmsh_) :: gmsh
 TYPE(ParameterList_) :: param
-CHARACTER(*), PARAMETER :: title = "small_mesh_3d"
+CHARACTER(*), PARAMETER :: title = "small_hexa8_mesh"
+CHARACTER(*), PARAMETER :: testname = "Generate3DMesh.F90"
 REAL(DFP), PARAMETER :: pointsOnAxis1(2) = [0.0, 1.0]
 REAL(DFP), PARAMETER :: pointsOnAxis2(2) = [0.0, 1.0]
 REAL(DFP), PARAMETER :: pointsOnAxis3(2) = [0.0, 1.0]
@@ -24,16 +34,15 @@ TYPE(HDF5File_) :: hdf5file
 CALL FPL_Init()
 CALL param%Initiate()
 
-CALL SetGmshStructuredMeshParam( &
-  & param=param,  &
-  & filename=title//".msh", &
-  & pointsOnAxis1=pointsOnAxis1,  &
-  & pointsOnAxis2=pointsOnAxis2,  &
-  & pointsOnAxis3=pointsOnAxis3,  &
-  & transfinitePointsOnAxis1=transfinitePointsOnAxis1,  &
-  & transfinitePointsOnAxis2=transfinitePointsOnAxis2,  &
-  & transfinitePointsOnAxis3=transfinitePointsOnAxis3,  &
-  & recombineAll=.TRUE.)
+CALL SetGmshStructuredMeshParam(param=param, &
+                                filename=title//".msh", &
+                                pointsOnAxis1=pointsOnAxis1, &
+                                pointsOnAxis2=pointsOnAxis2, &
+                                pointsOnAxis3=pointsOnAxis3, &
+                          transfinitePointsOnAxis1=transfinitePointsOnAxis1, &
+                          transfinitePointsOnAxis2=transfinitePointsOnAxis2, &
+                          transfinitePointsOnAxis3=transfinitePointsOnAxis3, &
+                                recombineAll=.TRUE.)
 
 CALL obj%Initiate(param)
 
@@ -54,5 +63,7 @@ CALL hdf5file%OPEN()
 CALL mshFile%Export(hdf5=hdf5file, group="")
 CALL mshFile%DEALLOCATE()
 CALL hdf5file%DEALLOCATE()
+
+CALL Display("Test "//TRIM(testname)//" completed successfully")
 
 END PROGRAM main

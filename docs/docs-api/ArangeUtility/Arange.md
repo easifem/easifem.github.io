@@ -1,6 +1,6 @@
 # Arange
 
-Returns a vector of integers (or reals) by specifying `istart`,  `iend`,  and `increment` values.
+Returns a vector of integers (or reals) by specifying `istart`, `iend`, and `increment` values.
 
 Calling example:
 

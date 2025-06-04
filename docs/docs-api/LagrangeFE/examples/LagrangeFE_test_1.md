@@ -24,9 +24,9 @@ integer(i4b), parameter :: ipType=IP_EQUIDISTANCE
 !!! note "Order=1"
 
 ```fortran
-  order=1
-  call obj%Initiate(elemType=elemType, order=order, ipType=ipType)
-  call obj%Display( elemName // "order=" //tostring(order) )
+order=1
+call obj%Initiate(elemType=elemType, order=order, ipType=ipType)
+call obj%Display( elemName // "order=" //tostring(order) )
 ```
 
 !!! example "result"
@@ -65,11 +65,11 @@ $$
 !!! note "Order=2"
 
 ```fortran
-  order=2
-  call blanklines(nol=3)
-  call obj%Initiate(elemType=elemType, order=order, ipType=ipType)
-  call obj%Display( elemName // "order=" //tostring(order) )
-````
+order=2
+call blanklines(nol=3)
+call obj%Initiate(elemType=elemType, order=order, ipType=ipType)
+call obj%Display( elemName // "order=" //tostring(order) )
+```
 
 !!! example "result"
 
@@ -91,10 +91,10 @@ $$
 !!! note "Order=3"
 
 ```fortran
-  order=3
-  call blanklines(nol=3)
-  call obj%Initiate(elemType=elemType, order=order, ipType=ipType)
-  call obj%Display( elemName // "order=" //tostring(order) )
+order=3
+call blanklines(nol=3)
+call obj%Initiate(elemType=elemType, order=order, ipType=ipType)
+call obj%Display( elemName // "order=" //tostring(order) )
 ```
 
 !!! example "result"
@@ -114,7 +114,7 @@ N(3)=+0.5625x^0-1.6875x^1-0.5625x^2+1.6875x^3
 $$
 
 $$
-    N(4)=+0.5625x^0+1.6875x^1-0.5625x^2-1.6875x^3
+N(4)=+0.5625x^0+1.6875x^1-0.5625x^2-1.6875x^3
 $$
 
 ```fortran

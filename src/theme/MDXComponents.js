@@ -1,15 +1,15 @@
 // Import the original mapper
-import MDXComponents from '@theme-original/MDXComponents';
+import MDXComponents from "@theme-original/MDXComponents";
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import TabItem from "@theme/TabItem";
+import Tabs from "@theme/Tabs";
 
-import ColorCode from '../components/ColorCode';
-import ColorPalette from '../components/ColorPalette';
-import VideoPlayer from '../components/VideoPlayer';
-import ComponentsGrid from '../components/ComponentsGrid';
-import { CardSection, Card } from '../components/CardComponents';
-import * as icons from '../icons';
+import { Card, CardSection } from "../components/CardComponents";
+import ColorCode from "../components/ColorCode";
+import ColorPalette from "../components/ColorPalette";
+import ComponentsGrid from "../components/ComponentsGrid";
+import VideoPlayer from "../components/VideoPlayer";
+import * as icons from "../icons";
 
 export default {
   // Re-use the default mapping

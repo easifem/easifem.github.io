@@ -1,6 +1,6 @@
 This example demonstrates how to use `addMaterial` to add new material to [[StaticDiffusion_]] kernel.
 
-``` fortran
+```fortran
 PROGRAM main
     USE easifemBase
     USE easifemClasses
@@ -23,90 +23,89 @@ PROGRAM main
 ```
 
 !!! note ""
-    Initiate an instance of [[ParameterList_]]
+Initiate an instance of [[ParameterList_]]
 
 ```fortran
-    CALL FPL_INIT(); CALL param%Initiate()
+CALL FPL_INIT(); CALL param%Initiate()
 ```
 
 !!! note ""
-    Set the parameter for [[StaticDiffusion_]]
+Set the parameter for [[StaticDiffusion_]]
 
 ```fortran
-    CALL SetStaticDiffusionParam( param=param, engine="NATIVE_SERIAL", &
-      & coordinateSystem=KERNEL_2D, tMaterials=tMaterials, &
-      & tDirichletBC=tDirichletBC, domainFile=domainFileName, &
-      & baseContinuity="H1", &
-      & baseInterpolation="LagrangeInterpolation", &
-      & quadratureType="GaussLegendre" )
+CALL SetStaticDiffusionParam( param=param, engine="NATIVE_SERIAL", &
+  & coordinateSystem=KERNEL_2D, tMaterials=tMaterials, &
+  & tDirichletBC=tDirichletBC, domainFile=domainFileName, &
+  & baseContinuity="H1", &
+  & baseInterpolation="LagrangeInterpolation", &
+  & quadratureType="GaussLegendre" )
 ```
 
 !!! note ""
-    Set the parameter for [[LinSolver_]].
-
+Set the parameter for [[LinSolver_]].
 
 ```fortran
-    CALL SetLinSolverParam( &
-      & param=param, &
-      & solverName=solverName,&
-      & preconditionOption=preconditionOption, &
-      & convergenceIn=convergenceIn, &
-      & convergenceType=convergenceType, &
-      & maxIter=maxIter, &
-      & relativeToRHS=.TRUE., &
-      & KrylovSubspaceSize=KrylovSubspaceSize, &
-      & rtol=1.0D-10, &
-      & atol=1.0D-10 )
+CALL SetLinSolverParam( &
+  & param=param, &
+  & solverName=solverName,&
+  & preconditionOption=preconditionOption, &
+  & convergenceIn=convergenceIn, &
+  & convergenceType=convergenceType, &
+  & maxIter=maxIter, &
+  & relativeToRHS=.TRUE., &
+  & KrylovSubspaceSize=KrylovSubspaceSize, &
+  & rtol=1.0D-10, &
+  & atol=1.0D-10 )
 ```
 
 !!! note ""
-    Initiates computation domain.
+Initiates computation domain.
 
 ```fortran
-    CALL domainFile%Initiate(filename=domainFileName, mode="READ")
-    CALL domainFile%Open()
-    CALL dom%Initiate( domainFile, '' )
-    CALL domainFile%Deallocate()
+CALL domainFile%Initiate(filename=domainFileName, mode="READ")
+CALL domainFile%Open()
+CALL dom%Initiate( domainFile, '' )
+CALL domainFile%Deallocate()
 ```
 
 !!! note ""
-    Initiate an instace of [[StaticDiffusion_]] kernel
+Initiate an instace of [[StaticDiffusion_]] kernel
 
 ```fortran
-    CALL obj%Initiate( param=param, dom=dom )
+CALL obj%Initiate( param=param, dom=dom )
 ```
 
 !!! note "addMaterial 1"
-    Add another material and domain region in the [[StaticDiffusion_]] kernel.
+Add another material and domain region in the [[StaticDiffusion_]] kernel.
 
 ```fortran
-    CALL region%Initiate( isSelectionByMeshID=.TRUE. )
-    CALL region%Add( dim=2, meshID=[1] )
-    CALL SetSolidMaterialParam( param=param, name="SolidMaterial", &
-      & massDensity=7000.0_DFP, diffusivity=11.72D-6 )
-    CALL obj%AddMaterial( materialNo=1, materialName="SolidMaterial",  &
-      & param=param, region=region )
-    CALL region%Deallocate()
+CALL region%Initiate( isSelectionByMeshID=.TRUE. )
+CALL region%Add( dim=2, meshID=[1] )
+CALL SetSolidMaterialParam( param=param, name="SolidMaterial", &
+  & massDensity=7000.0_DFP, diffusivity=11.72D-6 )
+CALL obj%AddMaterial( materialNo=1, materialName="SolidMaterial",  &
+  & param=param, region=region )
+CALL region%Deallocate()
 ```
 
 !!! note "addMaterial 2"
-    Add another material and domain region in the [[StaticDiffusion_]] kernel.
+Add another material and domain region in the [[StaticDiffusion_]] kernel.
 
 ```fortran
-    CALL region%Initiate( isSelectionByMeshID=.TRUE. )
-    CALL region%Add( dim=2, meshID=[2] )
-    CALL SetSolidMaterialParam( param=param, name="SolidMaterial", &
-      & massDensity=7000.0_DFP, diffusivity=11.72D-6 )
-    CALL obj%AddMaterial( materialNo=2, materialName="SolidMaterial",  &
-      & param=param, region=region )
-    CALL region%Deallocate()
+CALL region%Initiate( isSelectionByMeshID=.TRUE. )
+CALL region%Add( dim=2, meshID=[2] )
+CALL SetSolidMaterialParam( param=param, name="SolidMaterial", &
+  & massDensity=7000.0_DFP, diffusivity=11.72D-6 )
+CALL obj%AddMaterial( materialNo=2, materialName="SolidMaterial",  &
+  & param=param, region=region )
+CALL region%Deallocate()
 ```
 
 !!! note ""
-    Display the content of kernel.
+Display the content of kernel.
 
 ```fortran
-    CALL obj%Display( "StaticDiffusion :: ")
+CALL obj%Display( "StaticDiffusion :: ")
 ```
 
 ??? example "Results"

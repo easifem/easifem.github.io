@@ -10,7 +10,7 @@ Velocity domain consists Triangle6 elements as shown below.
 
 Importing modules and variables
 
-``` fortran
+```fortran
 PROGRAM main
   USE easifemBase
   USE easifemClasses
@@ -28,17 +28,17 @@ PROGRAM main
 Initiate domain for velocity variable.
 
 ```fortran
-  CALL velocityMeshFile%Initiate( FileName="./mesh_tri6.h5", MODE="READ" )
-  CALL velocityMeshFile%Open()
-  CALL velocityDomain%Initiate( velocityMeshFile, "")
+CALL velocityMeshFile%Initiate( FileName="./mesh_tri6.h5", MODE="READ" )
+CALL velocityMeshFile%Open()
+CALL velocityDomain%Initiate( velocityMeshFile, "")
 ```
 
 Initiate node to node DATA.
 
 ```fortran
-  CALL obj%InitiateNodeToNodeData( domain1=velocityDomain, &
-    & domain2=velocityDomain )
-  CALL PASS("InitiateNodeToNodeData()")
+CALL obj%InitiateNodeToNodeData( domain1=velocityDomain, &
+  & domain2=velocityDomain )
+CALL PASS("InitiateNodeToNodeData()")
 ```
 
 This will create node to node connectivity DATA from domain1 (dim=2, entityNum=1) to domain2 (dim=2, entityNum=2).
@@ -46,31 +46,30 @@ This will create node to node connectivity DATA from domain1 (dim=2, entityNum=1
 Initiate cell to cell connectivity DATA.
 
 ```fortran
-  CALL obj%InitiateCellToCellData(domain1=velocityDomain, &
-    & domain2=velocityDomain)
+CALL obj%InitiateCellToCellData(domain1=velocityDomain, &
+  & domain2=velocityDomain)
 ```
 
-now let us run some tests, this  is only for testing purpose, so you can ignore the forthcoming section.
+now let us run some tests, this is only for testing purpose, so you can ignore the forthcoming section.
 
 ```fortran
-    cellToCell => obj%getCellToCellPointer()
-    DO iel = velocityDomain%minElemNum, velocityDomain%maxElemNum
-      IF (.NOT. velocityDomain%isElementPresent(iel)) CYCLE
-      IF (cellToCell(iel) .EQ. 0) THEN
-        velocityMesh => velocityDomain%getMeshPointer(globalElement=iel)
-        refelem => velocityMesh%getRefElemPointer()
-        IF (refelem%xidimension .EQ. velocityDomain%getNSD()) &
-          & CALL fail("CellToCell: error code 1")
-      ELSE
-        IF (cellToCell(iel) .NE. iel) THEN
-          CALL fail("CellToCell: error code 2")
-          STOP
-        END IF
-      END IF
-    END DO
-    CALL PASS("InitiateCellToCellData()")
+cellToCell => obj%getCellToCellPointer()
+DO iel = velocityDomain%minElemNum, velocityDomain%maxElemNum
+  IF (.NOT. velocityDomain%isElementPresent(iel)) CYCLE
+  IF (cellToCell(iel) .EQ. 0) THEN
+    velocityMesh => velocityDomain%getMeshPointer(globalElement=iel)
+    refelem => velocityMesh%getRefElemPointer()
+    IF (refelem%xidimension .EQ. velocityDomain%getNSD()) &
+      & CALL fail("CellToCell: error code 1")
+  ELSE
+    IF (cellToCell(iel) .NE. iel) THEN
+      CALL fail("CellToCell: error code 2")
+      STOP
+    END IF
+  END IF
+END DO
+CALL PASS("InitiateCellToCellData()")
 ```
-
 
 ```fortran
   CALL velocityMeshFile%Deallocate()

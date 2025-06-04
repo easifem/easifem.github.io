@@ -9,6 +9,5 @@ abool = SOFTGT(a, b, tol)
 ```
 
 $$
-a > b + tol  
+a > b + tol\
 $$
-

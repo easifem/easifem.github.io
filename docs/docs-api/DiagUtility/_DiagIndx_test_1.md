@@ -7,9 +7,9 @@ program main
 ```
 
 ```fortran
-  call Display( DiagIndx(4, 4, 0), "(4,4), main diagonal = " )
-  call Display( DiagIndx(4, 4, 1), "(4,4), first superdiagonal = " )
-  call Display( DiagIndx(4, 4, 2), "(4,4), second superdiagonal = " )
+call Display( DiagIndx(4, 4, 0), "(4,4), main diagonal = " )
+call Display( DiagIndx(4, 4, 1), "(4,4), first superdiagonal = " )
+call Display( DiagIndx(4, 4, 2), "(4,4), second superdiagonal = " )
 ```
 
 Results:
@@ -35,8 +35,8 @@ Results:
 ```
 
 ```fortran
-  call Display( DiagIndx(4, 4, -1), "(4,4), first subdiagonal = " )
-  call Display( DiagIndx(4, 4, -2), "(4,4), second subdiagonal = " )
+call Display( DiagIndx(4, 4, -1), "(4,4), first subdiagonal = " )
+call Display( DiagIndx(4, 4, -2), "(4,4), second subdiagonal = " )
 ```
 
 Results:
@@ -52,21 +52,20 @@ Results:
 ----------------------------
             3  1
             4  2
-
 ```
 
 :::note
-Let us now test `DiagIndx` for <span class="badge badge--success">  RECTANGLE </span>  matrix.
+Let us now test `DiagIndx` for <span class="badge badge--success"> RECTANGLE </span> matrix.
 :::
 
 ```fortran
-  call Display( DiagIndx(4, 7, 0), "(4, 7), main diagonal = " )
-  call Display( DiagIndx(4, 7, 1), "(4, 7), first superdiagonal = " )
-  call Display( DiagIndx(4, 7, 2), "(4, 7), second superdiagonal = " )
-  call Display( DiagIndx(4, 7, 3), "(4,7), third superdiagonal = " )
-  call Display( DiagIndx(4, 7, 4), "(4,7), fourth superdiagonal = " )
-  call Display( DiagIndx(4, 7, 5), "(4,7), fifth superdiagonal = " )
-  call Display( DiagIndx(4, 7, 6), "(4,7), sixth superdiagonal = " )
+call Display( DiagIndx(4, 7, 0), "(4, 7), main diagonal = " )
+call Display( DiagIndx(4, 7, 1), "(4, 7), first superdiagonal = " )
+call Display( DiagIndx(4, 7, 2), "(4, 7), second superdiagonal = " )
+call Display( DiagIndx(4, 7, 3), "(4,7), third superdiagonal = " )
+call Display( DiagIndx(4, 7, 4), "(4,7), fourth superdiagonal = " )
+call Display( DiagIndx(4, 7, 5), "(4,7), fifth superdiagonal = " )
+call Display( DiagIndx(4, 7, 6), "(4,7), sixth superdiagonal = " )
 ```
 
 Results:
@@ -117,9 +116,9 @@ Results:
 ```
 
 ```fortran title="(4,7) 1:3 subdiagonal"
-  call Display( DiagIndx(4, 7, -1), "(4,7), first subdiagonal = " )
-  call Display( DiagIndx(4, 7, -2), "(4,7), second subdiagonal = " )
-  call Display( DiagIndx(4, 7, -3), "(4,7), thrid subdiagonal = " )
+call Display( DiagIndx(4, 7, -1), "(4,7), first subdiagonal = " )
+call Display( DiagIndx(4, 7, -2), "(4,7), second subdiagonal = " )
+call Display( DiagIndx(4, 7, -3), "(4,7), thrid subdiagonal = " )
 ```
 
 ```txt title="results"

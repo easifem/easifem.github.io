@@ -22,7 +22,6 @@ USE easifemBase
 <div>
 
 ```txt title="results"
-
 unsorted array,  arg,  sorted array
 --------------,  ---,  ------------
    5.54368    ,   3 ,    0.81292   
@@ -34,7 +33,7 @@ unsorted array,  arg,  sorted array
    9.95400    ,   4 ,    7.37413   
    8.88093    ,   8 ,    8.88093   
    3.91444    ,   6 ,    9.06920   
-   2.87233    ,   7 ,    9.95400   
+   2.87233    ,   7 ,    9.95400
 ```
 
 </div>

@@ -23,33 +23,33 @@ program main
 ```
 
 ```fortran
-  n = 3
-  coeff = [1.0, 0.0, 0.0, 0.0]
-  x = 0.5_DFP;
-  ans = JacobiGradientEvalSum(n=n, x=x, alpha=alpha, &
-    & beta=beta, coeff=coeff, k=1)
-  exact = LegendreGradientEval(n=0_I4B, x=x)
-  call ok( SOFTEQ(ans, exact, tol ))
+n = 3
+coeff = [1.0, 0.0, 0.0, 0.0]
+x = 0.5_DFP;
+ans = JacobiGradientEvalSum(n=n, x=x, alpha=alpha, &
+  & beta=beta, coeff=coeff, k=1)
+exact = LegendreGradientEval(n=0_I4B, x=x)
+call ok( SOFTEQ(ans, exact, tol ))
 ```
 
 ```fortran
-  n = 3
-  coeff = [0.0, 1.0, 0.0, 0.0]
-  x = 0.5_DFP;
-  ans = JacobiGradientEvalSum(n=n, x=x, alpha=alpha, &
-    & beta=beta, coeff=coeff, k=1)
-  exact = LegendreGradientEval(n=1_I4B, x=x)
-  call ok( SOFTEQ(ans, exact, tol ))
+n = 3
+coeff = [0.0, 1.0, 0.0, 0.0]
+x = 0.5_DFP;
+ans = JacobiGradientEvalSum(n=n, x=x, alpha=alpha, &
+  & beta=beta, coeff=coeff, k=1)
+exact = LegendreGradientEval(n=1_I4B, x=x)
+call ok( SOFTEQ(ans, exact, tol ))
 ```
 
 ```fortran
-  n = 3
-  coeff = [0.0, 0.0, 0.0, 1.0]
-  x = 0.5_DFP;
-  ans = JacobiGradientEvalSum(n=n, x=x, alpha=alpha, &
-    & beta=beta, coeff=coeff, k=1)
-  exact = LegendreGradientEval(n=3_I4B, x=x)
-  call ok( SOFTEQ(ans, exact, tol ))
+n = 3
+coeff = [0.0, 0.0, 0.0, 1.0]
+x = 0.5_DFP;
+ans = JacobiGradientEvalSum(n=n, x=x, alpha=alpha, &
+  & beta=beta, coeff=coeff, k=1)
+exact = LegendreGradientEval(n=3_I4B, x=x)
+call ok( SOFTEQ(ans, exact, tol ))
 ```
 
 ```fortran

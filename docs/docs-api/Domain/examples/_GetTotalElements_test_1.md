@@ -1,9 +1,9 @@
-This example show how to initiate an instance of `Domain_` from the `HDF5File_` 
-mesh/domain file. 
+This example show how to initiate an instance of `Domain_` from the `HDF5File_`
+mesh/domain file.
 
 It tests `GetTotalElements`, and `OPERATOR(.tElements.)` methods
 
-``` fortran
+```fortran
 PROGRAM main
   USE easifemBase
   USE easifemClasses

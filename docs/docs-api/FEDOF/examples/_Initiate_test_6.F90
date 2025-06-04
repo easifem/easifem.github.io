@@ -1,25 +1,6 @@
-! This program is a part of EASIFEM library
-! Expandable And Scalable Infrastructure for Finite Element Methods
-! htttps://www.easifem.com
-! Vikas Sharma, Ph.D., vickysharma0812@gmail.com
-!
-! This program is free software: you can redistribute it and/or modify
-! it under the terms of the GNU General Public License as published by
-! the Free Software Foundation, either version 3 of the License, or
-! (at your option) any later version.
-!
-! This program is distributed in the hope that it will be useful,
-! but WITHOUT ANY WARRANTY; without even the implied warranty of
-! MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-! GNU General Public License for more details.
-!
-! You should have received a copy of the GNU General Public License
-! along with this program.  If not, see <https: //www.gnu.org/licenses/>
-!
-
 !> author: Vikas Sharma, Ph. D.
 ! date: 2024-05-24
-! summary: Heirarchical DOF test
+! summary: testing initiate method for Hierarchical bases with different orders
 
 PROGRAM main
 USE FEDOF_Class
@@ -38,7 +19,7 @@ TYPE(FEDOF_) :: fedof
 TYPE(FEDomain_) :: dom
 CLASS(AbstractMesh_), POINTER :: meshptr => NULL()
 CHARACTER(*), PARAMETER :: filename = &
-  & "../../Mesh/examples/meshdata/small_mesh.h5"
+                           "../../FEMesh/examples/meshdata/small_tri3_mesh.h5"
 TYPE(HDF5File_) :: meshfile
 LOGICAL(LGT) :: isok
 INTEGER(I4B) :: found, want, order, ii, iel

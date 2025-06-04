@@ -17,16 +17,16 @@ end program main
 <summary>See results</summary>
 <div>
 
-xij (order=2, 1)  =
+xij (order=2, 1) =
 
-|  |  |
-|  --- |  --- |
+|    |    |
+| -- | -- |
 | -1 | -1 |
-| 1 | -1 |
-| 1 | 1 |
-| -1 | 1 |
-| 0 | -1 |
-| 0 | 1 |
+| 1  | -1 |
+| 1  | 1  |
+| -1 | 1  |
+| 0  | -1 |
+| 0  | 1  |
 
 </div>
 </details>

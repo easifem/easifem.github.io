@@ -71,4 +71,3 @@ MODULE PURE SUBROUTINE GetSUGN3Param_4(obj, tau, val, nu, h, opt)
     !! currently, opt is not used, but it may be used in future
 END SUBROUTINE GetSUGN3Param_4
 ```
-

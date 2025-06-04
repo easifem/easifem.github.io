@@ -9,6 +9,3 @@ This method is inherited from the [AbstractMesh](../AbstractMesh/AbstractMesh_.m
 import EXAMPLE5 from "../AbstractMesh/GetGlobalNodeNumber.md";
 
 <EXAMPLE5 />
-
-
-

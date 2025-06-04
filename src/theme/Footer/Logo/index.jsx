@@ -1,8 +1,8 @@
-import React from 'react';
-import Link from '@docusaurus/Link';
-import { useBaseUrlUtils } from '@docusaurus/useBaseUrl';
-import ThemedImage from '@theme/ThemedImage';
-import styles from './styles.module.css';
+import Link from "@docusaurus/Link";
+import { useBaseUrlUtils } from "@docusaurus/useBaseUrl";
+import ThemedImage from "@theme/ThemedImage";
+import React from "react";
+import styles from "./styles.module.css";
 
 function LogoImage({ logo }) {
   const { withBaseUrl } = useBaseUrlUtils();
@@ -22,11 +22,11 @@ function LogoImage({ logo }) {
 }
 
 export default function FooterLogo({ logo }) {
-  return logo.href ? (
-    <Link href={logo.href} className={styles.footerLogoLink}>
-      <LogoImage logo={logo} />
-    </Link>
-  ) : (
-    <LogoImage logo={logo} />
-  );
+  return logo.href
+    ? (
+      <Link href={logo.href} className={styles.footerLogoLink}>
+        <LogoImage logo={logo} />
+      </Link>
+    )
+    : <LogoImage logo={logo} />;
 }

@@ -11,12 +11,12 @@ import TabItem from '@theme/TabItem';
 <TabItem value="interface" label="܀ Interface" default>
 
 ```fortran
-  MODULE PURE FUNCTION Tril(A, diagNo) RESULT(ans)
-    INTEGER(Int8| Int16 | Int32 | Int64) | REAL(Real32| Real64), INTENT(IN) :: A(:, :)
-    INTEGER(I4B), OPTIONAL, INTENT(IN) :: diagNo
-    !! diagonal number, default = 0
-    INTEGER(Int8| Int16 | Int32 | Int64) | REAL(Real32| Real64) :: ans(SIZE(A, 1), SIZE(A, 2))
-  END FUNCTION Tril
+MODULE PURE FUNCTION Tril(A, diagNo) RESULT(ans)
+  INTEGER(Int8| Int16 | Int32 | Int64) | REAL(Real32| Real64), INTENT(IN) :: A(:, :)
+  INTEGER(I4B), OPTIONAL, INTENT(IN) :: diagNo
+  !! diagonal number, default = 0
+  INTEGER(Int8| Int16 | Int32 | Int64) | REAL(Real32| Real64) :: ans(SIZE(A, 1), SIZE(A, 2))
+END FUNCTION Tril
 ```
 
 </TabItem>

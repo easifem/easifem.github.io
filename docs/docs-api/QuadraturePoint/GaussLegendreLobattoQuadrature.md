@@ -10,7 +10,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::note
-For line-element n point Gauss Lobatto rule has $2n-3$ degree of accuracy.  
+For line-element n point Gauss Lobatto rule has $2n-3$ degree of accuracy.\
 :::
 
 ## Interface 1
@@ -65,4 +65,3 @@ INTERFACE
   END FUNCTION GaussLegendreLobattoQuadrature
 END INTERFACE
 ```
-

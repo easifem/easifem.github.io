@@ -9,4 +9,3 @@ abool = a .ApproxLE. b
 $$
 a \le b + 1.0 \times 10^{-15}
 $$
-

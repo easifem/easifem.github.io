@@ -14,7 +14,7 @@ program main
 ```
 
 ```fortran title "order=0"
-  n = 0; call callme
+n = 0; call callme
 ```
 
 <details>
@@ -24,7 +24,7 @@ program main
 Ultraspherical Gauss Lobatto points, n+2 = 3
 
 | pt           | wt      |
-|--------------|---------|
+| ------------ | ------- |
 | -1           | 0.33333 |
 | -4.48639E-17 | 1.3333  |
 | 1            | 0.33333 |
@@ -33,7 +33,7 @@ Ultraspherical Gauss Lobatto points, n+2 = 3
 </details>
 
 ```fortran title "order=1"
-  n = 1; call callme
+n = 1; call callme
 ```
 
 <details>
@@ -43,7 +43,7 @@ Ultraspherical Gauss Lobatto points, n+2 = 3
 Ultraspherical Gauss Lobatto points, n+2 = 3
 
 | pt           | wt      |
-|--------------|---------|
+| ------------ | ------- |
 | -1           | 0.33333 |
 | -4.48639E-17 | 1.3333  |
 | 1            | 0.33333 |
@@ -52,7 +52,7 @@ Ultraspherical Gauss Lobatto points, n+2 = 3
 </details>
 
 ```fortran title "order=2"
-  n = 2; call callme
+n = 2; call callme
 ```
 
 <details>
@@ -62,7 +62,7 @@ Ultraspherical Gauss Lobatto points, n+2 = 3
 Ultraspherical Gauss Lobatto points, n+2 = 4
 
 | pt       | wt      |
-|----------|---------|
+| -------- | ------- |
 | -1       | 0.16667 |
 | -0.44721 | 0.83333 |
 | 0.44721  | 0.83333 |
@@ -72,7 +72,7 @@ Ultraspherical Gauss Lobatto points, n+2 = 4
 </details>
 
 ```fortran title "order=3"
-  n = 3; call callme
+n = 3; call callme
 ```
 
 <details>
@@ -82,7 +82,7 @@ Ultraspherical Gauss Lobatto points, n+2 = 4
 Ultraspherical Gauss Lobatto points, n+2 = 4
 
 | pt           | wt      |
-|--------------|---------|
+| ------------ | ------- |
 | -1           | 0.1     |
 | -0.65465     | 0.54444 |
 | -6.41178E-17 | 0.71111 |
@@ -93,17 +93,17 @@ Ultraspherical Gauss Lobatto points, n+2 = 4
 </details>
 
 ```fortran
-  contains
-    subroutine callme
-    call reallocate( pt, n+2, wt, n+2 )
-    call UltrasphericalGaussLobattoQuadrature( n=n, &
-      & pt=pt, wt=wt, lambda=lambda )
-    msg="Ultraspherical Gauss Lobatto points, n+2 = " &
-        & // tostring( n+2 )
-    call display(msg%chars())
-    astr = MdEncode( pt .COLCONCAT. wt )
-    call display( astr%chars(), "" )
-  end subroutine callme
+contains
+  subroutine callme
+  call reallocate( pt, n+2, wt, n+2 )
+  call UltrasphericalGaussLobattoQuadrature( n=n, &
+    & pt=pt, wt=wt, lambda=lambda )
+  msg="Ultraspherical Gauss Lobatto points, n+2 = " &
+      & // tostring( n+2 )
+  call display(msg%chars())
+  astr = MdEncode( pt .COLCONCAT. wt )
+  call display( astr%chars(), "" )
+end subroutine callme
 ```
 
 ```fortran

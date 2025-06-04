@@ -29,19 +29,19 @@ program main
 !!! note "Legendre-Gauss"
 
 ```fortran
-  n = 3
-  x = [-1.0, 0.0, 1.0]; call callme
-  exact = 0.5_DFP*(3*5.0 * x**2 - 3.0)
-  call ok( ALL(SOFTEQ(ans, exact, tol )))
+n = 3
+x = [-1.0, 0.0, 1.0]; call callme
+exact = 0.5_DFP*(3*5.0 * x**2 - 3.0)
+call ok( ALL(SOFTEQ(ans, exact, tol )))
 ```
 
 !!! settings "cleanup"
 
 ```fortran
-  contains
-  subroutine callme
-    ans= LegendreGradientEval( n=n, x=x )
-  end subroutine callme
+contains
+subroutine callme
+  ans= LegendreGradientEval( n=n, x=x )
+end subroutine callme
 ```
 
 ```fortran

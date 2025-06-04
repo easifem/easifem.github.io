@@ -20,7 +20,6 @@ INTERFACE
 END INTERFACE
 
 PUBLIC :: dCreate_Dense_Matrix
-
 ```
 
 import EXAMPLE26 from "./_dCreate_Dense_Matrix_test.md";

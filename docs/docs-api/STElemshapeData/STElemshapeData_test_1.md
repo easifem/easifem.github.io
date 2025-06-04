@@ -19,9 +19,9 @@ tags:
 ## Usage
 
 !!! note ""
-    IMPORT modules and declare variables.
+IMPORT modules and declare variables.
 
-``` fortran
+```fortran
 PROGRAM main
     USE easifemBase
     IMPLICIT NONE
@@ -40,12 +40,12 @@ PROGRAM main
 ```
 
 !!! note ""
-    First, we initiate a [[ReferenceLine_]] element for time domain. Note that `nsd` should be 1 when making reference element for time domain.
+First, we initiate a [[ReferenceLine_]] element for time domain. Note that `nsd` should be 1 when making reference element for time domain.
 
 ```fortran
-    ALLOCATE (ReferenceLine_ :: refelem)
-    refelem = ReferenceLine(nsd=1)
-    CALL Display(refelem, "ReferenceElement :: ")
+ALLOCATE (ReferenceLine_ :: refelem)
+refelem = ReferenceLine(nsd=1)
+CALL Display(refelem, "ReferenceElement :: ")
 ```
 
 ??? example "Results"
@@ -92,22 +92,22 @@ PROGRAM main
     ```
 
 !!! note ""
-    Higher order Lagrange element can be obtained, `NNT` denotes number of nodes in time element. For line-element order will be equal to `NNT-1`.
+Higher order Lagrange element can be obtained, `NNT` denotes number of nodes in time element. For line-element order will be equal to `NNT-1`.
 
 ```fortran
-    NNT = 2
-    ALLOCATE (ReferenceLine_ :: highOrderElem)
-    CALL refelem%LagrangeElement(order=NNT - 1, &
-      & HighOrderObj=highOrderElem)
+NNT = 2
+ALLOCATE (ReferenceLine_ :: highOrderElem)
+CALL refelem%LagrangeElement(order=NNT - 1, &
+  & HighOrderObj=highOrderElem)
 ```
 
 !!! note ""
-    Generate Gauss-Legendre quadrature points on time element.
+Generate Gauss-Legendre quadrature points on time element.
 
 ```fortran
-    CALL Initiate(obj=quad, refelem=refelem, order=refelem%order, &
-      & quadratureType="GaussLegendre" )
-    CALL display(quad, 'quad for time element :: ')
+CALL Initiate(obj=quad, refelem=refelem, order=refelem%order, &
+  & quadratureType="GaussLegendre" )
+CALL display(quad, 'quad for time element :: ')
 ```
 
 ??? example "Results"
@@ -122,7 +122,7 @@ PROGRAM main
     ```
 
 !!! note ""
-    Setting shape FUNCTION for time. This will setup following quantities.
+Setting shape FUNCTION for time. This will setup following quantities.
 
     - $T$
     - $\frac{dT}{d\theta}$
@@ -132,14 +132,14 @@ PROGRAM main
     - `tiJ` it denotes the nodal values of time element.
 
 ```fortran
-    tiJ(1, :) = [-1.0, 1.0]
-    CALL initiate( &
-      & obj=time_elemsd, quad=quad, refelem=refelem, &
-      & ContinuityType=typeH1, InterpolType=TypeLagrangeInterpolation)
-    CALL Deallocate(quad)
-    CALL Set(obj=time_elemsd, val=tiJ, N=time_elemsd%N, &
-        & dNdXi=time_elemsd%dNdXi)
-    CALL Display(time_elemsd, "time_elemsd :")
+tiJ(1, :) = [-1.0, 1.0]
+CALL initiate( &
+  & obj=time_elemsd, quad=quad, refelem=refelem, &
+  & ContinuityType=typeH1, InterpolType=TypeLagrangeInterpolation)
+CALL Deallocate(quad)
+CALL Set(obj=time_elemsd, val=tiJ, N=time_elemsd%N, &
+    & dNdXi=time_elemsd%dNdXi)
+CALL Display(time_elemsd, "time_elemsd :")
 ```
 
 ??? example "Results"
@@ -195,7 +195,7 @@ PROGRAM main
     ```
 
 !!! note ""
-    Now we initiate an instance for storing space-time shape FUNCTION DATA, that is [[STElemshapeData_]] object. This will extract time-shape DATA info from `elemsd` and put it inside
+Now we initiate an instance for storing space-time shape FUNCTION DATA, that is [[STElemshapeData_]] object. This will extract time-shape DATA info from `elemsd` and put it inside
 
     - `obj(i)%T`
     - `obj(i)%dTdTheta`
@@ -204,17 +204,17 @@ PROGRAM main
     - `obj(i)%Theta`
 
 ```fortran
-    CALL Initiate(obj=obj, elemsd=time_elemsd)
+CALL Initiate(obj=obj, elemsd=time_elemsd)
 ```
 
 !!! note ""
-    Generating shape functions for space-elements. Here, we are selecting a triangular element
+Generating shape functions for space-elements. Here, we are selecting a triangular element
 
 ```fortran
-    ALLOCATE (ReferenceTriangle_ :: refelem)
-    refelem = ReferenceTriangle(nsd=nsd)
-    CALL Initiate(obj=quad, refelem=refelem, order=1, quadratureType='GaussLegendre' )
-    CALL Display(quad, "quad in triangle: ")
+ALLOCATE (ReferenceTriangle_ :: refelem)
+refelem = ReferenceTriangle(nsd=nsd)
+CALL Initiate(obj=quad, refelem=refelem, order=1, quadratureType='GaussLegendre' )
+CALL Display(quad, "quad in triangle: ")
 ```
 
 ??? example "Results"
@@ -228,9 +228,8 @@ PROGRAM main
     -----------------------------------------
     ```
 
-
 !!! note ""
-    Setting local DATA of shape FUNCTION in space. This will set
+Setting local DATA of shape FUNCTION in space. This will set
 
     - N
     - dNdXi
@@ -238,25 +237,25 @@ PROGRAM main
     - Quad
 
 ```fortran
-    DO ii = 1, SIZE(obj)
-      CALL initiate( &
-        & obj=obj(ii), quad=quad, refelem=refelem, &
-        & ContinuityType=typeH1, InterpolType=TypeLagrangeInterpolation)
-    END DO
+DO ii = 1, SIZE(obj)
+  CALL initiate( &
+    & obj=obj(ii), quad=quad, refelem=refelem, &
+    & ContinuityType=typeH1, InterpolType=TypeLagrangeInterpolation)
+END DO
 ```
 
 !!! note ""
-    Setting the remaining DATA in obj. Here, `xiJa` are the space-time nodal coordinates.
+Setting the remaining DATA in obj. Here, `xiJa` are the space-time nodal coordinates.
 
 ```fortran
-    ALLOCATE (xiJ(nsd, nns), xiJa(nsd, nns, nnt))
-    xiJ = RESHAPE([0, 0, 1, 0, 0, 1], [nsd, nns])
-    DO ii = 1, nnt; xiJa(:, :, ii) = xiJ; END DO
-    DO ii = 1, SIZE(obj)
-        CALL set(obj=obj(ii), val=xiJa, N=obj(ii)%N, &
-            & dNdXi=obj(ii)%dNdXi, T=obj(ii)%T )
-        CALL Display(obj(ii), "obj("//tostring(ii)//')=' )
-    END DO
+ALLOCATE (xiJ(nsd, nns), xiJa(nsd, nns, nnt))
+xiJ = RESHAPE([0, 0, 1, 0, 0, 1], [nsd, nns])
+DO ii = 1, nnt; xiJa(:, :, ii) = xiJ; END DO
+DO ii = 1, SIZE(obj)
+    CALL set(obj=obj(ii), val=xiJa, N=obj(ii)%N, &
+        & dNdXi=obj(ii)%dNdXi, T=obj(ii)%T )
+    CALL Display(obj(ii), "obj("//tostring(ii)//')=' )
+END DO
 ```
 
 ??? example "Results"

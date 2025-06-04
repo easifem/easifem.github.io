@@ -155,7 +155,7 @@ Swap two scalar numbers.
 
 import EXAMPLE155 from "./_Swap_test_4.md";
 
- <EXAMPLE155 />
+<EXAMPLE155 />
 
 </TabItem>
 

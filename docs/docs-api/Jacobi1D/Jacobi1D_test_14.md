@@ -33,19 +33,19 @@ real( dfp ) :: x( 3 )
 ### n=1
 
 ```fortran
-  n=1
-  x = [-0.5_DFP, 0.0_DFP, 0.5_DFP]
-  obj = Jacobi1D(varname="x", n=n, alpha=alpha, beta=beta, &
-    & isOrthonormal=isOrthonormal, isMonic=isMonic )
-  call Display( "J(n=1, alpha=0.0, beta=0.0) := " )
-  call reallocate( coeff, n, 2)
-  call reallocate( scale, n, 2)
-  call obj%getCoeffScale( n=n, coeff=coeff, scale=scale, &
-    & isMonic=isMonic, isOrthonormal=isOrthonormal )
-  y = obj%BasisEval( x=x, coeff=coeff, scale=scale )
-  call Display( x, "x = " )
-  call display( y, "y = " )
-  call obj%Deallocate( )
+n=1
+x = [-0.5_DFP, 0.0_DFP, 0.5_DFP]
+obj = Jacobi1D(varname="x", n=n, alpha=alpha, beta=beta, &
+  & isOrthonormal=isOrthonormal, isMonic=isMonic )
+call Display( "J(n=1, alpha=0.0, beta=0.0) := " )
+call reallocate( coeff, n, 2)
+call reallocate( scale, n, 2)
+call obj%getCoeffScale( n=n, coeff=coeff, scale=scale, &
+  & isMonic=isMonic, isOrthonormal=isOrthonormal )
+y = obj%BasisEval( x=x, coeff=coeff, scale=scale )
+call Display( x, "x = " )
+call display( y, "y = " )
+call obj%Deallocate( )
 ```
 
 ```txt
@@ -66,18 +66,18 @@ J(n=1, alpha=0.0, beta=0.0) :=
 ### n=2
 
 ```fortran
-  n=2
-  obj = Jacobi1D(varname="x", n=n, alpha=alpha, beta=beta, &
-    & isOrthonormal=isOrthonormal, isMonic=isMonic )
-  call Display( "J(n=2, alpha=0.0, beta=0.0) := " )
-  call reallocate( coeff, n, 2)
-  call reallocate( scale, n, 2)
-  call obj%getCoeffScale( n=n, coeff=coeff, scale=scale, &
-    & isMonic=isMonic, isOrthonormal=isOrthonormal )
-  y = obj%BasisEval( x=x, coeff=coeff, scale=scale )
-  call Display( x, "x = ")
-  call display( y, "y = ")
-  call obj%Deallocate()
+n=2
+obj = Jacobi1D(varname="x", n=n, alpha=alpha, beta=beta, &
+  & isOrthonormal=isOrthonormal, isMonic=isMonic )
+call Display( "J(n=2, alpha=0.0, beta=0.0) := " )
+call reallocate( coeff, n, 2)
+call reallocate( scale, n, 2)
+call obj%getCoeffScale( n=n, coeff=coeff, scale=scale, &
+  & isMonic=isMonic, isOrthonormal=isOrthonormal )
+y = obj%BasisEval( x=x, coeff=coeff, scale=scale )
+call Display( x, "x = ")
+call display( y, "y = ")
+call obj%Deallocate()
 ```
 
 ```txt
@@ -98,18 +98,18 @@ J(n=2, alpha=0.0, beta=0.0) :=
 ### n=3
 
 ```fortran
-  n=3
-  obj = Jacobi1D(varname="x", n=n, alpha=alpha, beta=beta, &
-    & isOrthonormal=isOrthonormal, isMonic=isMonic )
-  call Display( "J(n=3, alpha=0.0, beta=0.0) := " )
-  call reallocate( coeff, n, 2)
-  call reallocate( scale, n, 2)
-  call obj%getCoeffScale( n=n, coeff=coeff, scale=scale, &
-    & isMonic=isMonic, isOrthonormal=isOrthonormal )
-  y = obj%BasisEval( x=x, coeff=coeff, scale=scale )
-  call Display( x, "x = ")
-  call display( y, "y = ")
-  call obj%Deallocate()
+n=3
+obj = Jacobi1D(varname="x", n=n, alpha=alpha, beta=beta, &
+  & isOrthonormal=isOrthonormal, isMonic=isMonic )
+call Display( "J(n=3, alpha=0.0, beta=0.0) := " )
+call reallocate( coeff, n, 2)
+call reallocate( scale, n, 2)
+call obj%getCoeffScale( n=n, coeff=coeff, scale=scale, &
+  & isMonic=isMonic, isOrthonormal=isOrthonormal )
+y = obj%BasisEval( x=x, coeff=coeff, scale=scale )
+call Display( x, "x = ")
+call display( y, "y = ")
+call obj%Deallocate()
 ```
 
 ```txt

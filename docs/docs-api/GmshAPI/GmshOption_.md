@@ -7,4 +7,3 @@
 ## Structure
 
 ## Methods
-

@@ -3,7 +3,7 @@
 This routine computes the ILU factorization with standard threshold dropping: at ith step of elimination, an element `a(i,j)` in row i is dropped if it satisfies the following criterion:
 
 $$
-\vert a(i,j) \vert < \text{ tol } \times  \tilde{a}_{i},
+\vert a(i,j) \vert < \text{ tol } \times \tilde{a}_{i},
 $$
 
 where $\tilde{a}_{i}$ is average magnitude of elements in row i of `A`, which is given by:

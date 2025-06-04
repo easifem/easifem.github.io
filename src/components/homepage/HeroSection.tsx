@@ -31,24 +31,6 @@ const PRODUCTS = [
     darkImage: "/static/landing-page/hero/easifemClasses-dark.svg",
     text: "High level classes and objects for numerical methods and algorithms.",
   },
-  {
-    title: "easifemMaterials",
-    beta: true,
-    link: "/about/easifemMaterials",
-    icon: BoardRegular,
-    lightImage: "/static/landing-page/hero/easifemMaterials-light.svg",
-    darkImage: "/static/landing-page/hero/easifemMaterials-dark.svg",
-    text: "A library for constitutive modeling of solids, fluids, and porous media (soils and rocks).",
-  },
-  {
-    title: "easifemKernels",
-    beta: true,
-    link: "/about/easifemKernels",
-    icon: BoxRegular,
-    lightImage: "/static/landing-page/hero/easifemKernels-light.svg",
-    darkImage: "/static/landing-page/hero/easifemKernels-dark.svg",
-    text: "A library of useful kernels for solving common partial differential equations.",
-  },
 ];
 
 function HeroProduct({

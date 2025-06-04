@@ -1,6 +1,6 @@
-!!  This examples shows how to use `SetLinearStaticCDRParam` to set the parameters of [[LinearStaticCDR_]] kernel.
+!! This examples shows how to use `SetLinearStaticCDRParam` to set the parameters of [[LinearStaticCDR_]] kernel.
 
-``` fortran
+```fortran
 PROGRAM main
     USE easifemBase
     USE easifemClasses

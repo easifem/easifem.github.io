@@ -12,4 +12,3 @@ END SUBROUTINE H1_Hierarchy
 ```
 
 This method belongs to the generic method [[#Initiate]].
-

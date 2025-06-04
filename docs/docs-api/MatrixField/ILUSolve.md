@@ -30,7 +30,6 @@ INTERFACE
 END INTERFACE
 ```
 
-
 ```fortran
 ! If transp is not present or it is false then:
 ! This routine solves (LU) sol = rhs

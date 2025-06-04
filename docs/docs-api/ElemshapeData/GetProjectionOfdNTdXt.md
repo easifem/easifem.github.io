@@ -53,4 +53,3 @@ MODULE PURE SUBROUTINE GetProjectionOfdNTdXt(obj, cdNTdXt, val)
   TYPE(FEVariable_), INTENT(IN) :: val
 END SUBROUTINE GetProjectionOfdNTdXt
 ```
-

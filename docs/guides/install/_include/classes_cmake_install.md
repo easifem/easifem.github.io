@@ -1,7 +1,7 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-easifem uses CMake build system. 
+easifem uses CMake build system.
 To manually install `easifem` from the source we need to perform following tasks.
 
 1. Download the source code from git repository.
@@ -58,7 +58,6 @@ To configure the `easifemClasses` library you can define following variables:
 | `BUILD_SHARED_LIBS`    | `BOOL`   | `ON`, `OFF`        | `ON`               |
 | `CMAKE_INSTALL_PREFIX` | `PATH`   | Please specify     | `$EASIFEM_CLASSES` |
 
-
 An example of configuration step is given below:
 
 ```bash
@@ -77,19 +76,19 @@ After configuration, you can build and install the library by using:
 cmake --build ./build --target --install
 ```
 
-## Build options 
+## Build options
 
 ### `CMAKE_BUILD_TYPE`
 
-If `CMAKE_BUILD_TYPE` denotes the  build type of library. You can read more it at the [cmake website](https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html). 
+If `CMAKE_BUILD_TYPE` denotes the build type of library. You can read more it at the [cmake website](https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html).
 
 This variable is string type and it can take following values:
 
 - `Release`: If `CMAKE_BUILD_TYPE` is set to `Release`, then highly optimized version of `easifemBase` is built without any debugging facility. This option should be used by the users of easifem.
 - `Debug`: If `CMAKE_BUILD_TYPE` is set to `Debug`, then library is built with debugging facility. This is useful for developer of easifem. No optimization, asserts enabled, [custom debug (output) code enabled],
-   debug info included in executable (so you can step through the code with a
-   debugger and have address to source-file:line-number translation).
-- `RelWithDebInfo`: optimized, with debug info, but no debug (output) code or asserts. 
+  debug info included in executable (so you can step through the code with a
+  debugger and have address to source-file:line-number translation).
+- `RelWithDebInfo`: optimized, with debug info, but no debug (output) code or asserts.
 - `MinSizeRel`: same as Release but optimizing for size rather than speed.
 
 You can set this option by using `--D CMAKE_BUILD_TYPE:STRING=Release`.
@@ -110,6 +109,6 @@ You can set this option by using `--D BUILD_SHARED_LIBS:BOOL=ON`.
 
 You can set this option by using `--D CMAKE_INSTALL_PREFIX:PATH=$EASIFEM_CLASSES`.
 
-:::note Read more 
+:::note Read more
 You can read about `CMAKE_INSTALL_PREFIX` at the [cmake website](https://cmake.org/cmake/help/latest/variable/CMAKE_INSTALL_PREFIX.html).
 :::

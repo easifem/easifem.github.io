@@ -16,7 +16,6 @@ Before installing the `easifemClasses` library please make sure that you have in
 
 ## easifem CLI (recommended method)
 
-
 import EXAMPLE19 from "../_include/classes_cli_install.md";
 
 <EXAMPLE19 />
@@ -26,5 +25,3 @@ import EXAMPLE19 from "../_include/classes_cli_install.md";
 import EXAMPLE81 from "../_include/classes_cmake_install.md";
 
 <EXAMPLE81 />
-
-

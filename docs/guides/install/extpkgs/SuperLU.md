@@ -32,7 +32,6 @@ cmake --build $build_dir --target install
 ## Toml configuration for easifem
 
 ```toml
-
 name = "superlu"
 isExtPkg = true
 isActive = true
@@ -45,14 +44,14 @@ libName = "superlu"
 runtest = true
 license = "GPL3"
 buildOptions = [
-"-D TPL_ENABLE_METISLIB:BOOL=OFF",
-"-D enable_single:BOOL=ON",
-"-D enable_double:BOOL=ON",
-"-D enable_complex:BOOL=ON",
-"-D enable_complex16:BOOL=ON",
-"-D enable_matlabmex:BOOL=OFF",
-"-D enable_doc:BOOL=OFF",
-"-D enable_examples:BOOL=OFF",
-"-D enable_tests:BOOL=ON"]
-
+  "-D TPL_ENABLE_METISLIB:BOOL=OFF",
+  "-D enable_single:BOOL=ON",
+  "-D enable_double:BOOL=ON",
+  "-D enable_complex:BOOL=ON",
+  "-D enable_complex16:BOOL=ON",
+  "-D enable_matlabmex:BOOL=OFF",
+  "-D enable_doc:BOOL=OFF",
+  "-D enable_examples:BOOL=OFF",
+  "-D enable_tests:BOOL=ON",
+]
 ```

@@ -42,4 +42,3 @@ Currently is contains
 
 - Change name of LagrangePolynomial1D to [[Lagrange1D_]]
 - Create [[LagrangeSpace1D_]]
-

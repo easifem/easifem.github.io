@@ -41,22 +41,22 @@ PROGRAM MAIN
 ```
 
 !!! note ""
-    Plotting a three dimensional structured grid.
+Plotting a three dimensional structured grid.
 
 ```fortran
-  CALL MeshGrid( x=x, y = y, z = z, &
-    & xgv=linspace( 0.0_DFP, 1.0_DFP, 50), &
-    & ygv=linspace( 0.0_DFP, 1.0_DFP, 50), &
-    & zgv=linspace( 0.0_DFP, 1.0_DFP, 50) &
-    & )
+CALL MeshGrid( x=x, y = y, z = z, &
+  & xgv=linspace( 0.0_DFP, 1.0_DFP, 50), &
+  & ygv=linspace( 0.0_DFP, 1.0_DFP, 50), &
+  & zgv=linspace( 0.0_DFP, 1.0_DFP, 50) &
+  & )
 ```
 
 ```fortran
-  func => f
-  CALL obj%initiate( )
-  CALL obj%plot( x, y, z, func, "./test_7.vts")
-  CALL obj%deallocate()
-  func => NULL()
+func => f
+CALL obj%initiate( )
+CALL obj%plot( x, y, z, func, "./test_7.vts")
+CALL obj%deallocate()
+func => NULL()
 ```
 
 ```fortran

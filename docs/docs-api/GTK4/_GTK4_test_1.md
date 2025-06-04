@@ -66,72 +66,72 @@ module handlers
 ### from `gtk` import
 
 ```fortran
-  use gtk, only: &
-    & gtk_application_new, &
-    & G_APPLICATION_FLAGS_NONE, &
-    & gtk_application_window_new, &
-    & gtk_widget_show, &
-    & gtk_window_set_child, &
-    & gtk_box_append, &
-    & gtk_window_set_title, &
-    & g_signal_connect, &
-    & gtk_box_new, &
-    & gtk_button_new_with_label, &
-    & GTK_ORIENTATION_VERTICAL, &
-    & FALSE, &
-    & gtk_label_new, &
-    & gtk_spin_button_new, &
-    & gtk_adjustment_new, &
-    & gtk_spin_button_get_value, &
-    & gtk_drawing_area_new, &
-    & gtk_widget_queue_draw, &
-    & GDK_COLORSPACE_RGB, &
-    & gtk_widget_set_vexpand, &
-    & TRUE, &
-    & gtk_widget_set_size_request, &
-    & gtk_drawing_area_set_draw_func
+use gtk, only: &
+  & gtk_application_new, &
+  & G_APPLICATION_FLAGS_NONE, &
+  & gtk_application_window_new, &
+  & gtk_widget_show, &
+  & gtk_window_set_child, &
+  & gtk_box_append, &
+  & gtk_window_set_title, &
+  & g_signal_connect, &
+  & gtk_box_new, &
+  & gtk_button_new_with_label, &
+  & GTK_ORIENTATION_VERTICAL, &
+  & FALSE, &
+  & gtk_label_new, &
+  & gtk_spin_button_new, &
+  & gtk_adjustment_new, &
+  & gtk_spin_button_get_value, &
+  & gtk_drawing_area_new, &
+  & gtk_widget_queue_draw, &
+  & GDK_COLORSPACE_RGB, &
+  & gtk_widget_set_vexpand, &
+  & TRUE, &
+  & gtk_widget_set_size_request, &
+  & gtk_drawing_area_set_draw_func
 ```
 
 ### from `g` import
 
 ```fortran
-  use g, only: g_application_run, g_object_unref
+use g, only: g_application_run, g_object_unref
 ```
 
 ### from `cairo` import
 
 ```fortran
-  use cairo, only: cairo_paint
+use cairo, only: cairo_paint
 ```
 
 ### from `gdk` import
 
 ```fortran
-  use gdk, only: gdk_cairo_set_source_pixbuf
+use gdk, only: gdk_cairo_set_source_pixbuf
 ```
 
 ```fortran
-  use gdk_pixbuf, only: &
-    & gdk_pixbuf_new, &
-    & gdk_pixbuf_get_rowstride, &
-    & gdk_pixbuf_get_pixels, &
-    & gdk_pixbuf_get_n_channels
+use gdk_pixbuf, only: &
+  & gdk_pixbuf_new, &
+  & gdk_pixbuf_get_rowstride, &
+  & gdk_pixbuf_get_pixels, &
+  & gdk_pixbuf_get_n_channels
 ```
 
 ### use other modules
 
 ```fortran
-  use math
+use math
 ```
 
 ### module variables
 
 ```fortran
-  implicit none
-  type(c_ptr) :: r_spin_button, my_drawing_area, my_pixbuf
-  integer(kind=c_int) :: nch, rowstride, width, height, pixwidth, pixheight
-  character(kind=c_char), dimension(:), pointer :: pixel
-  contains
+implicit none
+type(c_ptr) :: r_spin_button, my_drawing_area, my_pixbuf
+integer(kind=c_int) :: nch, rowstride, width, height, pixwidth, pixheight
+character(kind=c_char), dimension(:), pointer :: pixel
+contains
 ```
 
 ### my_button_clicked
@@ -139,11 +139,11 @@ module handlers
 The algorithm to draw the bifurcation diagram of the logistic map, also called the Feigenbaum fractal, being short, we will put it directly into the `my_button_clicked` callback function:
 
 ```fortran
-  subroutine my_button_clicked(widget, gdata) bind(c)
-    type(c_ptr), value, intent(in) :: widget, gdata
-    real(dp) :: r, x0
-    real(dp) :: rmin, rmax
-    integer :: p, n, xp, yp, xpmax, ypmax
+subroutine my_button_clicked(widget, gdata) bind(c)
+  type(c_ptr), value, intent(in) :: widget, gdata
+  real(dp) :: r, x0
+  real(dp) :: rmin, rmax
+  integer :: p, n, xp, yp, xpmax, ypmax
 ```
 
 We choose randomly x0, get r from the `GtkSpinButton` and print the results in the terminal:
@@ -181,7 +181,7 @@ Note also that the graphical coordinate system has the origin (0,0) at the top l
 The `gtk_widget_queue_draw()` function tells the main loop that the area needs redrawing. The main loop will manage it as soon as possible.
 
 ```fortran
-  end subroutine my_button_clicked
+end subroutine my_button_clicked
 ```
 
 ### draw
@@ -203,8 +203,8 @@ The drawing will be made via the Cairo library. Our pixbuf is placed at the top 
 This subroutine `activate()` will be called by the GTK main loop when we launch our application.
 
 ```fortran
-  subroutine activate(app, gdata) bind(c)
-    type(c_ptr), value, intent(in) :: app, gdata
+subroutine activate(app, gdata) bind(c)
+  type(c_ptr), value, intent(in) :: app, gdata
 ```
 
 The input arguments are two C pointers:
@@ -216,9 +216,9 @@ The input arguments are two C pointers:
 Note firstly the `bind(c)` statement (this Fortran subroutine will be called by a C function from the GTK main loop) and secondly that the C pointers are passed by value (memory addresses).
 
 ```fortran
-    type(c_ptr) :: window
-    type(c_ptr) :: box, my_button
-    type(c_ptr) :: label_r
+type(c_ptr) :: window
+type(c_ptr) :: box, my_button
+type(c_ptr) :: label_r
 ```
 
 ### `gtk_application_window_new`
@@ -234,15 +234,15 @@ In GTK 4, the widgets inside a window are all shown by default. It was the contr
 Don't forget to add used function names in the `use gtk, only:` statement of the module.
 
 ```fortran
-    window = gtk_application_window_new(app)
+window = gtk_application_window_new(app)
 ```
 
 Now we add title to our window.
 
 ```fortran
-    call gtk_window_set_title( &
-      & window, &
-      & "Hello world!"//c_null_char)
+call gtk_window_set_title( &
+  & window, &
+  & "Hello world!"//c_null_char)
 ```
 
 ### `gtk_box_new`
@@ -256,8 +256,8 @@ Here, we have chosen to arrange them vertically and separated by 10 pixels.
 Our box is then added to the parent window as a "child". A `GtkBox` is indeed what it called a container.
 
 ```fortran
-    box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 10_c_int)
-    call gtk_window_set_child(window, box)
+box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 10_c_int)
+call gtk_window_set_child(window, box)
 ```
 
 !!! note `label_r` is `C` pointer.
@@ -267,14 +267,14 @@ Now, we define our button and add it to the box: the button is therefore contain
 ### `gtk_spin_button_new`
 
 ```fortran
-    label_r = gtk_label_new("r parameter"//c_null_char)
-    call gtk_box_append(box, label_r)
-    r_spin_button = gtk_spin_button_new( &
-      & gtk_adjustment_new(3._dp, 0._dp, 4._dp, &
-      & 0.1_dp, 0._dp, 0._dp), &
-      & 0.0_dp, 3_c_int)
-    !!
-    call gtk_box_append(box, r_spin_button)
+label_r = gtk_label_new("r parameter"//c_null_char)
+call gtk_box_append(box, label_r)
+r_spin_button = gtk_spin_button_new( &
+  & gtk_adjustment_new(3._dp, 0._dp, 4._dp, &
+  & 0.1_dp, 0._dp, 0._dp), &
+  & 0.0_dp, 3_c_int)
+!!
+call gtk_box_append(box, r_spin_button)
 ```
 
 !!! note "Spint button"
@@ -283,12 +283,12 @@ Now, we define our button and add it to the box: the button is therefore contain
 ### `gtk_button_new_with_label`
 
 ```fortran
-    my_button = gtk_button_new_with_label("Compute"//c_null_char)
-    call gtk_box_append(box, my_button)
-    call g_signal_connect( &
-      & my_button, &
-      & "clicked"//c_null_char, &
-      & c_funloc(my_button_clicked))
+my_button = gtk_button_new_with_label("Compute"//c_null_char)
+call gtk_box_append(box, my_button)
+call g_signal_connect( &
+  & my_button, &
+  & "clicked"//c_null_char, &
+  & c_funloc(my_button_clicked))
 ```
 
 !!! note "clicked"
@@ -300,13 +300,13 @@ The interface of callback function can be found by looking in the GTK documentat
 ### `gtk_drawing_area_new`
 
 ```fortran
-    my_drawing_area = gtk_drawing_area_new()
-    pixwidth  = 1000
-    pixheight = 600
-    call gtk_widget_set_size_request(my_drawing_area, pixwidth, pixheight)
-    call gtk_drawing_area_set_draw_func(my_drawing_area, &
-                  & c_funloc(draw), c_null_ptr, c_null_funptr)
-    call gtk_box_append(box, my_drawing_area)
+my_drawing_area = gtk_drawing_area_new()
+pixwidth  = 1000
+pixheight = 600
+call gtk_widget_set_size_request(my_drawing_area, pixwidth, pixheight)
+call gtk_drawing_area_set_draw_func(my_drawing_area, &
+              & c_funloc(draw), c_null_ptr, c_null_funptr)
+call gtk_box_append(box, my_drawing_area)
 ```
 
 The variables `my_drawing_area` and `pixwidth` and `pixheight` will be declared at the top of the `handlers` module, respectively with `type(c_ptr)` and `integer(c_int)`. We will later write the callback `draw` function which will be called each time the drawing area is drawn.
@@ -336,25 +336,24 @@ That array is initialized with zeros and the image will therefore be black (red=
 Each time the `GtkDrawingArea` will need to be redrawn (for example if another window was on top), the `draw` signal will be automatically emitted and the callback function called:
 
 ```fortran
-    my_pixbuf = gdk_pixbuf_new(GDK_COLORSPACE_RGB, FALSE, 8_c_int, &
-              & pixwidth, pixheight)
-    nch = gdk_pixbuf_get_n_channels(my_pixbuf)
-    rowstride = gdk_pixbuf_get_rowstride(my_pixbuf)
-    call c_f_pointer(gdk_pixbuf_get_pixels(my_pixbuf), pixel, &
-                   & (/pixwidth*pixheight*nch/))
-    pixel = char(0)
+my_pixbuf = gdk_pixbuf_new(GDK_COLORSPACE_RGB, FALSE, 8_c_int, &
+          & pixwidth, pixheight)
+nch = gdk_pixbuf_get_n_channels(my_pixbuf)
+rowstride = gdk_pixbuf_get_rowstride(my_pixbuf)
+call c_f_pointer(gdk_pixbuf_get_pixels(my_pixbuf), pixel, &
+               & (/pixwidth*pixheight*nch/))
+pixel = char(0)
 ```
 
 ```fortran
-    call gtk_widget_show(window)
-  end subroutine activate
+  call gtk_widget_show(window)
+end subroutine activate
 ```
 
 ### end of module `handlers`
 
 ```fortran
 end module handlers
-
 ```
 
 ## `my_first_gtk_app`
@@ -373,9 +372,9 @@ program my_first_gtk_app
 The `gtk_application_new()` function is returning a C pointer to our app variable using the `c_ptr` constant defined in the `iso_c_binding` module. The first argument to pass is the application (unique) identifier: a string composed of alphanumerical characters containing at least one dot.
 
 ```fortran
-  app = gtk_application_new( &
-    & "gtk-fortran.my_first_gtk_app"//c_null_char, &
-    & G_APPLICATION_FLAGS_NONE)
+app = gtk_application_new( &
+  & "gtk-fortran.my_first_gtk_app"//c_null_char, &
+  & G_APPLICATION_FLAGS_NONE)
 ```
 
 ### `g_signal_connect`
@@ -383,11 +382,11 @@ The `gtk_application_new()` function is returning a C pointer to our app variabl
 Most of the time, out GTK program will be based on a Window widget. And that window must be created when our GTK application is activated (i.e., when we open the window). Therefore, we need to add this line in the main program before running the main app:
 
 ```fortran
-  call g_signal_connect( &
-    & app, &
-    & "activate"//c_null_char, &
-    & c_funloc(activate), &
-    & c_null_ptr)
+call g_signal_connect( &
+  & app, &
+  & "activate"//c_null_char, &
+  & c_funloc(activate), &
+  & c_null_ptr)
 ```
 
 Let's understand what is going on here.
@@ -405,7 +404,7 @@ The `c_null_ptr` means that no data will be passed to the callback function.
 ### `g_application_run`
 
 ```fortran
-  status = g_application_run(app, 0_c_int, [c_null_ptr])
+status = g_application_run(app, 0_c_int, [c_null_ptr])
 ```
 
 - `g_application_run()`: GTK is based on GLib and a GTK application is therefore a GLib application. We launch our application using the `g_application_run()` function. Here we don't manage the command line arguments: the `0_c_int, [c_null_ptr]` arguments are the classical `int argc, char **argv` used in C language. Calling that function causes your program to enter the main loop of the GUI. That loop is idle most of the time, and waits for something to happen: an event. When quitting the application, the function will return the exit status in the status variable, whose type must be interoperable with the C int type.
@@ -417,7 +416,7 @@ When you read the GTK documentation, be conscious that GTK is using the GLib typ
 Note that the Fortran interfaces of the functions `g_signal_connect*`, although belonging to `GLib`, are in the gtk module (they can not be parsed by gtk-4-fortran wrapper because they are defined by C macros).
 
 ```fortran
-  call g_object_unref(app)
+call g_object_unref(app)
 ```
 
 - `g_object_unref(app)` line will free the memory

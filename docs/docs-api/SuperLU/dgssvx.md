@@ -29,7 +29,7 @@ $$
 $$
 
 :::note
- Whether the system will be equilibrated depends on the scaling of the matrix A, but if equilibration is used, A is overwritten by $\text{diag}(R)\cdot A \cdot \text{diag}(C)$ and B by $\text{diag}(R) \cdot B$ (if `options->Trans=NOTRANS`) or $\text{diag}(C) \cdot B$ (if `options->Trans = TRANS or CONJ`).
+Whether the system will be equilibrated depends on the scaling of the matrix A, but if equilibration is used, A is overwritten by $\text{diag}(R)\cdot A \cdot \text{diag}(C)$ and B by $\text{diag}(R) \cdot B$ (if `options->Trans=NOTRANS`) or $\text{diag}(C) \cdot B$ (if `options->Trans = TRANS or CONJ`).
 :::
 
 2. Permute columns of A, forming `A*Pc`, where Pc is a permutation matrix that usually preserves sparsity. For more details of this step, see sp_preorder.c.
@@ -50,17 +50,17 @@ If A is stored row-wise (`A->Stype = SLU_NR`), apply the above algorithm to the 
 1. If `options->Equil = YES`, scaling factors are computed to equilibrate the system:
 
 - `options->Trans = NOTRANS`:
-$$
-\text{diag}(R) \cdot A \cdot \text{diag}(C) \cdot \text{diag}(C)^{-1} \cdot X = \text{diag}(R) \cdot B
-$$
+  $$
+  \text{diag}(R) \cdot A \cdot \text{diag}(C) \cdot \text{diag}(C)^{-1} \cdot X = \text{diag}(R) \cdot B
+  $$
 - `options->Trans = TRANS:`
-$$
-(\text{diag}(R) \cdot A \cdot \text{diag}(C))^{T} \cdot \text{diag}(R)^{-1} \cdot X = \text{diag}(C) \cdot B
-$$
+  $$
+  (\text{diag}(R) \cdot A \cdot \text{diag}(C))^{T} \cdot \text{diag}(R)^{-1} \cdot X = \text{diag}(C) \cdot B
+  $$
 - `options->Trans = CONJ:`
-$$
-(\text{diag}(R) \cdot A \cdot \text{diag}(C))^{H} \cdot \text{diag}(R)^{-1} \cdot X = \text{diag}(C) \cdot B
-$$
+  $$
+  (\text{diag}(R) \cdot A \cdot \text{diag}(C))^{H} \cdot \text{diag}(R)^{-1} \cdot X = \text{diag}(C) \cdot B
+  $$
 
 :::note
 Whether the system will be equilibrated depends on the scaling of the matrix A, but if equilibration is used, $A^{T}$ is overwritten by $\text{diag}(R) \cdot A^{T} \cdot \text{diag}(C)$ and B by $\text{diag}(R)\cdot B$ (if `trans='N'`) or $\text{diag}(C) \cdot B$ (if `trans = 'T' or 'C'`).
@@ -282,7 +282,7 @@ If `A->Stype = SLU_NR`, column permutation vector of size `A->nrow`, which descr
 (input/output) int*
 ```
 
-If `A->Stype = SLU_NC`, row permutation vector of size `A->nrow`, which defines the permutation matrix Pr, and is determined by partial pivoting.  `perm_r[i] = j` means row i of A is in position j in `Pr*A`.
+If `A->Stype = SLU_NC`, row permutation vector of size `A->nrow`, which defines the permutation matrix Pr, and is determined by partial pivoting. `perm_r[i] = j` means row i of A is in position j in `Pr*A`.
 
 If `A->Stype = SLU_NR`, permutation vector of size `A->ncol`, which determines permutation of rows of transpose(A) (columns of A) as described above.
 

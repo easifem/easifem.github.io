@@ -2,7 +2,7 @@
 
 This function returns GaussLegendre quadrature points of a given order.
 
-<span class="badge badge--warning"> Generic name:  GaussLegendreQuadrature </span>
+<span class="badge badge--warning"> Generic name: GaussLegendreQuadrature </span>
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -55,4 +55,3 @@ INTERFACE
   END FUNCTION GaussLegendreQuadrature
 END INTERFACE
 ```
-

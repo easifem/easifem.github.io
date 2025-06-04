@@ -23,10 +23,10 @@ PROGRAM main
 !!! note ""
 
 ```fortran
-  n = 1000
-  do ii = 1, n
-    call showProgress( "debug-1", real(ii, kind=DFP)/n )
-  end do
+n = 1000
+do ii = 1, n
+  call showProgress( "debug-1", real(ii, kind=DFP)/n )
+end do
 ```
 
 ```fortran

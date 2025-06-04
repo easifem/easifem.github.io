@@ -18,16 +18,15 @@ $$
 This subroutine returns $c_{a,b,c}$ for Lagrange polynomial.
 :::
 
-For example, if we select monomial basis: 
+For example, if we select monomial basis:
 
 $$
-1, x, y, xy, z, xz, yz, xyz 
+1, x, y, xy, z, xz, yz, xyz
 $$
 
 then for order = 1 (linear), we have following results:
 
-
-coeff 
+coeff
 
 | basis | $l_1$  | $l_2$  | $l_3$  | $l_4$  | $l_5$  | $l_6$  | $l_7$ | $l_8$  |
 | ----- | ------ | ------ | ------ | ------ | ------ | ------ | ----- | ------ |
@@ -39,7 +38,6 @@ coeff
 | xz    | 0.125  | -0.125 | -0.125 | 0.125  | -0.125 | 0.125  | 0.125 | -0.125 |
 | yz    | 0.125  | 0.125  | -0.125 | -0.125 | -0.125 | -0.125 | 0.125 | 0.125  |
 | xyz   | -0.125 | 0.125  | -0.125 | 0.125  | 0.125  | -0.125 | 0.125 | -0.125 |
-
 
 ## Interface 1
 
@@ -82,7 +80,6 @@ INTERFACE LagrangeCoeff_Hexahedron
   END FUNCTION LagrangeCoeff_Hexahedron2
 END INTERFACE LagrangeCoeff_Hexahedron
 ```
-
 
 ## Interface 3
 
@@ -147,23 +144,24 @@ interpolation points for Lagrange polynomials. The number of rows of xij should 
 :::
 
 :::info `basisType`
+
 - Monomials
 - Jacobi
 - Legendre
 - Chebyshev
 - Ultraspherical
 - Heirarchical
-:::
+  :::
 
 :::info `refHexahedron`
 Reference hexahedron can be `UNIT` or `BIUNIT`.
 :::
 
 :::info `alpha, beta, lambda`
+
 - `alpha` and `beta` are needed when basisType is Jacobi
 - `lambda` is needed when basisType is Ultraspherical
-:::
-
+  :::
 
 </TabItem>
 
@@ -179,7 +177,6 @@ import EXAMPLE77 from "./_LagrangeCoeff_Hexahedron_test_1.md";
 
 </TabItem>
 </Tabs>
-
 
 ## Interface 5
 
@@ -267,40 +264,44 @@ END INTERFACE LagrangeCoeff_Hexahedron
 ```
 
 :::info `p, q, r`
+
 - p is order in x direction
 - q is order in y direction
 - r is order in z direction
-:::
+  :::
 
 :::info `xij`
 xij is the interpolation points. The number of rows in xij is 3, and the number of columns in xij should be equal to the total number of degrees of freedom.
 :::
 
-
 :::info `basisType1, basisType2, basisType3`
 basisType in x, y, and z direction. It can take following values:
+
 - Monomials
 - Jacobi
 - Legendre
 - Chebyshev
 - Ultraspherical
 - Heirarchical
-:::
+  :::
 
 :::info `alpha1, beta1, lambda1`
+
 - `alpha1` and `beta1` are needed when basisType1 is Jacobi
 - `lambda1` is needed when basisType1 is Ultraspherical
-:::
+  :::
 
 :::info `alpha2, beta2, lambda2`
+
 - `alpha2` and `beta2` are needed when basisType2 is Jacobi
 - `lambda2` is needed when basisType2 is Ultraspherical
-:::
+  :::
 
 :::info `alpha3, beta, lambda3`
+
 - `alpha3` and `beta3` are needed when basisType3 is Jacobi
 - `lambda3` is needed when basisType3 is Ultraspherical
-:::
+  :::
 
 :::info `refHexahedron`
 Reference hexahedron can be `UNIT` or `BIUNIT`.
@@ -320,6 +321,3 @@ import EXAMPLE178 from "./_LagrangeCoeff_Hexahedron_test_4.md";
 
 </TabItem>
 </Tabs>
-
-
-

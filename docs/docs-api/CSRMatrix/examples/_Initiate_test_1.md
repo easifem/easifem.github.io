@@ -14,14 +14,14 @@ PROGRAM main
   - 12 number of spatial nodes are stored in `NODES_FMT`.
 
 ```fortran
-  CALL Initiate( obj=dofobj, tNodes=[12], names=['K'], &
-    & spaceCompo=[1], timeCompo=[1], storageFMT=NODES_FMT )
+CALL Initiate( obj=dofobj, tNodes=[12], names=['K'], &
+  & spaceCompo=[1], timeCompo=[1], storageFMT=NODES_FMT )
 ```
 
 - Below we create a sparse matrix with 12 number of rows and 12 number of cols.
 
 ```fortran
-  CALL Initiate( obj, ncol=12, nrow=12, idof=dofobj, jdof=dofobj )
+CALL Initiate( obj, ncol=12, nrow=12, idof=dofobj, jdof=dofobj )
 ```
 
 ```fortran

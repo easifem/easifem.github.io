@@ -21,7 +21,6 @@ INTERFACE
     REAL(DFP), OPTIONAL, INTENT(OUT) :: betaCoeff(0:)
   END SUBROUTINE LegendreJacobiLobattoMatrix
 END INTERFACE
-
 ```
 
 </TabItem>

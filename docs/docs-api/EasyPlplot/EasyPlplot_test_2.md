@@ -22,10 +22,10 @@ PROGRAM main
 ```
 
 ```fortran
-  call setup(device='svg', fileName='media/logo-%n.svg', &
-    & figSize=[600, 500])
-  call makeLogo
-  call show()
+call setup(device='svg', fileName='media/logo-%n.svg', &
+  & figSize=[600, 500])
+call makeLogo
+call show()
 ```
 
 ```fortran

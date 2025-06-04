@@ -7,7 +7,7 @@ It returns the monomial degress on Tetrahedron element.
 ## LagrangeDOF_Tetrahedron
 
 It returns the total number of dof for constructing the Lagrange polynomial on
- Tetrahedron.
+Tetrahedron.
 
 ## LagrangeInDOF_Tetrahedron
 

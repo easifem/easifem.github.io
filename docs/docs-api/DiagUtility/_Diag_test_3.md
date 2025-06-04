@@ -6,20 +6,20 @@ program main
 ```
 
 ```fortran title="variables"
-  real( DFP ), allocatable :: mat(:, :)
-  real( Real32 ), allocatable :: d(:)
+real( DFP ), allocatable :: mat(:, :)
+real( Real32 ), allocatable :: d(:)
 ```
 
 ```fortran title="form random diagonal"
-  call reallocate(d, 5)
-  call random_number(d)
-  d = d * 10
-  call display( MdEncode(d), "d = " )
+call reallocate(d, 5)
+call random_number(d)
+d = d * 10
+call display( MdEncode(d), "d = " )
 ```
 
 ```fortran title="diagonal matrix"
-  mat = Diag(d)
-  call display( MdEncode(mat), "mat = " )
+mat = Diag(d)
+call display( MdEncode(mat), "mat = " )
 ```
 
 ```fortran title="cleanup"
@@ -31,13 +31,13 @@ end program
 d =
 
 |       |        |        |        |        |
-|-------|--------|--------|--------|--------|
+| ----- | ------ | ------ | ------ | ------ |
 | 5.165 | 2.5622 | 1.1153 | 1.0442 | 5.2306 |
 
 mat =
 
 |       |        |        |        |        |
-|-------|--------|--------|--------|--------|
+| ----- | ------ | ------ | ------ | ------ |
 | 5.165 | 0      | 0      | 0      | 0      |
 | 0     | 2.5622 | 0      | 0      | 0      |
 | 0     | 0      | 1.1153 | 0      | 0      |

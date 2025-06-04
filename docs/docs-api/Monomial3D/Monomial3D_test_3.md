@@ -33,28 +33,28 @@ real( dfp ), parameter :: tol=1.0E-10
 ```
 
 !!! note ""
-    Initiate the following monomial.
+Initiate the following monomial.
 $$
 f(x,y)=x^2 y z
 $$
 
 ```fortran
-  n1=2; n2=1; n3=1
-  obj=Monomial3D( n1=n1, n2=n2, n3=n3, varname1=varname1, &
-    & varname2=varname2, varname3=varname3 )
+n1=2; n2=1; n3=1
+obj=Monomial3D( n1=n1, n2=n2, n3=n3, varname1=varname1, &
+  & varname2=varname2, varname3=varname3 )
 ```
 
 !!! note "Eval"
 
 ```fortran
-  x = 2.0; y = 3.0; z = 4.0
-  ans = x**2 * y * z
-  avar = obj%Eval(x,y,z)
-  CALL OK( SOFTEQ(ans, avar, tol), "test-3(b)" )
+x = 2.0; y = 3.0; z = 4.0
+ans = x**2 * y * z
+avar = obj%Eval(x,y,z)
+CALL OK( SOFTEQ(ans, avar, tol), "test-3(b)" )
 ```
 
 !!! example "result"
-    ok 1 - test-3(b)
+ok 1 - test-3(b)
 
 ```fortran
 END PROGRAM main

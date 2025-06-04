@@ -2,7 +2,7 @@
 
 Display the contents of the mesh object.
 
-:::info 
+:::info
 This method is overloaded in Mesh.
 :::
 

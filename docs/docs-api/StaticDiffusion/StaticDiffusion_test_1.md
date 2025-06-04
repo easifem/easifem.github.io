@@ -1,6 +1,6 @@
 This examples shows how to use `SetStaticDiffusionParam` to set the parameters of [[StaticDiffusion_]] kernel.
 
-``` fortran
+```fortran
 PROGRAM main
   USE easifemBase
   USE easifemClasses
@@ -12,29 +12,29 @@ PROGRAM main
 ```
 
 !!! notes ""
-    Initiate an instance of [[ParameterList_]].
+Initiate an instance of [[ParameterList_]].
 
 ```fortran
-  CALL FPL_INIT(); CALL param%Initiate()
+CALL FPL_INIT(); CALL param%Initiate()
 ```
 
 !!! notes ""
-    Setting parameters for initiating an instance of [[StaticDiffusion_]]
+Setting parameters for initiating an instance of [[StaticDiffusion_]]
 
 ```fortran
-  CALL SetStaticDiffusionParam( &
-    & param=param, &
-    & engine="NATIVE_SERIAL",  &
-    & coordinateSystem=KERNEL_2D, &
-    & tMaterials=2, &
-    & tDirichletBC=4,  &
-    & domainFile="./mesh.h5" )
+CALL SetStaticDiffusionParam( &
+  & param=param, &
+  & engine="NATIVE_SERIAL",  &
+  & coordinateSystem=KERNEL_2D, &
+  & tMaterials=2, &
+  & tDirichletBC=4,  &
+  & domainFile="./mesh.h5" )
 ```
 
 Let us see the content of param.
 
 ```fortran
-  CALL param%print()
+CALL param%print()
 ```
 
 The results of the above call is given below
@@ -56,7 +56,7 @@ The results of the above call is given below
 Checking the validity of the parameters.
 
 ```fortran
-  CALL obj%CheckEssentialParam(param)
+CALL obj%CheckEssentialParam(param)
 ```
 
 !!! settings "Cleanup"

@@ -4,7 +4,6 @@ This function returns the quality of hexahedron element.
 
 ## Interface
 
-
 ```fortran
 INTERFACE
   MODULE FUNCTION Hexahedron_quality(refelem, xij, measure) RESULT(Ans)

@@ -18,7 +18,6 @@ $$
 \int_{\Omega } N^{I}T_{a}\rho N^{J}T_{b}d\Omega
 $$
 
-
 $$
 \iint \frac{\partial N^{I}T_{a}}{\partial t} \rho N^{J}T_{b}d\Omega dt
 $$

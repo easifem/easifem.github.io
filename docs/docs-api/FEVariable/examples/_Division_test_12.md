@@ -11,7 +11,7 @@ tags:
 # FEVariable example 43d
 
 !!! note ""
-    This example tests / operator. Matrix, Quadrature
+This example tests / operator. Matrix, Quadrature
 
 ## Use association
 
@@ -20,7 +20,6 @@ tags:
 ## Usage
 
 !!! note "Import modules and declare variable"
-
 
 ```fortran
 PROGRAM main
@@ -32,79 +31,79 @@ PROGRAM main
 !!! note "constant / space"
 
 ```fortran
-  call display("=================================")
-  obj = QuadratureVariable( reshape(arange(1.0_DFP, 6.0_DFP), [3,2]), &
-    & typeFEVariableMatrix,    &
-    & typeFEVariableConstant ) &
-    / QuadratureVariable( reshape(arange(1.0_DFP, 12.0_DFP),[3,2,2]), &
-    & typeFEVariableMatrix, &
-    & typeFEVariableSpace )
-  CALL Display(obj, "constant / space")
+call display("=================================")
+obj = QuadratureVariable( reshape(arange(1.0_DFP, 6.0_DFP), [3,2]), &
+  & typeFEVariableMatrix,    &
+  & typeFEVariableConstant ) &
+  / QuadratureVariable( reshape(arange(1.0_DFP, 12.0_DFP),[3,2,2]), &
+  & typeFEVariableMatrix, &
+  & typeFEVariableSpace )
+CALL Display(obj, "constant / space")
 ```
 
 !!! note "space / space"
 
 ```fortran
-  call display("=================================")
-  obj = QuadratureVariable( reshape(arange(1.0_DFP, 12.0_DFP),[3,2,2]), &
-      & typeFEVariableMatrix, &
-      & typeFEVariableSpace ) &
-      / QuadratureVariable( reshape(arange(1.0_DFP, 12.0_DFP),[3,2,2]), &
-      & typeFEVariableMatrix, &
-      & typeFEVariableSpace )
-  CALL Display(obj, "space / space")
+call display("=================================")
+obj = QuadratureVariable( reshape(arange(1.0_DFP, 12.0_DFP),[3,2,2]), &
+    & typeFEVariableMatrix, &
+    & typeFEVariableSpace ) &
+    / QuadratureVariable( reshape(arange(1.0_DFP, 12.0_DFP),[3,2,2]), &
+    & typeFEVariableMatrix, &
+    & typeFEVariableSpace )
+CALL Display(obj, "space / space")
 ```
 
 !!! note "constant / time"
 
 ```fortran
-  call display("=================================")
-  obj = QuadratureVariable( reshape(arange(1.0_DFP, 6.0_DFP), [3,2]), &
-    & typeFEVariableMatrix,    &
-    & typeFEVariableConstant ) &
-    / QuadratureVariable( reshape(arange(1.0_DFP, 12.0_DFP),[3,2,2]), &
-    & typeFEVariableMatrix, &
-    & typeFEVariableTime )
-  CALL Display(obj, "constant / time")
+call display("=================================")
+obj = QuadratureVariable( reshape(arange(1.0_DFP, 6.0_DFP), [3,2]), &
+  & typeFEVariableMatrix,    &
+  & typeFEVariableConstant ) &
+  / QuadratureVariable( reshape(arange(1.0_DFP, 12.0_DFP),[3,2,2]), &
+  & typeFEVariableMatrix, &
+  & typeFEVariableTime )
+CALL Display(obj, "constant / time")
 ```
 
 !!! note "time / time"
 
 ```fortran
-  call display("=================================")
-  obj = QuadratureVariable( reshape(arange(1.0_DFP, 12.0_DFP),[3,2,2]), &
-      & typeFEVariableMatrix, &
-      & typeFEVariableTime ) &
-      / QuadratureVariable( reshape(arange(1.0_DFP, 12.0_DFP),[3,2,2]), &
-      & typeFEVariableMatrix, &
-      & typeFEVariableTime )
-  CALL Display(obj, "time / time")
+call display("=================================")
+obj = QuadratureVariable( reshape(arange(1.0_DFP, 12.0_DFP),[3,2,2]), &
+    & typeFEVariableMatrix, &
+    & typeFEVariableTime ) &
+    / QuadratureVariable( reshape(arange(1.0_DFP, 12.0_DFP),[3,2,2]), &
+    & typeFEVariableMatrix, &
+    & typeFEVariableTime )
+CALL Display(obj, "time / time")
 ```
 
 !!! note "constant / spacetime"
 
 ```fortran
-  call display("=================================")
-  obj = QuadratureVariable( reshape(arange(1.0_DFP, 6.0_DFP), [3,2]), &
-    & typeFEVariableMatrix,    &
-    & typeFEVariableConstant ) &
-    / QuadratureVariable( reshape(arange(1.0_DFP, 24.0_DFP), [3,2,2,2]), &
-    & typeFEVariableMatrix, &
-    & typeFEVariableSpaceTime )
-  CALL Display(obj, "constant / spacetime")
+call display("=================================")
+obj = QuadratureVariable( reshape(arange(1.0_DFP, 6.0_DFP), [3,2]), &
+  & typeFEVariableMatrix,    &
+  & typeFEVariableConstant ) &
+  / QuadratureVariable( reshape(arange(1.0_DFP, 24.0_DFP), [3,2,2,2]), &
+  & typeFEVariableMatrix, &
+  & typeFEVariableSpaceTime )
+CALL Display(obj, "constant / spacetime")
 ```
 
 !!! note "spacetime / spacetime"
 
 ```fortran
-  call display("=================================")
-  obj = QuadratureVariable( reshape(arange(1.0_DFP, 24.0_DFP), [3,2,2,2]), &
-    & typeFEVariableMatrix, &
-    & typeFEVariableSpaceTime ) &
-    / QuadratureVariable( reshape(arange(1.0_DFP, 24.0_DFP), [3,2,2,2]), &
-    & typeFEVariableMatrix, &
-    & typeFEVariableSpaceTime )
-  CALL Display(obj, "spacetime / spacetime")
+call display("=================================")
+obj = QuadratureVariable( reshape(arange(1.0_DFP, 24.0_DFP), [3,2,2,2]), &
+  & typeFEVariableMatrix, &
+  & typeFEVariableSpaceTime ) &
+  / QuadratureVariable( reshape(arange(1.0_DFP, 24.0_DFP), [3,2,2,2]), &
+  & typeFEVariableMatrix, &
+  & typeFEVariableSpaceTime )
+CALL Display(obj, "spacetime / spacetime")
 ```
 
 ```fortran

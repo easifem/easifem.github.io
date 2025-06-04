@@ -33,14 +33,14 @@ $$
 \frac{\partial \textbf{U}}{\partial t} + \frac{\partial \textbf{f(U)}}{\partial x} + \frac{\partial \textbf{g(U)}}{\partial y} + \frac{\partial \textbf{h(U)}}{\partial z} + \cdots
 $$
 
-where $\textbf{U}, \textbf{f}, \textbf{g}, \textbf{h}  \in R^m$. In this case we wish to compute the following matrices.
+where $\textbf{U}, \textbf{f}, \textbf{g}, \textbf{h} \in R^m$. In this case we wish to compute the following matrices.
 
 $$
 {}^{4}M(I,J,a,b) = \delta {}^{a} U_{iI} \quad \int_{Q_n} N^I T_a \frac{\partial N^J T_b}{\partial x} {dQ} \quad {}^{b}f_{iJ}
 $$
 
 $$
-{}^{4}M(I,J,a,b) = \delta {}^{a} U_{iI} \quad \int_{Q_n} \frac{\partial N^I T_a}{\partial x} N^J T_b {dQ}  \quad {}^{b}f_{iJ}
+{}^{4}M(I,J,a,b) = \delta {}^{a} U_{iI} \quad \int_{Q_n} \frac{\partial N^I T_a}{\partial x} N^J T_b {dQ} \quad {}^{b}f_{iJ}
 $$
 
 $$
@@ -48,7 +48,7 @@ $$
 $$
 
 $$
-{}^{4}M(I,J,a,b) = \delta {}^{a} U_{iI} \quad \int_{Q_n} \frac{\partial N^I T_a}{\partial x} N^J T_b {dQ}  \quad {}^{b}g_{iJ}
+{}^{4}M(I,J,a,b) = \delta {}^{a} U_{iI} \quad \int_{Q_n} \frac{\partial N^I T_a}{\partial x} N^J T_b {dQ} \quad {}^{b}g_{iJ}
 $$
 
 $$
@@ -56,7 +56,7 @@ $$
 $$
 
 $$
-{}^{4}M(I,J,a,b) = \delta {}^{a} U_{iI} \quad \int_{Q_n} \frac{\partial N^I T_a}{\partial x} N^J T_b {dQ}  \quad {}^{b}h_{iJ}
+{}^{4}M(I,J,a,b) = \delta {}^{a} U_{iI} \quad \int_{Q_n} \frac{\partial N^I T_a}{\partial x} N^J T_b {dQ} \quad {}^{b}h_{iJ}
 $$
 
 Now we want to compute the space-time convective finite element matrix for following PDE.
@@ -81,14 +81,14 @@ $$
 \frac{\partial \textbf{U}}{\partial t} + \frac{\partial \textbf{f(U)}}{\partial x} + \frac{\partial \textbf{g(U)}}{\partial y} + \frac{\partial \textbf{h(U)}}{\partial z} + \cdots
 $$
 
-where $\textbf{U}, \textbf{f}, \textbf{g}, \textbf{h}  \in R^m$. In this case we wish to compute the following matrices.
+where $\textbf{U}, \textbf{f}, \textbf{g}, \textbf{h} \in R^m$. In this case we wish to compute the following matrices.
 
 $$
 {}^{4}M(I,J,a,b) = {}^{a}\delta U_{iI} \quad \int_{Q_n} \frac{\partial N^I T_a}{\partial t} \frac{\partial N^J T_b}{\partial x} {dQ} \quad {}^{b}f_{iJ}
 $$
 
 $$
-{}^{4}M(I,J,a,b) = {}^{a}\delta U_{iI} \quad \int_{Q_n} \frac{\partial N^I T_a}{\partial x} \frac{\partial N^J T_b}{\partial t} {dQ}  \quad {}^{b}f_{iJ}
+{}^{4}M(I,J,a,b) = {}^{a}\delta U_{iI} \quad \int_{Q_n} \frac{\partial N^I T_a}{\partial x} \frac{\partial N^J T_b}{\partial t} {dQ} \quad {}^{b}f_{iJ}
 $$
 
 $$
@@ -96,7 +96,7 @@ $$
 $$
 
 $$
-{}^{4}M(I,J,a,b) = {}^{a}\delta U_{iI} \quad \int_{Q_n} \frac{\partial N^I T_a}{\partial y} \frac{\partial N^J T_b}{\partial t} {dQ}  \quad {}^{b}g_{iJ}
+{}^{4}M(I,J,a,b) = {}^{a}\delta U_{iI} \quad \int_{Q_n} \frac{\partial N^I T_a}{\partial y} \frac{\partial N^J T_b}{\partial t} {dQ} \quad {}^{b}g_{iJ}
 $$
 
 $$
@@ -104,7 +104,7 @@ $$
 $$
 
 $$
-{}^{4}M(I,J,a,b) = {}^{a}\delta U_{iI} \quad \int_{Q_n} \frac{\partial N^I T_a}{\partial z} \frac{\partial N^J T_b}{\partial t} {dQ}  \quad {}^{b}h_{iJ}
+{}^{4}M(I,J,a,b) = {}^{a}\delta U_{iI} \quad \int_{Q_n} \frac{\partial N^I T_a}{\partial z} \frac{\partial N^J T_b}{\partial t} {dQ} \quad {}^{b}h_{iJ}
 $$
 
 Now we want to compute the space-time convective finite element matrix for following PDE.
@@ -120,7 +120,7 @@ $$
 $$
 
 $$
-{}^{4}M(I,J,a,b) = {}^{a}\delta U_{iI} \quad \int_{Q_n} [ \mathbf{A_1} ]_{ji} \frac{\partial N^I T_a}{\partial x} N^J T_b {dQ}  \quad {}^{b}f_{jJ}
+{}^{4}M(I,J,a,b) = {}^{a}\delta U_{iI} \quad \int_{Q_n} [ \mathbf{A_1} ]_{ji} \frac{\partial N^I T_a}{\partial x} N^J T_b {dQ} \quad {}^{b}f_{jJ}
 $$
 
 $$
@@ -128,7 +128,7 @@ $$
 $$
 
 $$
-{}^{4}M(I,J,a,b) = {}^{a}\delta U_{iI} \quad \int_{Q_n} [\mathbf{A_2}]_{ji} \frac{\partial N^I T_a}{\partial y} N^J T_b {dQ}  \quad {}^{b}g_{jJ}
+{}^{4}M(I,J,a,b) = {}^{a}\delta U_{iI} \quad \int_{Q_n} [\mathbf{A_2}]_{ji} \frac{\partial N^I T_a}{\partial y} N^J T_b {dQ} \quad {}^{b}g_{jJ}
 $$
 
 $$
@@ -136,7 +136,7 @@ $$
 $$
 
 $$
-{}^{4}M(I,J,a,b) = {}^{a}\delta U_{iI} \quad \int_{Q_n} [\mathbf{A_3}]_{ji} \frac{\partial N^I T_a}{\partial z} N^J T_b {dQ}  \quad {}^{b}h_{jJ}
+{}^{4}M(I,J,a,b) = {}^{a}\delta U_{iI} \quad \int_{Q_n} [\mathbf{A_3}]_{ji} \frac{\partial N^I T_a}{\partial z} N^J T_b {dQ} \quad {}^{b}h_{jJ}
 $$
 
 The shape of each ${}^{4}M(:,:,a,b)$ is $(N_{NS} \times m, N_{NS} \times m)$. In this case there will be coupling between different components of $\mathbf{U}$. This coupling is due to $\mathbf{A_i}$. The structure of any of the above ${}^{4}\mathbf{M}$ is given as
@@ -145,7 +145,7 @@ $$
 {}^{4}\mathbf{M}(:,:,a,b) =
 \begin{bmatrix}
 \mathbf{M_{11}} & \cdots & \mathbf{M_{1m}} \\
-\vdots          & \ddots & \vdots \\
+\vdots & \ddots & \vdots \\
 \mathbf{M_{m1}} & \cdots & \mathbf{M_{mm}} \\
 \end{bmatrix}
 $$
@@ -165,23 +165,23 @@ $$
 $$
 
 $$
-{}^{4}M(I,J,a,b) = {}^{a}\delta U_{iI} \quad \int_{Q_n} [ \mathbf{A_1} ]_{ji} \frac{\partial N^I T_a}{\partial x} \frac{\partial N^J T_b}{\partial t}  {dQ}  \quad {}^{b}f_{jJ}
+{}^{4}M(I,J,a,b) = {}^{a}\delta U_{iI} \quad \int_{Q_n} [ \mathbf{A_1} ]_{ji} \frac{\partial N^I T_a}{\partial x} \frac{\partial N^J T_b}{\partial t} {dQ} \quad {}^{b}f_{jJ}
 $$
 
 $$
-{}^{4}M(I,J,a,b) = {}^{a}\delta U_{iI} \quad \int_{Q_n} \frac{\partial N^I T_a}{\partial t}  [\mathbf{A_2}]_{ij} \frac{\partial N^J T_b}{\partial y} {dQ} \quad {}^{b}g_{jJ}
+{}^{4}M(I,J,a,b) = {}^{a}\delta U_{iI} \quad \int_{Q_n} \frac{\partial N^I T_a}{\partial t} [\mathbf{A_2}]_{ij} \frac{\partial N^J T_b}{\partial y} {dQ} \quad {}^{b}g_{jJ}
 $$
 
 $$
-{}^{4}M(I,J,a,b) = {}^{a}\delta U_{iI} \quad \int_{Q_n} [\mathbf{A_2}]_{ji} \frac{\partial N^I T_a}{\partial y} \frac{\partial N^J T_b}{\partial t}  {dQ}  \quad {}^{b}g_{jJ}
+{}^{4}M(I,J,a,b) = {}^{a}\delta U_{iI} \quad \int_{Q_n} [\mathbf{A_2}]_{ji} \frac{\partial N^I T_a}{\partial y} \frac{\partial N^J T_b}{\partial t} {dQ} \quad {}^{b}g_{jJ}
 $$
 
 $$
-{}^{4}M(I,J,a,b) = {}^{a}\delta U_{iI} \quad \int_{Q_n} \frac{\partial N^I T_a}{\partial t}  [\mathbf{A_3}]_{ij} \frac{\partial N^J T_b}{\partial z} {dQ} \quad {}^{b}h_{jJ}
+{}^{4}M(I,J,a,b) = {}^{a}\delta U_{iI} \quad \int_{Q_n} \frac{\partial N^I T_a}{\partial t} [\mathbf{A_3}]_{ij} \frac{\partial N^J T_b}{\partial z} {dQ} \quad {}^{b}h_{jJ}
 $$
 
 $$
-{}^{4}M(I,J,a,b) = {}^{a}\delta U_{iI} \quad \int_{Q_n} [\mathbf{A_3}]_{ji} \frac{\partial N^I T_a}{\partial z} \frac{\partial N^J T_b}{\partial t}  {dQ}  \quad {}^{b}h_{jJ}
+{}^{4}M(I,J,a,b) = {}^{a}\delta U_{iI} \quad \int_{Q_n} [\mathbf{A_3}]_{ji} \frac{\partial N^I T_a}{\partial z} \frac{\partial N^J T_b}{\partial t} {dQ} \quad {}^{b}h_{jJ}
 $$
 
 The shape of each ${}^{4}M(:,:,a,b)$ is $(N_{NS} \times m, N_{NS} \times m)$. In this case there will be coupling between different components of $\mathbf{U}$. This coupling is due to $\mathbf{A_i}$. The structure of any of the above ${}^{4}\mathbf{M}$ is given as
@@ -190,7 +190,7 @@ $$
 {}^{4}\mathbf{M}(:,:,a,b) =
 \begin{bmatrix}
 \mathbf{M_{11}} & \cdots & \mathbf{M_{1m}} \\
-\vdots          & \ddots & \vdots \\
+\vdots & \ddots & \vdots \\
 \mathbf{M_{m1}} & \cdots & \mathbf{M_{mm}} \\
 \end{bmatrix}
 $$
@@ -208,23 +208,23 @@ $$
 $$
 
 $$
-{}^{4}M(I,J,a,b) = {}^{a}\delta U_{iI} \quad \int_{Q_n} [ \mathbf{A_1} ]_{ki} \frac{\partial N^I T_a}{\partial x} [\mathbf{A_0}]_{kj} \frac{\partial N^J T_b}{\partial t}  {dQ}  \quad {}^{b}f_{jJ}
+{}^{4}M(I,J,a,b) = {}^{a}\delta U_{iI} \quad \int_{Q_n} [ \mathbf{A_1} ]_{ki} \frac{\partial N^I T_a}{\partial x} [\mathbf{A_0}]_{kj} \frac{\partial N^J T_b}{\partial t} {dQ} \quad {}^{b}f_{jJ}
 $$
 
 $$
-{}^{4}M(I,J,a,b) = {}^{a}\delta U_{iI} \quad \int_{Q_n} [ \mathbf{A_0}]_{ki}\frac{\partial N^I T_a}{\partial t}  [\mathbf{A_2}]_{kj} \frac{\partial N^J T_b}{\partial y} {dQ} \quad {}^{b}g_{jJ}
+{}^{4}M(I,J,a,b) = {}^{a}\delta U_{iI} \quad \int_{Q_n} [ \mathbf{A_0}]_{ki}\frac{\partial N^I T_a}{\partial t} [\mathbf{A_2}]_{kj} \frac{\partial N^J T_b}{\partial y} {dQ} \quad {}^{b}g_{jJ}
 $$
 
 $$
-{}^{4}M(I,J,a,b) = {}^{a}\delta U_{iI} \quad \int_{Q_n} [\mathbf{A_2}]_{ki} \frac{\partial N^I T_a}{\partial y} [ \mathbf{A_0}]_{kj} \frac{\partial N^J T_b}{\partial t}  {dQ}  \quad {}^{b}g_{jJ}
+{}^{4}M(I,J,a,b) = {}^{a}\delta U_{iI} \quad \int_{Q_n} [\mathbf{A_2}]_{ki} \frac{\partial N^I T_a}{\partial y} [ \mathbf{A_0}]_{kj} \frac{\partial N^J T_b}{\partial t} {dQ} \quad {}^{b}g_{jJ}
 $$
 
 $$
-{}^{4}M(I,J,a,b) = {}^{a}\delta U_{iI} \quad \int_{Q_n} [ \mathbf{A_0}]_{ki}\frac{\partial N^I T_a}{\partial t}  [\mathbf{A_3}]_{kj} \frac{\partial N^J T_b}{\partial z} {dQ} \quad {}^{b}h_{jJ}
+{}^{4}M(I,J,a,b) = {}^{a}\delta U_{iI} \quad \int_{Q_n} [ \mathbf{A_0}]_{ki}\frac{\partial N^I T_a}{\partial t} [\mathbf{A_3}]_{kj} \frac{\partial N^J T_b}{\partial z} {dQ} \quad {}^{b}h_{jJ}
 $$
 
 $$
-{}^{4}M(I,J,a,b) = {}^{a}\delta U_{iI} \quad \int_{Q_n} [\mathbf{A_3}]_{ki} \frac{\partial N^I T_a}{\partial z} [ \mathbf{A_0}]_{kj} \frac{\partial N^J T_b}{\partial t}  {dQ}  \quad {}^{b}h_{jJ}
+{}^{4}M(I,J,a,b) = {}^{a}\delta U_{iI} \quad \int_{Q_n} [\mathbf{A_3}]_{ki} \frac{\partial N^I T_a}{\partial z} [ \mathbf{A_0}]_{kj} \frac{\partial N^J T_b}{\partial t} {dQ} \quad {}^{b}h_{jJ}
 $$
 
 ## Methods
@@ -275,7 +275,7 @@ You can learn more about this method from following pages
 Implementation: `STCM_2` and `STCM_3`
 
 $$
-M\left( {I,J,a,b} \right) =  {\int_{{I_n}}^{} {\int_\Omega ^{} {\frac{{\partial {N^I}{T_a}}}{{\partial x}} c \cdot {N^J}{T_b}d\Omega dt} } }
+M\left( {I,J,a,b} \right) = {\int_{{I_n}}^{} {\int_\Omega ^{} {\frac{{\partial {N^I}{T_a}}}{{\partial x}} c \cdot {N^J}{T_b}d\Omega dt} } }
 $$
 
 This matrix can be computed using the following command.
@@ -285,7 +285,7 @@ mat2=ConvectiveMatrix( test, trial, term1=del_x, term2=del_none, c )
 ```
 
 $$
-M\left( {I,J,a,b} \right) =  {\int_{{I_n}}^{} {\int_\Omega ^{} {\frac{{\partial {N^I}{T_a}}}{{\partial y}} c \cdot {N^J}{T_b}d\Omega dt} } }
+M\left( {I,J,a,b} \right) = {\int_{{I_n}}^{} {\int_\Omega ^{} {\frac{{\partial {N^I}{T_a}}}{{\partial y}} c \cdot {N^J}{T_b}d\Omega dt} } }
 $$
 
 This matrix can be computed using the following command.
@@ -295,7 +295,7 @@ mat2=ConvectiveMatrix( test, trial, term1=del_y, term2=del_none, c )
 ```
 
 $$
-M\left( {I,J,a,b} \right) =  {\int_{{I_n}}^{} {\int_\Omega ^{} {\frac{{\partial {N^I}{T_a}}}{{\partial z}} c \cdot {N^J}{T_b}d\Omega dt} } }
+M\left( {I,J,a,b} \right) = {\int_{{I_n}}^{} {\int_\Omega ^{} {\frac{{\partial {N^I}{T_a}}}{{\partial z}} c \cdot {N^J}{T_b}d\Omega dt} } }
 $$
 
 This matrix can be computed using the following command.
@@ -305,7 +305,7 @@ mat2=ConvectiveMatrix( test, trial, term1=del_z, term2=del_none, c )
 ```
 
 $$
-M\left( {I,J,a,b} \right) =  {\int_{{I_n}}^{} {\int_\Omega ^{} {{N^J}{T_b} c \cdot  \frac{{\partial {N^J}{T_b}}}{{\partial x}}d\Omega dt} } }
+M\left( {I,J,a,b} \right) = {\int_{{I_n}}^{} {\int_\Omega ^{} {{N^J}{T_b} c \cdot \frac{{\partial {N^J}{T_b}}}{{\partial x}}d\Omega dt} } }
 $$
 
 This matrix can be computed using the following command.
@@ -315,7 +315,7 @@ mat2=ConvectiveMatrix( test, trial, term1=del_none, term2=del_x, c )
 ```
 
 $$
-M\left( {I,J,a,b} \right) =  {\int_{{I_n}}^{} {\int_\Omega ^{} {{N^J}{T_b} c \cdot \frac{{\partial {N^J}{T_b}}}{{\partial y}}d\Omega dt} } }
+M\left( {I,J,a,b} \right) = {\int_{{I_n}}^{} {\int_\Omega ^{} {{N^J}{T_b} c \cdot \frac{{\partial {N^J}{T_b}}}{{\partial y}}d\Omega dt} } }
 $$
 
 This matrix can be computed using the following command.
@@ -325,7 +325,7 @@ mat2=ConvectiveMatrix( test, trial, term1=del_none, term2=del_y, c )
 ```
 
 $$
-M\left( {I,J,a,b} \right) =  {\int_{{I_n}}^{} {\int_\Omega ^{} {{N^J}{T_b} c \cdot \frac{{\partial {N^J}{T_b}}}{{\partial z}}d\Omega dt} } }
+M\left( {I,J,a,b} \right) = {\int_{{I_n}}^{} {\int_\Omega ^{} {{N^J}{T_b} c \cdot \frac{{\partial {N^J}{T_b}}}{{\partial z}}d\Omega dt} } }
 $$
 
 This matrix can be computed using the following command.
@@ -335,7 +335,7 @@ mat2=ConvectiveMatrix( test, trial, term1=del_none, term2=del_z, c )
 ```
 
 $$
-M\left( {I,J,a,b} \right) =  {\int_{{I_n}}^{} {\int_\Omega ^{} {\frac{{\partial {N^I}{T_a}}}{{\partial x_{i}}} c \cdot {N^J}{T_b}d\Omega dt} } }
+M\left( {I,J,a,b} \right) = {\int_{{I_n}}^{} {\int_\Omega ^{} {\frac{{\partial {N^I}{T_a}}}{{\partial x_{i}}} c \cdot {N^J}{T_b}d\Omega dt} } }
 $$
 
 This matrix can be computed by setting dim=-1 as shown in the following command.
@@ -345,7 +345,7 @@ mat2=ConvectiveMatrix( test, trial, term1=del_x_all, term2=del_none,c)
 ```
 
 $$
-M\left( {I,J,a,b} \right) =  {\int_{{I_n}}^{} {\int_\Omega ^{} {{N^J}{T_b} c \cdot  \frac{{\partial {N^J}{T_b}}}{{\partial x_{i}}}d\Omega dt} } }
+M\left( {I,J,a,b} \right) = {\int_{{I_n}}^{} {\int_\Omega ^{} {{N^J}{T_b} c \cdot \frac{{\partial {N^J}{T_b}}}{{\partial x_{i}}}d\Omega dt} } }
 $$
 
 This matrix can be computed using the following command.
@@ -522,13 +522,13 @@ M(I,J,a,b)=\int_{I_{n}}\int_{\Omega}\frac{\partial N^{I}T_{a}}{\partial t}\frac{
 $$
 
 ```fortran
-    mat2=ConvectiveMatrix( test, trial, term1=del_t, term2=del_x, c)
-    !! or
-    mat2=ConvectiveMatrix( test, trial, term1=del_t, term2=del_y, c)
-    !! or
-    mat2=ConvectiveMatrix( test, trial, term1=del_t, term2=del_z, c)
-    !! or
-    mat2=ConvectiveMatrix( test, trial, term1=del_t, term2=del_x_all, c)
+mat2=ConvectiveMatrix( test, trial, term1=del_t, term2=del_x, c)
+!! or
+mat2=ConvectiveMatrix( test, trial, term1=del_t, term2=del_y, c)
+!! or
+mat2=ConvectiveMatrix( test, trial, term1=del_t, term2=del_z, c)
+!! or
+mat2=ConvectiveMatrix( test, trial, term1=del_t, term2=del_x_all, c)
 ```
 
 $$
@@ -536,14 +536,14 @@ M(I,J,a,b)=\int_{I_{n}}\int_{\Omega}\frac{\partial N^{I}T_{a}}{\partial x_{p}}c_
 $$
 
 ```fortran
-    mat2=ConvectiveMatrix( test, trial, term1=del_x, term2=del_t, c)
-    !! or
-    mat2=ConvectiveMatrix( test, trial, term1=del_y, term2=del_t, c)
-    !! or
-    mat2=ConvectiveMatrix( test, trial, term1=del_z, term2=del_t, c)
-    !! or
-    mat2=ConvectiveMatrix( test, trial, term1=del_x_all, term2=del_t, c)
-    !! or
+mat2=ConvectiveMatrix( test, trial, term1=del_x, term2=del_t, c)
+!! or
+mat2=ConvectiveMatrix( test, trial, term1=del_y, term2=del_t, c)
+!! or
+mat2=ConvectiveMatrix( test, trial, term1=del_z, term2=del_t, c)
+!! or
+mat2=ConvectiveMatrix( test, trial, term1=del_x_all, term2=del_t, c)
+!! or
 ```
 
 You can learn how to use these methods from following pages.
@@ -556,23 +556,23 @@ You can learn how to use these methods from following pages.
 Implementation: `STCM_1b`
 
 $$
-M\left( {I,J,a,b} \right) =  {\int_{{I_n}}^{} {\int_\Omega ^{}
+M\left( {I,J,a,b} \right) = {\int_{{I_n}}^{} {\int_\Omega ^{}
 \rho {{c_j}\frac{{\partial {N^I}{T_a}}}{{\partial {x_j}}} \cdot
 {N^J}{T_b}d\Omega dt} } }
 $$
 
 ```fortran
-    mat2=ConvectiveMatrix( test, trial, term1=del_x_all, term2=del_none, &
-        & c=c, rho=rho, projectionOn='test' )
-    !! or
-    mat2=ConvectiveMatrix( test, trial, term1=del_x, term2=del_none, &
-        & c=c, rho=rho, projectionOn='test' )
-    !! or
-    mat2=ConvectiveMatrix( test, trial, term1=del_y, term2=del_none, &
-        & c=c, rho=rho, projectionOn='test' )
-    !! or
-    mat2=ConvectiveMatrix( test, trial, term1=del_z, term2=del_none, &
-        & c=c, rho=rho, projectionOn='test' )
+mat2=ConvectiveMatrix( test, trial, term1=del_x_all, term2=del_none, &
+    & c=c, rho=rho, projectionOn='test' )
+!! or
+mat2=ConvectiveMatrix( test, trial, term1=del_x, term2=del_none, &
+    & c=c, rho=rho, projectionOn='test' )
+!! or
+mat2=ConvectiveMatrix( test, trial, term1=del_y, term2=del_none, &
+    & c=c, rho=rho, projectionOn='test' )
+!! or
+mat2=ConvectiveMatrix( test, trial, term1=del_z, term2=del_none, &
+    & c=c, rho=rho, projectionOn='test' )
 ```
 
 $$
@@ -581,17 +581,17 @@ N^{J}T_{b}}{\partial x_{j}}d\Omega dt
 $$
 
 ```fortran
-    mat2=ConvectiveMatrix( test, trial, term1=del_none, term2=del_x_all, &
-        & c=c, rho=rho, projectionOn='trial')
-    !! or
-    mat2=ConvectiveMatrix( test, trial, term1=del_none, term2=del_x, &
-        & c=c, rho=rho, projectionOn='trial')
-    !! or
-    mat2=ConvectiveMatrix( test, trial, term1=del_none, term2=del_y, &
-        & c=c, rho=rho, projectionOn='trial')
-    !! or
-    mat2=ConvectiveMatrix( test, trial, term1=del_none, term2=del_z, &
-        & c=c, rho=rho, projectionOn='trial')
+mat2=ConvectiveMatrix( test, trial, term1=del_none, term2=del_x_all, &
+    & c=c, rho=rho, projectionOn='trial')
+!! or
+mat2=ConvectiveMatrix( test, trial, term1=del_none, term2=del_x, &
+    & c=c, rho=rho, projectionOn='trial')
+!! or
+mat2=ConvectiveMatrix( test, trial, term1=del_none, term2=del_y, &
+    & c=c, rho=rho, projectionOn='trial')
+!! or
+mat2=ConvectiveMatrix( test, trial, term1=del_none, term2=del_z, &
+    & c=c, rho=rho, projectionOn='trial')
 ```
 
 You can learn more about this method from following pages
@@ -607,8 +607,8 @@ M(I,J,a,b)=\int_{I_{n}}\int_{\Omega} \rho c_{p}\frac{\partial N^{I}T_{a}}{\parti
 $$
 
 ```fortran
-    mat2=ConvectiveMatrix( test, trial, term1=del_x, term2=del_x, &
-        & c=c, rho=rho, projectionOn='test')
+mat2=ConvectiveMatrix( test, trial, term1=del_x, term2=del_x, &
+    & c=c, rho=rho, projectionOn='test')
 ```
 
 $$
@@ -616,8 +616,8 @@ M(I,J,a,b)=\int_{I_{n}}\int_{\Omega} \rho c_{p}\frac{\partial N^{I}T_{a}}{\parti
 $$
 
 ```fortran
-    mat2=ConvectiveMatrix( test, trial, term1=del_x, term2=del_y, &
-        & c=c, rho=rho, projectionOn='test')
+mat2=ConvectiveMatrix( test, trial, term1=del_x, term2=del_y, &
+    & c=c, rho=rho, projectionOn='test')
 ```
 
 $$
@@ -625,8 +625,8 @@ M(I,J,a,b)=\int_{I_{n}}\int_{\Omega} \rho c_{p}\frac{\partial N^{I}T_{a}}{\parti
 $$
 
 ```fortran
-    mat2=ConvectiveMatrix( test, trial, term1=del_x, term2=del_z, &
-        & c=c, rho=rho, projectionOn='test')
+mat2=ConvectiveMatrix( test, trial, term1=del_x, term2=del_z, &
+    & c=c, rho=rho, projectionOn='test')
 ```
 
 $$
@@ -634,8 +634,8 @@ M(I,J,a,b)=\int_{I_{n}}\int_{\Omega} \rho \frac{\partial N^{I}T_{a}}{\partial x}
 $$
 
 ```fortran
-    mat2=ConvectiveMatrix( test, trial, term1=del_x, term2=del_x, &
-        & c=c, rho=rho, projectionOn='trial')
+mat2=ConvectiveMatrix( test, trial, term1=del_x, term2=del_x, &
+    & c=c, rho=rho, projectionOn='trial')
 ```
 
 $$
@@ -643,8 +643,8 @@ M(I,J,a,b)=\int_{I_{n}}\int_{\Omega} \rho \frac{\partial N^{I}T_{a}}{\partial y}
 $$
 
 ```fortran
-    mat2=ConvectiveMatrix( test, trial, term1=del_x, term2=del_y, &
-        & c=c, rho=rho, projectionOn='trial')
+mat2=ConvectiveMatrix( test, trial, term1=del_x, term2=del_y, &
+    & c=c, rho=rho, projectionOn='trial')
 ```
 
 $$
@@ -652,8 +652,8 @@ M(I,J,a,b)=\int_{I_{n}}\int_{\Omega} \rho \frac{\partial N^{I}T_{a}}{\partial z}
 $$
 
 ```fortran
-    mat2=ConvectiveMatrix( test, trial, term1=del_x, term2=del_z, &
-        & c=c, rho=rho, projectionOn='trial')
+mat2=ConvectiveMatrix( test, trial, term1=del_x, term2=del_z, &
+    & c=c, rho=rho, projectionOn='trial')
 ```
 
 You can learn more about this method from following pages.
@@ -665,8 +665,8 @@ M\left(I,J,a,b\right)=\int_{I_{n}}\int_{\Omega}\rho\frac{\partial N^{I}T_{a}}{\p
 $$
 
 ```fortran
-    mat2=ConvectiveMatrix( test, trial, term1=del_x_all, term2=del_x, &
-        & c=c, rho=rho, projectionOn='trial')
+mat2=ConvectiveMatrix( test, trial, term1=del_x_all, term2=del_x, &
+    & c=c, rho=rho, projectionOn='trial')
 ```
 
 $$
@@ -674,8 +674,8 @@ M\left(I,J,a,b\right)=\int_{I_{n}}\int_{\Omega}\rho c_{p}\frac{\partial N^{I}T_{
 $$
 
 ```fortran
-    mat2=ConvectiveMatrix( test, trial, term1=del_x, term2=del_x_all, &
-        & c=c, rho=rho, projectionOn='test')
+mat2=ConvectiveMatrix( test, trial, term1=del_x, term2=del_x_all, &
+    & c=c, rho=rho, projectionOn='test')
 ```
 
 You can learn more about this method from following pages
@@ -691,17 +691,17 @@ M\left(I,J,a,b\right)=\int_{I_{n}}\int_{\Omega}\rho c_{p}\frac{\partial N^{I}T_{
 $$
 
 ```fortran
-    mat2=ConvectiveMatrix( test, trial, term1=del_x, term2=del_t, &
-        & c=c, rho=rho, projectionOn='test')
-    !! or
-    mat2=ConvectiveMatrix( test, trial, term1=del_y, term2=del_t, &
-        & c=c, rho=rho, projectionOn='test')
-    !! or
-    mat2=ConvectiveMatrix( test, trial, term1=del_z, term2=del_t, &
-        & c=c, rho=rho, projectionOn='test')
-    !! or
-    mat2=ConvectiveMatrix( test, trial, term1=del_x_all, term2=del_t, &
-        & c=c, rho=rho, projectionOn='test')
+mat2=ConvectiveMatrix( test, trial, term1=del_x, term2=del_t, &
+    & c=c, rho=rho, projectionOn='test')
+!! or
+mat2=ConvectiveMatrix( test, trial, term1=del_y, term2=del_t, &
+    & c=c, rho=rho, projectionOn='test')
+!! or
+mat2=ConvectiveMatrix( test, trial, term1=del_z, term2=del_t, &
+    & c=c, rho=rho, projectionOn='test')
+!! or
+mat2=ConvectiveMatrix( test, trial, term1=del_x_all, term2=del_t, &
+    & c=c, rho=rho, projectionOn='test')
 ```
 
 $$
@@ -709,17 +709,17 @@ M\left(I,J,a,b\right)=\int_{I_{n}}\int_{\Omega}\rho\frac{\partial N^{I}T_{a}}{\p
 $$
 
 ```fortran
-    mat2=ConvectiveMatrix( test, trial, term1=del_t, term2=del_x, &
-        & c=c, rho=rho, projectionOn='trial')
-    !! or
-    mat2=ConvectiveMatrix( test, trial, term1=del_t, term2=del_y, &
-        & c=c, rho=rho, projectionOn='trial')
-    !! or
-    mat2=ConvectiveMatrix( test, trial, term1=del_t, term2=del_z, &
-        & c=c, rho=rho, projectionOn='trial')
-    !! or
-    mat2=ConvectiveMatrix( test, trial, term1=del_t, term2=del_x_all, &
-        & c=c, rho=rho, projectionOn='trial')
+mat2=ConvectiveMatrix( test, trial, term1=del_t, term2=del_x, &
+    & c=c, rho=rho, projectionOn='trial')
+!! or
+mat2=ConvectiveMatrix( test, trial, term1=del_t, term2=del_y, &
+    & c=c, rho=rho, projectionOn='trial')
+!! or
+mat2=ConvectiveMatrix( test, trial, term1=del_t, term2=del_z, &
+    & c=c, rho=rho, projectionOn='trial')
+!! or
+mat2=ConvectiveMatrix( test, trial, term1=del_t, term2=del_x_all, &
+    & c=c, rho=rho, projectionOn='trial')
 ```
 
 You can learn more about this method from following pages

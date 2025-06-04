@@ -38,10 +38,10 @@ Initiate the object.
 $y=1+x+x^2+x^3+x^3$
 
 ```fortran
-  coeff = [1,1,1,1,1]
-  degree = [0,1,2,3,3]
-  f1=Polynomial1D( coeff=coeff, degree=degree, varname="x" )
-  call f1%display( 'f(x)=' )
+coeff = [1,1,1,1,1]
+degree = [0,1,2,3,3]
+f1=Polynomial1D( coeff=coeff, degree=degree, varname="x" )
+call f1%display( 'f(x)=' )
 ```
 
 Note that we have repeated degree 3 two times. But the routine takes care of it. It will store only single monomial $x^3$ and its coefficient 2.
@@ -54,8 +54,8 @@ f(x)=+1+x+x^2+0.2E+1*(x)^3
 Getting the coefficients and degrees.
 
 ```fortran
-  call display( f1%getCoeff(), "coeff = ", orient="ROW")
-  call display( f1%getDegree(), "degree = ", orient="ROW")
+call display( f1%getCoeff(), "coeff = ", orient="ROW")
+call display( f1%getDegree(), "degree = ", orient="ROW")
 ```
 
 ```txt
@@ -72,8 +72,8 @@ Getting the coefficients and degrees.
 Getting the gradient in polynomial.
 
 ```fortran
-  f2 = f1%Grad()
-  CALL f2%Display( "f2 = " )
+f2 = f1%Grad()
+CALL f2%Display( "f2 = " )
 ```
 
 ```txt

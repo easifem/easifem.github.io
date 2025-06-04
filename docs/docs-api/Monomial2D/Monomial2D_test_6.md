@@ -27,11 +27,11 @@ integer( i4b ) :: ii, n
 !!! note "Monomials2D"
 
 ```fortran
-  f1 = Monomials2D( order=1, varname1="x", varname2="y", elemType=Triangle)
-  n = size( f1 )
-  do ii = 1, n
-    call f1(ii)%display( "f(" // tostring(ii) // ")=" )
-  end do
+f1 = Monomials2D( order=1, varname1="x", varname2="y", elemType=Triangle)
+n = size( f1 )
+do ii = 1, n
+  call f1(ii)%display( "f(" // tostring(ii) // ")=" )
+end do
 ```
 
 !!! example "results"
@@ -51,11 +51,11 @@ $$
 !!! note "Monomials2D"
 
 ```fortran
-  f2 = Monomials2D( order=2, varname1="x", varname2="y", elemType=Triangle )
-  n = size( f2 )
-  do ii = 1, n
-    call f2(ii)%display( "f(" // tostring(ii) // ")=" )
-  end do
+f2 = Monomials2D( order=2, varname1="x", varname2="y", elemType=Triangle )
+n = size( f2 )
+do ii = 1, n
+  call f2(ii)%display( "f(" // tostring(ii) // ")=" )
+end do
 ```
 
 !!! example "results"
@@ -87,11 +87,11 @@ $$
 !!! note "Monomials2D"
 
 ```fortran
-  f3 = Monomials2D( order=5, varname1="x", varname2="y", elemType=Triangle )
-  n = size( f3 )
-  do ii = 1, n
-    call f3(ii)%display( "f(" // tostring(ii) // ")=" )
-  end do
+f3 = Monomials2D( order=5, varname1="x", varname2="y", elemType=Triangle )
+n = size( f3 )
+do ii = 1, n
+  call f3(ii)%display( "f(" // tostring(ii) // ")=" )
+end do
 ```
 
 !!! example "results"

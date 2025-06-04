@@ -268,4 +268,3 @@ MODULE PURE SUBROUTINE GetSUPGParam(obj, tau, c, val, nu, k, &
   !! futuristic options
 END SUBROUTINE GetSUPGParam
 ```
-

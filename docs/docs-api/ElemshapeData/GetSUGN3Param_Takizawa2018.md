@@ -91,4 +91,3 @@ MODULE PURE SUBROUTINE GetSUGN3Param_Takizawa2018_4(obj, tau, val, &
     !! currently, opt is not used, but it may be used in future
 END SUBROUTINE GetSUGN3Param_Takizawa2018_4
 ```
-

@@ -5,7 +5,7 @@ title: dev
 
 The dev subcommand is useful for developers of easifem. It allows you to rebuild base, classes library.
 
-How  to use it:
+How to use it:
 
 ```bash
 easifem dev pkgname [flags]

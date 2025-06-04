@@ -33,5 +33,5 @@ program main
   i2 = 1
   call IS( i1, i2 )
 
-end program main 
+end program main
 ```

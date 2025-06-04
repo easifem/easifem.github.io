@@ -18,7 +18,7 @@ USE easifemClasses
 
 ## Structure
 
-- [ ] TODO add key-features to ` easifemClasses`
+- [ ] TODO add key-features to `easifemClasses`
 
 Similar to the Base library, the `Classes` library has two directories in the `src` directory:
 
@@ -44,14 +44,14 @@ If you want to implement a class called `XXX_`, then perform following task:
 1. Make a subdirectory `XXX` in `src/modules` and `src/submodules`
 2. In both `XXX` make a subdirectory `XXX/src`
 3. Create a file `modules/XXX/src/XXX_Class.F90` and define a module called `XXX_Class`:
-4. Create submodules  in `submodule/XXX/src/XXX_Class@CategoryofMethods.F90` and implement the methods.
+4. Create submodules in `submodule/XXX/src/XXX_Class@CategoryofMethods.F90` and implement the methods.
 
 ```fortran
 MODULE XXX_Class
 !! Use modules
 PRIVATE
 !!  Define class here
-END MODULE XXX_Class 
+END MODULE XXX_Class
 ```
 
 :::

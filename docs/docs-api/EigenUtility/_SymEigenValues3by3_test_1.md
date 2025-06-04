@@ -8,20 +8,20 @@ USE easifemBase
 ```
 
 ```fortran
-    REAL( DFP ) :: mat(3,3), w(3), exact(3)
-    REAL( DFP ), PARAMETER :: tol= 1.0E-5
+REAL( DFP ) :: mat(3,3), w(3), exact(3)
+REAL( DFP ), PARAMETER :: tol= 1.0E-5
 ```
 
 Test-1
 
 ```fortran
-    exact = [-5.51082, 3.65928, 5.85154]
-    mat = RESHAPE([-2._DFP,-4._DFP,2._DFP,-4._DFP,1._DFP,2._DFP,2._DFP,2._DFP,5._DFP], [3,3])
-    !!
-    w = SymEigenValues(mat)
-    CALL Display(w, "w=")
-    !!
-    CALL OK( ALL(SOFTEQ(w, exact, tol)), "")
+exact = [-5.51082, 3.65928, 5.85154]
+mat = RESHAPE([-2._DFP,-4._DFP,2._DFP,-4._DFP,1._DFP,2._DFP,2._DFP,2._DFP,5._DFP], [3,3])
+!!
+w = SymEigenValues(mat)
+CALL Display(w, "w=")
+!!
+CALL OK( ALL(SOFTEQ(w, exact, tol)), "")
 ```
 
 ```fortran

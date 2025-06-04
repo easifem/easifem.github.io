@@ -54,7 +54,7 @@ Our website can be found at `https://easifem.github.io/`, but we want to use cus
 
 We will use `deploy` command that helps you deploy your site from the source branch to the deployment branch in one command: clone, build, and commit.
 
-First we need to configure our project by modyfing `docusaurus.config.js` file. We need to set the 
+First we need to configure our project by modyfing `docusaurus.config.js` file. We need to set the
 
 - `organizationName`, The GitHub user or organization name.
 - `projectName`, The name of the deployment repository.
@@ -63,9 +63,9 @@ First we need to configure our project by modyfing `docusaurus.config.js` file. 
 In this repository we have set the following parameters in `docusaurus.config.js` file:
 
 ```js
-  organizationName: "easifem",
-  projectName: "easifem.github.io",
-  deploymentBranch: "gh-pages",
+organizationName: "easifem",
+projectName: "easifem.github.io",
+deploymentBranch: "gh-pages",
 ```
 
 Note that GitHub Pages adds a trailing slash to Docusaurus URLs by default. Therefore, we have set `trailingSlash` to `false` in `docusaurus.config.js` file. This is important for the website to work properly.

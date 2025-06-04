@@ -70,7 +70,7 @@ Exact L is given by:
 22.4500  20.9200   6.1100
 ```
 
-Computed L  $\tilde{L}$ is given below.
+Computed L $\tilde{L}$ is given below.
 
 ```txt
            L =

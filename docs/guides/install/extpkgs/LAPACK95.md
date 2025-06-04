@@ -10,7 +10,7 @@ tags:
 
 # LAPACK95
 
-LAPACK95 is a Fortran-95 (modern-fortran) interface to LAPACK. The repository is located [here](https://github.com/vickysharma0812/LAPACK95), which is a fork of  [scivision's Lapack95 library](https://github.com/scivision/LAPACK95).
+LAPACK95 is a Fortran-95 (modern-fortran) interface to LAPACK. The repository is located [here](https://github.com/vickysharma0812/LAPACK95), which is a fork of [scivision's Lapack95 library](https://github.com/scivision/LAPACK95).
 
 :::note
 The reason of this forked version is to facilitate the building of LAPACK95 by using CMake (and Meson) build system.
@@ -34,12 +34,12 @@ This repository is forked mainly for easing the integration of Lapack95 with EAS
 
 Following options are defined:
 
-| Option | Value | Default |
-| :--- | :---: | ---: |
-| `-DUSE_OPENMP=`| `ON` and `OFF` to enable and disable openmp | `ON` |
-| `-DCMAKE_BUILD_TYPE=`| `Release` or `Debug` for release or debug build-type | `Release` |
-| `BUILD_SHARED_LIBS=` | `ON` or `OFF` to build shared or static library | `ON` |
-| `-DCMAKE_INSTALL_PREFIX=` | The location of the installation directory | `${EASIFEM_EXTPKGS}` |
+| Option                    |                        Value                         |              Default |
+| :------------------------ | :--------------------------------------------------: | -------------------: |
+| `-DUSE_OPENMP=`           |     `ON` and `OFF` to enable and disable openmp      |                 `ON` |
+| `-DCMAKE_BUILD_TYPE=`     | `Release` or `Debug` for release or debug build-type |            `Release` |
+| `BUILD_SHARED_LIBS=`      |   `ON` or `OFF` to build shared or static library    |                 `ON` |
+| `-DCMAKE_INSTALL_PREFIX=` |      The location of the installation directory      | `${EASIFEM_EXTPKGS}` |
 
 ```sh
 git clone https://github.com/vickysharma0812/LAPACK95.git
@@ -95,4 +95,3 @@ libName = "LAPACK95"
 runtest = true
 license = "GPL3"
 ```
-

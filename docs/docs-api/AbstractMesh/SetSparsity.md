@@ -1,15 +1,13 @@
 # SetSparsity
 
-This method sets the sparsity in the `CSRMatrix`.
-
-<!-- markdownlint-disable MD041 MD013 MD033 -->
+The `SetSparsity` method sets the sparsity pattern of a CSR matrix based on mesh connectivity. It has four versions for different use cases.
 
 ## Interface 1
 
 ```fortran
 INTERFACE
   MODULE SUBROUTINE obj_SetSparsity1(obj, mat, localNodeNumber, lbound, &
-    & ubound)
+                                     ubound)
     CLASS(AbstractMesh_), INTENT(INOUT) :: obj
     !! [[Mesh_]] class
     TYPE(CSRMatrix_), INTENT(INOUT) :: mat
@@ -51,7 +49,7 @@ END INTERFACE
 ```fortran
 INTERFACE
   MODULE SUBROUTINE obj_SetSparsity3(obj, colMesh, nodeToNode, mat, &
-    & ivar, jvar)
+                                     ivar, jvar)
     CLASS(AbstractMesh_), INTENT(INOUT) :: obj
     !! Abstract mesh class
     CLASS(AbstractMesh_), INTENT(INOUT) :: colMesh
@@ -71,8 +69,8 @@ END INTERFACE
 ```fortran
 INTERFACE
   MODULE SUBROUTINE obj_SetSparsity4(obj, colMesh, nodeToNode, mat, &
-    rowGlobalToLocalNodeNum, rowLBOUND, rowUBOUND,  &
-    colGlobalToLocalNodeNum, colLBOUND, colUBOUND, ivar, jvar)
+                              rowGlobalToLocalNodeNum, rowLBOUND, rowUBOUND, &
+                    colGlobalToLocalNodeNum, colLBOUND, colUBOUND, ivar, jvar)
     CLASS(AbstractMesh_), INTENT(INOUT) :: obj
     !! [[Mesh_]] class
     CLASS(AbstractMesh_), INTENT(INOUT) :: colMesh
@@ -95,3 +93,44 @@ INTERFACE
   END SUBROUTINE obj_SetSparsity4
 END INTERFACE
 ```
+
+## Syntax
+
+```fortran
+! Version 1: Using global-to-local node number mapping
+CALL obj%SetSparsity(mat, localNodeNumber, lbound, ubound)
+
+! Version 2: Using mesh connectivity directly
+CALL obj%SetSparsity(mat)
+
+! Version 3: For coupled meshes with physical variables
+CALL obj%SetSparsity(colMesh, nodeToNode, mat, ivar, jvar)
+
+! Version 4: With custom node mappings for coupled meshes
+CALL obj%SetSparsity(colMesh, nodeToNode, mat, rowGlobalToLocalNodeNum, rowLBOUND, rowUBOUND, colGlobalToLocalNodeNum, colLBOUND, colUBOUND, ivar, jvar)
+```
+
+## Parameters
+
+Parameters vary by version but generally include:
+
+- `obj`: The mesh object
+- `mat`: The CSR matrix to set sparsity for
+- `localNodeNumber`: Mapping from global to local node numbers
+- Various bounds and indices for node mappings
+- For coupled meshes: `colMesh`, `nodeToNode`, physical variable indices
+
+## Description
+
+`SetSparsity` establishes the sparsity pattern of a CSR matrix based on mesh connectivity. This is crucial for finite element computations, as it determines which matrix entries can be non-zero.
+
+The different versions accommodate various use cases:
+
+- Version 1: Uses a provided global-to-local node number mapping
+- Version 2: Uses mesh connectivity directly
+- Version 3: For coupled meshes with physical variables
+- Version 4: For complex scenarios with custom node mappings
+
+## Implementation Notes
+
+All versions ensure that node-to-node connectivity is available, calling `InitiateNodeToNodes` if needed. They then iterate through nodes, determine connected nodes, and set the sparsity pattern accordingly.

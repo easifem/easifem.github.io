@@ -100,4 +100,3 @@ Return quadrature points by specifying the number of integration points `nips`. 
 ```txt
 1, 4, 5, 11, 14, 24, 31, 43, 53, 126, 210, 330, 495, 715, 1001
 ```
-

@@ -42,8 +42,8 @@ import EXAMPLE23 from "./_GetJacobiRecurrenceCoeff_test_1.md";
 These recurrence coefficients are for non-monic jacobi polynomials.
 
 $$
- P_{n+1}^{(\alpha,\beta)}=\left(a_{n}x+b_{n}\right)P_{n}^{(\alpha,\beta)}
- -c_{n}P_{n-1}^{(\alpha,\beta)},\quad n=1,2,\cdots
+P_{n+1}^{(\alpha,\beta)}=\left(a_{n}x+b_{n}\right)P_{n}^{(\alpha,\beta)}
+-c_{n}P_{n-1}^{(\alpha,\beta)},\quad n=1,2,\cdots
 $$
 
 ```fortran

@@ -9,6 +9,5 @@ abool = SOFTGE(a, b, tol)
 ```
 
 $$
-a \ge b + tol  
+a \ge b + tol\
 $$
-

@@ -41,5 +41,4 @@ END INTERFACE
 INTERFACE OPERATOR(.spacecomponents.)
   MODULE PROCEDURE dof_spacecomponents2
 END INTERFACE
-
 ```

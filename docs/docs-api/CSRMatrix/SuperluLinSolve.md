@@ -98,7 +98,6 @@ INTERFACE
     !! if info equal  to zero then success, else failure
   END SUBROUTINE LinSolve2
 END INTERFACE
-
 ```
 
 ```fortran
@@ -193,5 +192,4 @@ INTERFACE
     !! if info equal  to zero then success, else failure
   END SUBROUTINE LinSolve4
 END INTERFACE
-
 ```

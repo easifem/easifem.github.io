@@ -34,4 +34,3 @@ import EXAMPLE7 from "./examples/_Initiate_test_1.md";
 
 </TabItem>
 </Tabs>
-

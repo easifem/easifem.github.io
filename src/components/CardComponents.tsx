@@ -1,7 +1,7 @@
-import React, { ReactNode } from 'react';
-import { paramCase } from 'param-case';
-import Link from '@docusaurus/Link';
-import clsx from 'clsx';
+import Link from "@docusaurus/Link";
+import clsx from "clsx";
+import { paramCase } from "param-case";
+import React, { ReactNode } from "react";
 
 export function CardSection({
   id,
@@ -10,7 +10,7 @@ export function CardSection({
   description,
   className,
   hasSubSections = false,
-  HeadingTag = 'h3',
+  HeadingTag = "h3",
 }: {
   id?: string;
   title: string;
@@ -23,9 +23,9 @@ export function CardSection({
   return (
     <div
       className={clsx(
-        'homepage-section',
-        hasSubSections && 'has-sub-sections',
-        className
+        "homepage-section",
+        hasSubSections && "has-sub-sections",
+        className,
       )}
     >
       {title && <HeadingTag id={id ?? paramCase(title)}>{title}</HeadingTag>}

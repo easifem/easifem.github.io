@@ -17,26 +17,26 @@ type(csvfile_) :: afile
 Setup
 
 ```fortran
-  xij = zeros(2,3, 0.0_DFP)
-  xij(1,:) = [0.0_DFP, 1.0_DFP, 0.0_DFP]
-  xij(2,:) = [0.0_DFP, 0.0_DFP, 1.0_DFP]
+xij = zeros(2,3, 0.0_DFP)
+xij(1,:) = [0.0_DFP, 1.0_DFP, 0.0_DFP]
+xij(2,:) = [0.0_DFP, 0.0_DFP, 1.0_DFP]
 ```
 
 ```fortran title "ipType=BlythPozChebyshev, layout=VEFC"
-  order=4
-  ip = InterpolationPoint(order=order, ipType=ipType, elemType=elemType, &
-    & xij=xij, layout=layout)
-  call display(MdEncode(TRANSPOSE(ip)), &
-    & "ipType=BlythPozChebyshev, layout=VEFC" // char_lf)
-  !!
-  call afile%initiate( &
-    & filename=fname//"_BlythPozChebyshev_m="//tostring(order)//".csv", &
-    & status="NEW", &
-    & action="WRITE")
-  call afile%open()
-  call afile%write("x, y")
-  call afile%write(ip, orient="TRANSPOSE")
-  call afile%deallocate()
+order=4
+ip = InterpolationPoint(order=order, ipType=ipType, elemType=elemType, &
+  & xij=xij, layout=layout)
+call display(MdEncode(TRANSPOSE(ip)), &
+  & "ipType=BlythPozChebyshev, layout=VEFC" // char_lf)
+!!
+call afile%initiate( &
+  & filename=fname//"_BlythPozChebyshev_m="//tostring(order)//".csv", &
+  & status="NEW", &
+  & action="WRITE")
+call afile%open()
+call afile%write("x, y")
+call afile%write(ip, orient="TRANSPOSE")
+call afile%deallocate()
 ```
 
 <details>
@@ -46,7 +46,7 @@ Setup
 ipType=BlythPozChebyshev, layout=VEFC
 
 |              |              |
-|--------------|--------------|
+| ------------ | ------------ |
 | 0            | 0            |
 | 1            | 0            |
 | 0            | 1            |
@@ -67,33 +67,33 @@ ipType=BlythPozChebyshev, layout=VEFC
 </details>
 
 ```fortran title "ipType=BlythPozChebyshev, layout=VEFC"
-  order=6
-  ip = InterpolationPoint(order=order, ipType=ipType, elemType=elemType, &
-    & xij=xij, layout=layout)
-  !!
-  call afile%initiate( &
-    & filename=fname//"_BlythPozChebyshev_m="//tostring(order)//".csv", &
-    & status="NEW", &
-    & action="WRITE")
-  call afile%open()
-  call afile%write("x, y")
-  call afile%write(ip, orient="TRANSPOSE")
-  call afile%deallocate()
+order=6
+ip = InterpolationPoint(order=order, ipType=ipType, elemType=elemType, &
+  & xij=xij, layout=layout)
+!!
+call afile%initiate( &
+  & filename=fname//"_BlythPozChebyshev_m="//tostring(order)//".csv", &
+  & status="NEW", &
+  & action="WRITE")
+call afile%open()
+call afile%write("x, y")
+call afile%write(ip, orient="TRANSPOSE")
+call afile%deallocate()
 ```
 
 ```fortran title "ipType=BlythPozChebyshev, layout=VEFC"
-  order=9
-  ip = InterpolationPoint(order=order, ipType=ipType, elemType=elemType, &
-    & xij=xij, layout=layout)
-  !!
-  call afile%initiate( &
-    & filename=fname//"_BlythPozChebyshev_m="//tostring(order)//".csv", &
-    & status="NEW", &
-    & action="WRITE")
-  call afile%open()
-  call afile%write("x, y")
-  call afile%write(ip, orient="TRANSPOSE")
-  call afile%deallocate()
+order=9
+ip = InterpolationPoint(order=order, ipType=ipType, elemType=elemType, &
+  & xij=xij, layout=layout)
+!!
+call afile%initiate( &
+  & filename=fname//"_BlythPozChebyshev_m="//tostring(order)//".csv", &
+  & status="NEW", &
+  & action="WRITE")
+call afile%open()
+call afile%write("x, y")
+call afile%write(ip, orient="TRANSPOSE")
+call afile%deallocate()
 ```
 
 ```fortran

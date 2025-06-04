@@ -3,7 +3,7 @@
 This subroutine computes all eigenvalues and eigenvectors of a real symmetric N × N matrix `Mat`.
 
 :::note Reference
-  The algorithm is direct implementation of Numerical Reciepe in Fortran, Page 1225
+The algorithm is direct implementation of Numerical Reciepe in Fortran, Page 1225
 :::
 
 import Tabs from '@theme/Tabs';

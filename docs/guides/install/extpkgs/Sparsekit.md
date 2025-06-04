@@ -20,11 +20,11 @@ EASIFEM uses the forked library which is located at the [gitHub.](https://github
 
 Following options are defined:
 
-| Option | Value | Default |
-| :--- | :---: | ---: |
-| `-DCMAKE_BUILD_TYPE=`| `Release` or `Debug` for release or debug build-type | `Release` |
-| `BUILD_SHARED_LIBS=` | `ON` or `OFF` to build shared or static library | `ON` |
-| `-DCMAKE_INSTALL_PREFIX=` | The location of the installation directory | `${EASIFEM_EXTPKGS}` |
+| Option                    |                        Value                         |              Default |
+| :------------------------ | :--------------------------------------------------: | -------------------: |
+| `-DCMAKE_BUILD_TYPE=`     | `Release` or `Debug` for release or debug build-type |            `Release` |
+| `BUILD_SHARED_LIBS=`      |   `ON` or `OFF` to build shared or static library    |                 `ON` |
+| `-DCMAKE_INSTALL_PREFIX=` |      The location of the installation directory      | `${EASIFEM_EXTPKGS}` |
 
 ```sh
 git clone https://github.com/vickysharma0812/Sparsekit.git

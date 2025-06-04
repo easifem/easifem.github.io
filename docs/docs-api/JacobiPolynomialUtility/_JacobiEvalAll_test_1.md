@@ -14,8 +14,8 @@ program main
 ```
 
 ```fortran title "Jacobi-Gauss"
-  x = [-1.0, 0.0, 1.0]
-  n = 3; call callme
+x = [-1.0, 0.0, 1.0]
+n = 3; call callme
 ```
 
 <details>
@@ -23,7 +23,7 @@ program main
 <div>
 
 | P0 | P1 | P2   | P3 |
-|----|----|------|----|
+| -- | -- | ---- | -- |
 | 1  | -1 | 1    | -1 |
 | 1  | 0  | -0.5 | -0 |
 | 1  | 1  | 1    | 1  |
@@ -32,12 +32,12 @@ program main
 </details>
 
 ```fortran
-  contains
-  subroutine callme
-    ans= JacobiEvalAll( n=n, alpha=alpha, beta=beta, x=x )
-    astr = MdEncode( ans )
-    call display( astr%chars(), "" )
-  end subroutine callme
+contains
+subroutine callme
+  ans= JacobiEvalAll( n=n, alpha=alpha, beta=beta, x=x )
+  astr = MdEncode( ans )
+  call display( astr%chars(), "" )
+end subroutine callme
 ```
 
 ```fortran

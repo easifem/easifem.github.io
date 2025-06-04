@@ -97,4 +97,3 @@ MODULE PURE SUBROUTINE getDivergence_8(obj, lg, val)
   !! space time nodal values of scalar/vector/matrix
 END SUBROUTINE getDivergence_8
 ```
-

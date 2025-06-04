@@ -27,7 +27,7 @@ In this example we create an instance of [[CSVFile_]], then we open it and read 
 
 Importing modules and defining variables
 
-``` fortran
+```fortran
 PROGRAM main
   use easifemBase
   use easifemClasses
@@ -45,54 +45,54 @@ PROGRAM main
 Initiate an instance of [[CSVFile_]], and then Open the [[CSVFile_]] file
 
 ```fortran
-  call obj%Initiate(filename=filename, status='OLD', action='READ')
-  call obj%setHeaderIndx(1_I4B)
-  call obj%Open()
-  call obj%Read()
+call obj%Initiate(filename=filename, status='OLD', action='READ')
+call obj%setHeaderIndx(1_I4B)
+call obj%Open()
+call obj%Read()
 ```
 
 Get a single value.
 
 ```fortran
-  call obj%get( irow=1, icol=1, val=intval)
-  call display( intval, "intval = " )
+call obj%get( irow=1, icol=1, val=intval)
+call display( intval, "intval = " )
 ```
 
 Get the entire column in [[IntVector_]]
 
 ```fortran
-  call obj%get( icol=1, val=intvec)
-  call display( intvec, "intvec = " )
+call obj%get( icol=1, val=intvec)
+call display( intvec, "intvec = " )
 ```
 
 Get the entire column in integer vector
 
 ```fortran
-  call deallocate( intvec )
-  call obj%get( icol=1, val=intvec%val)
-  call display( intvec%val, "intvec%val = " )
+call deallocate( intvec )
+call obj%get( icol=1, val=intvec%val)
+call display( intvec%val, "intvec%val = " )
 ```
 
 Get the entire column in [[RealVector_]]
 
 ```fortran
-  call obj%get( icol=1, val=realvec)
-  call display( realvec, "realvec = " )
+call obj%get( icol=1, val=realvec)
+call display( realvec, "realvec = " )
 ```
 
 Get the entire column in real vector
 
 ```fortran
-  call deallocate( realvec )
-  call obj%get( icol=1, val=realvec%val)
-  call display( realvec%val, "realvec%val = " )
+call deallocate( realvec )
+call obj%get( icol=1, val=realvec%val)
+call display( realvec%val, "realvec%val = " )
 ```
 
 Get the entire column in string vector
 
 ```fortran
-  call obj%get( icol=1, val=strvec)
-  do ii = 1, size(strvec); call display( strvec(ii), "strvec(ii) = " ); end do
+call obj%get( icol=1, val=strvec)
+do ii = 1, size(strvec); call display( strvec(ii), "strvec(ii) = " ); end do
 ```
 
 Cleaning up.

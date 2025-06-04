@@ -7,7 +7,7 @@ tags:
 
 # Jacobi1D example 12
 
-This example shows the usage of [[Jacobi1D_]] class. We test orthonormal Jacobi polynomial  in this case.
+This example shows the usage of [[Jacobi1D_]] class. We test orthonormal Jacobi polynomial in this case.
 
 ## Modules and classes
 
@@ -30,12 +30,12 @@ logical( lgt ), parameter :: isOrthonormal = .TRUE., isMonic=.FALSE.
 ### n=1
 
 ```fortran
-  n=1
-  obj = Jacobi1D(varname="x", n=n, alpha=alpha, beta=beta, &
-    & isOrthonormal=isOrthonormal, isMonic=isMonic )
-  call Display( "J(n=1, alpha=0.0, beta=0.0) := " )
-  call obj%Display( "=>" )
-  call obj%Deallocate()
+n=1
+obj = Jacobi1D(varname="x", n=n, alpha=alpha, beta=beta, &
+  & isOrthonormal=isOrthonormal, isMonic=isMonic )
+call Display( "J(n=1, alpha=0.0, beta=0.0) := " )
+call obj%Display( "=>" )
+call obj%Deallocate()
 ```
 
 ```txt
@@ -48,13 +48,13 @@ J(n=1, alpha=0.0, beta=0.0) :=
 ### n=2
 
 ```fortran
-  n=2
-  call blanklines( nol=5 )
-  obj = Jacobi1D(varname="x", n=n, alpha=alpha, beta=beta, &
-    & isOrthonormal=isOrthonormal, isMonic=isMonic)
-  call Display( "J(n=2, alpha=0.0, beta=0.0) := " )
-  call obj%Display( "=>" )
-  call obj%Deallocate()
+n=2
+call blanklines( nol=5 )
+obj = Jacobi1D(varname="x", n=n, alpha=alpha, beta=beta, &
+  & isOrthonormal=isOrthonormal, isMonic=isMonic)
+call Display( "J(n=2, alpha=0.0, beta=0.0) := " )
+call obj%Display( "=>" )
+call obj%Deallocate()
 ```
 
 ```txt
@@ -68,13 +68,13 @@ J(n=2, alpha=0.0, beta=0.0) :=
 ### n=3
 
 ```fortran
-  n=3
-  call blanklines( nol=5 )
-  obj = Jacobi1D(varname="x", n=n, alpha=alpha, beta=beta, &
-    & isOrthonormal=isOrthonormal, isMonic=isMonic)
-  call Display( "J(n=3, alpha=0.0, beta=0.0) := " )
-  call obj%Display( "=>" )
-  call obj%Deallocate()
+n=3
+call blanklines( nol=5 )
+obj = Jacobi1D(varname="x", n=n, alpha=alpha, beta=beta, &
+  & isOrthonormal=isOrthonormal, isMonic=isMonic)
+call Display( "J(n=3, alpha=0.0, beta=0.0) := " )
+call obj%Display( "=>" )
+call obj%Deallocate()
 ```
 
 ```txt
@@ -89,13 +89,13 @@ J(n=3, alpha=0.0, beta=0.0) :=
 ### n=4
 
 ```fortran
-  n = 4
-  call blanklines( nol=5 )
-  obj = Jacobi1D(varname="x", n=n, alpha=alpha, beta=beta, &
-    & isOrthonormal=isOrthonormal, isMonic=isMonic)
-  call Display( "J(n=4, alpha=0.0, beta=0.0) := " )
-  call obj%Display( "=>" )
-  call obj%Deallocate()
+n = 4
+call blanklines( nol=5 )
+obj = Jacobi1D(varname="x", n=n, alpha=alpha, beta=beta, &
+  & isOrthonormal=isOrthonormal, isMonic=isMonic)
+call Display( "J(n=4, alpha=0.0, beta=0.0) := " )
+call obj%Display( "=>" )
+call obj%Deallocate()
 ```
 
 ```txt

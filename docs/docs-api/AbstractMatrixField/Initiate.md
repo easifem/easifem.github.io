@@ -60,32 +60,32 @@ END INTERFACE
 
 </Tabs>
 
-## Example 
+## Example
 
 ```fortran
-  type( domain_ ) :: dom
-  type( MatrixField_ ) :: obj
-  type( HDF5File_ ) :: meshfile, hdf5
-  type( ParameterList_ ) :: param
-  integer( i4b ) :: ierr, tnodes
-  call display( "TESTING INITIATE AND Deallocate" )
-  CALL FPL_INIT()
-  call meshfile%initiate( filename="./mesh.h5", mode="READ" )
-  call meshfile%open()
-  call dom%initiate( meshfile )
-  call meshfile%close()
-  call meshfile%Deallocate()
-  tnodes = dom%getTotalNodes()
-  call param%initiate()
-  call setMatrixFieldParam( param, "K", "UNSYM", 3, 2, FIELD_TYPE_NORMAL )
-  call obj%initiate( param, dom )
-  CALL hdf5%initiate(filename="./matrixField.h5", mode="NEW" )
-  CALL hdf5%open()
-  CALL obj%export(hdf5=hdf5,group='')
-  CALL hdf5%close()
-  CALL hdf5%Deallocate()
-  call obj%Deallocate()
-  call dom%Deallocate()
-  call param%Deallocate()
-  call FPL_FINALIZE()
+type( domain_ ) :: dom
+type( MatrixField_ ) :: obj
+type( HDF5File_ ) :: meshfile, hdf5
+type( ParameterList_ ) :: param
+integer( i4b ) :: ierr, tnodes
+call display( "TESTING INITIATE AND Deallocate" )
+CALL FPL_INIT()
+call meshfile%initiate( filename="./mesh.h5", mode="READ" )
+call meshfile%open()
+call dom%initiate( meshfile )
+call meshfile%close()
+call meshfile%Deallocate()
+tnodes = dom%getTotalNodes()
+call param%initiate()
+call setMatrixFieldParam( param, "K", "UNSYM", 3, 2, FIELD_TYPE_NORMAL )
+call obj%initiate( param, dom )
+CALL hdf5%initiate(filename="./matrixField.h5", mode="NEW" )
+CALL hdf5%open()
+CALL obj%export(hdf5=hdf5,group='')
+CALL hdf5%close()
+CALL hdf5%Deallocate()
+call obj%Deallocate()
+call dom%Deallocate()
+call param%Deallocate()
+call FPL_FINALIZE()
 ```

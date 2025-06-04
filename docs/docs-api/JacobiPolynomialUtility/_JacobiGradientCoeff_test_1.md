@@ -27,44 +27,44 @@ $$
 :::
 
 ```fortran title "Plot settings"
-  CALL aplot%Initiate()
-  CALL aplot%Set( &
-    & device="svg", &
-    & filename=fname//"-%n.svg")
-  CALL aplot%figure()
-  CALL aplot%subplot(1,1,1)
-  CALL aplot%setXYLim([-1.0_DFP, 1.0_DFP], [ -15.0_DFP, 15.0_DFP])
-  CALL aplot%setTicks()
-  x = linspace(-1.0_DFP, 1.0_DFP, 101_I4B)
+CALL aplot%Initiate()
+CALL aplot%Set( &
+  & device="svg", &
+  & filename=fname//"-%n.svg")
+CALL aplot%figure()
+CALL aplot%subplot(1,1,1)
+CALL aplot%setXYLim([-1.0_DFP, 1.0_DFP], [ -15.0_DFP, 15.0_DFP])
+CALL aplot%setTicks()
+x = linspace(-1.0_DFP, 1.0_DFP, 101_I4B)
 ```
 
 ```fortran title "Prepare quadratures"
-  n = 20
-  call reallocate( pt, n+1, wt, n+1, fval, n+1 )
-  !!
-  call JacobiQuadrature( n=n+1, alpha=alpha, beta=beta, &
-    & pt=pt, wt=wt, quadType=quadType )
+n = 20
+call reallocate( pt, n+1, wt, n+1, fval, n+1 )
+!!
+call JacobiQuadrature( n=n+1, alpha=alpha, beta=beta, &
+  & pt=pt, wt=wt, quadType=quadType )
 ```
 
 ```fortran title "JacobiTransformation"
-  fval = func1(pt)
-  !!
-  fhat = JacobiTransform(n=n, alpha=alpha, &
-    & beta=beta, coeff=fval, x=pt, w=wt, quadType=quadType)
-  !!
-  f1hat = JacobiGradientCoeff(n=n, alpha=alpha, beta=beta, coeff=fhat)
-  !!
+fval = func1(pt)
+!!
+fhat = JacobiTransform(n=n, alpha=alpha, &
+  & beta=beta, coeff=fval, x=pt, w=wt, quadType=quadType)
+!!
+f1hat = JacobiGradientCoeff(n=n, alpha=alpha, beta=beta, coeff=fhat)
+!!
 ```
 
 ```fortran title "JacobiTransformation"
-  !! nodal values of derivative of function
-  f1val = dfunc1(pt)
-  !!
-  f1hat2 = JacobiTransform(n=n, alpha=alpha, &
-    & beta=beta, coeff=f1val, x=pt, w=wt, quadType=quadType)
-  !!
-  call display( MdEncode(f1hat .colconcat. f1hat2), "")
-  !!
+!! nodal values of derivative of function
+f1val = dfunc1(pt)
+!!
+f1hat2 = JacobiTransform(n=n, alpha=alpha, &
+  & beta=beta, coeff=f1val, x=pt, w=wt, quadType=quadType)
+!!
+call display( MdEncode(f1hat .colconcat. f1hat2), "")
+!!
 ```
 
 <details>
@@ -74,7 +74,7 @@ $$
 for n = 10
 
 | $\tilde{f}^{(1)}_{n}$ | $\tilde{\partial f}_{n}$ |
-|-----------------------|--------------------------|
+| --------------------- | ------------------------ |
 | 8.33028E-13           | 8.29555E-13              |
 | -3.68615E-14          | 7.40033E-15              |
 | 1.1937                | 1.1937                   |
@@ -101,47 +101,47 @@ for n = 10
 </details>
 
 ```fortran title "Plotting"
-    CALL aplot%plot2D( x=x,y=JacobiInvTransform(n=n, alpha=alpha, beta=beta, &
-      & x=x, coeff=f1hat), lineColor="k")
-    !!
-    CALL aplot%plot2D( x=x,y=JacobiInvTransform(n=n, alpha=alpha, beta=beta, &
-      & x=x, coeff=f1hat2), lineColor="b")
-    !!
-    CALL aplot%plot2D( x=x,y=dfunc1(x), pointType=PS_DOT, lineWidth=0.0_DFP )
-    CALL aplot%setLabels("x","du(x)","")
-    !CALL aplot%show()
-    !CALL aplot%deallocate()
+CALL aplot%plot2D( x=x,y=JacobiInvTransform(n=n, alpha=alpha, beta=beta, &
+  & x=x, coeff=f1hat), lineColor="k")
+!!
+CALL aplot%plot2D( x=x,y=JacobiInvTransform(n=n, alpha=alpha, beta=beta, &
+  & x=x, coeff=f1hat2), lineColor="b")
+!!
+CALL aplot%plot2D( x=x,y=dfunc1(x), pointType=PS_DOT, lineWidth=0.0_DFP )
+CALL aplot%setLabels("x","du(x)","")
+!CALL aplot%show()
+!CALL aplot%deallocate()
 ```
 
 ```fortran title "Prepare quadratures"
-  error = zeros(30, 2, 1.0_DFP)
+error = zeros(30, 2, 1.0_DFP)
+!!
+DO n = 1, SIZE(error,1)
+  call reallocate( pt, n+1, wt, n+1, fval, n+1 )
   !!
-  DO n = 1, SIZE(error,1)
-    call reallocate( pt, n+1, wt, n+1, fval, n+1 )
-    !!
-    call JacobiQuadrature( n=n+1, alpha=alpha, beta=beta, &
-      & pt=pt, wt=wt, quadType=quadType )
-    !!
-    fval = func1(pt)
-    !!
-    fhat = JacobiTransform(n=n, alpha=alpha, &
-      & beta=beta, coeff=fval, x=pt, w=wt, quadType=quadType)
-    !!
-    f1hat = JacobiGradientCoeff(n=n, alpha=alpha, beta=beta, coeff=fhat)
-    !!
-    !! nodal values of derivative of function
-    !!
-    f1val = dfunc1(pt)
-    !!
-    f1hat2 = JacobiTransform(n=n, alpha=alpha, &
-      & beta=beta, coeff=f1val, x=pt, w=wt, quadType=quadType)
-    !!
-    error(n,1) = n
-    error(n,2) = NORM2( ABS(f1hat-f1hat2) )
-    !!
-  END DO
+  call JacobiQuadrature( n=n+1, alpha=alpha, beta=beta, &
+    & pt=pt, wt=wt, quadType=quadType )
   !!
-  CALL display( MdEncode(error), "error=")
+  fval = func1(pt)
+  !!
+  fhat = JacobiTransform(n=n, alpha=alpha, &
+    & beta=beta, coeff=fval, x=pt, w=wt, quadType=quadType)
+  !!
+  f1hat = JacobiGradientCoeff(n=n, alpha=alpha, beta=beta, coeff=fhat)
+  !!
+  !! nodal values of derivative of function
+  !!
+  f1val = dfunc1(pt)
+  !!
+  f1hat2 = JacobiTransform(n=n, alpha=alpha, &
+    & beta=beta, coeff=f1val, x=pt, w=wt, quadType=quadType)
+  !!
+  error(n,1) = n
+  error(n,2) = NORM2( ABS(f1hat-f1hat2) )
+  !!
+END DO
+!!
+CALL display( MdEncode(error), "error=")
 ```
 
 <details>
@@ -149,7 +149,7 @@ for n = 10
 <div>
 
 | order(n) | MAX(err)    |
-|----------|-------------|
+| -------- | ----------- |
 | 1        | 0           |
 | 2        | 12.566      |
 | 3        | 10.418      |
@@ -165,18 +165,18 @@ for n = 10
 </details>
 
 ```fortran
-  contains
-  elemental function func1(x) result(ans)
-    real(dfp), intent(in) :: x
-    real(dfp) :: ans
-    ans = SIN(4.0_DFP * pi * x)
-  end function func1
-  !!
-  elemental function dfunc1(x) result(ans)
-    real(dfp), intent(in) :: x
-    real(dfp) :: ans
-    ans = 4.0_DFP * pi * COS(4.0_DFP * pi * x)
-  end function dfunc1
+contains
+elemental function func1(x) result(ans)
+  real(dfp), intent(in) :: x
+  real(dfp) :: ans
+  ans = SIN(4.0_DFP * pi * x)
+end function func1
+!!
+elemental function dfunc1(x) result(ans)
+  real(dfp), intent(in) :: x
+  real(dfp) :: ans
+  ans = 4.0_DFP * pi * COS(4.0_DFP * pi * x)
+end function dfunc1
 ```
 
 ```fortran

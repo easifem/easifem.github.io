@@ -25,31 +25,30 @@ PROGRAM main
 Open the mesh file for cellDomain
 
 ```fortran
-  CALL cellDomainFile%Initiate( FileName=cellDomainFileName, MODE="READ" )
-  CALL cellDomainFile%Open()
+CALL cellDomainFile%Initiate( FileName=cellDomainFileName, MODE="READ" )
+CALL cellDomainFile%Open()
 ```
 
 Initiate the cellDomain
 
 ```fortran
-  CALL cellDomain%Initiate( cellDomainFile, "")
+CALL cellDomain%Initiate( cellDomainFile, "")
 ```
 
 Make a pointer to cellMesh and facet mesh
 
 ```fortran
-  cellMesh => cellDomain%getMeshPointer( dim=2, entityNum=1)
-  facetMesh => cellDomain%getMeshPointer( dim=1, entityNum=7 )
+cellMesh => cellDomain%getMeshPointer( dim=2, entityNum=1)
+facetMesh => cellDomain%getMeshPointer( dim=1, entityNum=7 )
 ```
 
 Initiate FacetTOCellData.
 
 ```fortran
-  CALL obj%InitiateFacetToCellData( facetMesh=facetMesh, &
-    & cellMesh=cellMesh, dim=2, entityNum=1, isMaster=.TRUE. )
-  CALL obj%DisplayFacetToCellData( msg="facetToCell=" )
+CALL obj%InitiateFacetToCellData( facetMesh=facetMesh, &
+  & cellMesh=cellMesh, dim=2, entityNum=1, isMaster=.TRUE. )
+CALL obj%DisplayFacetToCellData( msg="facetToCell=" )
 ```
-
 
 ```fortran
   CALL cellDomainFile%Deallocate()

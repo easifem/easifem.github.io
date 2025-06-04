@@ -32,13 +32,13 @@ y=1+x+y+z
 $$
 
 ```fortran
-  coeff = [1,1,1,1]
-  call reallocate( degree, 4, 3 )
-  degree(:,1) = [0,1,0,0]
-  degree(:,2) = [0,0,1,0]
-  degree(:,3) = [0,0,0,1]
-  f1=Polynomial3D( coeff, degree, "x", "y", "z" )
-  call f1%display( 'f(x,y)=' )
+coeff = [1,1,1,1]
+call reallocate( degree, 4, 3 )
+degree(:,1) = [0,1,0,0]
+degree(:,2) = [0,0,1,0]
+degree(:,3) = [0,0,0,1]
+f1=Polynomial3D( coeff, degree, "x", "y", "z" )
+call f1%display( 'f(x,y)=' )
 ```
 
 !!! example "result"
@@ -54,14 +54,14 @@ y=1+2x+3y+4z
 $$
 
 ```fortran
-  coeff = [1,2,3,4]
-  call reallocate( degree, 4, 3 )
-  degree(:,1) = [0,1,0,0]
-  degree(:,2) = [0,0,1,0]
-  degree(:,3) = [0,0,0,1]
-  f1=Polynomial3D( coeff, degree, "x", "y", "z" )
-  call f1%display( 'f(x,y)=' )
-  call f1%deallocate()
+coeff = [1,2,3,4]
+call reallocate( degree, 4, 3 )
+degree(:,1) = [0,1,0,0]
+degree(:,2) = [0,0,1,0]
+degree(:,3) = [0,0,0,1]
+f1=Polynomial3D( coeff, degree, "x", "y", "z" )
+call f1%display( 'f(x,y)=' )
+call f1%deallocate()
 ```
 
 !!! example "result"
@@ -78,14 +78,14 @@ y=1+2x+3y+2z+2z
 $$
 
 ```fortran
-  coeff = [1,2,3,2,2]
-  call reallocate( degree, 5, 3 )
-  degree(:,1) = [0,1,0,0,0]
-  degree(:,2) = [0,0,1,0,0]
-  degree(:,3) = [0,0,0,1,1]
-  f1=Polynomial3D( coeff, degree, "x", "y", "z" )
-  call f1%display( 'f(x,y)=' )
-  call f1%deallocate()
+coeff = [1,2,3,2,2]
+call reallocate( degree, 5, 3 )
+degree(:,1) = [0,1,0,0,0]
+degree(:,2) = [0,0,1,0,0]
+degree(:,3) = [0,0,0,1,1]
+f1=Polynomial3D( coeff, degree, "x", "y", "z" )
+call f1%display( 'f(x,y)=' )
+call f1%deallocate()
 ```
 
 !!! example "result"

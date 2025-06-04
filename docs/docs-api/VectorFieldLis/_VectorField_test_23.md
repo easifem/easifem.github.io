@@ -49,7 +49,6 @@ END PROGRAM main
 ```
 
 ```txt title="Results"
-
         get value =         
 ----------------------------
 0.791074  0.366923  0.394225

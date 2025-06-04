@@ -28,44 +28,44 @@ program main
 !!! note "LegendreMonomialExpansionAll"
 
 ```fortran
-  n = 5; call callme
+n = 5; call callme
 ```
 
 !!! example "result"
-    | P0 | P1 | P2   | P3   | P4    | P5    |
-    |----|----|------|------|-------|-------|
-    | 1  | 0  | -0.5 | -0   | 0.375 | 0     |
-    | 0  | 1  | 0    | -1.5 | -0    | 1.875 |
-    | 0  | 0  | 1.5  | 0    | -3.75 | -0    |
-    | 0  | 0  | 0    | 2.5  | 0     | -8.75 |
-    | 0  | 0  | 0    | 0    | 4.375 | 0     |
-    | 0  | 0  | 0    | 0    | 0     | 7.875 |
+| P0 | P1 | P2 | P3 | P4 | P5 |
+|----|----|------|------|-------|-------|
+| 1 | 0 | -0.5 | -0 | 0.375 | 0 |
+| 0 | 1 | 0 | -1.5 | -0 | 1.875 |
+| 0 | 0 | 1.5 | 0 | -3.75 | -0 |
+| 0 | 0 | 0 | 2.5 | 0 | -8.75 |
+| 0 | 0 | 0 | 0 | 4.375 | 0 |
+| 0 | 0 | 0 | 0 | 0 | 7.875 |
 
 !!! note "LegendreMonomialExpansion"
 
 ```fortran
-  n = 5; call callme2
+n = 5; call callme2
 ```
 
 !!! example "result"
-    | x0  | x1 | x2 | x3 | x4 | x5 |
-    |  --- |  --- |  --- |  --- |  --- |  --- |
-    | 0 | 1.875 | -0 | -8.75 | 0 | 7.875 |
+| x0 | x1 | x2 | x3 | x4 | x5 |
+| --- | --- | --- | --- | --- | --- |
+| 0 | 1.875 | -0 | -8.75 | 0 | 7.875 |
 
 !!! settings "cleanup"
 
 ```fortran
-  contains
-  subroutine callme
-    coeff=LegendreMonomialExpansionAll( n=n )
-    astr = MdEncode( coeff )
-    call display( astr%chars(), "" )
-  end subroutine callme
-  !!
-  subroutine callme2
-    astr = MdEncode( LegendreMonomialExpansion( n=n ) )
-    call display( astr%chars(), "" )
-  end subroutine callme2
+contains
+subroutine callme
+  coeff=LegendreMonomialExpansionAll( n=n )
+  astr = MdEncode( coeff )
+  call display( astr%chars(), "" )
+end subroutine callme
+!!
+subroutine callme2
+  astr = MdEncode( LegendreMonomialExpansion( n=n ) )
+  call display( astr%chars(), "" )
+end subroutine callme2
 ```
 
 ```fortran

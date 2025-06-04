@@ -37,7 +37,6 @@ Do you want to automatically set environment variables? 'yes' or 'no' [Y/n]:
 
 > If you want the script to set the environment variable then press `yes` else `no`. This would be enough, and you can jump to install section.
 
-
 However, if you like to see and set the available options by yourself then follow the following instruction.
 
 ### Install packages
@@ -62,7 +61,6 @@ sudo apt install -y gnuplot
 ```
 
 > `gnuplot` and `gmsh` are relatively big programs. You can ignore their installation if you want.
-
 
 ### Set environment variables
 
@@ -128,8 +126,8 @@ alias gfortran=/usr/bin/gfortran-10
 ```
 
 - The 1st line specifies the path where easifem package will be installed, it is better to specify home the home directory
-- The 2nd and 3rd *should not be changed*, these env-vars are needed in `CMakeLists.txt` file.
-- The 4th and the 5th lines create directories, *do not change it*
+- The 2nd and 3rd _should not be changed_, these env-vars are needed in `CMakeLists.txt` file.
+- The 4th and the 5th lines create directories, _do not change it_
 
 **Step 5** Edit `.bashrc`
 
@@ -149,7 +147,6 @@ source ~/.bashrc
 ```
 
 ## Installatation
-
 
 #### CMake
 

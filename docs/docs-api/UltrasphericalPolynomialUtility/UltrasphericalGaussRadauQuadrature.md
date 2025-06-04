@@ -6,7 +6,7 @@ The Gauss-Radau quadrature points consists one of the end points denoted by $a$.
 
 So $a$ can be $\pm 1$.
 
-The remaining $n$ points are internal to $(-1, +1)$, and they are n-zeros of Ultraspherical  polynomial of order n.
+The remaining $n$ points are internal to $(-1, +1)$, and they are n-zeros of Ultraspherical polynomial of order n.
 
 Here n is the order of Ultraspherical polynomial.
 
