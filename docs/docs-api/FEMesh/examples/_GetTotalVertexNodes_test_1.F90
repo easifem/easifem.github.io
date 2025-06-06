@@ -1,6 +1,6 @@
 !> author: Vikas Sharma, Ph. D.
 ! date: 2025-06-05
-! summary:  Test for `GetTotalNodes` method of `FEMesh_` class.
+! summary:  Test for `GetTotalVertexNodes` method of `FEMesh_` class.
 
 PROGRAM main
 USE FEMesh_Class, ONLY: FEMesh_
@@ -14,11 +14,11 @@ IMPLICIT NONE
 
 TYPE(FEMesh_) :: obj
 TYPE(HDF5File_) :: meshfile
-CHARACTER(LEN=*), PARAMETER :: filename = "./meshdata/very_small_quad4_mesh.h5"
+CHARACTER(LEN=*), PARAMETER :: filename = "./meshdata/small_tri3_mesh.h5"
 INTEGER(I4B), PARAMETER :: nsd = 2
 INTEGER(I4B) :: found(8), want(8)
 LOGICAL(LGT) :: isok
-CHARACTER(*), PARAMETER :: testname = "GetTotalNodes"
+CHARACTER(*), PARAMETER :: testname = "GetTotalVertexNodes"
 
 ! Initiate and open the mesh file which is in `HDF5File_` format.
 CALL meshfile%Initiate(FileName=filename, MODE="READ")
@@ -32,11 +32,11 @@ CALL obj%DisplayMeshInfo("Mesh Info")
 
 CALL meshfile%DEALLOCATE()
 
-found(1) = obj%GetTotalNodes()
-found(2) = obj%GetTotalNodes(meshid=1)
+found(1) = obj%GetTotalVertexNodes()
+want(1) = 12
 
-want(1) = 9
-want(2) = 9
+found(2) = obj%GetTotalVertexNodes(meshid=1)
+want(2) = 12
 
 isok = found(1) .EQ. want(1)
 CALL ok(isok, testname)
@@ -49,8 +49,8 @@ END PROGRAM main
 
 ! Mesh Info
 ! ==============================
-! total nodes: 9
-! total elements: 4
+! total nodes: 12
+! total elements: 14
 ! tEdges: 0
-! tFaces: 12
+! tFaces: 25
 ! ==============================

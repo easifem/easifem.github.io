@@ -14,7 +14,7 @@ IMPLICIT NONE
 
 TYPE(FEMesh_) :: obj
 TYPE(HDF5File_) :: meshfile
-CHARACTER(LEN=*), PARAMETER :: filename = "./meshdata/very_small_quad4_mesh.h5"
+CHARACTER(LEN=*), PARAMETER :: filename = "./meshdata/small_tri6_mesh.h5"
 INTEGER(I4B), PARAMETER :: nsd = 2
 INTEGER(I4B) :: found(8), want(8)
 LOGICAL(LGT) :: isok
@@ -35,8 +35,8 @@ CALL meshfile%DEALLOCATE()
 found(1) = obj%GetTotalNodes()
 found(2) = obj%GetTotalNodes(meshid=1)
 
-want(1) = 9
-want(2) = 9
+want(1) = 37
+want(2) = 37
 
 isok = found(1) .EQ. want(1)
 CALL ok(isok, testname)
@@ -49,8 +49,8 @@ END PROGRAM main
 
 ! Mesh Info
 ! ==============================
-! total nodes: 9
-! total elements: 4
+! total nodes: 37
+! total elements: 14
 ! tEdges: 0
-! tFaces: 12
+! tFaces: 25
 ! ==============================
