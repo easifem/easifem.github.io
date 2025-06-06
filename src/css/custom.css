@@ -141,11 +141,11 @@ html[data-theme='dark'] {
     
     /* Background colors */
     --docs-color-background: var(--cat-base);
-    --docs-color-background-100: var(--cat-mantle);
-    --docs-color-background-200: var(--cat-crust);
-    --docs-color-background-300: var(--cat-surface0);
-    --ifm-background-surface-color: var(--cat-base);
     --ifm-background-color: var(--cat-base);
+    --docs-color-background-100: var(--cat-base);
+    --docs-color-background-200: var(--cat-mantle);
+    --docs-color-background-300: var(--cat-crust);
+    --ifm-background-surface-color: var(--cat-surface0);
     --ifm-footer-background-color: var(--cat-surface0);
     
     /* Border and text colors */
@@ -219,6 +219,16 @@ html[data-theme='dark'] {
   .homepage section * {
     @apply box-border;
   }
+}
+
+html[data-theme='dark'] {
+  /* Add these lines to override background colors for dark mode */
+  --docs-color-background: var(--cat-base);
+  --ifm-background-color: var(--cat-base);
+  --docs-color-background-100: var(--cat-base);
+  --docs-color-background-200: var(--cat-mantle);
+  --docs-color-background-300: var(--cat-crust);
+  --ifm-background-surface-color: var(--cat-surface0);
 }
 
 /* Components */
