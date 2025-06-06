@@ -1,6 +1,8 @@
 !f author: Vikas Sharma, Ph. D.
 ! date: 2024-05-24
 ! summary: Lagrange polynomial is tested in this example
+! I am checking the totalDOF for a fedof of order 4 on
+! a linear mesh.
 
 PROGRAM main
 USE FEDOF_Class
@@ -23,7 +25,7 @@ CHARACTER(*), PARAMETER :: filename = &
 
 TYPE(HDF5File_) :: meshfile
 INTEGER(I4B) :: found, want, entities(4), totalVertexNodes
-INTEGER(I4B), PARAMETER :: order = 1, ipType = poly%monomial
+INTEGER(I4B), PARAMETER :: order = 4, ipType = poly%monomial
 CHARACTER(*), PARAMETER :: baseContinuity = "H1"
 CHARACTER(*), PARAMETER :: baseInterpolation = "Lagrange"
 

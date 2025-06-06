@@ -34,14 +34,14 @@ There are several ways to initiate an instance of `FEDOF`.
 CALL obj%Initiate(order,  mesh, baseContinuity, baseInterpolation, ipType, basisType, alpha, beta, lambda)
 ```
 
-- Here `order` represents the order of each element. It can be a scalar, vector, or a two dimensional matrix of integers. [The method with scalar order is given here.](./Initiate.md#interface-1)
+- Here `order` represents the order of each element. It can be a scalar, vector, or a two dimensional matrix of integers. [The method with scalar order is given here.](./Initiate.md)
 
 :::tip Order is a vector
-When `order` is a vector of integer then it represents the order of each cell element. [This method is discussed here](./Initiate.md#interface-2). In this case, the length of `order` must be equal to the number of elements in the mesh.
+When `order` is a vector of integer then it represents the order of each cell element. [This method is discussed here](./Initiate.md). In this case, the length of `order` must be equal to the number of elements in the mesh.
 :::
 
 :::tip Order is a matrix
-When order is a matrix of integer then the first row represents the global number of cell element, and the second row represents the order of cell element. [This method is given here](./Initiate.md#interface-4)
+When order is a matrix of integer then the first row represents the global number of cell element, and the second row represents the order of cell element. [This method is given here](./Initiate.md)
 :::
 
 :::info

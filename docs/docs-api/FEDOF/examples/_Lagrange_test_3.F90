@@ -23,7 +23,7 @@ CHARACTER(*), PARAMETER :: filename = &
 
 TYPE(HDF5File_) :: meshfile
 INTEGER(I4B) :: found, want, entities(4), totalVertexNodes
-INTEGER(I4B), PARAMETER :: order = 1, ipType = poly%monomial
+INTEGER(I4B), PARAMETER :: order = 3, ipType = poly%monomial
 CHARACTER(*), PARAMETER :: baseContinuity = "H1"
 CHARACTER(*), PARAMETER :: baseInterpolation = "Lagrange"
 
