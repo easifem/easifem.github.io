@@ -1,6 +1,6 @@
 !> author: Vikas Sharma, Ph. D.
 ! date: 2025-06-07
-! summary:  Testing GetConnectivity method of FEDOF class
+! summary:  Testing GetVertexDOF method of FEDOF class
 ! H1 Heirarchical Second Order Triangular Mesh
 
 PROGRAM main
@@ -14,14 +14,15 @@ USE Test_Method
 USE ExceptionHandler_Class, ONLY: e, EXCEPTION_INFORMATION
 USE AppendUtility
 USE ArangeUtility
+USE ReallocateUtility
 
 IMPLICIT NONE
 
 CHARACTER(*), PARAMETER :: &
-  filename = "../../FEMesh/examples/meshdata/small_tri3_mesh.h5", &
+  filename = "../../FEMesh/examples/meshdata/small_tri6_mesh.h5", &
   baseContinuity = "H1", &
   baseInterpolation = "Heirarchical", &
-  testname = baseContinuity // " " // baseInterpolation
+  testname = baseContinuity//" "//baseInterpolation
 
 TYPE(FEDOF_) :: fedof
 TYPE(FEDomain_) :: dom
@@ -55,28 +56,21 @@ CONTAINS
 
 SUBROUTINE test1
 
-  INTEGER(I4B), ALLOCATABLE :: globalNode(:)
-  INTEGER(I4B) :: ent(4), tVertices
+  INTEGER(I4B) :: tsize
 
   order = 1
   CALL fedof%Initiate(baseContinuity=baseContinuity, &
                       baseInterpolation=baseInterpolation, &
                       order=order, mesh=meshptr)
 
-  tVertices = meshptr%GetTotalVertexNodes(globalElement=[1], islocal=.TRUE.)
+  CALL Reallocate(found, 2, want, 2)
+  CALL fedof%GetVertexDOF(globalNode=1, islocal=.TRUE., &
+                          ans=found, tsize=tsize)
 
-  ent = meshptr%GetTotalEntities(globalElement=1, islocal=.TRUE.)
-
-  ! Get all connectivity for local element 1
-  found = fedof%GetConnectivity(opt="A", globalElement=1, islocal=.TRUE.)
-
-  globalNode = meshptr%GetConnectivity(globalElement=1, islocal=.TRUE.)
-
-  want = meshptr%GetLocalNodenumber( &
-         globalNode=globalNode(1:tVertices), islocal=.FALSE.)
+  want(1) = 1
 
   isok = ALL(found == want)
-  CALL OK(isok, testname // " GetConnectivity (order= "//ToString(order)//"): ")
+  CALL OK(isok, testname//" GetVertexDOF "//ToString(order)//"): ")
 
 END SUBROUTINE test1
 
@@ -85,31 +79,22 @@ END SUBROUTINE test1
 !----------------------------------------------------------------------------
 
 SUBROUTINE test2
-  INTEGER(I4B), ALLOCATABLE :: globalNode(:), temp1(:)
-  INTEGER(I4B) :: ent(4), a, b, tVertices
+
+  INTEGER(I4B) :: tsize
 
   order = 2
   CALL fedof%Initiate(baseContinuity=baseContinuity, &
                       baseInterpolation=baseInterpolation, &
                       order=order, mesh=meshptr)
 
-  found = fedof%GetConnectivity(opt="A", globalElement=1, islocal=.TRUE.)
-  globalNode = meshptr%GetConnectivity(globalElement=1, islocal=.TRUE.)
-  tVertices = meshptr%GetTotalVertexNodes(globalElement=[1], islocal=.TRUE.)
+  CALL Reallocate(found, 2, want, 2)
+  CALL fedof%GetVertexDOF(globalNode=1, islocal=.TRUE., &
+                          ans=found, tsize=tsize)
 
-  want = meshptr%GetLocalNodenumber(globalNode=globalNode(1:tVertices), &
-                                    islocal=.FALSE.)
-  a = meshptr%GetTotalVertexNodes() + 1
-  ent = meshptr%GetTotalEntities(globalElement=1, islocal=.TRUE.)
-
-  b = meshptr%GetTotalVertexNodes() + ent(3) * (order - 1)
-  temp1 = Arange(a, b)
-
-  want = want.APPEND.temp1
+  want(1) = 1
 
   isok = ALL(found == want)
-
-  CALL OK(isok, testname // " GetConnectivity (order= "//ToString(order)//"): ")
+  CALL OK(isok, testname//" GetVertexDOF (order= "//ToString(order)//"): ")
 
 END SUBROUTINE test2
 
@@ -118,41 +103,27 @@ END SUBROUTINE test2
 !----------------------------------------------------------------------------
 
 SUBROUTINE test3
-  INTEGER(I4B), ALLOCATABLE :: globalNode(:), temp1(:)
-  INTEGER(I4B) :: ent(4), a, b, tVertices
+
+  INTEGER(I4B) :: tsize
 
   order = 3
   CALL fedof%Initiate(baseContinuity=baseContinuity, &
                       baseInterpolation=baseInterpolation, &
                       order=order, mesh=meshptr)
 
-  found = fedof%GetConnectivity(opt="A", globalElement=1, islocal=.TRUE.)
+  CALL Reallocate(found, 2, want, 2)
+  CALL fedof%GetVertexDOF(globalNode=1, islocal=.TRUE., &
+                          ans=found, tsize=tsize)
 
-  globalNode = meshptr%GetConnectivity(globalElement=1, islocal=.TRUE.)
-
-  tVertices = meshptr%GetTotalVertexNodes(globalElement=[1], islocal=.TRUE.)
-
-  want = meshptr%GetLocalNodenumber( &
-         globalNode=globalNode(1:tVertices), islocal=.FALSE.)
-
-  ent = meshptr%GetTotalEntities(globalElement=1, islocal=.TRUE.)
-
-  a = totalVertexNodes + 1
-  b = a - 1 + ent(3) * (order - 1)
-
-  temp1 = Arange(a, b)
-
-  want = want.APPEND.temp1
-
-  a = totalVertexNodes + totalFaces * (order - 1) + 1
-  b = a - 1 + ent(4) * (order - 2) * (order - 1) * 0.5
-
-  temp1 = Arange(a, b)
-  want = want.APPEND.temp1
+  want(1) = 1
 
   isok = ALL(found == want)
+  CALL OK(isok, testname//" GetVertexDOF (order= "//ToString(order)//"): ")
 
-  CALL OK(isok, testname // " GetConnectivity (order= "//ToString(order)//"): ")
 END SUBROUTINE test3
+
+!----------------------------------------------------------------------------
+!
+!----------------------------------------------------------------------------
 
 END PROGRAM main

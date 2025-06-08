@@ -1,6 +1,6 @@
 !> author: Vikas Sharma, Ph. D.
-! date: 2025-06-01
-! summary:  Testing initiate methods for Hierarchical DOF
+! date: 2025-06-07
+! summary:  Get case name
 
 PROGRAM main
 USE FEDOF_Class
@@ -11,6 +11,7 @@ USE Display_Method
 USE GlobalData
 USE Test_Method
 USE ExceptionHandler_Class, ONLY: e, EXCEPTION_INFORMATION
+USE BaseType, ONLY: TypeQuadratureOpt
 
 IMPLICIT NONE
 
@@ -20,8 +21,7 @@ CLASS(AbstractMesh_), POINTER :: meshptr => NULL()
 CHARACTER(*), PARAMETER :: filename = &
                            "../../FEMesh/examples/meshdata/small_tri3_mesh.h5"
 TYPE(HDF5File_) :: meshfile
-INTEGER(I4B) :: found, want
-CHARACTER(:), ALLOCATABLE :: testname
+CHARACTER(6) :: found, want
 
 CALL e%setQuietMode(EXCEPTION_INFORMATION, .TRUE.)
 CALL meshfile%Initiate(filename, mode="READ")
@@ -32,9 +32,21 @@ meshptr => dom%GetMeshPointer()
 
 CALL obj%Initiate(baseContinuity="H1", baseInterpolation="Heirarchical", &
                   order=1, mesh=meshptr)
-testname = "H1 Hierarchical order=1"
+found = obj%GetCaseName()
+want = "H1HEIR"
+CALL OK(found == want, "GetCaseName H1HEIR: ")
 
-CALL obj%Display(testname)
+CALL obj%Initiate(baseContinuity="H1", baseInterpolation="Hierarchical", &
+                  order=1, mesh=meshptr)
+found = obj%GetCaseName()
+want = "H1HIER"
+CALL OK(found == want, "GetCaseName H1HIER: ")
+
+CALL obj%Initiate(baseContinuity="H1", baseInterpolation="Lagrange", &
+                 order=1, mesh=meshptr, ipType=TypeQuadratureOpt%equidistance)
+found = obj%GetCaseName()
+want = "H1LAGR"
+CALL OK(found == want, "GetCaseName H1LAGR: ")
 
 !CALL dom%Display("domain:")
 CALL dom%DEALLOCATE()

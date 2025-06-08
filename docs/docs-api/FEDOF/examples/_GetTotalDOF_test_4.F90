@@ -14,13 +14,14 @@ USE ExceptionHandler_Class, ONLY: e, EXCEPTION_INFORMATION
 USE AppendUtility
 USE ArangeUtility
 USE ReallocateUtility
+USE BaseType, ONLY: TypeQuadratureOpt
 
 IMPLICIT NONE
 
 CHARACTER(*), PARAMETER :: &
-  filename = "../../FEMesh/examples/meshdata/small_tri3_mesh.h5", &
+  filename = "../../FEMesh/examples/meshdata/small_tri6_mesh.h5", &
   baseContinuity = "H1", &
-  baseInterpolation = "Heirarchical", &
+  baseInterpolation = "Lagrange", &
   testname = baseContinuity//" "//baseInterpolation//" GetTotalDOF"
 
 TYPE(FEDOF_) :: fedof
@@ -57,8 +58,8 @@ SUBROUTINE test1
 
   order = 1
   CALL fedof%Initiate(baseContinuity=baseContinuity, &
-                      baseInterpolation=baseInterpolation, &
-                      order=order, mesh=meshptr)
+                      baseInterpolation=baseInterpolation, order=order, &
+                      mesh=meshptr, ipType=TypeQuadratureOpt%equidistance)
 
   found = fedof%GetTotalDOF()
   want = meshptr%GetTotalVertexNodes()
@@ -102,7 +103,7 @@ SUBROUTINE test2
   order = 2
   CALL fedof%Initiate(baseContinuity=baseContinuity, &
                       baseInterpolation=baseInterpolation, &
-                      order=order, mesh=meshptr)
+             order=order, mesh=meshptr, ipType=TypeQuadratureOpt%equidistance)
 
   found = fedof%GetTotalDOF()
   want = meshptr%GetTotalVertexNodes() + meshptr%GetTotalFaces() * (order - 1)
@@ -133,7 +134,6 @@ SUBROUTINE test2
   want = 0
   CALL IS(found, want, testname//"  interface 3 c (order= "// &
           ToString(order)//"): ")
-
 END SUBROUTINE test2
 
 !----------------------------------------------------------------------------
@@ -145,12 +145,13 @@ SUBROUTINE test3
 
   order = 3
   CALL fedof%Initiate(baseContinuity=baseContinuity, &
-                      baseInterpolation=baseInterpolation, &
-                      order=order, mesh=meshptr)
+                      baseInterpolation=baseInterpolation, order=order, &
+                      mesh=meshptr, ipType=TypeQuadratureOpt%equidistance)
 
   found = fedof%GetTotalDOF()
-  want = meshptr%GetTotalVertexNodes() + meshptr%GetTotalFaces() * (order - 1) &
-       + meshptr%GetTotalCells() * (order - 2) * (order - 1) * 0.5
+  want = meshptr%GetTotalVertexNodes() &
+         + meshptr%GetTotalFaces() * (order - 1) &
+         + meshptr%GetTotalCells() * (order - 2) * (order - 1) * 0.5
   CALL IS(found, want, testname//"  interface 1 (order= "// &
           ToString(order)//"): ")
 
@@ -178,7 +179,6 @@ SUBROUTINE test3
   want = 1
   CALL IS(found, want, testname//"  interface 3 c (order= "// &
           ToString(order)//"): ")
-
 END SUBROUTINE test3
 
 !----------------------------------------------------------------------------

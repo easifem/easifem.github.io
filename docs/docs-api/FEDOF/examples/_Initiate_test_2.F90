@@ -18,45 +18,56 @@ IMPLICIT NONE
 TYPE(FEDOF_) :: fedof
 TYPE(FEDomain_) :: dom
 CLASS(AbstractMesh_), POINTER :: meshptr => NULL()
-CHARACTER(*), PARAMETER :: filename = &
-                           "../../FEMesh/examples/meshdata/small_tri3_mesh.h5"
+CHARACTER(*), PARAMETER :: &
+  filename = "../../FEMesh/examples/meshdata/small_tri3_mesh.h5", &
+  baseInterpolation = "Hierarchical", &
+  baseContinuity = "H1"
+
 TYPE(HDF5File_) :: meshfile
 INTEGER(I4B) :: found, want
 INTEGER(I4B), ALLOCATABLE :: cellOrder(:)
 
-CALL e%setQuietMode(EXCEPTION_INFORMATION, .TRUE.)
+CALL e%SetQuietMode(EXCEPTION_INFORMATION, .TRUE.)
 CALL meshfile%Initiate(filename, mode="READ")
 CALL meshfile%OPEN()
 CALL dom%Initiate(meshfile, '')
 
 meshptr => dom%GetMeshPointer()
+! CALL meshptr%DisplayMeshInfo("Mesh Info:")
+
 CALL Reallocate(cellOrder, meshptr%GetTotalCells())
 cellOrder = 1
 
-CALL fedof%Initiate(baseContinuity="H1", baseInterpolation="Heirarchical", &
-                    order=cellOrder, mesh=meshptr)
-!CALL fedof%Display("FEDOF:")
+CALL fedof%Initiate(baseContinuity=baseContinuity, &
+                    baseInterpolation=baseInterpolation, &
+                    order=cellOrder, mesh=meshptr, islocal=.TRUE.)
+! CALL fedof%Display("FEDOF:")
 found = fedof%GetTotalDOF()
 want = meshptr%GetTotalNodes()
 CALL IS(found, want, "Total DOF (order=1): ")
 
 cellOrder = 2
-CALL fedof%Initiate(baseContinuity="H1", baseInterpolation="Heirarchical", &
-                    order=cellOrder, mesh=meshptr)
+CALL fedof%Initiate(baseContinuity=baseContinuity, &
+                    baseInterpolation=baseInterpolation, &
+                    order=cellOrder, mesh=meshptr, islocal=.TRUE.)
+
 found = fedof%GetTotalDOF()
 want = meshptr%GetTotalNodes() + meshptr%GetTotalFaces()
 CALL IS(found, want, "Total DOF (order=2): ")
 
 cellOrder = 3
-CALL fedof%Initiate(baseContinuity="H1", baseInterpolation="Heirarchical", &
-                    order=cellOrder, mesh=meshptr)
+CALL fedof%Initiate(baseContinuity=baseContinuity, &
+                    baseInterpolation=baseInterpolation, &
+                    order=cellOrder, mesh=meshptr, islocal=.TRUE.)
+
 found = fedof%GetTotalDOF()
 want = meshptr%GetTotalNodes() + 2*meshptr%GetTotalFaces() + meshptr%GetTotalCells()
 CALL IS(found, want, "Total DOF (order=3): ")
 
 cellOrder = 4
-CALL fedof%Initiate(baseContinuity="H1", baseInterpolation="Heirarchical", &
-                    order=cellOrder, mesh=meshptr)
+CALL fedof%Initiate(baseContinuity=baseContinuity, &
+                    baseInterpolation=baseInterpolation, &
+                    order=cellOrder, mesh=meshptr, islocal=.TRUE.)
 found = fedof%GetTotalDOF()
 want = meshptr%GetTotalNodes() + 3*meshptr%GetTotalFaces() + 3*meshptr%GetTotalCells()
 CALL IS(found, want, "Total DOF (order=4): ")

@@ -18,8 +18,8 @@ IMPLICIT NONE
 TYPE(FEDOF_) :: fedof
 TYPE(FEDomain_) :: dom
 CLASS(AbstractMesh_), POINTER :: meshptr => NULL()
-CHARACTER(*), PARAMETER :: filename = &
-                           "../../FEMesh/examples/meshdata/small_tri6_mesh.h5"
+CHARACTER(*), PARAMETER :: &
+  filename = "../../FEMesh/examples/meshdata/small_tri6_mesh.h5"
 TYPE(HDF5File_) :: meshfile
 INTEGER(I4B) :: found, want
 INTEGER(I4B), PARAMETER :: order = 2, ipType = poly%monomial
@@ -35,8 +35,8 @@ meshptr => dom%GetMeshPointer()
 
 CALL fedof%Initiate(baseContinuity=baseContinuity, ipType=ipType, &
                     baseInterpolation=baseInterpolation, &
-                    order=order, &
-                    mesh=meshptr)
+                    order=order, mesh=meshptr)
+
 !CALL fedof%Display("FEDOF:")
 found = fedof%GetTotalDOF()
 want = meshptr%GetTotalNodes()

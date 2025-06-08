@@ -12,16 +12,17 @@ USE Display_Method
 USE GlobalData
 USE Test_Method
 USE ExceptionHandler_Class, ONLY: e, EXCEPTION_INFORMATION
+USE BaseType, ONLY: TypeQuadratureOpt
 USE AppendUtility
 USE ArangeUtility
 
 IMPLICIT NONE
 
 CHARACTER(*), PARAMETER :: &
-  filename = "../../FEMesh/examples/meshdata/small_tri3_mesh.h5", &
+  filename = "../../FEMesh/examples/meshdata/small_tri6_mesh.h5", &
   baseContinuity = "H1", &
-  baseInterpolation = "Heirarchical", &
-  testname = baseContinuity // " " // baseInterpolation
+  baseInterpolation = "Lagrange", &
+  testname = baseContinuity//" "//baseInterpolation
 
 TYPE(FEDOF_) :: fedof
 TYPE(FEDomain_) :: dom
@@ -56,16 +57,19 @@ CONTAINS
 SUBROUTINE test1
 
   INTEGER(I4B), ALLOCATABLE :: globalNode(:)
-  INTEGER(I4B) :: ent(4), tVertices
+  INTEGER(I4B) :: ent(4), tVertices, tdof, localElemNum
 
   order = 1
   CALL fedof%Initiate(baseContinuity=baseContinuity, &
                       baseInterpolation=baseInterpolation, &
-                      order=order, mesh=meshptr)
+             order=order, mesh=meshptr, ipType=TypeQuadratureOpt%equidistance)
 
   tVertices = meshptr%GetTotalVertexNodes(globalElement=[1], islocal=.TRUE.)
 
   ent = meshptr%GetTotalEntities(globalElement=1, islocal=.TRUE.)
+
+  tdof = fedof%GetTotalDOF(globalElement=1, islocal=.TRUE.)
+  localElemNum = meshptr%GetLocalElemNumber(globalElement=1, islocal=.TRUE.)
 
   ! Get all connectivity for local element 1
   found = fedof%GetConnectivity(opt="A", globalElement=1, islocal=.TRUE.)
@@ -76,7 +80,7 @@ SUBROUTINE test1
          globalNode=globalNode(1:tVertices), islocal=.FALSE.)
 
   isok = ALL(found == want)
-  CALL OK(isok, testname // " GetConnectivity (order= "//ToString(order)//"): ")
+  CALL OK(isok, testname//" GetConnectivity (order= "//ToString(order)//"): ")
 
 END SUBROUTINE test1
 
@@ -91,7 +95,7 @@ SUBROUTINE test2
   order = 2
   CALL fedof%Initiate(baseContinuity=baseContinuity, &
                       baseInterpolation=baseInterpolation, &
-                      order=order, mesh=meshptr)
+             order=order, mesh=meshptr, ipType=TypeQuadratureOpt%equidistance)
 
   found = fedof%GetConnectivity(opt="A", globalElement=1, islocal=.TRUE.)
   globalNode = meshptr%GetConnectivity(globalElement=1, islocal=.TRUE.)
@@ -109,7 +113,7 @@ SUBROUTINE test2
 
   isok = ALL(found == want)
 
-  CALL OK(isok, testname // " GetConnectivity (order= "//ToString(order)//"): ")
+  CALL OK(isok, testname//" GetConnectivity (order= "//ToString(order)//"): ")
 
 END SUBROUTINE test2
 
@@ -124,7 +128,7 @@ SUBROUTINE test3
   order = 3
   CALL fedof%Initiate(baseContinuity=baseContinuity, &
                       baseInterpolation=baseInterpolation, &
-                      order=order, mesh=meshptr)
+             order=order, mesh=meshptr, ipType=TypeQuadratureOpt%equidistance)
 
   found = fedof%GetConnectivity(opt="A", globalElement=1, islocal=.TRUE.)
 
@@ -152,7 +156,7 @@ SUBROUTINE test3
 
   isok = ALL(found == want)
 
-  CALL OK(isok, testname // " GetConnectivity (order= "//ToString(order)//"): ")
+  CALL OK(isok, testname//" GetConnectivity (order= "//ToString(order)//"): ")
 END SUBROUTINE test3
 
 END PROGRAM main

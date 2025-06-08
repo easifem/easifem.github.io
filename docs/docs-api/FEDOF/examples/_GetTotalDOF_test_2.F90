@@ -18,7 +18,7 @@ USE ReallocateUtility
 IMPLICIT NONE
 
 CHARACTER(*), PARAMETER :: &
-  filename = "../../FEMesh/examples/meshdata/small_tri3_mesh.h5", &
+  filename = "../../FEMesh/examples/meshdata/small_tri6_mesh.h5", &
   baseContinuity = "H1", &
   baseInterpolation = "Heirarchical", &
   testname = baseContinuity//" "//baseInterpolation//" GetTotalDOF"

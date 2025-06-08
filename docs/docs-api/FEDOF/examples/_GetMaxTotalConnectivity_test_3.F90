@@ -19,9 +19,9 @@ TYPE(FEDOF_) :: obj
 TYPE(FEDomain_) :: dom
 CLASS(AbstractMesh_), POINTER :: meshptr => NULL()
 CHARACTER(*), PARAMETER :: &
-  filename = "../../FEMesh/examples/meshdata/small_tri6_mesh.h5", &
+  filename = "../../FEMesh/examples/meshdata/small_tri3_mesh.h5", &
   baseContinuity = "H1", &
-  baseInterpolation = "Heirarchical", &
+  baseInterpolation = "Lagrange", &
   testname = baseContinuity//" "//baseInterpolation// &
   " GetMaxTotalConnectivity test"
 

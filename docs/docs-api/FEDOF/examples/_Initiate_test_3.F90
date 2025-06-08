@@ -1,5 +1,5 @@
 !> author: Vikas Sharma, Ph. D.
-! date:   
+! date: 2025-06-06
 ! summary:  Initiate fedof with H1 and Heirarchical bases, order is a vector.
 
 PROGRAM main
@@ -18,8 +18,10 @@ IMPLICIT NONE
 TYPE(FEDOF_) :: fedof
 TYPE(FEDomain_) :: dom
 CLASS(AbstractMesh_), POINTER :: meshptr => NULL()
-CHARACTER(*), PARAMETER :: filename = &
-   "../../FEMesh/examples/meshdata/small_tri3_mesh.h5"
+CHARACTER(*), PARAMETER :: &
+  filename = "../../FEMesh/examples/meshdata/small_tri3_mesh.h5", &
+  baseInterpolation = "Hierarchical", &
+  baseContinuity = "H1"
 TYPE(HDF5File_) :: meshfile
 LOGICAL(LGT) :: isok
 INTEGER(I4B) :: found, want, order, ii, iel
@@ -63,16 +65,14 @@ DO iel = 1, SIZE(aintvec)
   cellOrder(ii) = order
 END DO
 
-CALL fedof%Initiate(baseContinuity="H1", baseInterpolation="Heirarchical", &
-                    order=cellOrder, mesh=meshptr)
+CALL fedof%Initiate(baseContinuity=baseContinuity, &
+                    baseInterpolation=baseInterpolation, &
+                    order=cellOrder, mesh=meshptr, islocal=.TRUE.)
 found = fedof%GetTotalDOF()
 want = 39
 isok = found == want
 CALL OK(isok, "Total DOF ")
 IF (.NOT. isok) CALL Display([found, want], "found, want: ")
-
-CALL Display(fedof%GetConnectivity(globalElement=13, islocal=.FALSE., opt="A"), &
-             "connectivity of global element 13", full=.TRUE.)
 
 CALL dom%DEALLOCATE()
 CALL meshfile%DEALLOCATE()

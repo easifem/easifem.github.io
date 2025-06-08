@@ -1,7 +1,6 @@
 !> author: Vikas Sharma, Ph. D.
 ! date: 2025-06-06
-! summary:  Test the intitiate method for H1, Heirarchical basis,
-! for different orders.
+! summary: This method tests the COPY method for FEDOF class.
 
 PROGRAM main
 USE FEDOF_Class
@@ -15,11 +14,14 @@ USE ExceptionHandler_Class, ONLY: e, EXCEPTION_INFORMATION
 
 IMPLICIT NONE
 
-TYPE(FEDOF_) :: obj
+TYPE(FEDOF_) :: obj, obj2
 TYPE(FEDomain_) :: dom
 CLASS(AbstractMesh_), POINTER :: meshptr => NULL()
-CHARACTER(*), PARAMETER :: filename = &
-                           "../../FEMesh/examples/meshdata/small_tri3_mesh.h5"
+CHARACTER(*), PARAMETER :: &
+  filename = "../../FEMesh/examples/meshdata/small_tri3_mesh.h5", &
+  baseInterpolation = "Heirarchical", &
+  baseContinuity = "H1"
+
 TYPE(HDF5File_) :: meshfile
 INTEGER(I4B) :: found, want
 
@@ -30,28 +32,35 @@ CALL dom%Initiate(meshfile, '')
 
 meshptr => dom%GetMeshPointer()
 
-CALL obj%Initiate(baseContinuity="H1", baseInterpolation="Heirarchical", &
-                  order=1, mesh=meshptr)
+CALL obj%Initiate(baseContinuity=baseContinuity, &
+                  baseInterpolation=baseInterpolation, order=1, mesh=meshptr)
 !CALL fedof%Display("FEDOF:")
-found = obj%GetTotalDOF()
+CALL obj2%copy(obj)
+
+found = obj2%GetTotalDOF()
 want = meshptr%GetTotalNodes()
 CALL OK(found == want, "Total DOF (order=1): ")
 
-CALL obj%Initiate(baseContinuity="H1", baseInterpolation="Heirarchical", &
-                  order=2, mesh=meshptr)
-found = obj%GetTotalDOF()
+CALL obj%Initiate(baseContinuity=baseContinuity, &
+                  baseInterpolation=baseInterpolation, order=2, mesh=meshptr)
+obj2 = obj
+found = obj2%GetTotalDOF()
 want = meshptr%GetTotalNodes() + meshptr%GetTotalFaces()
 CALL OK(found == want, "Total DOF (order=2): ")
 
-CALL obj%Initiate(baseContinuity="H1", baseInterpolation="Heirarchical", &
-                  order=3, mesh=meshptr)
-found = obj%GetTotalDOF()
+CALL obj%Initiate(baseContinuity=baseContinuity, &
+                  baseInterpolation=baseInterpolation, order=3, mesh=meshptr)
+CALL obj2%Copy(obj)
+
+found = obj2%GetTotalDOF()
 want = meshptr%GetTotalNodes() + 2*meshptr%GetTotalFaces() + meshptr%GetTotalCells()
 CALL OK(found == want, "Total DOF (order=3): ")
 
-CALL obj%Initiate(baseContinuity="H1", baseInterpolation="Heirarchical", &
-                  order=4, mesh=meshptr)
-found = obj%GetTotalDOF()
+CALL obj%Initiate(baseContinuity=baseContinuity, &
+                  baseInterpolation=baseInterpolation, order=4, mesh=meshptr)
+obj2 = obj
+
+found = obj2%GetTotalDOF()
 want = meshptr%GetTotalNodes() + 3*meshptr%GetTotalFaces() + 3*meshptr%GetTotalCells()
 CALL OK(found == want, "Total DOF (order=4): ")
 

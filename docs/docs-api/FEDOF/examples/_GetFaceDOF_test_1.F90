@@ -1,6 +1,6 @@
 !> author: Vikas Sharma, Ph. D.
 ! date: 2025-06-07
-! summary:  Testing GetConnectivity method of FEDOF class
+! summary:  Testing GetFaceDOF method of FEDOF class
 ! H1 Heirarchical Second Order Triangular Mesh
 
 PROGRAM main
@@ -14,6 +14,7 @@ USE Test_Method
 USE ExceptionHandler_Class, ONLY: e, EXCEPTION_INFORMATION
 USE AppendUtility
 USE ArangeUtility
+USE ReallocateUtility
 
 IMPLICIT NONE
 
@@ -21,13 +22,12 @@ CHARACTER(*), PARAMETER :: &
   filename = "../../FEMesh/examples/meshdata/small_tri3_mesh.h5", &
   baseContinuity = "H1", &
   baseInterpolation = "Heirarchical", &
-  testname = baseContinuity // " " // baseInterpolation
+  testname = baseContinuity//" "//baseInterpolation//" GetFaceDOF test"
 
 TYPE(FEDOF_) :: fedof
 TYPE(FEDomain_) :: dom
 CLASS(AbstractMesh_), POINTER :: meshptr => NULL()
 TYPE(HDF5File_) :: meshfile
-INTEGER(I4B), ALLOCATABLE :: found(:), want(:)
 INTEGER(I4B) :: order, totalVertexNodes, totalFaces
 LOGICAL(LGT) :: isok
 
@@ -55,28 +55,26 @@ CONTAINS
 
 SUBROUTINE test1
 
-  INTEGER(I4B), ALLOCATABLE :: globalNode(:)
-  INTEGER(I4B) :: ent(4), tVertices
+  INTEGER(I4B) :: tsize, found(10), want(10)
+  INTEGER(I4B), ALLOCATABLE :: con(:)
 
   order = 1
   CALL fedof%Initiate(baseContinuity=baseContinuity, &
                       baseInterpolation=baseInterpolation, &
                       order=order, mesh=meshptr)
 
-  tVertices = meshptr%GetTotalVertexNodes(globalElement=[1], islocal=.TRUE.)
+  con = fedof%GetConnectivity(globalElement=1, islocal=.TRUE., opt="A")
 
-  ent = meshptr%GetTotalEntities(globalElement=1, islocal=.TRUE.)
+  CALL fedof%GetFaceDOF(globalFace=1, islocal=.TRUE., &
+                        ans=found, tsize=tsize)
 
-  ! Get all connectivity for local element 1
-  found = fedof%GetConnectivity(opt="A", globalElement=1, islocal=.TRUE.)
+  isok = tsize .EQ. 0
+  CALL OK(isok, testname//" (order= "//ToString(order)//"): ")
 
-  globalNode = meshptr%GetConnectivity(globalElement=1, islocal=.TRUE.)
-
-  want = meshptr%GetLocalNodenumber( &
-         globalNode=globalNode(1:tVertices), islocal=.FALSE.)
-
-  isok = ALL(found == want)
-  CALL OK(isok, testname // " GetConnectivity (order= "//ToString(order)//"): ")
+  CALL fedof%GetFaceDOF(globalElement=1, islocal=.TRUE., &
+                        ans=found, tsize=tsize, localFaceNumber=1)
+  isok = tsize .EQ. 0
+  CALL OK(isok, testname//" interface 2 (order= "//ToString(order)//"): ")
 
 END SUBROUTINE test1
 
@@ -85,31 +83,25 @@ END SUBROUTINE test1
 !----------------------------------------------------------------------------
 
 SUBROUTINE test2
-  INTEGER(I4B), ALLOCATABLE :: globalNode(:), temp1(:)
-  INTEGER(I4B) :: ent(4), a, b, tVertices
+
+  INTEGER(I4B) :: tsize, found(10), want(10)
 
   order = 2
   CALL fedof%Initiate(baseContinuity=baseContinuity, &
                       baseInterpolation=baseInterpolation, &
                       order=order, mesh=meshptr)
 
-  found = fedof%GetConnectivity(opt="A", globalElement=1, islocal=.TRUE.)
-  globalNode = meshptr%GetConnectivity(globalElement=1, islocal=.TRUE.)
-  tVertices = meshptr%GetTotalVertexNodes(globalElement=[1], islocal=.TRUE.)
+  CALL fedof%GetFaceDOF(globalFace=1, islocal=.TRUE., &
+                        ans=found, tsize=tsize)
 
-  want = meshptr%GetLocalNodenumber(globalNode=globalNode(1:tVertices), &
-                                    islocal=.FALSE.)
-  a = meshptr%GetTotalVertexNodes() + 1
-  ent = meshptr%GetTotalEntities(globalElement=1, islocal=.TRUE.)
+  CALL IS(tsize, 1, testname//" (order= "//ToString(order)//"): ")
+  CALL IS(found(1), 13, testname//" (order= "//ToString(order)//"): ")
 
-  b = meshptr%GetTotalVertexNodes() + ent(3) * (order - 1)
-  temp1 = Arange(a, b)
+  CALL fedof%GetFaceDOF(globalElement=1, islocal=.TRUE., &
+                        ans=found, tsize=tsize, localFaceNumber=1)
 
-  want = want.APPEND.temp1
-
-  isok = ALL(found == want)
-
-  CALL OK(isok, testname // " GetConnectivity (order= "//ToString(order)//"): ")
+  CALL IS(tsize, 1, testname//" (order= "//ToString(order)//"): ")
+  CALL IS(found(1), 13, testname//" (order= "//ToString(order)//"): ")
 
 END SUBROUTINE test2
 
@@ -118,41 +110,30 @@ END SUBROUTINE test2
 !----------------------------------------------------------------------------
 
 SUBROUTINE test3
-  INTEGER(I4B), ALLOCATABLE :: globalNode(:), temp1(:)
-  INTEGER(I4B) :: ent(4), a, b, tVertices
+
+  INTEGER(I4B) :: tsize, found(10), want(10)
 
   order = 3
   CALL fedof%Initiate(baseContinuity=baseContinuity, &
                       baseInterpolation=baseInterpolation, &
                       order=order, mesh=meshptr)
 
-  found = fedof%GetConnectivity(opt="A", globalElement=1, islocal=.TRUE.)
+  CALL fedof%GetFaceDOF(globalFace=1, islocal=.TRUE., &
+                        ans=found, tsize=tsize)
 
-  globalNode = meshptr%GetConnectivity(globalElement=1, islocal=.TRUE.)
+  CALL IS(tsize, 2, testname//" (order= "//ToString(order)//"): ")
+  CALL IS(found(1), 13, testname//" (order= "//ToString(order)//"): ")
 
-  tVertices = meshptr%GetTotalVertexNodes(globalElement=[1], islocal=.TRUE.)
+  CALL fedof%GetFaceDOF(globalElement=1, islocal=.TRUE., &
+                        ans=found, tsize=tsize, localFaceNumber=1)
 
-  want = meshptr%GetLocalNodenumber( &
-         globalNode=globalNode(1:tVertices), islocal=.FALSE.)
+  CALL IS(tsize, 2, testname//" (order= "//ToString(order)//"): ")
+  CALL IS(found(1), 13, testname//" (order= "//ToString(order)//"): ")
 
-  ent = meshptr%GetTotalEntities(globalElement=1, islocal=.TRUE.)
-
-  a = totalVertexNodes + 1
-  b = a - 1 + ent(3) * (order - 1)
-
-  temp1 = Arange(a, b)
-
-  want = want.APPEND.temp1
-
-  a = totalVertexNodes + totalFaces * (order - 1) + 1
-  b = a - 1 + ent(4) * (order - 2) * (order - 1) * 0.5
-
-  temp1 = Arange(a, b)
-  want = want.APPEND.temp1
-
-  isok = ALL(found == want)
-
-  CALL OK(isok, testname // " GetConnectivity (order= "//ToString(order)//"): ")
 END SUBROUTINE test3
+
+!----------------------------------------------------------------------------
+!
+!----------------------------------------------------------------------------
 
 END PROGRAM main

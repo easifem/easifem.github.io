@@ -99,6 +99,32 @@ Getting the local element connectivity.
 CALL obj%GetConnectivity_(globalElement, isLocal, ans, tsize, opt)
 ```
 
+The following table provides an overview of all methods defined in the GetMethods submodule of the FEDOF_Class.
+
+| Method Name                                               | Purpose                                                                                              |
+| --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| [`GetCaseName`](./GetCaseName.md)                         | Gets the case name of FEDOF (combines baseContinuity and baseInterpolation)                          |
+| [`GetVertexDOF`](./GetVertexDOF.md)                       | Retrieves the degrees of freedom associated with a vertex/node                                       |
+| [`GetEdgeDOF`](./GetEdgeDOF.md)                           | Retrieves the degrees of freedom associated with an edge                                             |
+| [`GetTotalEdgeDOF`](./GetTotalEdgeDOF.md)                 | Returns the total number of degrees of freedom on an edge                                            |
+| [`GetFaceDOF`](./GetFaceDOF.md)                           | Retrieves the degrees of freedom associated with a face                                              |
+| [`GetTotalFaceDOF`](./GetTotalFaceDOF.md)                 | Returns the total number of degrees of freedom on a face                                             |
+| [`GetCellDOF`](./GetCellDOF.md)                           | Retrieves the degrees of freedom associated with a cell                                              |
+| [`GetTotalCellDOF`](./GetTotalCellDOF.md)                 | Returns the total number of degrees of freedom on a cell                                             |
+| [`GetTotalVertexDOF`](./GetTotalVertexDOF.md)             | Returns the total number of vertex degrees of freedom                                                |
+| [`GetTotalDOF`](./GetTotalDOF.md)                         | Returns the total number of degrees of freedom (in the entire mesh, an element, or filtered by type) |
+| [`GetConnectivity`](./GetConnectivity.md)                 | Returns the connectivity array for an element                                                        |
+| [`GetConnectivity_`](./GetConnectivity_.md)               | Internal method for writing connectivity information into a provided array                           |
+| [`GetPrefix`](./GetPrefix.md)                             | Returns the prefix used for setting data ("FEDOF")                                                   |
+| [`GetMeshPointer`](./GetMeshPointer.md)                   | Returns a pointer to the associated mesh object                                                      |
+| [`GetBaseInterpolation`](./GetBaseInterpolation.md)       | Returns the base interpolation type used                                                             |
+| [`GetCellOrder`](./GetCellOrder.md)                       | Retrieves the polynomial order of a cell                                                             |
+| [`GetOrders`](./GetOrders.md)                             | Gets the cell, face, and edge orders and their orientations                                          |
+| [`GetMaxTotalConnectivity`](./GetMaxTotalConnectivity.md) | Returns the maximum size of connectivity across all elements                                         |
+| [`GetQuadraturePoints`](./GetQuadraturePoints.md)         | Creates quadrature points for numerical integration                                                  |
+| [`GetLocalElemShapeData`](./GetLocalElemShapeData.md)     | Retrieves local element shape functions data                                                         |
+| [`GetGlobalElemShapeData`](./GetGlobalElemShapeData.md)   | Maps local shape functions to the global coordinate system                                           |
+
 ## Methods
 
 import DocCardList from '@theme/DocCardList';
