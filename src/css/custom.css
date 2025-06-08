@@ -146,7 +146,8 @@ html[data-theme='dark'] {
     --docs-color-background-200: var(--cat-mantle);
     --docs-color-background-300: var(--cat-crust);
     --ifm-background-surface-color: var(--cat-surface0);
-    --ifm-footer-background-color: var(--cat-surface0);
+    --ifm-footer-background-color: var(--cat-crust);
+    --ifm-navbar-background-color: var(--cat-base);
     
     /* Border and text colors */
     --docs-color-border: var(--cat-surface1);
@@ -219,6 +220,23 @@ html[data-theme='dark'] {
   .homepage section * {
     @apply box-border;
   }
+
+h1 {
+  color: var(--ifm-color-primary);
+}
+
+h2 {
+  color: var(--cat-lavender);
+}
+
+h3 {
+  color: var(--cat-blue);
+}
+
+h4 {
+  color: var(--cat-text);
+}
+
 }
 
 html[data-theme='dark'] {
@@ -229,6 +247,7 @@ html[data-theme='dark'] {
   --docs-color-background-200: var(--cat-mantle);
   --docs-color-background-300: var(--cat-crust);
   --ifm-background-surface-color: var(--cat-surface0);
+  --ifm-navbar-background-color: var(--cat-base);
 }
 
 /* Components */
@@ -262,12 +281,22 @@ pre, code {
 }
 
 /* Navigation and UI Components */
-nav.navbar {
-  border-bottom: 0.5px solid var(--ifm-toc-border-color);
-}
+/* nav.navbar { */
+/*   border-bottom: 0.5px solid var(--ifm-toc-border-color); */
+/* } */
 
-pre.prism-code {
-  border: 0.5px solid var(--code-border-color);
+/* pre.prism-code { */
+/*   border: 0.5px solid var(--code-border-color); */
+/* } */
+
+pre.prism-code, 
+.theme-code-block pre, 
+:not(pre) > code {
+  border: none !important;
+  border-left: 0.5px solid var(--code-border-color) !important;
+  border-right: 0.5px solid var(--code-border-color) !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
 }
 
 .navbar__item,
@@ -346,13 +375,14 @@ nav.menu {
   display: inline-block;
   padding: 0.25rem 1.5rem;
   border-radius: 4px;
-  background-color: var(--ifm-color-primary);
-  color: var(--ifm-text-color);
+  background-color: var(--cat-mauve);
+  color: var(--ifm-background-color);
   text-decoration: none;
+  font-weight: 600;
 }
 
 .footer__cta a:hover {
-  background-color: var(--ifm-color-primary-darker);
+  background-color: var(--cat-mauve);
   /* color: var(--ifm-color-primary); */
 }
 
@@ -366,7 +396,7 @@ nav.menu {
 
 .footer__title {
   font-size: 14px;
-  font-weight: normal;
+  font-weight: bold;
   @apply mb-2 text-text-400;
 }
 
@@ -446,6 +476,7 @@ nav.menu {
 aside.theme-doc-sidebar-container {
   position: relative;
   clip-path: inset(0px -140px);
+  border-right: none !important;
 }
 
 .theme-doc-sidebar-container button[title='Collapse sidebar'],
