@@ -28,25 +28,15 @@ The basic steps of using this data type is given below.
 
 ### Constructor methods
 
-There are several ways to initiate an instance of `FEDOF`.
+Although, there are several ways to initiate an instance of `FEDOF`. The most common way is to call the [`Initiate`](./Initiate.md) method.
 
 ```fortran
-CALL obj%Initiate(order,  mesh, baseContinuity, baseInterpolation, ipType, basisType, alpha, beta, lambda)
+CALL obj%Initiate(order,  mesh, baseContinuity, baseInterpolation, ipType, basisType, alpha, beta, lambda, islocal)
 ```
 
 - Here `order` represents the order of each element. It can be a scalar, vector, or a two dimensional matrix of integers. [The method with scalar order is given here.](./Initiate.md)
-
-:::tip Order is a vector
-When `order` is a vector of integer then it represents the order of each cell element. [This method is discussed here](./Initiate.md). In this case, the length of `order` must be equal to the number of elements in the mesh.
-:::
-
-:::tip Order is a matrix
-When order is a matrix of integer then the first row represents the global number of cell element, and the second row represents the order of cell element. [This method is given here](./Initiate.md)
-:::
-
-:::info
-Read more about [Initiate](./Initiate.md) method.
-:::
+  - When `order` is a vector of integer then it represents the order of each cell element. In this case, the length of `order` must be equal to the number of elements in the mesh.
+  - When `order` is a matrix of integer then the first row represents the global number of cell element, and the second row represents the order of cell element.
 
 You can also initiate an instance of `FEDOF` using [ParameterList](/docs/docs-api/ParameterList/index.md). The process is given below.
 
@@ -57,47 +47,16 @@ You can also initiate an instance of `FEDOF` using [ParameterList](/docs/docs-ap
 CALL obj%Initiate(param, mesh)
 ```
 
+| Method                                | Description                                                                                                         |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| [`Initiate`](./Initiate.md)           | Initializes a FEDOF (Finite Element Degrees of Freedom) object with various options for element order specification |
+| [`SetFEDOFParam`](./SetFEDOFParam.md) | Sets essential parameters for constructing a FEDOF object in a parameter list                                       |
+| [`Copy` / `ASSIGNMENT(=)`](./Copy.md) | Copies the contents of one FEDOF object to another                                                                  |
+| [`DEALLOCATE`](./Copy.md)             | Deallocates all data and resources used by a FEDOF object                                                           |
+
+These constructor methods handle the creation, initialization, and cleanup of FEDOF objects, which represent the degrees of freedom for finite element calculations.
+
 ### Get methods
-
-#### Get the upper bound for connectivity matrix
-
-```fortran
-ans = obj%GetMaxTotalConnectivty()
-```
-
-#### Get order of cell element
-
-```fortran
-CALL obj%GetCellOrder(cellOrder, tCellOrder)
-```
-
-#### Get quadrature points
-
-```fortran
-CALL obj%GetQuadraturePoints(quad, globalElement, islocal, quadratureType, order)
-```
-
-#### Getting the shape data
-
-Getting the local element shape data.
-
-```fortran
-CALL obj%GetLocalElemShapeData(globalElement, isLocal, quad, elemsd)
-```
-
-Getting the global element shape data.
-
-```fortran
-CALL obj%GetGlobalElemShapeData(globalElement, isLocal, xij, elemsd)
-```
-
-#### Getting the connectivity
-
-Getting the local element connectivity.
-
-```fortran
-CALL obj%GetConnectivity_(globalElement, isLocal, ans, tsize, opt)
-```
 
 The following table provides an overview of all methods defined in the GetMethods submodule of the FEDOF_Class.
 
@@ -124,6 +83,24 @@ The following table provides an overview of all methods defined in the GetMethod
 | [`GetQuadraturePoints`](./GetQuadraturePoints.md)         | Creates quadrature points for numerical integration                                                  |
 | [`GetLocalElemShapeData`](./GetLocalElemShapeData.md)     | Retrieves local element shape functions data                                                         |
 | [`GetGlobalElemShapeData`](./GetGlobalElemShapeData.md)   | Maps local shape functions to the global coordinate system                                           |
+
+### IO Methods
+
+| Method                                  | Description                                                                                             |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `Display`                               | Displays the content of a FEDOF object including configuration, mesh information, and allocation status |
+| `DisplayCellOrder`                      | Displays information about the cell order array and its contents                                        |
+| [`ImportFromToml`](./ImportFromToml.md) | Imports FEDOF configuration from a TOML file or table                                                   |
+
+These IO methods provide functionality for:
+
+- Displaying the state and configuration of a FEDOF object for debugging and information purposes
+- Reading configuration from standardized TOML format files or tables
+- Visualizing specific aspects of the FEDOF configuration like cell orders
+
+## Setting sparsity
+
+The sparsity of the FEDOF object can be set using the [`SetSparsity`](./SetSparsity.md) method. This method allows you to define how the degrees of freedom are organized and accessed, which can optimize performance for specific applications.
 
 ## Methods
 

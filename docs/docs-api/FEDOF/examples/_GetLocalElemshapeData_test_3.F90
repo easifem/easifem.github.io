@@ -25,7 +25,7 @@ CLASS(AbstractMesh_), POINTER :: meshptr => NULL()
 CHARACTER(*), PARAMETER :: &
   filename = "../../FEMesh/examples/meshdata/small_tri3_mesh.h5", &
   baseContinuity = "H1", &
-  baseInterpolation = "Heirarchical", &
+  baseInterpolation = "Lagrange", &
   testname = baseContinuity//" "//baseInterpolation//" GetLocalElemshapeData "
 
 TYPE(HDF5File_) :: meshfile
@@ -149,7 +149,7 @@ SUBROUTINE test2
                                globalElement=globalElement, islocal=islocal, &
                                   geoelemsd=geoelemsd)
 
-  found = SUM(elemsd%N(1:3, :), dim=1)
+  found = SUM(elemsd%N(:, :), dim=1)
   want = 1.0_DFP
   isok = found(1) .approxeq.want(1)
   CALL OK(isok, testname//" test2 elemsd%N")
@@ -213,7 +213,7 @@ SUBROUTINE test3
                                globalElement=globalElement, islocal=islocal, &
                                   geoelemsd=geoelemsd)
 
-  found = SUM(elemsd%N(1:3, :), dim=1)
+  found = SUM(elemsd%N(:, :), dim=1)
   want = 1.0_DFP
   isok = found(1) .approxeq.want(1)
   CALL OK(isok, testname//" test3 elemsd%N")

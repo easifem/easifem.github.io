@@ -1,7 +1,13 @@
 # Initiate
 
-This method initiates an instance of `FEDOF`.
-There are several ways to initiate an instance of `FEDOF`.
+This method initiates an instance of `FEDOF`. There are several ways to initiate an instance of `FEDOF`.
+
+The `Initiate` method has four different implementations:
+
+1. `Initiate1` - Initializes with homogeneous order for all elements
+2. `Initiate2` - Initializes with inhomogeneous orders specified per element
+3. `Initiate3` - Initializes from a parameter list
+4. `Initiate4` - Initializes from an order vector defined for global elements
 
 ## Interface 1
 

@@ -65,9 +65,6 @@ The underlying `GetConnectivity_` subroutine performs the actual work of gatheri
 
 ## Example
 
-
 import EXAMPLE68 from "./examples/_GetConnectivity_test_1.md";
 
 <EXAMPLE68 />
-
-

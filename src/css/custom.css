@@ -289,14 +289,25 @@ pre, code {
 /*   border: 0.5px solid var(--code-border-color); */
 /* } */
 
+/* Making code block scrollable */
+pre {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+pre code {
+  display: block;
+  white-space: pre;
+}
+
 pre.prism-code, 
 .theme-code-block pre, 
 :not(pre) > code {
   border: none !important;
-  border-left: 0.5px solid var(--code-border-color) !important;
-  border-right: 0.5px solid var(--code-border-color) !important;
-  border-top: 0 !important;
-  border-bottom: 0 !important;
+  /* border-left: 0.5px solid var(--code-border-color) !important; */
+  /* border-right: 0.5px solid var(--code-border-color) !important; */
+  /* border-top: 0 !important; */
+  /* border-bottom: 0 !important; */
 }
 
 .navbar__item,
