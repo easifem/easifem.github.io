@@ -1,3 +1,7 @@
+!> author: Vikas Sharma, Ph. D.
+! date: 2025-06-10
+! summary:  This subroutine tests the SetSparsity method of the FEDOF class.
+
 PROGRAM main
 USE FEDOF_Class
 USE FEMesh_Class
@@ -15,7 +19,7 @@ USE ApproxUtility
 IMPLICIT NONE
 
 CHARACTER(*), PARAMETER :: filename = &
-                       "../../Mesh/examples/meshdata/very_small_quad4_mesh.h5"
+                     "../../FEMesh/examples/meshdata/very_small_quad4_mesh.h5"
 
 CHARACTER(*), PARAMETER :: baseContinuity = "H1", &
                            baseInterpolation = "Heirarchical"

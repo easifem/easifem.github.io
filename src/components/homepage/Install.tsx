@@ -1,13 +1,26 @@
 import Link from "@docusaurus/Link";
 import React from "react";
+import { Monitor, Server, Award, Cpu, HardDrive } from "react-feather";
 
-function SDK({ icon, to, name }: { icon: string; name: string; to?: string }) {
+// Map of distro names to react-feather icons
+const iconMap = {
+  'Ubuntu': Server,
+  'Archlinux': Cpu,
+  'Fedora': Server,
+  'Debian': Server,
+  'M1/M2 chip(ARM64)': Monitor,
+  'Intel chip(AMD64, x86)': HardDrive
+};
+
+function SDK({ name, to }: { name: string; to?: string }) {
+  const IconComponent = iconMap[name] || Award;
+  
   return (
     <Link
       to={to}
       className="flex cursor-pointer items-center rounded-lg border border-secondary-700 p-2.5 text-inherit hover:border-primary hover:text-primary hover:no-underline"
     >
-      <img src={icon} className="mr-2 h-7 w-7" />
+      <IconComponent className="mr-2 h-7 w-7" />
       <span className="font-medium">{name}</span>
     </Link>
   );
@@ -33,22 +46,18 @@ export default function Install() {
           <SDK
             name="Ubuntu"
             to="/guides/getting-started/ubuntu"
-            icon="/static/landing-page/sdk-icons/ubuntu.svg"
           />
           <SDK
             name="Archlinux"
             to="/guides/getting-started/archlinux"
-            icon="/static/landing-page/sdk-icons/arch-linux.svg"
           />
           <SDK
             name="Fedora"
             to="/guides/getting-started/fedora"
-            icon="/static/landing-page/sdk-icons/fedora.svg"
           />
           <SDK
             name="Debian"
             to="/guides/getting-started/debian"
-            icon="/static/landing-page/sdk-icons/debian.svg"
           />
         </div>
       </div>
@@ -64,12 +73,10 @@ export default function Install() {
           <SDK
             name="M1/M2 chip(ARM64)"
             to="/guides/getting-started/macosx"
-            icon="/static/landing-page/sdk-icons/mac.svg"
           />
           <SDK
             name="Intel chip(AMD64, x86)"
             to="/guides/getting-started/macosx"
-            icon="/static/landing-page/sdk-icons/mac.svg"
           />
         </div>
       </div>

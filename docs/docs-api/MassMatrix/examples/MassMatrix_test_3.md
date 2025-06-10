@@ -1,6 +1,6 @@
 This example shows how to USE the SUBROUTINE called `MassMatrix` to create a mass matrix in space domain.
 
-Here, we want to DO the following. 
+Here, we want to DO the following.
 
 $$
 \int_{\Omega } N^{I}\rho N^{J}d\Omega
@@ -15,4 +15,3 @@ $$
 $$
 
 This TYPE of mass matrix is useful when $rho$ is a constant.
-

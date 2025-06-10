@@ -1,4 +1,4 @@
-!> author: Vikas Sharma, Ph. D.
+!f author: Vikas Sharma, Ph. D.
 ! date: 2024-05-24
 ! summary: Lagrange polynomial is tested in this example
 
@@ -11,7 +11,7 @@ USE Display_Method
 USE GlobalData
 USE Test_Method
 USE ExceptionHandler_Class, ONLY: e, EXCEPTION_INFORMATION
-use BaseType, only: poly=>TypePolynomialOpt
+USE BaseType, ONLY: poly => TypePolynomialOpt
 
 IMPLICIT NONE
 
@@ -22,8 +22,8 @@ CHARACTER(*), PARAMETER :: filename = &
                            "../../FEMesh/examples/meshdata/small_tri3_mesh.h5"
 
 TYPE(HDF5File_) :: meshfile
-INTEGER(I4B) :: found, want
-INTEGER(I4B), PARAMETER :: order = 2, ipType = poly%monomial
+INTEGER(I4B) :: found, want, entities(4), totalVertexNodes
+INTEGER(I4B), PARAMETER :: order = 1, ipType = poly%monomial
 CHARACTER(*), PARAMETER :: baseContinuity = "H1"
 CHARACTER(*), PARAMETER :: baseInterpolation = "Lagrange"
 
@@ -35,14 +35,35 @@ CALL dom%Initiate(meshfile, '')
 meshptr => dom%GetMeshPointer()
 
 CALL fedof%Initiate(baseContinuity=baseContinuity, ipType=ipType, &
-               baseInterpolation=baseInterpolation, order=order, mesh=meshptr)
-CALL fedof%Display("FEDOF:")
+                    baseInterpolation=baseInterpolation, order=order, &
+                    mesh=meshptr)
+
+! CALL fedof%Display("FEDOF:")
+entities = meshptr%GetTotalEntities()
+CALL Display(entities, "Total entities in mesh: ")
+
 found = fedof%GetTotalDOF()
-want = meshptr%GetTotalNodes()
-CALL IS(found, want, "Total DOF (order=2): ")
+
+IF (order .EQ. 1) THEN
+
+  want = meshptr%GetTotalVertexNodes()
+
+ELSE
+
+  want = meshptr%GetTotalVertexNodes() + &
+         entities(3) * (order - 1) + &
+         entities(4) * (order - 2) * (order - 1) / 2
+
+END IF
+
+CALL IS(found, want, "Total DOF (order= "//tostring(order)//"): ")
 
 !CALL dom%Display("domain:")
 CALL dom%DEALLOCATE()
 CALL meshfile%DEALLOCATE()
 
 END PROGRAM main
+
+! Total vertex = 12
+! Total edges = 25
+! Total elements = 14

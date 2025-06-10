@@ -33,8 +33,8 @@ INTEGER(I4B), PARAMETER :: order = 2, &
                            nns = order + 1
 INTEGER(I4B), PARAMETER :: elemType = elem%line
 INTEGER(I4B), PARAMETER :: quadratureType = quadType%GaussLegendre
-INTEGER( I4B ), PARAMETER :: interpolationType = iptype%GaussLegendreLobatto
-INTEGER( I4B ), PARAMETER :: basisType = polyType%Monomial
+INTEGER(I4B), PARAMETER :: interpolationType = iptype%GaussLegendreLobatto
+INTEGER(I4B), PARAMETER :: basisType = polyType%Monomial
 REAL(DFP), PARAMETER :: refElemCoord(1, 2) = RESHAPE([-1.0_DFP, 1.0_DFP], [1, 2])
 REAL(DFP), PARAMETER :: xij(1, 2) = RESHAPE([-1.0_DFP, 1.0_DFP], [1, 2])
 

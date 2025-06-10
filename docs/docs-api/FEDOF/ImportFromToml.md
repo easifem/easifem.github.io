@@ -4,6 +4,11 @@ title: ImportFromToml
 
 This method imports the configuration form a toml file and initiates the FEDOF instance.
 
+The `ImportFromToml` method has two implementations:
+
+1. `ImportFromToml1` - Imports configuration from a TOML table that's already loaded
+2. `ImportFromToml2` - Imports configuration from a TOML file by name
+
 ## Interface 1
 
 In this interface to import the data we specify the toml table and mesh.

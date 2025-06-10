@@ -1,3 +1,8 @@
+!> author: Vikas Sharma, Ph. D.
+! date: 2025-06-06
+! summary:  Test the intitiate method for H1, Heirarchical basis,
+! for different orders.
+
 PROGRAM main
 USE FEDOF_Class
 USE FEDomain_Class
@@ -14,7 +19,7 @@ TYPE(FEDOF_) :: obj
 TYPE(FEDomain_) :: dom
 CLASS(AbstractMesh_), POINTER :: meshptr => NULL()
 CHARACTER(*), PARAMETER :: filename = &
-                           "../../Mesh/examples/meshdata/small_mesh.h5"
+                           "../../FEMesh/examples/meshdata/small_tri3_mesh.h5"
 TYPE(HDF5File_) :: meshfile
 INTEGER(I4B) :: found, want
 

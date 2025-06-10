@@ -1,0 +1,3 @@
+BuildDir = "/tmp/easifem-tests/InputUtility"
+Buildtype = "Debug"
+TargetLibs = ["easifemClasses"]

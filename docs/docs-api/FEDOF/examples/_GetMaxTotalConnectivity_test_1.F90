@@ -1,4 +1,9 @@
+!> author: Vikas Sharma, Ph. D.
+! date: 2025-06-08
+! summary:  Testing GetMaxTotalConnectivity method of FEDOF class
+
 PROGRAM main
+USE BaseType, ONLY: TypeQuadratureOpt
 USE FEDOF_Class
 USE FEDomain_Class
 USE AbstractMesh_Class
@@ -13,39 +18,80 @@ IMPLICIT NONE
 TYPE(FEDOF_) :: obj
 TYPE(FEDomain_) :: dom
 CLASS(AbstractMesh_), POINTER :: meshptr => NULL()
-CHARACTER(*), PARAMETER :: filename = &
-                           "../../Mesh/examples/meshdata/small_mesh.h5", &
-                           baseContinuity = "H1", &
-                           baseInterpolation = "Heirarchical"
-INTEGER(I4B), PARAMETER :: order = 1
+CHARACTER(*), PARAMETER :: &
+  filename = "../../FEMesh/examples/meshdata/small_tri3_mesh.h5", &
+  baseContinuity = "H1", &
+  baseInterpolation = "Heirarchical", &
+  testname = baseContinuity//" "//baseInterpolation// &
+  " GetMaxTotalConnectivity test"
+
+INTEGER(I4B) :: order = 1
 
 TYPE(HDF5File_) :: meshfile
-INTEGER(I4B) :: found, want
 LOGICAL(LGT) :: isok
 
 CALL e%setQuietMode(EXCEPTION_INFORMATION, .TRUE.)
 CALL meshfile%Initiate(filename, mode="READ")
 CALL meshfile%OPEN()
 CALL dom%Initiate(meshfile, '')
-
 meshptr => dom%GetMeshPointer()
 
-CALL obj%Initiate(baseContinuity=baseContinuity, &
-                  baseInterpolation=baseInterpolation, &
-                  order=order, mesh=meshptr)
-!CALL fedof%Display("FEDOF:")
-found = obj%GetMaxTotalConnectivity()
-want = 3
-isok = found == want
+CALL test1
+CALL test2
+CALL test3
 
-CALL OK(isok, "GetMaxTotalConnectivity")
-IF (.NOT. isok) THEN
-  CALL Display(found, "found: ")
-  CALL Display(want, "want: ")
-END IF
-
-!CALL dom%Display("domain:")
 CALL dom%DEALLOCATE()
 CALL meshfile%DEALLOCATE()
+
+CONTAINS
+
+SUBROUTINE test1
+  INTEGER(I4B) :: found, want
+
+  order = 1
+
+  CALL obj%Initiate(baseContinuity=baseContinuity, &
+                    baseInterpolation=baseInterpolation, &
+                    order=order, mesh=meshptr, &
+                    ipType=TypeQuadratureOpt%equidistance)
+
+  found = obj%GetMaxTotalConnectivity()
+  want = 3
+  isok = found .EQ. want
+
+  CALL IS(found, want, testname//" test 1")
+END SUBROUTINE test1
+
+SUBROUTINE test2
+  INTEGER(I4B) :: found, want
+
+  order = 2
+  CALL obj%Initiate(baseContinuity=baseContinuity, &
+                    baseInterpolation=baseInterpolation, &
+                    order=order, mesh=meshptr, &
+                    ipType=TypeQuadratureOpt%equidistance)
+
+  found = obj%GetMaxTotalConnectivity()
+  want = 6
+  isok = found .EQ. want
+
+  CALL IS(found, want, testname//" test 2")
+END SUBROUTINE test2
+
+SUBROUTINE test3
+  INTEGER(I4B) :: found, want
+
+  order = 3
+  CALL obj%Initiate(baseContinuity=baseContinuity, &
+                    baseInterpolation=baseInterpolation, &
+                    order=order, mesh=meshptr, &
+                    ipType=TypeQuadratureOpt%equidistance)
+
+  found = obj%GetMaxTotalConnectivity()
+  want = 10
+  isok = found .EQ. want
+
+  CALL IS(found, want, testname//" test 3")
+END SUBROUTINE test3
 
 END PROGRAM main
