@@ -3256,12 +3256,13 @@ html[data-theme='dark'] {
     
     /* Background colors */
     --docs-color-background: var(--cat-base);
-    --docs-color-background-100: var(--cat-mantle);
-    --docs-color-background-200: var(--cat-crust);
-    --docs-color-background-300: var(--cat-surface0);
-    --ifm-background-surface-color: var(--cat-base);
     --ifm-background-color: var(--cat-base);
-    --ifm-footer-background-color: var(--cat-surface0);
+    --docs-color-background-100: var(--cat-base);
+    --docs-color-background-200: var(--cat-mantle);
+    --docs-color-background-300: var(--cat-crust);
+    --ifm-background-surface-color: var(--cat-surface0);
+    --ifm-footer-background-color: var(--cat-crust);
+    --ifm-navbar-background-color: var(--cat-base);
     
     /* Border and text colors */
     --docs-color-border: var(--cat-surface1);
@@ -3329,6 +3330,18 @@ h1, h2, h3, h4, h5 {
 .homepage section,
   .homepage section * {
   box-sizing: border-box;
+}
+h1 {
+  color: var(--ifm-color-primary);
+}
+h2 {
+  color: var(--cat-lavender);
+}
+h3 {
+  color: var(--cat-blue);
+}
+h4 {
+  color: var(--cat-text);
 }
 .noise-bg {
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDQ4IDQ4IiBmaWxsPSJub25lIj4KPHJlY3QgeD0iMC4yNSIgeT0iMC4yNSIgd2lkdGg9IjQ3LjUiIGhlaWdodD0iNDcuNSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLW9wYWNpdHk9IjAuMDQiIHN0cm9rZS13aWR0aD0iMC41Ii8+Cjwvc3ZnPgo=);
@@ -4016,6 +4029,16 @@ html[data-theme='dark'] {
   --cat-crust: #11111b;
 }
 /* Base Light Theme */
+html[data-theme='dark'] {
+  /* Add these lines to override background colors for dark mode */
+  --docs-color-background: var(--cat-base);
+  --ifm-background-color: var(--cat-base);
+  --docs-color-background-100: var(--cat-base);
+  --docs-color-background-200: var(--cat-mantle);
+  --docs-color-background-300: var(--cat-crust);
+  --ifm-background-surface-color: var(--cat-surface0);
+  --ifm-navbar-background-color: var(--cat-base);
+}
 /* Components */
 /* Utility styles */
 .accordion-content *:last-child {
@@ -4029,11 +4052,29 @@ pre, code {
   font-variant-ligatures: none;
 }
 /* Navigation and UI Components */
-nav.navbar {
-  border-bottom: 0.5px solid var(--ifm-toc-border-color);
+/* nav.navbar { */
+/*   border-bottom: 0.5px solid var(--ifm-toc-border-color); */
+/* } */
+/* pre.prism-code { */
+/*   border: 0.5px solid var(--code-border-color); */
+/* } */
+/* Making code block scrollable */
+pre {
+  max-height: 400px;
+  overflow-y: auto;
 }
-pre.prism-code {
-  border: 0.5px solid var(--code-border-color);
+pre code {
+  display: block;
+  white-space: pre;
+}
+pre.prism-code, 
+.theme-code-block pre, 
+:not(pre) > code {
+  border: none !important;
+  /* border-left: 0.5px solid var(--code-border-color) !important; */
+  /* border-right: 0.5px solid var(--code-border-color) !important; */
+  /* border-top: 0 !important; */
+  /* border-bottom: 0 !important; */
 }
 .navbar__item,
 .menu__link {
@@ -4124,12 +4165,13 @@ nav.menu {
   display: inline-block;
   padding: 0.25rem 1.5rem;
   border-radius: 4px;
-  background-color: var(--ifm-color-primary);
-  color: var(--ifm-text-color);
+  background-color: var(--cat-mauve);
+  color: var(--ifm-background-color);
   text-decoration: none;
+  font-weight: 600;
 }
 .footer__cta a:hover {
-  background-color: var(--ifm-color-primary-darker);
+  background-color: var(--cat-mauve);
   /* color: var(--ifm-color-primary); */
 }
 .footer__data {
@@ -4140,7 +4182,7 @@ nav.menu {
 }
 .footer__title {
   font-size: 14px;
-  font-weight: normal;
+  font-weight: bold;
   margin-bottom: 0.5rem;
   --tw-text-opacity: 1;
   color: rgb(var(--docs-color-text-400, 153 153 153) / var(--tw-text-opacity, 1));
@@ -4208,6 +4250,7 @@ nav.menu {
 aside.theme-doc-sidebar-container {
   position: relative;
   clip-path: inset(0px -140px);
+  border-right: none !important;
 }
 .theme-doc-sidebar-container button[title='Collapse sidebar'],
 .theme-doc-sidebar-container div[title='Expand sidebar'] {
