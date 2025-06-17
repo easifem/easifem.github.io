@@ -1,0 +1,13 @@
+[field1]
+name = "field1"
+engine = "NATIVE_SERIAL"
+fieldType = "Normal"
+fedofName = "fedof"
+# fedofName contains the name of the subtable which
+# contains the fedof data for this field.
+
+[field1.fedof]
+baseContinuity = "H1"
+baseInterpolation = "Lagrange"
+ipType = "Equidistance"
+order = 1
