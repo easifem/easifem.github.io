@@ -7,58 +7,8 @@ sidebar_position: 2
 The structure of FEDomain CLASS is given below.
 
 ```fortran
-TYPE :: FEDomain_
+TYPE, EXTENDS(AbstractDomain_) :: FEDomain_
   PRIVATE
-  LOGICAL(LGT), PUBLIC :: isInitiated = .FALSE.
-    !! flag
-  TYPE(String) :: engine
-    !! Engine used for generating the meshes
-  INTEGER(I4B) :: majorVersion = 0
-    !! Major version
-  INTEGER(I4B) :: minorVersion = 0
-    !! Minor version
-  REAL(DFP) :: version = 0.0_DFP
-    !! Version  MajorVersion.MinorVersion
-  INTEGER(I4B) :: nsd = 0_I4B
-    !! number of spatial dimension
-  INTEGER(I4B), PUBLIC :: maxNptrs = 0
-    !! Largest node number in the domain
-  INTEGER(I4B), PUBLIC :: minNptrs = 0
-    !! Smallest node number in the domain
-  INTEGER(I4B) :: tNodes = 0
-    !! Total number of nodes in the mesh
-  LOGICAL(I4B) :: isNodeNumberSparse = .FALSE.
-    !! True if node numbers are not continuous
-  INTEGER(I4B), PUBLIC :: maxElemNum = 0
-    !! Largest element number in the domain
-  INTEGER(I4B), PUBLIC :: minElemNum = 0
-    !! Smallest element number in the domain
-  LOGICAL(LGT) :: isElemNumberSparse = .FALSE.
-    !! True if element numbers are sparse
-  INTEGER(I4B) :: tEntitiesForNodes = 0
-    !! Total number of entities required for reading nodes
-  INTEGER(I4B) :: tEntitiesForElements = 0
-    !! Total number of entities required for reading elements
-  INTEGER(I4B) :: tElements(0:3) = [0, 0, 0, 0]
-    !! Total number of elements inside the domain
-    !! tElements( 0 ) = total number of point elements
-    !! tElements( 1 ) = total number of line elements
-    !! tElements( 2 ) =  total number of surface elements
-    !! tElements( 3 ) = total number of volume/cell elements
-  INTEGER(I4B) :: tEntities(0:3) = [0, 0, 0, 0]
-    !! Total number of entities inside the domain
-    !! tEntities( 0 ) = total number of point mesh entities, mesh of Points
-    !! tEntities( 1 ) = total number of line mesh entities, mesh of Edge
-    !! tEntities( 2 ) = total number of surface mesh entities, mesh Boundary
-    !! tEntities( 3 ) = total number of volume mesh entities, Omega
-  REAL(DFP), ALLOCATABLE, PUBLIC :: nodeCoord(:, :)
-    !! Nodal coordinates in XiJ format
-    !! Number of rows are 3, and number of columns is total nodes
-  INTEGER(I4B), ALLOCATABLE, PUBLIC :: local_nptrs(:)
-    !! local_nptrs are required to access the nodeCoord
-  INTEGER(I4B), ALLOCATABLE, PUBLIC :: global_nptrs(:)
-    !! global nptrs
-
   CLASS(AbstractMesh_), POINTER :: meshVolume => NULL()
     !! meshVolume list of meshes of volume entities
   CLASS(AbstractMesh_), POINTER :: meshSurface => NULL()
@@ -67,9 +17,11 @@ TYPE :: FEDomain_
     !! meshCurve list of meshes of curve entities
   CLASS(AbstractMesh_), POINTER :: meshPoint => NULL()
     !! meshPoint list of meshes of point entities
-
-  TYPE(CSRSparsity_) :: meshMap
-  !! Sparse mesh data in CSR format
+  CLASS(AbstractMesh_), POINTER :: mesh => NULL()
+    !! mesh points to meshVolume for nsd = 3
+    !! mesh points to meshSurface for nsd = 2
+    !! mesh points to meshCurve for nsd = 1
+    !! mesh points to meshPoint for nsd = 0
 END TYPE FEDomain_
 ```
 

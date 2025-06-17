@@ -1,0 +1,3 @@
+BuildDir = "/tmp/easifem-tests/FEDomain"
+BuildType = "Debug"
+TargetLibs = ["easifemClasses"]
