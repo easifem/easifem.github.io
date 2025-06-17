@@ -63,3 +63,6 @@ Currently, easifem provides following quadrature points:
 - [x] `GaussUltraSphericalRadau`
 - [x] `GaussUltraSphericalRadauLeft`
 - [x] `GaussUltraSphericalRadauRight`
+
+
+<!-- yarn upgrade @docusaurus/core@latest @docusaurus/faster@latest @docusaurus/module-type-aliases@latest @docusaurus/plugin-client-redirects@latest @docusaurus/plugin-content-docs@latest @docusaurus/plugin-css-cascade-layers@latest @docusaurus/preset-classic@latest @docusaurus/theme-common@latest @docusaurus/tsconfig@latest @docusaurus/types@latest -->
