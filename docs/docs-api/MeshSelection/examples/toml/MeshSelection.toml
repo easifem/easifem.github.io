@@ -8,7 +8,7 @@ isSelectionByNodeNum = false
 point = [1, 2, 3, 4, 5, 6] # "filename.txt"
 line = [2, 5, 6, 7] # "filename.txt"
 surface = [1, 3, 5, 6, 8] # "filename.txt"
-volume = "./meshID_volume.txt"
+volume = "./toml/meshID_volume.txt"
 
 [region.elemNum]
 point = [1, 2, 3]
