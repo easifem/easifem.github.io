@@ -1,5 +1,7 @@
 PROGRAM main
-USE easifemBase
+USE BaseType, ONLY: CSRMatrix_
+USE GlobalData, ONLY: DFP, I4B, LGT
+
 #include "lisf.h"
 
 ! CHARACTER(*), PARAMETER :: matrix_name = "../../CSRMatrix/matrixMarket/e40r0000.mtx"
