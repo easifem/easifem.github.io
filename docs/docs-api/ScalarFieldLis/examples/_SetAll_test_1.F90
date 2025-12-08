@@ -1,7 +1,18 @@
 !> author: Vikas Sharma, Ph. D.
-! date: 2025-06-14
-! summary: Testing import from toml
-! In this example we will initiate the fedof outside the ScalarField
+! date: 2025-12-04
+! summary: SetAll
+!
+! INTERFACE
+!   MODULE SUBROUTINE obj_SetAll(obj, VALUE, scale, addContribution)
+!     CLASS(ScalarFieldLis_), INTENT(INOUT) :: obj
+!     REAL(DFP), INTENT(IN) :: VALUE
+!     !! value to be set or add
+!     REAL(DFP), OPTIONAL, INTENT(IN) :: scale
+!     !! scale
+!     LOGICAL(LGT), OPTIONAL, INTENT(IN) :: addContribution
+!     !! add or set
+!   END SUBROUTINE obj_SetAll
+! END INTERFACE
 
 PROGRAM main
 USE AbstractField_Class
@@ -13,11 +24,12 @@ USE FieldFactory, ONLY: ScalarFieldFactory
 USE EngineOpt_Class, ONLY: TypeEngineOpt
 USE FEDOF_Class
 USE Display_Method
+USE BaseType, ONLY: math => TypeMathOpt
 USE ExceptionHandler_Class, ONLY: e, EXCEPTION_INFORMATION
 
 IMPLICIT NONE
 
-CHARACTER(*), PARAMETER :: tomlFileName = "./_Initiate_test_1.toml", &
+CHARACTER(*), PARAMETER :: tomlFileName = "./_SetAll_test_1.toml", &
                            myName = "main", &
                            modName = "_Initiate_test_1.F90", &
                            engine = "LIS_OMP"
@@ -33,5 +45,10 @@ CALL u%ImportFromToml( &
   fedof=fedof, geofedof=geofedof, dom=dom, fileName=tomlFileName, &
   tomlName="u")
 
+!   MODULE SUBROUTINE obj_SetSingle(obj, indx, VALUE, scale, addContribution)
+CALL u%SetAll( &
+  VALUE=math%one, scale=math%two, addContribution=math%yes)
+
 CALL u%Display(myName//" u: ")
+
 END PROGRAM main
