@@ -1,0 +1,43 @@
+[domain]
+filename = "./mesh/square_3x3.h5"
+group = "/"
+totalMedium = 1
+
+[u]
+name = "u"
+engine = "NATIVE_SERIAL"
+fieldType = "Normal"
+spaceCompo = 1
+timeCompo = 1
+fedofName = "space"
+geofedofName = "geofedof"
+
+[u.geofedof]
+baseContinuity = "H1"
+baseInterpolation = "Lagrange"
+ipType = "Equidistance"
+baseType = "Monomial"
+
+[u.space]
+baseContinuity = "H1"
+baseInterpolation = "Hierarchical"
+# ipType = "Equidistance"
+# baseType = "Monomial"
+order = 4
+scaleForQuadOrder = 2
+quadOptName = "quadOpt"
+
+[u.space.quadOpt]
+isHomogeneous = true
+quadratureType = "GaussLegendre"
+# order = 2
+
+[dbc]
+name = "left_bottom_fix"
+idof = 1
+nodalValueType = "Constant"
+value = 10.0
+[dbc.boundary]
+isSelectionByMeshID = true
+[dbc.boundary.meshID]
+line = [1, 4]
