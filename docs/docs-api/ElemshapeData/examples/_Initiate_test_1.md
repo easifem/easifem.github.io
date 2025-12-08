@@ -1,45 +1,10 @@
-```fortran
-PROGRAM main
-USE easifemBase
-IMPLICIT NONE
+This example tests the Initiate method for constructing ElemShapeData.
 
-TYPE(ElemShapeData_) :: elemsd
-TYPE(QuadraturePoint_) :: quad
-TYPE(ReferenceLine_) :: refelem
-INTEGER(I4B) :: quadratureType, ipType, basisType, order
+import CodeBlock from '@theme/CodeBlock';
 
-refelem = ReferenceLine(nsd=1_I4B)
+import CodeSnippet from '!!raw-loader!./_Initiate_test_1.F90';
 
-order = 4_I4B
-quadratureType = GaussLegendre
-
-CALL Initiate( &
-  & obj=quad, &
-  & refElem=refElem, &
-  & order=order, &
-  & quadratureType=quadratureType)
-
-order = 1
-ipType = Equidistance
-basisType = Monomial
-
-CALL Initiate(  &
-  & obj=elemsd,  &
-  & quad=quad,  &
-  & refelem=refelem, &
-  & baseContinuity=TypeH1, &
-  & baseInterpolation=TypeLagrangeInterpolation, &
-  & ipType=ipType, &
-  & basisType=basisType, &
-  & order=order)
-
-! CALL Display(elemsd%N, "elemsd: ")
-! CALL Display(elemsd%dNdXi, "elemsd: ")
-
-CALL Display(ElemshapeData_MdEncode(elemsd), "")
-
-END PROGRAM main
-```
+<CodeBlock language="fortran">{CodeSnippet}</CodeBlock>
 
 <details>
 <summary>See results</summary>
