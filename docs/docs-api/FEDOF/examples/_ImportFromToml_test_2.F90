@@ -19,10 +19,11 @@ TYPE(FEDOF_) :: fedof
 TYPE(FEDomain_) :: dom
 CLASS(AbstractMesh_), POINTER :: meshptr => NULL()
 CHARACTER(*), PARAMETER :: filename = &
-                           "../../FEMesh/examples/meshdata/small_tri3_mesh.h5"
+                        "../../FEMesh/examples/meshdata/small_tri3_mesh.h5", &
+                          toml_filename = "./toml/_ImportFromToml_test_2.toml"
 TYPE(HDF5File_) :: meshfile
 LOGICAL(LGT) :: isok
-INTEGER(I4B) :: found, want, order, ii, iel
+INTEGER(I4B) :: found, want
 
 CALL e%setQuietMode(EXCEPTION_INFORMATION, .TRUE.)
 CALL meshfile%Initiate(filename, mode="READ")
@@ -32,9 +33,7 @@ CALL dom%Initiate(meshfile, '')
 meshptr => dom%GetMeshPointer()
 
 CALL fedof%ImportFromToml(tomlName="test1", &
-                  filename="./toml/_ImportFromToml_test_2.toml", mesh=meshptr)
-
-! CALL fedof%DisplayCellOrder("Debug Cell order", full=.TRUE.)
+                          filename=toml_filename, dom=dom)
 
 found = fedof%GetTotalDOF()
 want = 39
