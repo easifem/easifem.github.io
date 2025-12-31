@@ -1,3 +1,7 @@
+!> author: Vikas Sharma, Ph. D.
+! date: 2025-12-08
+! summary: Initiate LIS vector and set values
+
 PROGRAM main
 ! USE easifemBase
 #include "lisf.h"

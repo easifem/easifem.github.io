@@ -1,3 +1,9 @@
+!> author: Vikas Sharma, Ph. D.
+! date: 2025-06-18
+! summary:  This program tests the Initiate method of the QuadraturePoint_ class
+!           for a reference triangle in the BIUNIT domain using GaussLegendre quadrature.
+!           It initializes the QuadraturePoint_ object and displays the results.
+
 PROGRAM main
 USE GlobalData
 USE QuadraturePoint_Method

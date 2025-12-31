@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::note
-For line-element n point Gauss Legendre Radau rule has $2n-2$ degree of accuracy.\
+For line-element n point Gauss Legendre Radau rule has $2n-2$ degree of accuracy.
 :::
 
 ## Interface 1

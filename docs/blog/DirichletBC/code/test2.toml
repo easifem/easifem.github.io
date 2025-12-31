@@ -1,0 +1,54 @@
+[domain]
+filename = "./mesh/square_3x3.h5"
+group = "/"
+totalMedium = 1
+
+[u]
+name = "u"
+engine = "NATIVE_SERIAL"
+fieldType = "Normal"
+spaceCompo = 1
+timeCompo = 1
+fedofName = "space"
+geofedofName = "geofedof"
+
+[u.geofedof]
+baseContinuity = "H1"
+baseInterpolation = "Lagrange"
+ipType = "Equidistance"
+baseType = "Monomial"
+
+[u.space]
+baseContinuity = "H1"
+baseInterpolation = "Hierarchical"
+# ipType = "Equidistance"
+# baseType = "Monomial"
+order = 4
+scaleForQuadOrder = 2
+quadOptName = "quadOpt"
+
+[u.space.quadOpt]
+isHomogeneous = true
+quadratureType = "GaussLegendre"
+# order = 2
+
+[dbc]
+name = "Bottom Space UserFunction"
+idof = 1
+nodalValueType = "Space"
+isUserFunction = true
+
+[dbc.function]
+name = "func"
+returnType = "Scalar"
+numReturns = 1
+argType = "Space"
+numArgs = 3
+luaScript = "test2.lua"
+luaFunctionName = "BottomFunc"
+
+[dbc.boundary]
+isSelectionByMeshID = true
+
+[dbc.boundary.meshID]
+line = [1]

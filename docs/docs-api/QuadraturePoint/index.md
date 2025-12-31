@@ -16,9 +16,8 @@ tags:
 
 # QuadraturePoint
 
-<!-- markdownlint-disable MD041 MD013 MD033 MD012 -->
-
-`QuadraturePoint_` data type contains quadrature points and corresponding weight. This data type is helpful in calculating the element shape data and finite element matrix and vector.
+`QuadraturePoint_` data type contains quadrature points and corresponding weight. 
+This data type is helpful in calculating the element shape data and finite element matrix and vector.
 
 import EXAMPLE21 from "./QuadraturePoint_.md";
 

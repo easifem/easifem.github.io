@@ -1,113 +1,95 @@
 !> author: Vikas Sharma, Ph. D.
 ! date: 2024-06-05
-! summary: Set1
+! summary: Set1, setting a single value
 
 PROGRAM main
+USE AbstractField_Class
 USE FEDomain_Class
-USE HDF5File_Class
 USE AbstractMesh_Class
-USE AbstractField_Class, ONLY: TypeField
-USE ScalarField_Class
-USE FPL, ONLY: FPL_Init, FPL_FINALIZE, ParameterList_
 USE GlobalData
-USE Test_Method
+USE ScalarField_Class
 USE FEDOF_Class
-USE ExceptionHandler_Class, ONLY: e, EXCEPTION_INFORMATION
+USE Display_Method
 USE ApproxUtility
+USE Test_Method
+USE ExceptionHandler_Class, ONLY: e, EXCEPTION_INFORMATION
+
+IMPLICIT NONE
+
+CHARACTER(*), PARAMETER :: tomlFileName = "./Set1.toml", &
+                           myName = "main", &
+                           modName = "_ImportFromToml_test_1.F90"
 
 TYPE(FEDomain_) :: dom
 CLASS(AbstractMesh_), POINTER :: mesh
-TYPE(HDF5File_) :: meshfile
-TYPE(ParameterList_) :: param
-REAL(DFP), ALLOCATABLE :: realVec(:)
-CHARACTER(LEN=*), PARAMETER :: engine = "NATIVE_SERIAL"
-CHARACTER(*), PARAMETER :: meshfilename = &
-                           "../../Mesh/examples/meshdata/small_mesh.h5"
-INTEGER(I4B), PARAMETER :: nsd = 2
-CHARACTER(:), ALLOCATABLE :: msg
-INTEGER(I4B) :: localNode
-REAL(DFP) :: VALUE, tol
-LOGICAL(LGT) :: isok
+TYPE(FEDOF_) :: fedof, geofedof
+TYPE(ScalarField_) :: u
 
-CALL e%setQuietMode(EXCEPTION_INFORMATION, .TRUE.)
+CALL e%SetQuietMode(EXCEPTION_INFORMATION, .TRUE.)
+CALL dom%ImportFromToml(fileName=tomlFileName, tomlName="domain")
+CALL u%ImportFromToml(fedof=fedof, geofedof=geofedof, dom=dom, &
+                      fileName=tomlFileName, tomlName="u")
 
-CALL FPL_Init()
-CALL param%Initiate()
+mesh => dom%GetMeshPointer()
 
-!> start creating domain
-CALL meshfile%Initiate(filename=meshfilename, mode="READ")
-CALL meshfile%OPEN()
-CALL dom%Initiate(hdf5=meshfile, group="")
-!> end creating domain
+CALL test1
+CALL test2
 
-mesh => dom%GetMeshPointer(dim=nsd)
+CONTAINS
 
-BLOCK
-  INTEGER(I4B), PARAMETER :: order = 1
-  CHARACTER(*), PARAMETER :: baseContinuity = "H1"
-  CHARACTER(*), PARAMETER :: baseInterpolation = "Lagrange"
-  TYPE(FEDOF_) :: fedof
-  TYPE(ScalarField_) :: obj
+!----------------------------------------------------------------------------
+!                                                                      test1
+!----------------------------------------------------------------------------
 
-  CALL fedof%Initiate(baseContinuity=baseContinuity, &
-                  baseInterpolation=baseInterpolation, order=order, mesh=mesh)
+SUBROUTINE test1
+  CHARACTER(*), PARAMETER :: testName = "test1()"
+  INTEGER(I4B) :: ii, tNodes
+  REAL(DFP) :: areal, ans
+  LOGICAL(LGT) :: isok
 
-  CALL SetScalarFieldParam(param=param, &
-                           fieldType=TypeField%normal, &
-                           name="U", &
-                           engine=engine)
+  tNodes = u%SIZE()
 
-  CALL obj%Initiate(param, fedof)
+  DO ii = 1, tNodes
+    areal = REAL(ii, DFP)
+    CALL u%Set(globalNode=ii, islocal=.TRUE., VALUE=areal)
+    CALL u%Get(globalNode=ii, islocal=.TRUE., VALUE=ans)
+    isok = areal.APPROXEQ.ans
+    IF (.NOT. isok) THEN
+      CALL Display("Test Failed in "//testName//": at node "//ToString(ii))
+      RETURN
+    END IF
+  END DO
+  CALL OK(.TRUE., testName)
 
-  msg = "Set1 "
-  localNode = 1
-  CALL obj%Set(globalnode=localNode, VALUE=100.0_DFP, islocal=.TRUE.)
-  CALL obj%Get(globalnode=localNode, VALUE=VALUE, islocal=.TRUE.)
-  tol = 1.0E-5
-  isok = SOFTEQ(100.0_DFP, VALUE, tol)
-  CALL OK(isok, msg)
+END SUBROUTINE test1
 
-  localNode = 2
-  CALL obj%Set(globalnode=localNode, VALUE=200.0_DFP, islocal=.TRUE.)
-  CALL obj%Get(globalnode=localNode, VALUE=VALUE, islocal=.TRUE.)
-  tol = 1.0E-5
-  isok = SOFTEQ(200.0_DFP, VALUE, tol)
-  CALL OK(isok, msg)
+!----------------------------------------------------------------------------
+!                                                                      test2
+!----------------------------------------------------------------------------
 
-  CALL obj%DEALLOCATE()
-END BLOCK
+SUBROUTINE test2
+  CHARACTER(*), PARAMETER :: testName = "test2()"
+  INTEGER(I4B) :: ii, tNodes
+  REAL(DFP) :: areal, ans, scale
+  LOGICAL(LGT) :: isok
 
-BLOCK
-  INTEGER(I4B), PARAMETER :: order = 2
-  CHARACTER(*), PARAMETER :: baseContinuity = "H1"
-  CHARACTER(*), PARAMETER :: baseInterpolation = "Heirarchical"
-  TYPE(FEDOF_) :: fedof
-  TYPE(ScalarField_) :: obj
+  tNodes = u%SIZE()
+  scale = 2.0_DFP
 
-  CALL fedof%Initiate(baseContinuity=baseContinuity, &
-                  baseInterpolation=baseInterpolation, order=order, mesh=mesh)
+  DO ii = 1, tNodes
+    areal = REAL(ii, DFP)
+    CALL u%Set(globalNode=ii, islocal=.TRUE., VALUE=areal, scale=scale)
+    CALL u%Get(globalNode=ii, islocal=.TRUE., VALUE=ans)
+    areal = areal * scale
+    isok = areal.APPROXEQ.ans
+    IF (.NOT. isok) THEN
+      CALL Display("Test Failed in "//testName//": at node "//ToString(ii))
+      RETURN
+    END IF
+  END DO
 
-  CALL SetScalarFieldParam(param=param, &
-                           fieldType=TypeField%normal, &
-                           name="U", &
-                           engine=engine)
+  CALL OK(.TRUE., testName)
+END SUBROUTINE test2
 
-  CALL obj%Initiate(param, fedof)
-
-  msg = "Set1 "
-  localNode = 3
-  CALL obj%Set(globalnode=localNode, VALUE=100.0_DFP, islocal=.TRUE.)
-  CALL obj%Get(globalnode=localNode, VALUE=VALUE, islocal=.TRUE.)
-  tol = 1.0E-5
-  isok = SOFTEQ(100.0_DFP, VALUE, tol)
-  CALL OK(isok, msg)
-
-  CALL obj%DEALLOCATE()
-END BLOCK
-
-mesh => NULL()
-CALL dom%DEALLOCATE()
-CALL meshfile%DEALLOCATE()
-CALL param%DEALLOCATE()
-CALL FPL_FINALIZE()
 END PROGRAM main
+

@@ -1,141 +1,97 @@
 !> author: Vikas Sharma, Ph. D.
 ! date: 2024-06-05
-! summary: Set2
+! summary: Set2, setting all the values
 
 PROGRAM main
+USE AbstractField_Class
 USE FEDomain_Class
-USE HDF5File_Class
 USE AbstractMesh_Class
-USE AbstractField_Class, ONLY: TypeField
-USE ScalarField_Class
-USE FPL, ONLY: FPL_Init, FPL_FINALIZE, ParameterList_
 USE GlobalData
-USE Test_Method
+USE ScalarField_Class
 USE FEDOF_Class
-USE ExceptionHandler_Class, ONLY: e, EXCEPTION_INFORMATION
+USE Display_Method
 USE ApproxUtility
+USE Test_Method
+USE ExceptionHandler_Class, ONLY: e, EXCEPTION_INFORMATION
+
+IMPLICIT NONE
+
+CHARACTER(*), PARAMETER :: tomlFileName = "./Set1.toml", &
+                           myName = "main", &
+                           modName = "_ImportFromToml_test_1.F90"
 
 TYPE(FEDomain_) :: dom
 CLASS(AbstractMesh_), POINTER :: mesh
-TYPE(HDF5File_) :: meshfile
-TYPE(ParameterList_) :: param
-CHARACTER(LEN=*), PARAMETER :: engine = "NATIVE_SERIAL"
-CHARACTER(*), PARAMETER :: meshfilename = &
-                           "../../Mesh/examples/meshdata/small_mesh.h5"
-INTEGER(I4B), PARAMETER :: nsd = 2
+TYPE(FEDOF_) :: fedof, geofedof
+TYPE(ScalarField_) :: u
 
-CALL e%setQuietMode(EXCEPTION_INFORMATION, .TRUE.)
+CALL e%SetQuietMode(EXCEPTION_INFORMATION, .TRUE.)
+CALL dom%ImportFromToml(fileName=tomlFileName, tomlName="domain")
+CALL u%ImportFromToml(fedof=fedof, geofedof=geofedof, dom=dom, &
+                      fileName=tomlFileName, tomlName="u")
 
-CALL FPL_Init()
-CALL param%Initiate()
+mesh => dom%GetMeshPointer()
 
-!> start creating domain
-CALL meshfile%Initiate(filename=meshfilename, mode="READ")
-CALL meshfile%OPEN()
-CALL dom%Initiate(hdf5=meshfile, group="")
-!> end creating domain
+CALL test1
+CALL test2
 
-mesh => dom%GetMeshPointer(dim=nsd)
+CONTAINS
 
-BLOCK
-  INTEGER(I4B), PARAMETER :: order = 1
-  CHARACTER(*), PARAMETER :: baseContinuity = "H1"
-  CHARACTER(*), PARAMETER :: baseInterpolation = "Lagrange"
-  TYPE(FEDOF_) :: fedof
-  TYPE(ScalarField_) :: obj
-  REAL(DFP) :: found(100), want(100), VALUE, tol
-  INTEGER(I4B) :: tsize
-  CHARACTER(:), ALLOCATABLE :: msg
+!----------------------------------------------------------------------------
+!                                                                      test1
+!----------------------------------------------------------------------------
+
+SUBROUTINE test1
+  CHARACTER(*), PARAMETER :: testName = "test1()"
+  INTEGER(I4B) :: ii, tNodes
+  REAL(DFP) :: areal, ans
   LOGICAL(LGT) :: isok
 
-  CALL fedof%Initiate(baseContinuity=baseContinuity, &
-                  baseInterpolation=baseInterpolation, order=order, mesh=mesh)
+  tNodes = u%SIZE()
 
-  CALL SetScalarFieldParam(param=param, &
-                           fieldType=TypeField%normal, &
-                           name="U", &
-                           engine=engine)
+  areal = 5.0_DFP
+  CALL u%Set(VALUE=areal)
 
-  CALL obj%Initiate(param, fedof)
+  DO ii = 1, tNodes
+    CALL u%Get(globalNode=ii, islocal=.TRUE., VALUE=ans)
+    isok = areal.APPROXEQ.ans
+    IF (.NOT. isok) THEN
+      CALL Display("Test Failed in "//testName//": at node "//ToString(ii))
+      RETURN
+    END IF
+  END DO
+  CALL OK(.TRUE., testName)
 
-  msg = "Set2 "
-  VALUE = 100.0_DFP
-  CALL obj%Set(VALUE=VALUE)
-  CALL obj%Get(VALUE=found, tsize=tsize)
+END SUBROUTINE test1
 
-  want(1:tsize) = VALUE
-  tol = 1.0E-5
-  isok = ALL(SOFTEQ(found(1:tsize), want(1:tsize), tol))
-  CALL OK(isok, msg)
+!----------------------------------------------------------------------------
+!                                                                      test2
+!----------------------------------------------------------------------------
 
-  CALL obj%Set(VALUE=VALUE, scale=2.0_DFP, addContribution=.TRUE.)
-  CALL obj%Get(VALUE=found, tsize=tsize)
-  want(1:tsize) = 3.0_DFP * VALUE
-  tol = 1.0E-5
-  isok = ALL(SOFTEQ(found(1:tsize), want(1:tsize), tol))
-  CALL OK(isok, msg)
-
-  CALL obj%Set(VALUE=VALUE, addContribution=.TRUE.)
-  CALL obj%Get(VALUE=found, tsize=tsize)
-  want(1:tsize) = 4.0_DFP * VALUE
-  tol = 1.0E-5
-  isok = ALL(SOFTEQ(found(1:tsize), want(1:tsize), tol))
-  CALL OK(isok, msg)
-
-  CALL obj%DEALLOCATE()
-END BLOCK
-
-BLOCK
-  INTEGER(I4B), PARAMETER :: order = 2
-  CHARACTER(*), PARAMETER :: baseContinuity = "H1"
-  CHARACTER(*), PARAMETER :: baseInterpolation = "Heirarchical"
-  TYPE(FEDOF_) :: fedof
-  TYPE(ScalarField_) :: obj
-  REAL(DFP) :: found(100), want(100), VALUE, tol
-  INTEGER(I4B) :: tsize
-  CHARACTER(:), ALLOCATABLE :: msg
+SUBROUTINE test2
+  CHARACTER(*), PARAMETER :: testName = "test2()"
+  INTEGER(I4B) :: ii, tNodes
+  REAL(DFP) :: areal, ans, scale
   LOGICAL(LGT) :: isok
 
-  CALL fedof%Initiate(baseContinuity=baseContinuity, &
-                  baseInterpolation=baseInterpolation, order=order, mesh=mesh)
+  tNodes = u%SIZE()
+  scale = 2.0_DFP
+  areal = 5.0_DFP
+  CALL u%Set(VALUE=areal, scale=scale)
 
-  CALL SetScalarFieldParam(param=param, &
-                           fieldType=TypeField%normal, &
-                           name="U", &
-                           engine=engine)
+  DO ii = 1, tNodes
+    CALL u%Get(globalNode=ii, islocal=.TRUE., VALUE=ans)
+    isok = (areal * scale) .APPROXEQ.ans
+    IF (.NOT. isok) THEN
+      CALL Display("Test Failed in "//testName//": at node "//ToString(ii))
+      CALL Display(" Expected: "//ToString(areal * scale)// &
+                   " Found: "//ToString(ans))
+      RETURN
+    END IF
+  END DO
 
-  CALL obj%Initiate(param, fedof)
+  CALL OK(.TRUE., testName)
+END SUBROUTINE test2
 
-  msg = "Set2 "
-  VALUE = 100.0_DFP
-  CALL obj%Set(VALUE=VALUE)
-  CALL obj%Get(VALUE=found, tsize=tsize)
-
-  want(1:tsize) = VALUE
-  tol = 1.0E-5
-  isok = ALL(SOFTEQ(found(1:tsize), want(1:tsize), tol))
-  CALL OK(isok, msg)
-
-  CALL obj%Set(VALUE=VALUE, scale=2.0_DFP, addContribution=.TRUE.)
-  CALL obj%Get(VALUE=found, tsize=tsize)
-  want(1:tsize) = 3.0_DFP * VALUE
-  tol = 1.0E-5
-  isok = ALL(SOFTEQ(found(1:tsize), want(1:tsize), tol))
-  CALL OK(isok, msg)
-
-  CALL obj%Set(VALUE=VALUE, addContribution=.TRUE.)
-  CALL obj%Get(VALUE=found, tsize=tsize)
-  want(1:tsize) = 4.0_DFP * VALUE
-  tol = 1.0E-5
-  isok = ALL(SOFTEQ(found(1:tsize), want(1:tsize), tol))
-  CALL OK(isok, msg)
-
-  CALL obj%DEALLOCATE()
-END BLOCK
-
-mesh => NULL()
-CALL dom%DEALLOCATE()
-CALL meshfile%DEALLOCATE()
-CALL param%DEALLOCATE()
-CALL FPL_FINALIZE()
 END PROGRAM main
+

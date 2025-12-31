@@ -58,7 +58,7 @@ First we need to configure our project by modyfing `docusaurus.config.js` file. 
 
 - `organizationName`, The GitHub user or organization name.
 - `projectName`, The name of the deployment repository.
-- `deploymentBranch`, The name of the deployment branch. Bu default it is `gh-pages` for non-organization GitHub pages repositories (that is, `projectName` not ending in `.github.io`). Otherwise, it needs to be explicit as a config field or environment variable.
+- `deploymentBranch`, The name of the deployment branch. But default it is `gh-pages` for non-organization GitHub pages repositories (that is, `projectName` not ending in `.github.io`). Otherwise, it needs to be explicit as a config field or environment variable.
 
 In this repository we have set the following parameters in `docusaurus.config.js` file:
 

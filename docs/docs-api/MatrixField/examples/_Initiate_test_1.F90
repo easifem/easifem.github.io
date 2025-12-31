@@ -1,3 +1,7 @@
+!> author: Vikas Sharma, Ph. D.
+! date: 2025-06-11
+! summary:  This program demonstrates the initiation of a MatrixField object
+
 PROGRAM main
 USE GlobalData
 USE FPL
@@ -6,16 +10,18 @@ USE AbstractField_Class, ONLY: TypeField
 USE FEMesh_Class
 USE MatrixField_Class
 USE FEDOF_Class
-USE ExceptionHandler_Class
+USE ExceptionHandler_Class, ONLY: e, EXCEPTION_INFORMATION
+use BaseType, only: TypeQuadratureOpt
 
 IMPLICIT NONE
 
-CHARACTER(*), PARAMETER :: filename = &
-                           "../../Mesh/examples/meshdata/small_mesh.h5"
+CHARACTER(*), PARAMETER :: &
+  filename = "../../FEMesh/examples/meshdata/small_tri3_mesh.h5"
 INTEGER(I4B), PARAMETER :: nsd = 2
 INTEGER(I4B), PARAMETER :: spaceCompo = 1, timeCompo = 1
 INTEGER(I4B), PARAMETER :: fieldType = TypeField%normal
 INTEGER(I4B), PARAMETER :: order = 1
+INTEGER( I4B ), PARAMETER :: ipType = TypeQuadratureOpt%equidistance
 
 CHARACTER(*), PARAMETER :: engine = "NATIVE_SERIAL"
 CHARACTER(*), PARAMETER :: baseContinuity = "H1"
@@ -39,7 +45,7 @@ CALL meshfile%DEALLOCATE()
 
 CALL fedof%Initiate(baseContinuity=baseContinuity, &
                     baseInterpolation=baseInterpolation, &
-                    order=order, mesh=mesh)
+                    order=order, mesh=mesh, ipType=ipType)
 
 CALL mesh%DisplayMeshInfo("mesh info:")
 

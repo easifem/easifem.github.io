@@ -15,6 +15,6 @@ END INTERFACE MdEncode
 
 ## Example
 
-import EXAMPLE18 from "./_MdEncode_test_1.md";
+import EXAMPLE18 from "./examples/_MdEncode_test_1.md";
 
 <EXAMPLE18 />
