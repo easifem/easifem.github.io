@@ -13,3 +13,37 @@ tags:
 ---
 
 # STDiffusionMatrix
+
+Space time diffusion matrix.
+
+## Theory
+
+$$
+M(I,J)=\int_{I_{n}}\int_{\Omega}\frac{\partial N^{I}T_{a}}{\partial x_{i}}\frac{\partial N^{J}T_{b}}{\partial x_{i}}d\Omega dt
+$$
+
+$$
+M(I,J)=\int_{I_{n}}\int_{\Omega}\rho\frac{\partial N^{I}T_{a}}{\partial x_{i}}\frac{\partial N^{J}T_{b}}{\partial x_{i}}d\Omega dt
+$$
+
+$$
+M(I,J)=\int_{I_{n}}\int_{\Omega}\frac{\partial N^{I}T_{a}}{\partial x_{i}}k_{ij}\frac{\partial N^{J}T_{b}}{\partial x_{j}}d\Omega dt
+$$
+
+$$
+M(I,J)=\int_{I_{n}}\int_{\Omega}\rho\frac{\partial N^{I}T_{a}}{\partial x_{i}}k_{ij}\frac{\partial N^{J}T_{b}}{\partial x_{j}}d\Omega dt
+$$
+
+$$
+M(I,J)=\int_{I_{n}}\int_{\Omega}\frac{\partial N^{I}T_{a}}{\partial x_{i}}a_{i}b_{j}\frac{\partial N^{J}T_{b}}{\partial x_{j}}d\Omega dt
+$$
+
+$$
+M(I,J)=\int_{I_{n}}\int_{\Omega}\rho\frac{\partial N^{I}T_{a}}{\partial x_{i}}a_{i}b_{j}\frac{\partial N^{J}T_{b}}{\partial x_{j}}d\Omega dt
+$$
+
+## Methods
+
+import DocCardList from '@theme/DocCardList';
+
+<DocCardList />
