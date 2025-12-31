@@ -19,6 +19,8 @@ These series of notes will present the FEDOF concept for for H1 conforming Hiera
 - For Hierarchical polynmials the degree of freedoms are associated with the modes. They can be associated with nodes, edges, faces and interior of the elements. In this case the node has an abstract meaning. But we will associcate them with the vertex, edge, face, and interior basis functions.
 - In the case of H1 conforming basis functions with Hierarchical polynomials, the orientation of edge and faces with respect to the master element is very important. However, for Lagrange polynomials the orientation is not so much needed if we generate the nodes correctly for higher order mesh.
 
+<!-- truncate -->
+
 ## Mesh related stuff
 
 In this note we will focus on 2D mesh with quadrilateral.

@@ -21,6 +21,8 @@ In this example, Dirichlet boundary conditions is given by a user defined functi
 
 ![Degree of freedom in mesh](./figures/order4_mesh3x3.svg)
 
+<!-- truncate -->
+
 ## Import from toml
 
 We can initiate an instance of `DirichletBC_` by importing the information from a toml-file. To do so, we will use the method called [ImportFromToml](/docs-api/AbstractBC/ImportFromToml).

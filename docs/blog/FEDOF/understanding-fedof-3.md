@@ -23,6 +23,8 @@ In this note we will focus on 2D mesh with quadrilateral.
 
 ![Quadrilateral mesh](./figures/square_3x3.svg)
 
+<!-- truncate -->
+
 ## Scalar FEDOF
 
 Initiate the FEDOF object and scalar field by using the following code.

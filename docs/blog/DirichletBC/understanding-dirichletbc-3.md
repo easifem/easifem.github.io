@@ -23,6 +23,8 @@ $$
 
 We may think that there is only one boundary condition. But in easifem this is not the case. Actually, $\mathbf{u}$, has three components in 3D (and two components in 2D). Therefore, the above boundary condition is actually boundary condition for $u_x$, $u_y$, and $u_z$. So, we have three boundary condition on a given boundary $\Gamma$.
 
+<!-- truncate -->
+
 The second point, which is quite obvious, is that every boundary condition has two things:
 
 - The boundary
