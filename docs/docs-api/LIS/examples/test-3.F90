@@ -1,13 +1,15 @@
 PROGRAM main
 USE BaseType, ONLY: CSRMatrix_
 USE GlobalData, ONLY: DFP, I4B, LGT
+USE Display_Method
+USE CSRMatrix_Method
+USE ReallocateUtility
 
 #include "lisf.h"
 
-! CHARACTER(*), PARAMETER :: matrix_name = "../../CSRMatrix/matrixMarket/e40r0000.mtx"
-! CHARACTER(*), PARAMETER :: rhs_name = "../../CSRMatrix/matrixMarket/e40r0000_rhs1.mtx"
-CHARACTER(*), PARAMETER :: matrix_name = "../../CSRMatrix/matrixMarket/small5.mtx"
-CHARACTER(*), PARAMETER :: rhs_name = "../../CSRMatrix/matrixMarket/small5_rhs.mtx"
+CHARACTER(*), PARAMETER :: matrix_name = "../../CSRMatrix/examples/matrixMarket/small5.mtx"
+CHARACTER(*), PARAMETER :: rhs_name = "../../CSRMatrix/examples/matrixMarket/small5_rhs.mtx"
+
 INTEGER :: ierr
 LIS_MATRIX :: A
 TYPE(CSRMatrix_) :: csrmat
