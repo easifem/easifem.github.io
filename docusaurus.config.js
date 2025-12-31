@@ -272,7 +272,7 @@ const config = {
             ],
           },
         ],
-        copyright: "Copyright © Vikas Sharma since 2023. All rights reserved.",
+        copyright: "Copyright © Vikas Sharma since 2026. All rights reserved.",
       },
       prism: {
         additionalLanguages: ["fortran", "bash", "python", "toml", "cmake"],
