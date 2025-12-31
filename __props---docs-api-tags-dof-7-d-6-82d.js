@@ -12,7 +12,7 @@
 /***/ "./.docusaurus/docusaurus-plugin-content-docs/docs-api/p/docs-api-tags-dof-2bb.json":
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"tag":{"label":"dof","permalink":"/docs-api/tags/dof","allTagsPath":"/docs-api/tags","count":2,"items":[{"id":"DOF/index","title":"DOF","description":"DOF_ stores the degrees of freedom in finite element methods.","permalink":"/docs-api/DOF/"},{"id":"FEDOF/index","title":"FEDOF","description":"Data type for finite element degree of freedoms.","permalink":"/docs-api/FEDOF/"}],"unlisted":false}}');
+module.exports = /*#__PURE__*/JSON.parse('{"tag":{"label":"dof","permalink":"/docs-api/tags/dof","allTagsPath":"/docs-api/tags","count":3,"items":[{"id":"DOF/index","title":"DOF","description":"DOF_ stores the degrees of freedom in finite element methods.","permalink":"/docs-api/DOF/"},{"id":"FEDOF/index","title":"FEDOF","description":"Data type for finite element degree of freedoms.","permalink":"/docs-api/FEDOF/"},{"id":"OneDimFEDOF/index","title":"OneDimFEDOF","description":"Data type for finite element degree of freedoms.","permalink":"/docs-api/OneDimFEDOF/"}],"unlisted":false}}');
 
 /***/ })
 

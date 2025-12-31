@@ -12,7 +12,7 @@
 /***/ "./.docusaurus/docusaurus-plugin-content-blog/blog/p/blog-bd9.json":
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"metadata":{"permalink":"/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":2,"blogDescription":"Blog","blogTitle":"Blog"}}');
+module.exports = /*#__PURE__*/JSON.parse('{"metadata":{"permalink":"/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":8,"blogDescription":"Blog","blogTitle":"Blog"}}');
 
 /***/ })
 

@@ -12,7 +12,7 @@
 /***/ "./.docusaurus/docusaurus-plugin-content-blog/blog/p/blog-tags-df9.json":
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"tags":[{"label":"mesh","permalink":"/blog/tags/mesh","count":1},{"label":"gmsh","permalink":"/blog/tags/gmsh","count":1},{"label":"tutorial","permalink":"/blog/tags/tutorial","count":2},{"label":"kernel","permalink":"/blog/tags/kernel","count":1},{"label":"guide","permalink":"/blog/tags/guide","count":1}]}');
+module.exports = /*#__PURE__*/JSON.parse('{"tags":[{"label":"mesh","permalink":"/blog/tags/mesh","count":7},{"label":"fedof","permalink":"/blog/tags/fedof","count":6},{"label":"basis","permalink":"/blog/tags/basis","count":1},{"label":"shapeFunctions","permalink":"/blog/tags/shape-functions","count":1},{"label":"dirichletBC","permalink":"/blog/tags/dirichlet-bc","count":3},{"label":"gmsh","permalink":"/blog/tags/gmsh","count":1},{"label":"tutorial","permalink":"/blog/tags/tutorial","count":2},{"label":"kernel","permalink":"/blog/tags/kernel","count":1},{"label":"guide","permalink":"/blog/tags/guide","count":1}]}');
 
 /***/ })
 

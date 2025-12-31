@@ -12,7 +12,7 @@
 /***/ "./.docusaurus/docusaurus-plugin-content-docs/docs-api/p/docs-api-tags-quadrature-145.json":
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"tag":{"label":"quadrature","permalink":"/docs-api/tags/quadrature","allTagsPath":"/docs-api/tags","count":1,"items":[{"id":"QuadraturePoint/index","title":"QuadraturePoint","description":"QuadraturePoint_ data type contains quadrature points and corresponding weight. This data type is helpful in calculating the element shape data and finite element matrix and vector.","permalink":"/docs-api/QuadraturePoint/"}],"unlisted":false}}');
+module.exports = /*#__PURE__*/JSON.parse('{"tag":{"label":"quadrature","permalink":"/docs-api/tags/quadrature","allTagsPath":"/docs-api/tags","count":1,"items":[{"id":"QuadraturePoint/index","title":"QuadraturePoint","description":"QuadraturePoint_ data type contains quadrature points and corresponding weight.","permalink":"/docs-api/QuadraturePoint/"}],"unlisted":false}}');
 
 /***/ })
 
