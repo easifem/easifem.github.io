@@ -24,7 +24,11 @@ const meta = {
   // config field or environment variable.
   trailingSlash: false,
   onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: "warn"
+    }
+  },
   i18n: {
     defaultLocale: "en",
     locales: ["en"],
@@ -287,9 +291,6 @@ const config = {
         ],
       },
       algolia: {
-        // appId: "HL0HSV62RK",
-        // apiKey: "72ebf02146698733b7114c7b36da0945",
-        // indexName: "docs",
         appId: "VNHYRJ8XLW",
         apiKey: "13b757db568c6f27fd8399306e681bdc",
         indexName: "easifem",
