@@ -18,8 +18,8 @@ IMPLICIT NONE
 TYPE(FEDOF_) :: fedof
 TYPE(FEDomain_) :: dom
 CLASS(AbstractMesh_), POINTER :: meshptr => NULL()
-CHARACTER(*), PARAMETER :: filename = &
-                           "../../FEMesh/examples/meshdata/small_tri3_mesh.h5"
+CHARACTER(*), PARAMETER :: &
+  filename = "../../FEMesh/examples/meshdata/small_tri3_mesh.h5"
 TYPE(HDF5File_) :: meshfile
 LOGICAL(LGT) :: isok
 INTEGER(I4B) :: found, want, order, ii, iel
@@ -53,8 +53,8 @@ cellOrder(2, 10:14) = order
 
 CALL fedof%Initiate(baseContinuity=baseContinuity, &
                     baseInterpolation=baseInterpolation, &
-                    order=cellOrder, &
-                    mesh=meshptr)
+                    order=cellOrder, mesh=meshptr)
+
 found = fedof%GetTotalDOF()
 want = 39
 isok = found == want

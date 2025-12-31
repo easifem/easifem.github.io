@@ -7,7 +7,7 @@ IMPLICIT NONE
 TYPE(FEDomain_) :: dom
 TYPE(HDF5File_) :: meshfile
 CHARACTER(*), PARAMETER :: filename = &
-  & "../../Mesh/examples/meshdata/small_mesh.h5"
+                           "../../Mesh/examples/meshdata/small_mesh.h5"
 CALL meshfile%Initiate(filename, mode="READ")
 CALL meshfile%OPEN()
 CALL dom%Initiate(meshfile, '')

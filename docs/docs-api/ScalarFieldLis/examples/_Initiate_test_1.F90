@@ -1,64 +1,37 @@
+!> author: Vikas Sharma, Ph. D.
+! date: 2025-06-14
+! summary: Testing import from toml
+! In this example we will initiate the fedof outside the ScalarField
+
 PROGRAM main
-USE GlobalData
-USE AbstractField_Class, ONLY: TypeField
-USE AbstractMesh_Class
+USE AbstractField_Class
 USE FEDomain_Class
-USE ScalarField_Class, ONLY: SetScalarFieldParam
+USE GlobalData
+USE ScalarField_Class
 USE ScalarFieldLis_Class
+USE FieldFactory, ONLY: ScalarFieldFactory
+USE EngineOpt_Class, ONLY: TypeEngineOpt
 USE FEDOF_Class
-USE HDF5File_Class
-USE FPL, ONLY: FPL_INIT, FPL_FINALIZE, ParameterList_
-USE Test_Method
+USE Display_Method
 USE ExceptionHandler_Class, ONLY: e, EXCEPTION_INFORMATION
 
 IMPLICIT NONE
 
+CHARACTER(*), PARAMETER :: tomlFileName = "./_Initiate_test_1.toml", &
+                           myName = "main", &
+                           modName = "_Initiate_test_1.F90", &
+                           engine = "LIS_OMP"
 TYPE(FEDomain_) :: dom
-CLASS(AbstractMesh_), POINTER :: mesh
-TYPE(FEDOF_) :: fedof
-TYPE(ScalarFieldLis_) :: obj
-TYPE(HDF5File_) :: meshfile
-TYPE(ParameterList_) :: param
-INTEGER(I4B) :: ierr
-CHARACTER(*), PARAMETER :: engine = "LIS_OMP"
-CHARACTER(*), PARAMETER :: meshfilename = &
-                           "../../Mesh/examples/meshdata/small_mesh.h5"
-CHARACTER(*), PARAMETER :: baseContinuity = "H1"
-CHARACTER(*), PARAMETER :: baseInterpolation = "Lagrange"
-INTEGER(I4B), PARAMETER :: nsd = 2
-INTEGER(I4B), PARAMETER :: order = 1
+TYPE(FEDOF_) :: fedof, geofedof
+CLASS(ScalarField_), POINTER :: u
 
-CALL e%setQuietMode(EXCEPTION_INFORMATION, .TRUE.)
+CALL e%SetQuietMode(EXCEPTION_INFORMATION, .TRUE.)
+CALL dom%ImportFromToml(fileName=tomlFileName, tomlName="domain")
 
-CALL FPL_INIT()
-CALL param%Initiate()
-CALL SetScalarFieldParam(param=param, &
-                         fieldType=TypeField%normal, &
-                         name="U", &
-                         engine=engine)
+u => ScalarFieldFactory(engine)
+CALL u%ImportFromToml( &
+  fedof=fedof, geofedof=geofedof, dom=dom, fileName=tomlFileName, &
+  tomlName="u")
 
-CALL meshfile%Initiate(filename=meshfilename, mode="READ")
-CALL meshfile%OPEN()
-CALL dom%Initiate(hdf5=meshfile, group="")
-
-mesh => dom%GetMeshPointer(dim=nsd)
-
-CALL fedof%Initiate(baseContinuity=baseContinuity, &
-                    baseInterpolation=baseInterpolation, &
-                    order=order, mesh=mesh)
-
-CALL obj%Initiate(param=param, fedof=fedof)
-
-CALL OK(.TRUE., "Initiate:")
-
-CALL obj%Display("obj = ")
-
-NULLIFY (mesh)
-CALL obj%DEALLOCATE()
-CALL dom%DEALLOCATE()
-CALL fedof%DEALLOCATE()
-CALL meshfile%DEALLOCATE()
-
-CALL param%DEALLOCATE()
-CALL FPL_FINALIZE()
+CALL u%Display(myName//" u: ")
 END PROGRAM main

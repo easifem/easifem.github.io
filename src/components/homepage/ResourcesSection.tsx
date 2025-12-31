@@ -1,5 +1,5 @@
 import Link from "@docusaurus/Link";
-import { ArrowRightFilled, ChevronLeftRegular, ChevronRightRegular } from "@fluentui/react-icons";
+import { ChevronRight, ChevronLeft } from "react-feather";
 import clsx from "clsx";
 import React, { useState } from "react";
 
@@ -131,7 +131,7 @@ export default function ResourcesSection() {
             to="https://dyte.io/blog"
             className="font-jakarta text-sm font-semibold text-primary"
           >
-            All Blogs <ArrowRightFilled className="ml-1" />
+            All Blogs <ChevronRight className="ml-1" />
           </Link>
         </div>
 
@@ -180,14 +180,14 @@ export default function ResourcesSection() {
               onClick={prevPage}
               className="top-1/2 -left-14 rounded-lg bg-transparent p-1 hover:bg-secondary-800 md:absolute md:-translate-y-1/2"
             >
-              <ChevronLeftRegular className="h-6 w-6" />
+              <ChevronLeft className="h-6 w-6" />
             </button>
 
             <button
               onClick={nextPage}
               className="top-1/2 -right-14 rounded-lg bg-transparent p-1 hover:bg-secondary-800 md:absolute md:-translate-y-1/2"
             >
-              <ChevronRightRegular className="h-6 w-6" />
+              <ChevronRight className="h-6 w-6" />
             </button>
           </div>
         </div>

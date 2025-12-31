@@ -1,0 +1,19 @@
+[field1]
+name = "field1"
+engine = "NATIVE_SERIAL"
+fieldType = "Normal"
+spaceCompo = 2
+# space component, the default value is 1
+# for scalar fields you can omit this
+# for vector fields you must specify this value
+
+fedofName = "space"
+# fedofName contains the name of the subtable which
+# contains the fedof data for this field.
+
+[field1.space]
+baseContinuity = "H1"
+baseInterpolation = "Lagrange"
+ipType = "Equidistance"
+order = 1
+

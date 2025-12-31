@@ -32,11 +32,8 @@ There are three methods for constructing an instance of `AbstractBC`.
 ### Construction by paramters
 
 1. The first step is to set the necessary Parameters by calling the method called [SetAbstractBCParam](/docs-api/AbstractBC/SetAbstractBCParam).
-
 2. In the second step, we define a boundary. To this end, we will use the [MeshSelection](/docs-api/MeshSelection).
-
 3. In the third step, we call [Initiate](/docs-api/AbstractBC/Initiate) method. To initiate an instance of `AbstractBC`, we need to pass the boundary, paramters, and domain.
-
 4. In the fourth step, we call [Set](/docs-api/AbstractBC/Set) method to set the value of boundary condition.
 
 ### Construction by `HDF5File`

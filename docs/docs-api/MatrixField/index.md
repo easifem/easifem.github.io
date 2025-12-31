@@ -17,8 +17,6 @@ tags:
 
 # MatrixField
 
-<!-- markdownlint-disable MD041 MD013 MD033 MD012 -->
-
 `MatrixField_` is a class that represents a field of matrix.
 
 ## All methods

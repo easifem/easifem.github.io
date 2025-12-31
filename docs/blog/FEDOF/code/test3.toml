@@ -1,0 +1,70 @@
+[domain]
+filename = "./mesh/square_3x3.h5"
+# meshfile name
+group = "/"
+# group name in meshfile where data for domain is stored
+totalMedium = 1
+# total number of mediums attached to the domain
+
+[nodeCoord]
+name = "nodeCoord"
+engine = "NATIVE_SERIAL"
+fieldType = "Normal"
+spaceCompo = 3
+fedofName = "space"
+
+[nodeCoord.space]
+baseContinuity = "H1"
+baseInterpolation = "Lagrange"
+ipType = "Equidistance"
+baseType = "Monomial"
+
+[u]
+name = "u"
+engine = "NATIVE_SERIAL"
+fieldType = "Normal"
+spaceCompo = 1
+timeCompo = 1
+fedofName = "space"
+
+[u.space]
+baseContinuity = "H1"
+baseInterpolation = "Hierarchical"
+# ipType = "Equidistance"
+# baseType = "Monomial"
+order = 3
+scaleForQuadOrder = 2
+quadOptName = "quadOpt"
+
+[u.space.quadOpt]
+isHomogeneous = true
+quadratureType = "GaussLegendre"
+# order = 2
+
+# [[u.dirichletBC]]
+# name = "right_fix"
+# idof = 1
+# nodalValueType = "Constant"
+# value = 0.0
+# [u.dirichletBC.boundary]
+# isSelectionByMeshID = true
+# [u.dirichletBC.boundary.meshID]
+# line = [1, 2, 3]
+
+# [[u.neumannBC]]
+# name = "left"
+# idof = 1
+# nodalValueType = "Space"
+# isUserFunction = true
+# [u.neumannBC.function]
+# name="Function2"
+# returnType="Scalar"
+# numReturns=1
+# argType="Space"
+# numArgs=3
+# luaScript = "./functions.lua"
+# luaFunctionName="Function2"
+# [u.neumannBC.boundary]
+# isSelectionByMeshID = true
+# [u.neumannBC.boundary.meshID]
+# line = [4]

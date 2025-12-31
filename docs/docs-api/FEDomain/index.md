@@ -9,16 +9,15 @@ category:
   - Domain
   - Mesh
 tags:
-  - Domain
-  - Mesh
+  - domain
+  - mesh
   - easifemClasses
 ---
 
 # FEDomain
 
-<!-- markdownlint-disable MD013 MD033 -->
-
 `FEDomain` is a collection of the meshes. It represents the finite element computation domain.
+It is a subclass of `AbstractDomain` and provides additional functionalities for handling finite element domains.
 
 ## All methods
 

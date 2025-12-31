@@ -1,0 +1,36 @@
+[timeOpt]
+dt = 0.1
+timeDependency = "Transient"
+totalTimeSteps = 10
+startTime = 0.0
+endTime = 1.0
+
+[field1]
+name = "field1"
+engine = "NATIVE_SERIAL"
+fieldType = "Normal"
+physicalVarNames = ["u", "p"]
+spaceCompo = [2, 1]
+# space component, the default value is 1
+# for scalar fields you can omit this
+# for vector fields you must specify this value
+
+fedofName = "space"
+# fedofName contains the name of the subtable which
+# contains the fedof data for this field.
+
+timefedofName = "time"
+# timefedofName contains the name of the subtable which
+# contains the timefedof data for this field.
+
+[field1.space]
+baseContinuity = "H1"
+baseInterpolation = "Lagrange"
+ipType = "Equidistance"
+order = 1
+
+[field1.time]
+baseContinuity = "H1"
+baseInterpolation = "Lagrange"
+ipType = "Equidistance"
+order = 1

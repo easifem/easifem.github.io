@@ -1,20 +1,15 @@
 ! Initiate an instance of `SolidMaterial_`.
 
 PROGRAM main
-USE easifemBase
-USE easifemClasses
-USE easifemMaterials
+USE SolidMaterial_Class
+USE GlobalData
+IMPLICIT NONE
 
-CHARACTER(*), PARAMETER :: tomlFileName = "./SolidMaterial.toml"
+CHARACTER(*), PARAMETER :: tomlFileName = "./toml/SolidMaterial1.toml"
 CHARACTER(*), PARAMETER :: tomlName = "solid"
 TYPE(SolidMaterial_) :: obj
-INTEGER(I4B) :: ierr
-
-CALL FPL_Init
 
 CALL obj%ImportFromToml(tomlName="solid", filename=tomlFileName)
 CALL obj%Display("obj:")
-
-CALL FPL_FINALIZE
 
 END PROGRAM main

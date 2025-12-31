@@ -65,6 +65,11 @@ const defaultSettings = {
   rehypePlugins: [[katex, { strict: false }]],
 };
 
+const defaultBlogSettings = {
+  remarkPlugins: [math],
+  rehypePlugins: [[katex, { strict: false }]],
+};
+
 /**
  * Create a section
  * @param {import('@docusaurus/plugin-content-docs').Options} options
@@ -119,6 +124,7 @@ const config = {
           path: "docs/blog",
           id: "blog",
           routeBasePath: "/blog",
+          ...defaultBlogSettings,
         },
         // commenting the theme
         theme: {
@@ -157,6 +163,7 @@ const config = {
       docs: {
         sidebar: {
           hideable: true,
+          autoCollapseCategories: true,
         },
       },
       navbar: {

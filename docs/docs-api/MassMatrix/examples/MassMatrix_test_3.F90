@@ -14,6 +14,7 @@ XiJ = RESHAPE([-1, 1], [1, 2])
 ! Now  we create an instance of [[ReferenceLine_]].
 
 simplexElem = referenceline(nsd=1)
+
     CALL simplexElem%LagrangeElement(order=orderForTest, highOrderObj=refElemForTest)
     CALL simplexElem%LagrangeElement(order=orderForTrial, highOrderObj=refElemForTrial)
 
