@@ -6,7 +6,7 @@ Before you start make sure you have clone this repository and have installed doc
 
 We recommend using pnpm, but you can also use yarn or npm.
 
-## pnpm
+## pnpm or yarn
 
 **Install** dependencies of `easifem.github.io` by using following commands.
 
@@ -14,16 +14,24 @@ We recommend using pnpm, but you can also use yarn or npm.
 pnpm install # install dependencies
 ```
 
+If usign then
+
+```sh
+yarn install
+```
+
 **Start the development server**: To preview your changes as you edit the files, you can run a local development server that will serve your website and reflect the latest changes.
 
 ```sh
 pnpm run start
+# yarn start
 ```
 
 **Build the website**: Docusaurus is a modern static website generator so we need to build the website into a directory of static contents and put it on a web server so that it can be viewed. To build the website:
 
 ```sh
 pnpm run build
+# yarn build --dev
 ```
 
 Once it finishes, the static files will be generated within `build` directory. A docusaurus site is statically rendered, and it can generally work without JavaScript.
@@ -43,6 +51,7 @@ It is important to test your build locally before deploying it for production. Y
 
 ```sh
 pnpm run serve
+# yarn serve
 ```
 
 Please follow the following steps for serving the website on GitHub Pages. We will deploy the website from the `gh-pages` branch. You can check that this repository has a `gh-pages` branch. We will push `build` folder to this branch from where it will be deployed.
