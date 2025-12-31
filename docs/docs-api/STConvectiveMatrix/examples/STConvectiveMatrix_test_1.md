@@ -1,19 +1,4 @@
----
-title: STConvectiveMatrix example 23
-author: Vikas Sharma, Ph.D.
-date: 23 Nov 2021
-update: 23 Nov 2021 
-tags:
-    - ReferenceLine
-    - ReferenceLine/Initiate
-    - QuadraturePoint/Initiate
-    - STElemshapeData
-    - STElemshapeData/Initiate
-    - ConvectiveMatrix
-    - STConvectiveMatrix
----
-
-# STConvectiveMatrix example 23
+# STConvectiveMatrix example 1
 
 !!! note ""
 This example shows how to USE the SUBROUTINE called `ConvectiveMatrix` to create a space-time convective matrix. Line2 in space and time.
@@ -21,27 +6,11 @@ This example shows how to USE the SUBROUTINE called `ConvectiveMatrix` to create
 Here, we want to DO the following.
 
 $$
-M\left( {I,J,a,b} \right) = {\int_{{I_n}}^{} {\int_\Omega ^{} {\frac{{\partial {N^I}{T_a}}}{{\partial x}} c \cdot {N^J}{T_b}d\Omega dt} } }
+M\left( {I,J,a,b} \right) = {\int_{{I_n}}^{} {\int_\Omega ^{} {{c_j}\frac{{\partial {N^I}{T_a}}}{{\partial {x_j}}} \cdot {N^J}{T_b}d\Omega dt} } }
 $$
 
 $$
-M\left( {I,J,a,b} \right) = {\int_{{I_n}}^{} {\int_\Omega ^{} {\frac{{\partial {N^I}{T_a}}}{{\partial y}} c \cdot {N^J}{T_b}d\Omega dt} } }
-$$
-
-$$
-M\left( {I,J,a,b} \right) = {\int_{{I_n}}^{} {\int_\Omega ^{} {\frac{{\partial {N^I}{T_a}}}{{\partial z}} c \cdot {N^J}{T_b}d\Omega dt} } }
-$$
-
-$$
-M\left( {I,J,a,b} \right) = {\int_{{I_n}}^{} {\int_\Omega ^{} {{N^J}{T_b} c \cdot \frac{{\partial {N^J}{T_b}}}{{\partial x}}d\Omega dt} } }
-$$
-
-$$
-M\left( {I,J,a,b} \right) = {\int_{{I_n}}^{} {\int_\Omega ^{} {{N^J}{T_b} c \cdot \frac{{\partial {N^J}{T_b}}}{{\partial y}}d\Omega dt} } }
-$$
-
-$$
-M\left( {I,J,a,b} \right) = {\int_{{I_n}}^{} {\int_\Omega ^{} {{N^J}{T_b} c \cdot \frac{{\partial {N^J}{T_b}}}{{\partial z}}d\Omega dt} } }
+M\left(I,J,a,b\right)=\int_{I_{n}}\int_{\Omega}N^{I}T_{a}c_{j}\frac{\partial N^{J}T_{b}}{\partial x_{j}}d\Omega dt
 $$
 
 !!! warning ""
@@ -52,7 +21,7 @@ In this example, convective matrix is formed for
 - [[ReferenceLine_]] Line2 element for space
 - [[ReferenceLine_]] Line2 element for time
 - [[QuadraturePoint_]] `GaussLegendre`
-- space-time nodal values of c
+- Constant velocity
 
 ## Modules and classes
 
@@ -78,7 +47,7 @@ PROGRAM main
     ! spatial nodal coordinates
     REAL(DFP), ALLOCATABLE :: xija(:, :, :), mat(:,:)
     ! spatial-temporal nodal coordinates
-    REAL(DFP), parameter :: c(2,2)=reshape([1.0, 1.0,1.0,1.0],[2,2])
+    REAL(DFP), parameter :: c(1) = [1.0]
     type(FEVariable_) :: cvar
 ```
 
@@ -149,13 +118,11 @@ CALL Reallocate(xija, nsd, nns, nnt)
 Let us now create the space-time convective matrix.
 
 ```fortran
-cvar = NodalVariable(c, typeFEVariableScalar, typeFEVariableSpaceTime)
+cvar = NodalVariable(c, typeFEVariableVector, typeFEVariableConstant)
 ```
 
 ```fortran
-mat=ConvectiveMatrix(test=test, trial=test, &
-    & term1=del_none, term2=del_x, &
-    & c=cvar )
+mat=ConvectiveMatrix(test=test, trial=test, term1=DEL_NONE, term2=DEL_x, c=cvar)
 CALL Display(mat, "mat:")
 ```
 
@@ -171,9 +138,7 @@ CALL Display(mat, "mat:")
     ```
 
 ```fortran
-mat=ConvectiveMatrix(test=test, trial=test, &
-    & term1=del_x, term2=del_none, &
-    & c=cvar)
+mat=ConvectiveMatrix(test=test, trial=test, term1=DEL_x, term2=DEL_NONE, c=cvar)
 CALL Display(mat, "mat:")
 ```
 

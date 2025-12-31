@@ -1,18 +1,3 @@
----
-title: STConvectiveMatrix example 61
-author: Vikas Sharma, Ph.D.
-date: 06 Dec 2021
-update: 06 Dec 2021 
-tags:
-    - ReferenceLine
-    - ReferenceLine/Initiate
-    - QuadraturePoint/Initiate
-    - STElemshapeData
-    - STElemshapeData/Initiate
-    - ConvectiveMatrix
-    - STConvectiveMatrix
----
-
 # STConvectiveMatrix example 61
 
 !!! note ""

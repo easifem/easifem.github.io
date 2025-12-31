@@ -1,19 +1,4 @@
----
-title: STConvectiveMatrix example 51
-author: Vikas Sharma, Ph.D.
-date: 06 Dec 2021
-update: 06 Dec 2021 
-tags:
-    - ReferenceLine
-    - ReferenceLine/Initiate
-    - QuadraturePoint/Initiate
-    - STElemshapeData
-    - STElemshapeData/Initiate
-    - ConvectiveMatrix
-    - STConvectiveMatrix
----
-
-# STConvectiveMatrix example 51
+# STConvectiveMatrix example 81
 
 !!! note ""
 This example shows how to USE the SUBROUTINE called `STConvectiveMatrix` to create a space-time convective matrix. Triangle3 in space and Line2 in time.
@@ -21,11 +6,11 @@ This example shows how to USE the SUBROUTINE called `STConvectiveMatrix` to crea
 Here, we want to DO the following.
 
 $$
-M(I,J,a,b)=\int_{I_{n}}\int_{\Omega}\frac{\partial N^{I}T_{a}}{\partial t}\frac{\partial N^{J}T_{b}}{\partial x_{p}}c_{p}d\Omega dt
+M\left(I,J,a,b\right)=\int_{I_{n}}\int_{\Omega}\rho c_{p}\frac{\partial N^{I}T_{a}}{\partial x_{p}}\frac{\partial N^{J}T_{b}}{\partial t}d\Omega dt
 $$
 
 $$
-M(I,J,a,b)=\int_{I_{n}}\int_{\Omega}\frac{\partial N^{I}T_{a}}{\partial x_{p}}c_{p}\frac{\partial N^{J}T_{b}}{\partial t}d\Omega dt
+M\left(I,J,a,b\right)=\int_{I_{n}}\int_{\Omega}\rho\frac{\partial N^{I}T_{a}}{\partial t}c_{p}\frac{\partial N^{J}T_{b}}{\partial x_{p}}d\Omega dt
 $$
 
 In this example, convective matrix is formed for
@@ -64,7 +49,9 @@ PROGRAM main
     REAL(DFP), ALLOCATABLE :: xija(:, :, :), mat(:,:)
     ! spatial-temporal nodal coordinates
     REAL(DFP), parameter :: c(2)=[1.0, 1.0]
+    REAL(DFP), parameter :: rho = 1.0
     type(FEVariable_) :: cvar
+    type(FEVariable_) :: rhovar
 ```
 
 !!! note ""
@@ -135,53 +122,64 @@ Let us now create the space-time convective matrix.
 
 ```fortran
 cvar = NodalVariable(c, typeFEVariableVector, typeFEVariableConstant)
+rhovar = NodalVariable(rho, typeFEVariableScalar, typeFEVariableConstant)
 ```
 
 ```fortran
 mat=ConvectiveMatrix(test=test, trial=test, &
-    & term1=del_t, term2=del_x, &
-    & c=cvar, projectOn='trial' )
+    & term1=del_x, term2=del_t, &
+    & c=cvar, rho=rhovar, projectOn='test')
+CALL Display(mat, "mat:")
+!! or
+mat=ConvectiveMatrix(test=test, trial=test, &
+    & term1=del_y, term2=del_t, &
+    & c=cvar, rho=rhovar, projectOn='test')
+CALL Display(mat, "mat:")
+!! or
+mat=ConvectiveMatrix(test=test, trial=test, &
+    & term1=del_x_all, term2=del_t, &
+    & c=cvar, rho=rhovar, projectOn='test')
 CALL Display(mat, "mat:")
 ```
 
 ??? example "Results"
 
     ```bash
-                                    mat:                                   
-    --------------------------------------------------------------------------
-    0.166667  -0.083333  -0.083333   0.166667  -0.083333  -0.083333
-    0.166667  -0.083333  -0.083333   0.166667  -0.083333  -0.083333
-    0.166667  -0.083333  -0.083333   0.166667  -0.083333  -0.083333
-    -0.166667   0.083333   0.083333  -0.166667   0.083333   0.083333
-    -0.166667   0.083333   0.083333  -0.166667   0.083333   0.083333
-    -0.166667   0.083333   0.083333  -0.166667   0.083333   0.083333    
+    0.166667   0.166667   0.166667  -0.166667  -0.166667  -0.166667
+    -0.083333  -0.083333  -0.083333   0.083333   0.083333   0.083333
+    -0.083333  -0.083333  -0.083333   0.083333   0.083333   0.083333
+    0.166667   0.166667   0.166667  -0.166667  -0.166667  -0.166667
+    -0.083333  -0.083333  -0.083333   0.083333   0.083333   0.083333
+    -0.083333  -0.083333  -0.083333   0.083333   0.083333   0.083333    
     ```
-
-we can also use `term2=del_y, del_z, del_x_all` as shown below to get the same results as above.
 
 ```fortran
 mat=ConvectiveMatrix(test=test, trial=test, &
+    & term1=del_t, term2=del_x, &
+    & c=cvar, rho=rhovar, projectOn='trial')
+CALL Display(mat, "mat:")
+!! or
+mat=ConvectiveMatrix(test=test, trial=test, &
     & term1=del_t, term2=del_y, &
-    & c=cvar, projectOn='trial' )
+    & c=cvar, rho=rhovar, projectOn='trial')
 CALL Display(mat, "mat:")
 !! or
 mat=ConvectiveMatrix(test=test, trial=test, &
     & term1=del_t, term2=del_x_all, &
-    & c=cvar, projectOn='trial' )
-CALL Display(mat, "mat:")
-```
-
-!!! note "STConvectiveMatrix"
-
-```fortran
-mat=ConvectiveMatrix(test=test, trial=test, &
-    & term1=del_x, term2=del_t, &
-    & c=cvar, projectOn='test' )
+    & c=cvar, rho=rhovar, projectOn='trial')
 CALL Display(mat, "mat:")
 ```
 
 ??? example "Results"
-`bash mat:                               ---------------------------------------------------------------- 0.166667   0.166667   0.166667  -0.166667  -0.166667  -0.166667 -0.083333  -0.083333  -0.083333   0.083333   0.083333   0.083333 -0.083333  -0.083333  -0.083333   0.083333   0.083333   0.083333 0.166667   0.166667   0.166667  -0.166667  -0.166667  -0.166667 -0.083333  -0.083333  -0.083333   0.083333   0.083333   0.083333 -0.083333  -0.083333  -0.083333   0.083333   0.083333   0.083333`
+
+    ```bash
+    0.166667  -0.083333  -0.083333   0.166667  -0.083333  -0.083333
+    0.166667  -0.083333  -0.083333   0.166667  -0.083333  -0.083333
+    0.166667  -0.083333  -0.083333   0.166667  -0.083333  -0.083333
+    -0.166667   0.083333   0.083333  -0.166667   0.083333   0.083333
+    -0.166667   0.083333   0.083333  -0.166667   0.083333   0.083333
+    -0.166667   0.083333   0.083333  -0.166667   0.083333   0.083333
+    ```
 
 !!! settings "Cleanup"
 

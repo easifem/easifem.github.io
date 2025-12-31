@@ -1,19 +1,4 @@
----
-title: STConvectiveMatrix example 1
-author: Vikas Sharma, Ph.D.
-date: 23 Nov 2021
-update: 23 Nov 2021 
-tags:
-    - ReferenceLine
-    - ReferenceLine/Initiate
-    - QuadraturePoint/Initiate
-    - STElemshapeData
-    - STElemshapeData/Initiate
-    - ConvectiveMatrix
-    - STConvectiveMatrix
----
-
-# STConvectiveMatrix example 1
+# STConvectiveMatrix example 3
 
 !!! note ""
 This example shows how to USE the SUBROUTINE called `ConvectiveMatrix` to create a space-time convective matrix. Line2 in space and time.
@@ -36,7 +21,7 @@ In this example, convective matrix is formed for
 - [[ReferenceLine_]] Line2 element for space
 - [[ReferenceLine_]] Line2 element for time
 - [[QuadraturePoint_]] `GaussLegendre`
-- Constant velocity
+- space-time nodal velocity
 
 ## Modules and classes
 
@@ -62,7 +47,7 @@ PROGRAM main
     ! spatial nodal coordinates
     REAL(DFP), ALLOCATABLE :: xija(:, :, :), mat(:,:)
     ! spatial-temporal nodal coordinates
-    REAL(DFP), parameter :: c(1) = [1.0]
+    REAL(DFP), parameter :: c(1,2,2) = reshape([1.0,1.0,1.0,1.0],[1,2,2])
     type(FEVariable_) :: cvar
 ```
 
@@ -133,11 +118,12 @@ CALL Reallocate(xija, nsd, nns, nnt)
 Let us now create the space-time convective matrix.
 
 ```fortran
-cvar = NodalVariable(c, typeFEVariableVector, typeFEVariableConstant)
+cvar = NodalVariable(c, typeFEVariableVector, typeFEVariableSpaceTime)
 ```
 
 ```fortran
-mat=ConvectiveMatrix(test=test, trial=test, term1=DEL_NONE, term2=DEL_x, c=cvar)
+mat=ConvectiveMatrix(test=test, trial=test, term1=del_none, &
+    & term2=del_x, c=cvar)
 CALL Display(mat, "mat:")
 ```
 
@@ -153,7 +139,8 @@ CALL Display(mat, "mat:")
     ```
 
 ```fortran
-mat=ConvectiveMatrix(test=test, trial=test, term1=DEL_x, term2=DEL_NONE, c=cvar)
+mat=ConvectiveMatrix(test=test, trial=test, term1=del_x, &
+    & term2=del_none, c=cvar)
 CALL Display(mat, "mat:")
 ```
 

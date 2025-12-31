@@ -1,18 +1,3 @@
----
-title: STConvectiveMatrix example 25
-author: Vikas Sharma, Ph.D.
-date: 23 Nov 2021
-update: 23 Nov 2021 
-tags:
-    - ReferenceLine
-    - ReferenceLine/Initiate
-    - QuadraturePoint/Initiate
-    - STElemshapeData
-    - STElemshapeData/Initiate
-    - ConvectiveMatrix
-    - STConvectiveMatrix
----
-
 # STConvectiveMatrix example 26
 
 !!! note ""
@@ -21,11 +6,27 @@ This example shows how to USE the SUBROUTINE called `STConvectiveMatrix` to crea
 Here, we want to DO the following.
 
 $$
-M\left( {I,J,a,b} \right) = {\int_{{I_n}}^{} {\int_\Omega ^{} {\frac{{\partial {N^I}{T_a}}}{{\partial x_{i}}} c \cdot {N^J}{T_b}d\Omega dt} } }
+M\left( {I,J,a,b} \right) = {\int_{{I_n}}^{} {\int_\Omega ^{} {\frac{{\partial {N^I}{T_a}}}{{\partial x}} c \cdot {N^J}{T_b}d\Omega dt} } }
 $$
 
 $$
-M\left( {I,J,a,b} \right) = {\int_{{I_n}}^{} {\int_\Omega ^{} {{N^J}{T_b} c \cdot \frac{{\partial {N^J}{T_b}}}{{\partial x_{i}}}d\Omega dt} } }
+M\left( {I,J,a,b} \right) = {\int_{{I_n}}^{} {\int_\Omega ^{} {\frac{{\partial {N^I}{T_a}}}{{\partial y}} c \cdot {N^J}{T_b}d\Omega dt} } }
+$$
+
+$$
+M\left( {I,J,a,b} \right) = {\int_{{I_n}}^{} {\int_\Omega ^{} {\frac{{\partial {N^I}{T_a}}}{{\partial z}} c \cdot {N^J}{T_b}d\Omega dt} } }
+$$
+
+$$
+M\left( {I,J,a,b} \right) = {\int_{{I_n}}^{} {\int_\Omega ^{} {{N^J}{T_b} c \cdot \frac{{\partial {N^J}{T_b}}}{{\partial x}}d\Omega dt} } }
+$$
+
+$$
+M\left( {I,J,a,b} \right) = {\int_{{I_n}}^{} {\int_\Omega ^{} {{N^J}{T_b} c \cdot \frac{{\partial {N^J}{T_b}}}{{\partial y}}d\Omega dt} } }
+$$
+
+$$
+M\left( {I,J,a,b} \right) = {\int_{{I_n}}^{} {\int_\Omega ^{} {{N^J}{T_b} c \cdot \frac{{\partial {N^J}{T_b}}}{{\partial z}}d\Omega dt} } }
 $$
 
 !!! warning ""
@@ -142,7 +143,7 @@ cvar = NodalVariable(c, typeFEVariableScalar, typeFEVariableSpaceTime)
 
 ```fortran
 mat=ConvectiveMatrix(test=test, trial=test, &
-    & term1=del_none, term2=del_x_all, &
+    & term1=del_none, term2=del_x, &
     & c=cvar)
 CALL Display(mat, "mat:")
 ```
@@ -150,19 +151,19 @@ CALL Display(mat, "mat:")
 ??? example "Results"
 
     ```bash
-                                                            mat:                                                           
-    --------------------------------------------------------------------------------------------------------------------------
-    -0.111111  0.111111  0.000000  -0.111111  0.000000  0.111111  -0.055556  0.055556  0.000000  -0.055556  0.000000  0.055556
-    -0.111111  0.111111  0.000000  -0.111111  0.000000  0.111111  -0.055556  0.055556  0.000000  -0.055556  0.000000  0.055556
-    -0.111111  0.111111  0.000000  -0.111111  0.000000  0.111111  -0.055556  0.055556  0.000000  -0.055556  0.000000  0.055556
-    -0.055556  0.055556  0.000000  -0.055556  0.000000  0.055556  -0.111111  0.111111  0.000000  -0.111111  0.000000  0.111111
-    -0.055556  0.055556  0.000000  -0.055556  0.000000  0.055556  -0.111111  0.111111  0.000000  -0.111111  0.000000  0.111111
-    -0.055556  0.055556  0.000000  -0.055556  0.000000  0.055556  -0.111111  0.111111  0.000000  -0.111111  0.000000  0.111111
+                                mat:                            
+    ------------------------------------------------------------
+    -0.111111  0.111111  0.000000  -0.055556  0.055556  0.000000
+    -0.111111  0.111111  0.000000  -0.055556  0.055556  0.000000
+    -0.111111  0.111111  0.000000  -0.055556  0.055556  0.000000
+    -0.055556  0.055556  0.000000  -0.111111  0.111111  0.000000
+    -0.055556  0.055556  0.000000  -0.111111  0.111111  0.000000
+    -0.055556  0.055556  0.000000  -0.111111  0.111111  0.000000
     ```
 
 ```fortran
 mat=ConvectiveMatrix(test=test, trial=test, &
-    & term1=del_x_all, term2=del_none, &
+    & term1=del_none, term2=del_y, &
     & c=cvar)
 CALL Display(mat, "mat:")
 ```
@@ -170,17 +171,51 @@ CALL Display(mat, "mat:")
 ??? example "Results"
 
     ```bash
-                                    mat:                              
+                                mat:                            
+    ------------------------------------------------------------
+    -0.111111  0.000000  0.111111  -0.055556  0.000000  0.055556
+    -0.111111  0.000000  0.111111  -0.055556  0.000000  0.055556
+    -0.111111  0.000000  0.111111  -0.055556  0.000000  0.055556
+    -0.055556  0.000000  0.055556  -0.111111  0.000000  0.111111
+    -0.055556  0.000000  0.055556  -0.111111  0.000000  0.111111
+    -0.055556  0.000000  0.055556  -0.111111  0.000000  0.111111
+    ```
+
+```fortran
+mat=ConvectiveMatrix(test=test, trial=test, &
+    & term1=del_x, term2=del_none, &
+    & c=cvar)
+CALL Display(mat, "mat:")
+```
+
+??? example "Results"
+
+    ```bash
+                                mat:                              
     ----------------------------------------------------------------
     -0.111111  -0.111111  -0.111111  -0.055556  -0.055556  -0.055556
     0.111111   0.111111   0.111111   0.055556   0.055556   0.055556
     0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
-    -0.111111  -0.111111  -0.111111  -0.055556  -0.055556  -0.055556
-    0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
-    0.111111   0.111111   0.111111   0.055556   0.055556   0.055556
     -0.055556  -0.055556  -0.055556  -0.111111  -0.111111  -0.111111
     0.055556   0.055556   0.055556   0.111111   0.111111   0.111111
     0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
+    ```
+
+```fortran
+mat=ConvectiveMatrix(test=test, trial=test, &
+    & term1=del_y, term2=del_none, &
+    & c=cvar)
+CALL Display(mat, "mat:")
+```
+
+??? example "Results"
+
+    ```bash
+                                mat:                              
+    ----------------------------------------------------------------
+    -0.111111  -0.111111  -0.111111  -0.055556  -0.055556  -0.055556
+    0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
+    0.111111   0.111111   0.111111   0.055556   0.055556   0.055556
     -0.055556  -0.055556  -0.055556  -0.111111  -0.111111  -0.111111
     0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
     0.055556   0.055556   0.055556   0.111111   0.111111   0.111111

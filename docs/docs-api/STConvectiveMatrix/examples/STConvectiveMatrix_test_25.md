@@ -1,22 +1,7 @@
----
-title: STConvectiveMatrix example 21
-author: Vikas Sharma, Ph.D.
-date: 23 Nov 2021
-update: 23 Nov 2021 
-tags:
-    - ReferenceLine
-    - ReferenceLine/Initiate
-    - QuadraturePoint/Initiate
-    - STElemshapeData
-    - STElemshapeData/Initiate
-    - ConvectiveMatrix
-    - STConvectiveMatrix
----
-
-# STConvectiveMatrix example 21
+# STConvectiveMatrix example 25
 
 !!! note ""
-This example shows how to USE the SUBROUTINE called `ConvectiveMatrix` or `STConvectiveMatrix` to create a space-time convective matrix. Line2 in space and time.
+This example shows how to USE the SUBROUTINE called `STConvectiveMatrix` to create a space-time convective matrix. Triangle3 in space and Line2 in time.
 
 Here, we want to DO the following.
 
@@ -49,14 +34,18 @@ $c$ is scalar [[FEVariable_]], which can be a constant, or a FUNCTION of space-t
 
 In this example, convective matrix is formed for
 
-- [[ReferenceLine_]] Line2 element for space
+- [[ReferenceTriangle_]] Triangle3 element for space
 - [[ReferenceLine_]] Line2 element for time
 - [[QuadraturePoint_]] `GaussLegendre`
-- Constant velocity
+- Spatial nodal values $c$
 
 ## Modules and classes
 
 - [[ElemshapeData_]]
+- [[STElemshapeData_]]
+- [[QuadraturePoint_]]
+- [[ReferenceLine_]]
+- [[ReferenceTriangle_]]
 
 ## Usage
 
@@ -68,17 +57,17 @@ PROGRAM main
     TYPE(ElemshapeData_) :: time_elemsd
     TYPE(Quadraturepoint_) :: quadFortime
     TYPE(Quadraturepoint_) :: quadForspace
-    TYPE(ReferenceLine_):: refelemForSpace
+    TYPE(ReferenceTriangle_):: refelemForSpace
     TYPE(ReferenceLine_) :: refelemForTime
     INTEGER(I4B) :: ii
-    INTEGER(I4B), PARAMETER :: nsd=1, nns=2, nnt=2
+    INTEGER(I4B), PARAMETER :: nsd=2, nns=3, nnt=2
     INTEGER(I4B), PARAMETER :: orderForTime=2, orderForSpace=1
     REAL(DFP), PARAMETER :: tij(1, 2) = RESHAPE([-1,1], [1,2])
-    REAL(DFP), PARAMETER :: xij(1, 2)=RESHAPE([-1,1], [nsd, nns])
+    REAL(DFP), PARAMETER :: xij(2, 3)=RESHAPE([0,0,1,0,0,1], [nsd, nns])
     ! spatial nodal coordinates
     REAL(DFP), ALLOCATABLE :: xija(:, :, :), mat(:,:)
     ! spatial-temporal nodal coordinates
-    REAL(DFP), parameter :: c=1.0
+    REAL(DFP), parameter :: c(3)=[1.0,1.0,1.0]
     type(FEVariable_) :: cvar
 ```
 
@@ -113,7 +102,7 @@ CALL Initiate(obj=test, elemsd=time_elemsd)
 Generating shape functions for space-elements. Here, we are selecting a triangular element
 
 ```fortran
-  refelemForSpace = ReferenceLine(nsd=nsd)
+  refelemForSpace = ReferenceTriangle(nsd=nsd)
   CALL Initiate(obj=quadForSpace, &
 & refelem=refelemForSpace, &
 & order=orderForSpace, &
@@ -149,42 +138,47 @@ CALL Reallocate(xija, nsd, nns, nnt)
 Let us now create the space-time convective matrix.
 
 ```fortran
-cvar = NodalVariable(c, typeFEVariableScalar, typeFEVariableConstant)
+cvar = NodalVariable(c, typeFEVariableScalar, typeFEVariableSpace)
 ```
 
 ```fortran
 mat=ConvectiveMatrix(test=test, trial=test, &
-    & term1=del_none, term2=del_x, c=cvar)
+    & term1=del_none, term2=del_x, &
+    & c=cvar)
 CALL Display(mat, "mat:")
 ```
 
 ??? example "Results"
 
     ```bash
-                    mat:                  
-    ----------------------------------------
-    -0.333333  0.333333  -0.166667  0.166667
-    -0.333333  0.333333  -0.166667  0.166667
-    -0.166667  0.166667  -0.333333  0.333333
-    -0.166667  0.166667  -0.333333  0.333333
+                                mat:                            
+    ------------------------------------------------------------
+    -0.111111  0.111111  0.000000  -0.055556  0.055556  0.000000
+    -0.111111  0.111111  0.000000  -0.055556  0.055556  0.000000
+    -0.111111  0.111111  0.000000  -0.055556  0.055556  0.000000
+    -0.055556  0.055556  0.000000  -0.111111  0.111111  0.000000
+    -0.055556  0.055556  0.000000  -0.111111  0.111111  0.000000
+    -0.055556  0.055556  0.000000  -0.111111  0.111111  0.000000
     ```
 
 ```fortran
 mat=ConvectiveMatrix(test=test, trial=test, &
     & term1=del_x, term2=del_none, &
-    & c=cvar )
+    & c=cvar)
 CALL Display(mat, "mat:")
 ```
 
 ??? example "Results"
 
     ```bash
-                    mat:                   
-    ------------------------------------------
-    -0.333333  -0.333333  -0.166667  -0.166667
-    0.333333   0.333333   0.166667   0.166667
-    -0.166667  -0.166667  -0.333333  -0.333333
-    0.166667   0.166667   0.333333   0.333333
+                                mat:                              
+    ----------------------------------------------------------------
+    -0.111111  -0.111111  -0.111111  -0.055556  -0.055556  -0.055556
+    0.111111   0.111111   0.111111   0.055556   0.055556   0.055556
+    0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
+    -0.055556  -0.055556  -0.055556  -0.111111  -0.111111  -0.111111
+    0.055556   0.055556   0.055556   0.111111   0.111111   0.111111
+    0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
     ```
 
 !!! settings "Cleanup"

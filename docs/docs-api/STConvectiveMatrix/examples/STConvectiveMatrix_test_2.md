@@ -1,18 +1,3 @@
----
-title: STConvectiveMatrix example 2
-author: Vikas Sharma, Ph.D.
-date: 23 Nov 2021
-update: 23 Nov 2021 
-tags:
-    - ReferenceLine
-    - ReferenceLine/Initiate
-    - QuadraturePoint/Initiate
-    - STElemshapeData/Initiate
-    - STElemshapeData
-    - ConvectiveMatrix
-    - STConvectiveMatrix
----
-
 # STConvectiveMatrix example 2
 
 !!! note ""
@@ -46,40 +31,40 @@ In this example, convective matrix is formed for
 
 ```fortran
 PROGRAM main
-    USE easifemBase
-    IMPLICIT NONE
-    TYPE(STElemshapeData_), ALLOCATABLE :: test(:)
-    TYPE(ElemshapeData_) :: time_elemsd
-    TYPE(Quadraturepoint_) :: quadFortime
-    TYPE(Quadraturepoint_) :: quadForspace
-    TYPE(ReferenceLine_):: refelemForSpace
-    TYPE(ReferenceLine_) :: refelemForTime
-    INTEGER(I4B) :: ii
-    INTEGER(I4B), PARAMETER :: nsd=1, nns=2, nnt=2
-    INTEGER(I4B), PARAMETER :: orderForTime=2, orderForSpace=1
-    REAL(DFP), PARAMETER :: tij(1, 2) = RESHAPE([-1,1], [1,2])
-    REAL(DFP), PARAMETER :: xij(1, 2)=RESHAPE([-1,1], [nsd, nns])
-    ! spatial nodal coordinates
-    REAL(DFP), ALLOCATABLE :: xija(:, :, :), mat(:,:)
-    ! spatial-temporal nodal coordinates
-    REAL(DFP), parameter :: c(1,2) = reshape([1.0,1.0],[1,2])
-    type(FEVariable_) :: cvar
+USE easifemBase
+IMPLICIT NONE
+TYPE(STElemshapeData_), ALLOCATABLE :: test(:)
+TYPE(ElemshapeData_) :: time_elemsd
+TYPE(Quadraturepoint_) :: quadFortime
+TYPE(Quadraturepoint_) :: quadForspace
+TYPE(ReferenceLine_) :: refelemForSpace
+TYPE(ReferenceLine_) :: refelemForTime
+INTEGER(I4B) :: ii
+INTEGER(I4B), PARAMETER :: nsd = 1, nns = 2, nnt = 2
+INTEGER(I4B), PARAMETER :: orderForTime = 2, orderForSpace = 1
+REAL(DFP), PARAMETER :: tij(1, 2) = RESHAPE([-1, 1], [1, 2])
+REAL(DFP), PARAMETER :: xij(1, 2) = RESHAPE([-1, 1], [nsd, nns])
+! spatial nodal coordinates
+REAL(DFP), ALLOCATABLE :: xija(:, :, :), mat(:, :)
+! spatial-temporal nodal coordinates
+REAL(DFP), PARAMETER :: c(1, 2) = RESHAPE([1.0, 1.0], [1, 2])
+TYPE(FEVariable_) :: cvar
 ```
 
 !!! note ""
 First, we initiate a [[ReferenceLine_]] element for time domain. Note that `nsd` should be 1 when making reference element for time domain. Generate the quadrature points, and initiates an instance of [[ElemshapeData_]].
 
 ```fortran
-  refelemForTime= ReferenceLine(nsd=1)
+  refelemForTime = ReferenceLine(nsd=1)
   CALL Initiate(obj=quadFortime, &
 & refelem=refelemForTime,&
 & order=orderForTime, &
-    	& quadratureType="GaussLegendre" )
+     & quadratureType="GaussLegendre")
   CALL Initiate( &
-  	& obj=time_elemsd, &
- 	& quad=quadForTime, &
+   & obj=time_elemsd, &
+  & quad=quadForTime, &
 & refelem=refelemForTime, &
-    	& ContinuityType=typeH1,&
+     & ContinuityType=typeH1,&
 & InterpolType=TypeLagrangeInterpolation)
   CALL Set(obj=time_elemsd, &
 & val=tiJ, N=time_elemsd%N, &
@@ -106,8 +91,8 @@ Generating shape functions for space-elements. Here, we are selecting a triangul
 
 ```fortran
   DO ii = 1, SIZE(test)
-    CALL Initiate( obj=test(ii), &
- 	& quad=quadForSpace, &
+    CALL Initiate(obj=test(ii), &
+  & quad=quadForSpace, &
 & refelem=refelemForSpace, &
       & ContinuityType=typeH1, &
 & InterpolType=TypeLagrangeInterpolation)
@@ -119,14 +104,14 @@ Setting the remaining DATA in obj. Here, `xija` are the space-time nodal coordin
 
 ```fortran
 CALL Reallocate(xija, nsd, nns, nnt)
-   DO ii = 1, nnt; xija(:, :, ii) = xij; END DO
-   DO ii = 1, SIZE(test)
-       CALL Set(obj=test(ii), &
-           & val=xija, &
-		& N=test(ii)%N, &
-           & dNdXi=test(ii)%dNdXi, &
-           & T=test(ii)%T)
-   END DO
+DO ii = 1, nnt; xija(:, :, ii) = xij; END DO
+DO ii = 1, SIZE(test)
+  CALL Set(obj=test(ii), &
+      & val=xija, &
+& N=test(ii)%N, &
+      & dNdXi=test(ii)%dNdXi, &
+      & T=test(ii)%T)
+END DO
 ```
 
 !!! note ""
@@ -137,7 +122,7 @@ cvar = NodalVariable(c, typeFEVariableVector, typeFEVariableSpace)
 ```
 
 ```fortran
-mat=ConvectiveMatrix(test=test, trial=test, term1=del_none, &
+mat = ConvectiveMatrix(test=test, trial=test, term1=del_none, &
     & term2=del_x, c=cvar)
 CALL Display(mat, "mat:")
 ```
@@ -154,7 +139,7 @@ CALL Display(mat, "mat:")
     ```
 
 ```fortran
-mat=ConvectiveMatrix(test=test, trial=test, term1=del_x, &
+mat = ConvectiveMatrix(test=test, trial=test, term1=del_x, &
     & term2=del_none, c=cvar)
 CALL Display(mat, "mat:")
 ```

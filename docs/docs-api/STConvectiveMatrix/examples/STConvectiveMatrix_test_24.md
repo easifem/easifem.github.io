@@ -1,19 +1,4 @@
----
-title: STConvectiveMatrix example 25
-author: Vikas Sharma, Ph.D.
-date: 23 Nov 2021
-update: 23 Nov 2021 
-tags:
-    - ReferenceLine
-    - ReferenceLine/Initiate
-    - QuadraturePoint/Initiate
-    - STElemshapeData
-    - STElemshapeData/Initiate
-    - ConvectiveMatrix
-    - STConvectiveMatrix
----
-
-# STConvectiveMatrix example 26
+# STConvectiveMatrix example 24
 
 !!! note ""
 This example shows how to USE the SUBROUTINE called `STConvectiveMatrix` to create a space-time convective matrix. Triangle3 in space and Line2 in time.
@@ -21,27 +6,27 @@ This example shows how to USE the SUBROUTINE called `STConvectiveMatrix` to crea
 Here, we want to DO the following.
 
 $$
-M(I,J,a,b)=\int_{I_{n}}\int_{\Omega}c\frac{\partial N^{I}T_{a}}{\partial x}\frac{\partial N^{J}T_{b}}{\partial t}d\Omega dt
+M\left( {I,J,a,b} \right) = {\int_{{I_n}}^{} {\int_\Omega ^{} {\frac{{\partial {N^I}{T_a}}}{{\partial x}} c \cdot {N^J}{T_b}d\Omega dt} } }
 $$
 
 $$
-M(I,J,a,b)=\int_{I_{n}}\int_{\Omega}c\frac{\partial N^{I}T_{a}}{\partial y}\frac{\partial N^{J}T_{b}}{\partial t}d\Omega dt
+M\left( {I,J,a,b} \right) = {\int_{{I_n}}^{} {\int_\Omega ^{} {\frac{{\partial {N^I}{T_a}}}{{\partial y}} c \cdot {N^J}{T_b}d\Omega dt} } }
 $$
 
 $$
-M(I,J,a,b)=\int_{I_{n}}\int_{\Omega}c\frac{\partial N^{I}T_{a}}{\partial z}\frac{\partial N^{J}T_{b}}{\partial t}d\Omega dt
+M\left( {I,J,a,b} \right) = {\int_{{I_n}}^{} {\int_\Omega ^{} {\frac{{\partial {N^I}{T_a}}}{{\partial z}} c \cdot {N^J}{T_b}d\Omega dt} } }
 $$
 
 $$
-M(I,J,a,b)=\int_{I_{n}}\int_{\Omega}c\frac{\partial N^{I}T_{a}}{\partial t}\frac{\partial N^{J}T_{b}}{\partial x}d\Omega dt
+M\left( {I,J,a,b} \right) = {\int_{{I_n}}^{} {\int_\Omega ^{} {{N^J}{T_b} c \cdot \frac{{\partial {N^J}{T_b}}}{{\partial x}}d\Omega dt} } }
 $$
 
 $$
-M(I,J,a,b)=\int_{I_{n}}\int_{\Omega}c\frac{\partial N^{I}T_{a}}{\partial t}\frac{\partial N^{J}T_{b}}{\partial y}d\Omega dt
+M\left( {I,J,a,b} \right) = {\int_{{I_n}}^{} {\int_\Omega ^{} {{N^J}{T_b} c \cdot \frac{{\partial {N^J}{T_b}}}{{\partial y}}d\Omega dt} } }
 $$
 
 $$
-M(I,J,a,b)=\int_{I_{n}}\int_{\Omega}c\frac{\partial N^{I}T_{a}}{\partial t}\frac{\partial N^{J}T_{b}}{\partial z}d\Omega dt
+M\left( {I,J,a,b} \right) = {\int_{{I_n}}^{} {\int_\Omega ^{} {{N^J}{T_b} c \cdot \frac{{\partial {N^J}{T_b}}}{{\partial z}}d\Omega dt} } }
 $$
 
 !!! warning ""
@@ -52,7 +37,7 @@ In this example, convective matrix is formed for
 - [[ReferenceTriangle_]] Triangle3 element for space
 - [[ReferenceLine_]] Line2 element for time
 - [[QuadraturePoint_]] `GaussLegendre`
-- constant value of $c$
+- Constant $c$
 
 ## Modules and classes
 
@@ -82,7 +67,7 @@ PROGRAM main
     ! spatial nodal coordinates
     REAL(DFP), ALLOCATABLE :: xija(:, :, :), mat(:,:)
     ! spatial-temporal nodal coordinates
-    REAL(DFP), parameter :: c(2)=[1.0, 1.0]
+    REAL(DFP), parameter :: c=1.0
     type(FEVariable_) :: cvar
 ```
 
@@ -153,53 +138,47 @@ CALL Reallocate(xija, nsd, nns, nnt)
 Let us now create the space-time convective matrix.
 
 ```fortran
-cvar = NodalVariable(c, typeFEVariableVector, typeFEVariableConstant)
+cvar = NodalVariable(c, typeFEVariableScalar, typeFEVariableConstant)
 ```
 
 ```fortran
 mat=ConvectiveMatrix(test=test, trial=test, &
-    & term1=del_x_all, term2=del_x, &
-    & c=cvar, projectOn='trial' )
+    & term1=del_none, term2=del_x, &
+    & c=cvar)
 CALL Display(mat, "mat:")
 ```
 
 ??? example "Results"
 
     ```bash
-                                    mat:                                   
-    --------------------------------------------------------------------------
-    0.666667  -0.333333  -0.333333   0.333333  -0.166667  -0.166667
-    -0.666667   0.333333   0.333333  -0.333333   0.166667   0.166667
-    0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
-    0.666667  -0.333333  -0.333333   0.333333  -0.166667  -0.166667
-    0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
-    -0.666667   0.333333   0.333333  -0.333333   0.166667   0.166667
-    0.333333  -0.166667  -0.166667   0.666667  -0.333333  -0.333333
-    -0.333333   0.166667   0.166667  -0.666667   0.333333   0.333333
-    0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
-    0.333333  -0.166667  -0.166667   0.666667  -0.333333  -0.333333
-    0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
-    -0.333333   0.166667   0.166667  -0.666667   0.333333   0.333333    
+                                mat:                            
+    ------------------------------------------------------------
+    -0.111111  0.111111  0.000000  -0.055556  0.055556  0.000000
+    -0.111111  0.111111  0.000000  -0.055556  0.055556  0.000000
+    -0.111111  0.111111  0.000000  -0.055556  0.055556  0.000000
+    -0.055556  0.055556  0.000000  -0.111111  0.111111  0.000000
+    -0.055556  0.055556  0.000000  -0.111111  0.111111  0.000000
+    -0.055556  0.055556  0.000000  -0.111111  0.111111  0.000000
     ```
 
 ```fortran
-mat=convectivematrix(test=test, trial=test, &
-    & term1=del_x, term2=del_x_all, &
-    & c=cvar, projecton='test' )
+mat=ConvectiveMatrix(test=test, trial=test, &
+    & term1=del_x, term2=del_none, &
+    & c=cvar)
 CALL Display(mat, "mat:")
 ```
 
 ??? example "Results"
 
     ```bash
-                                        mat:                                    
-    ----------------------------------------------------------------------------
-    0.666667  -0.666667  0.000000   0.666667  0.000000  -0.666667   0.333333  -0.333333  0.000000   0.333333  0.000000  -0.333333
-    -0.333333   0.333333  0.000000  -0.333333  0.000000   0.333333  -0.166667   0.166667  0.000000  -0.166667  0.000000   0.166667
-    -0.333333   0.333333  0.000000  -0.333333  0.000000   0.333333  -0.166667   0.166667  0.000000  -0.166667  0.000000   0.166667
-    0.333333  -0.333333  0.000000   0.333333  0.000000  -0.333333   0.666667  -0.666667  0.000000   0.666667  0.000000  -0.666667
-    -0.166667   0.166667  0.000000  -0.166667  0.000000   0.166667  -0.333333   0.333333  0.000000  -0.333333  0.000000   0.333333
-    -0.166667   0.166667  0.000000  -0.166667  0.000000   0.166667  -0.333333   0.333333  0.000000  -0.333333  0.000000   0.333333    
+                                mat:                              
+    ----------------------------------------------------------------
+    -0.111111  -0.111111  -0.111111  -0.055556  -0.055556  -0.055556
+    0.111111   0.111111   0.111111   0.055556   0.055556   0.055556
+    0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
+    -0.055556  -0.055556  -0.055556  -0.111111  -0.111111  -0.111111
+    0.055556   0.055556   0.055556   0.111111   0.111111   0.111111
+    0.000000   0.000000   0.000000   0.000000   0.000000   0.000000
     ```
 
 !!! settings "Cleanup"
