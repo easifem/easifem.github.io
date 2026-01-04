@@ -1,4 +1,6 @@
-This example demonstrates the multiplication of two Scalar FEVariables. The variables `obj1`, `obj2` can be `constant`, `space`, `time`, or `spaceTime`. The `varType` of ans depends on the `varType` of `obj1` and `obj2`.
+- This example demonstrates the multiplication of two Scalar FEVariables.
+- The variables `obj1`, `obj2` can be `constant`, `space`, `time`, or `spaceTime`.
+- The `varType` of ans depends on the `varType` of `obj1` and `obj2`.
 
 import CodeBlock from '@theme/CodeBlock';
 

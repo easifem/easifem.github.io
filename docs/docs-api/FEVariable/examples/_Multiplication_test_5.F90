@@ -1,10 +1,11 @@
 !> author: Vikas Sharma, Ph. D.
 ! date: 2025-12-28
 ! This example tests multiplication (*) operator.
-! obj1 is vector
-! obj2 is vector
+! obj1 Vector
+! obj2 Scalar
 
 #define OP *
+
 PROGRAM main
 USE BaseType
 USE FEVariable_Method
@@ -28,10 +29,6 @@ CALL test11
 CALL test12
 CALL test13
 CALL test14
-CALL test15
-CALL test16
-CALL test17
-CALL test18
 
 CONTAINS
 
@@ -41,28 +38,26 @@ CONTAINS
 
 SUBROUTINE test1
   TYPE(FEVariable_) :: obj1, obj2, ans, want
+  REAL(DFP) :: val1, val2(2), wantVal(2)
   LOGICAL(LGT) :: isok
-  REAL(DFP) :: val1(2), val2(2), wantVal(2)
 
   CHARACTER(*), PARAMETER :: testName = &
-                             "test1: vector vector constant constant"
-
+                             "test1: vector scalar constant constant"
   CALL RANDOM_NUMBER(val1)
-  obj1 = NodalVariable(val1, TypeFEVariableVector, TypeFEVariableConstant)
+  obj1 = NodalVariable(val1, TypeFEVariableScalar, TypeFEVariableConstant)
 
   CALL RANDOM_NUMBER(val2)
   obj2 = NodalVariable(val2, TypeFEVariableVector, TypeFEVariableConstant)
 
   ans = NodalVariable( &
-        tsize=SIZE(val1), &
+        tsize=SIZE(val2, 1), &
         rank=TypeFEVariableVector, &
-        varType=TypeFEVariableConstant)
+        vartype=TypeFEVariableConstant)
 
   wantVal = val1 OP val2
   want = NodalVariable(wantVal, TypeFEVariableVector, TypeFEVariableConstant)
 
-  CALL EqualLine()
-  CALL Multiplication_(obj1, obj2, ans)
+  CALL Multiplication_(obj2, obj1, ans)
   isok = ans .EQ. want
   CALL OK(isok, testName)
 
@@ -79,14 +74,15 @@ END SUBROUTINE test1
 
 SUBROUTINE test2
   TYPE(FEVariable_) :: obj1, obj2, ans, want
-  REAL(DFP) :: val1(2), val2(2, 3), wantVal(2, 3)
+  REAL(DFP) :: val1, val2(2, 3), wantVal(2, 3)
   INTEGER(I4B) :: ii
   LOGICAL(LGT) :: isok
 
   CHARACTER(*), PARAMETER :: testName = &
-                             "test2: Vector Vector constant space"
+                             "test2: scalar vector constant space"
+
   CALL RANDOM_NUMBER(val1)
-  obj1 = NodalVariable(val1, TypeFEVariableVector, TypeFEVariableConstant)
+  obj1 = NodalVariable(val1, TypeFEVariableScalar, TypeFEVariableConstant)
 
   CALL RANDOM_NUMBER(val2)
   obj2 = NodalVariable(val2, TypeFEVariableVector, TypeFEVariableSpace)
@@ -95,15 +91,12 @@ SUBROUTINE test2
         nrow=SIZE(val2, 1), &
         ncol=SIZE(val2, 2), &
         rank=TypeFEVariableVector, &
-        varType=TypeFEVariableSpace)
+        vartype=TypeFEVariableSpace)
 
-  DO ii = 1, SIZE(val2, 2)
-    wantVal(:, ii) = val1 OP val2(:, ii)
-  END DO
-
+  wantVal = val1 OP val2
   want = NodalVariable(wantVal, TypeFEVariableVector, TypeFEVariableSpace)
 
-  CALL Multiplication_(obj1, obj2, ans)
+  CALL Multiplication_(obj2, obj1, ans)
   isok = ans .EQ. want
   CALL OK(isok, testName)
 
@@ -120,14 +113,14 @@ END SUBROUTINE test2
 
 SUBROUTINE test3
   TYPE(FEVariable_) :: obj1, obj2, ans, want
+  REAL(DFP) :: val1, val2(2, 3), wantVal(2, 3)
   LOGICAL(LGT) :: isok
-  REAL(DFP) :: val1(2), val2(2, 3), wantVal(2, 3)
-  INTEGER(I4B) :: ii
+
   CHARACTER(*), PARAMETER :: testName = &
-                             "test3: Vector Vector constant time"
+                             "test3: scalar vector constant time"
 
   CALL RANDOM_NUMBER(val1)
-  obj1 = NodalVariable(val1, TypeFEVariableVector, TypeFEVariableConstant)
+  obj1 = NodalVariable(val1, TypeFEVariableScalar, TypeFEVariableConstant)
 
   CALL RANDOM_NUMBER(val2)
   obj2 = NodalVariable(val2, TypeFEVariableVector, TypeFEVariableTime)
@@ -136,15 +129,12 @@ SUBROUTINE test3
         nrow=SIZE(val2, 1), &
         ncol=SIZE(val2, 2), &
         rank=TypeFEVariableVector, &
-        varType=TypeFEVariableTime)
+        vartype=TypeFEVariableTime)
 
-  DO ii = 1, SIZE(val2, 2)
-    wantVal(:, ii) = val1 OP val2(:, ii)
-  END DO
-
+  wantVal = val1 OP val2
   want = NodalVariable(wantVal, TypeFEVariableVector, TypeFEVariableTime)
 
-  CALL Multiplication_(obj1, obj2, ans)
+  CALL Multiplication_(obj2, obj1, ans)
   isok = ans .EQ. want
   CALL OK(isok, testName)
 
@@ -161,15 +151,14 @@ END SUBROUTINE test3
 
 SUBROUTINE test4
   TYPE(FEVariable_) :: obj1, obj2, ans, want
-  REAL(DFP) :: val1(2), val2(2, 3, 4), wantVal(2, 3, 4)
-  INTEGER(I4B) :: ii, jj
+  REAL(DFP) :: val1, val2(2, 3, 4), wantVal(2, 3, 4)
   LOGICAL(LGT) :: isok
 
   CHARACTER(*), PARAMETER :: testName = &
-                             "test4: Vector Vector constant spacetime"
+                             "test4: scalar vector constant spacetime"
 
   CALL RANDOM_NUMBER(val1)
-  obj1 = NodalVariable(val1, TypeFEVariableVector, TypeFEVariableConstant)
+  obj1 = NodalVariable(val1, TypeFEVariableScalar, TypeFEVariableConstant)
 
   CALL RANDOM_NUMBER(val2)
   obj2 = NodalVariable(val2, TypeFEVariableVector, TypeFEVariableSpaceTime)
@@ -181,21 +170,15 @@ SUBROUTINE test4
         rank=TypeFEVariableVector, &
         vartype=TypeFEVariableSpaceTime)
 
-  DO jj = 1, SIZE(val2, 3)
-    DO ii = 1, SIZE(val2, 2)
-      wantVal(:, ii, jj) = val1 OP val2(:, ii, jj)
-    END DO
-  END DO
-
+  wantVal = val1 OP val2
   want = NodalVariable( &
          wantVal, TypeFEVariableVector, TypeFEVariableSpaceTime)
 
-  CALL Multiplication_(obj1, obj2, ans)
+  CALL Multiplication_(obj2, obj1, ans)
   isok = ans .EQ. want
-
   CALL OK(isok, testName)
-
   CALL DEALLOCATE (ans)
+
   ans = obj1 OP obj2
   isok = ans .EQ. want
   CALL OK(isok, testName)
@@ -208,38 +191,36 @@ END SUBROUTINE test4
 
 SUBROUTINE test5
   TYPE(FEVariable_) :: obj1, obj2, ans, want
-  REAL(DFP) :: val1(2, 3), val2(2), wantVal(2, 3)
+  REAL(DFP) :: val1(2), val2(3), wantVal(3, 2)
   INTEGER(I4B) :: ii
   LOGICAL(LGT) :: isok
 
   CHARACTER(*), PARAMETER :: testName = &
-                             "test5: Vector Vector space constant"
+                             "test5: scalar vector space constant"
 
   CALL RANDOM_NUMBER(val1)
-  obj1 = NodalVariable(val1, TypeFEVariableVector, TypeFEVariableSpace)
+  obj1 = NodalVariable(val1, TypeFEVariableScalar, TypeFEVariableSpace)
 
   CALL RANDOM_NUMBER(val2)
   obj2 = NodalVariable(val2, TypeFEVariableVector, TypeFEVariableConstant)
 
   ans = NodalVariable( &
-        nrow=SIZE(val1, 1), &
-        ncol=SIZE(val1, 2), &
+        nrow=SIZE(wantVal, 1), &
+        ncol=SIZE(wantVal, 2), &
         rank=TypeFEVariableVector, &
         vartype=TypeFEVariableSpace)
 
-  DO ii = 1, SIZE(val1, 2)
-    wantVal(:, ii) = val1(:, ii) OP val2(:)
+  DO ii = 1, SIZE(wantVal, 2)
+    wantVal(:, ii) = val1(ii) OP val2(:)
   END DO
 
   want = NodalVariable( &
          wantVal, TypeFEVariableVector, TypeFEVariableSpace)
 
-  CALL Multiplication_(obj1, obj2, ans)
+  CALL Multiplication_(obj2, obj1, ans)
   isok = ans .EQ. want
-
   CALL OK(isok, testName)
 
-  CALL DEALLOCATE (ans)
   ans = obj1 OP obj2
   isok = ans .EQ. want
   CALL OK(isok, testName)
@@ -252,39 +233,40 @@ END SUBROUTINE test5
 
 SUBROUTINE test6
   TYPE(FEVariable_) :: obj1, obj2, ans, want
-  REAL(DFP) :: val2(2, 3), val1(2, 3), wantVal(2, 3)
+  REAL(DFP) :: val1(2), val2(3, 2), wantVal(3, 2)
+  INTEGER(I4B) :: ii
   LOGICAL(LGT) :: isok
 
   CHARACTER(*), PARAMETER :: testName = &
-                             "test6: Vector Vector space space"
+                             "test6: scalar vector space space"
 
   CALL RANDOM_NUMBER(val1)
-  obj1 = NodalVariable(val1, TypeFEVariableVector, TypeFEVariableSpace)
+  obj1 = NodalVariable(val1, TypeFEVariableScalar, TypeFEVariableSpace)
 
   CALL RANDOM_NUMBER(val2)
   obj2 = NodalVariable(val2, TypeFEVariableVector, TypeFEVariableSpace)
 
   ans = NodalVariable( &
-        nrow=SIZE(val1, 1), &
-        ncol=SIZE(val1, 2), &
+        nrow=SIZE(wantVal, 1), &
+        ncol=SIZE(wantVal, 2), &
         rank=TypeFEVariableVector, &
         vartype=TypeFEVariableSpace)
 
-  wantVal = val1 OP val2
+  DO ii = 1, SIZE(wantVal, 2)
+    wantVal(:, ii) = val1(ii) OP val2(:, ii)
+  END DO
+
   want = NodalVariable( &
          wantVal, TypeFEVariableVector, TypeFEVariableSpace)
 
-  CALL Multiplication_(obj1, obj2, ans)
+  CALL Multiplication_(obj2, obj1, ans)
   isok = ans .EQ. want
-
   CALL OK(isok, testName)
 
-  CALL DEALLOCATE (ans)
   ans = obj1 OP obj2
   isok = ans .EQ. want
   CALL OK(isok, testName)
   CALL EqualLine()
-
 END SUBROUTINE test6
 
 !----------------------------------------------------------------------------
@@ -293,41 +275,39 @@ END SUBROUTINE test6
 
 SUBROUTINE test7
   TYPE(FEVariable_) :: obj1, obj2, ans, want
-  REAL(DFP) :: val1(2, 3), val2(2, 3, 4), wantVal(2, 3, 4)
+  REAL(DFP) :: val1(2), val2(3, 2, 1), wantVal(3, 2, 1)
   INTEGER(I4B) :: ii, jj
   LOGICAL(LGT) :: isok
 
   CHARACTER(*), PARAMETER :: testName = &
-                             "test7: Vector Vector space spacetime"
+                             "test7: scalar vector space spacetime"
 
   CALL RANDOM_NUMBER(val1)
-  obj1 = NodalVariable(val1, TypeFEVariableVector, TypeFEVariableSpace)
+  obj1 = NodalVariable(val1, TypeFEVariableScalar, TypeFEVariableSpace)
 
   CALL RANDOM_NUMBER(val2)
   obj2 = NodalVariable(val2, TypeFEVariableVector, TypeFEVariableSpaceTime)
 
   ans = NodalVariable( &
-        dim1=SIZE(val2, 1), &
-        dim2=SIZE(val2, 2), &
-        dim3=SIZE(val2, 3), &
+        dim1=SIZE(wantVal, 1), &
+        dim2=SIZE(wantVal, 2), &
+        dim3=SIZE(wantVal, 3), &
         rank=TypeFEVariableVector, &
         vartype=TypeFEVariableSpaceTime)
 
-  DO jj = 1, SIZE(val2, 3)
-    DO ii = 1, SIZE(val2, 2)
-      wantVal(:, ii, jj) = val1(:, ii) OP val2(:, ii, jj)
+  DO jj = 1, SIZE(wantVal, 3)
+    DO ii = 1, SIZE(wantVal, 2)
+      wantVal(:, ii, jj) = val1(ii) OP val2(:, ii, jj)
     END DO
   END DO
 
   want = NodalVariable( &
          wantVal, TypeFEVariableVector, TypeFEVariableSpaceTime)
 
-  CALL Multiplication_(obj1, obj2, ans)
+  CALL Multiplication_(obj2, obj1, ans)
   isok = ans .EQ. want
-
   CALL OK(isok, testName)
 
-  CALL DEALLOCATE (ans)
   ans = obj1 OP obj2
   isok = ans .EQ. want
   CALL OK(isok, testName)
@@ -340,37 +320,36 @@ END SUBROUTINE test7
 
 SUBROUTINE test8
   TYPE(FEVariable_) :: obj1, obj2, ans, want
-  REAL(DFP) :: val1(2, 3), val2(2), wantVal(2, 3)
+  REAL(DFP) :: val1(2), val2(3), wantVal(3, 2)
   INTEGER(I4B) :: ii
   LOGICAL(LGT) :: isok
 
   CHARACTER(*), PARAMETER :: testName = &
-                             "test8: Vector Vector time constant"
+                             "test8: scalar vector time constant"
 
   CALL RANDOM_NUMBER(val1)
-  obj1 = NodalVariable(val1, TypeFEVariableVector, TypeFEVariableTime)
+  obj1 = NodalVariable(val1, TypeFEVariableScalar, TypeFEVariableTime)
 
   CALL RANDOM_NUMBER(val2)
   obj2 = NodalVariable(val2, TypeFEVariableVector, TypeFEVariableConstant)
 
   ans = NodalVariable( &
-        nrow=SIZE(val1, 1), &
-        ncol=SIZE(val1, 2), &
+        nrow=SIZE(wantVal, 1), &
+        ncol=SIZE(wantVal, 2), &
         rank=TypeFEVariableVector, &
         vartype=TypeFEVariableTime)
 
-  DO ii = 1, SIZE(val1, 2)
-    wantVal(:, ii) = val1(:, ii) OP val2(:)
+  DO ii = 1, SIZE(wantVal, 2)
+    wantVal(:, ii) = val1(ii) OP val2(:)
   END DO
 
   want = NodalVariable( &
          wantVal, TypeFEVariableVector, TypeFEVariableTime)
 
-  CALL Multiplication_(obj1, obj2, ans)
+  CALL Multiplication_(obj2, obj1, ans)
   isok = ans .EQ. want
-
   CALL OK(isok, testName)
-  CALL DEALLOCATE (ans)
+
   ans = obj1 OP obj2
   isok = ans .EQ. want
   CALL OK(isok, testName)
@@ -383,34 +362,35 @@ END SUBROUTINE test8
 
 SUBROUTINE test9
   TYPE(FEVariable_) :: obj1, obj2, ans, want
-  REAL(DFP) :: val1(2, 3), val2(2, 3), wantVal(2, 3)
+  REAL(DFP) :: val1(2), val2(3, 2), wantVal(3, 2)
+  INTEGER(I4B) :: ii
   LOGICAL(LGT) :: isok
-
   CHARACTER(*), PARAMETER :: testName = &
-                             "test9: Vector Vector time time"
+                             "test9: scalar vector time time"
 
   CALL RANDOM_NUMBER(val1)
-  obj1 = NodalVariable(val1, TypeFEVariableVector, TypeFEVariableTime)
+  obj1 = NodalVariable(val1, TypeFEVariableScalar, TypeFEVariableTime)
 
   CALL RANDOM_NUMBER(val2)
   obj2 = NodalVariable(val2, TypeFEVariableVector, TypeFEVariableTime)
 
   ans = NodalVariable( &
-        nrow=SIZE(val1, 1), &
-        ncol=SIZE(val1, 2), &
+        nrow=SIZE(wantVal, 1), &
+        ncol=SIZE(wantVal, 2), &
         rank=TypeFEVariableVector, &
         vartype=TypeFEVariableTime)
 
-  wantVal = val1 OP val2
+  DO ii = 1, SIZE(wantVal, 2)
+    wantVal(:, ii) = val1(ii) OP val2(:, ii)
+  END DO
 
   want = NodalVariable( &
          wantVal, TypeFEVariableVector, TypeFEVariableTime)
 
-  CALL Multiplication_(obj1, obj2, ans)
+  CALL Multiplication_(obj2, obj1, ans)
   isok = ans .EQ. want
   CALL OK(isok, testName)
 
-  CALL DEALLOCATE (ans)
   ans = obj1 OP obj2
   isok = ans .EQ. want
   CALL OK(isok, testName)
@@ -423,40 +403,39 @@ END SUBROUTINE test9
 
 SUBROUTINE test10
   TYPE(FEVariable_) :: obj1, obj2, ans, want
-  REAL(DFP) :: val1(2, 4), val2(2, 3, 4), wantVal(2, 3, 4)
+  REAL(DFP) :: val1(1), val2(2, 3, 1), wantVal(2, 3, 1)
   INTEGER(I4B) :: ii, jj
   LOGICAL(LGT) :: isok
 
   CHARACTER(*), PARAMETER :: testName = &
-                             "test10: Vector Vector time spacetime"
+                             "test10: scalar vector time spacetime"
 
   CALL RANDOM_NUMBER(val1)
-  obj1 = NodalVariable(val1, TypeFEVariableVector, TypeFEVariableTime)
+  obj1 = NodalVariable(val1, TypeFEVariableScalar, TypeFEVariableTime)
 
   CALL RANDOM_NUMBER(val2)
   obj2 = NodalVariable(val2, TypeFEVariableVector, TypeFEVariableSpaceTime)
 
   ans = NodalVariable( &
-        dim1=SIZE(val2, 1), &
-        dim2=SIZE(val2, 2), &
-        dim3=SIZE(val2, 3), &
+        dim1=SIZE(wantVal, 1), &
+        dim2=SIZE(wantVal, 2), &
+        dim3=SIZE(wantVal, 3), &
         rank=TypeFEVariableVector, &
         vartype=TypeFEVariableSpaceTime)
 
-  DO jj = 1, SIZE(val2, 3)
+  DO jj = 1, SIZE(wantVal, 3)
     DO ii = 1, SIZE(val2, 2)
-      wantVal(:, ii, jj) = val1(:, jj) OP val2(:, ii, jj)
+      wantVal(:, ii, jj) = val1(jj) OP val2(:, ii, jj)
     END DO
   END DO
 
   want = NodalVariable( &
          wantVal, TypeFEVariableVector, TypeFEVariableSpaceTime)
 
-  CALL Multiplication_(obj1, obj2, ans)
+  CALL Multiplication_(obj2, obj1, ans)
   isok = ans .EQ. want
   CALL OK(isok, testName)
 
-  CALL DEALLOCATE (ans)
   ans = obj1 OP obj2
   isok = ans .EQ. want
   CALL OK(isok, testName)
@@ -469,40 +448,39 @@ END SUBROUTINE test10
 
 SUBROUTINE test11
   TYPE(FEVariable_) :: obj1, obj2, ans, want
-  REAL(DFP) :: val1(2, 3, 4), val2(2), wantVal(2, 3, 4)
-  LOGICAL(LGT) :: isok
+  REAL(DFP) :: val1(2, 1), val2(3), wantVal(3, 2, 1)
   INTEGER(I4B) :: ii, jj
+  LOGICAL(LGT) :: isok
 
   CHARACTER(*), PARAMETER :: testName = &
-                             "test11: Vector Vector spacetime constant"
+                             "test11: scalar vector spacetime constant"
 
   CALL RANDOM_NUMBER(val1)
-  obj1 = NodalVariable(val1, TypeFEVariableVector, TypeFEVariableSpaceTime)
+  obj1 = NodalVariable(val1, TypeFEVariableScalar, TypeFEVariableSpaceTime)
 
   CALL RANDOM_NUMBER(val2)
   obj2 = NodalVariable(val2, TypeFEVariableVector, TypeFEVariableConstant)
 
   ans = NodalVariable( &
-        dim1=SIZE(val1, 1), &
-        dim2=SIZE(val1, 2), &
-        dim3=SIZE(val1, 3), &
+        dim1=SIZE(wantVal, 1), &
+        dim2=SIZE(wantVal, 2), &
+        dim3=SIZE(wantVal, 3), &
         rank=TypeFEVariableVector, &
         vartype=TypeFEVariableSpaceTime)
 
-  DO jj = 1, SIZE(val1, 3)
-    DO ii = 1, SIZE(val1, 2)
-      wantVal(:, ii, jj) = val1(:, ii, jj) OP val2(:)
+  DO jj = 1, SIZE(wantVal, 3)
+    DO ii = 1, SIZE(wantVal, 2)
+      wantVal(:, ii, jj) = val1(ii, jj) OP val2(:)
     END DO
   END DO
 
   want = NodalVariable( &
          wantVal, TypeFEVariableVector, TypeFEVariableSpaceTime)
 
-  CALL Multiplication_(obj1, obj2, ans)
+  CALL Multiplication_(obj2, obj1, ans)
   isok = ans .EQ. want
   CALL OK(isok, testName)
 
-  CALL DEALLOCATE (ans)
   ans = obj1 OP obj2
   isok = ans .EQ. want
   CALL OK(isok, testName)
@@ -515,40 +493,39 @@ END SUBROUTINE test11
 
 SUBROUTINE test12
   TYPE(FEVariable_) :: obj1, obj2, ans, want
-  REAL(DFP) :: val1(2, 3, 4), val2(2, 3), wantVal(2, 3, 4)
+  REAL(DFP) :: val1(2, 3), val2(3, 2), wantVal(3, 2, 3)
   INTEGER(I4B) :: ii, jj
   LOGICAL(LGT) :: isok
 
   CHARACTER(*), PARAMETER :: testName = &
-                             "test12: Vector Vector spacetime space"
+                             "test12: scalar vector spacetime space"
 
   CALL RANDOM_NUMBER(val1)
-  obj1 = NodalVariable(val1, TypeFEVariableVector, TypeFEVariableSpaceTime)
+  obj1 = NodalVariable(val1, TypeFEVariableScalar, TypeFEVariableSpaceTime)
 
   CALL RANDOM_NUMBER(val2)
   obj2 = NodalVariable(val2, TypeFEVariableVector, TypeFEVariableSpace)
 
   ans = NodalVariable( &
-        dim1=SIZE(val1, 1), &
-        dim2=SIZE(val1, 2), &
-        dim3=SIZE(val1, 3), &
+        dim1=SIZE(wantVal, 1), &
+        dim2=SIZE(wantVal, 2), &
+        dim3=SIZE(wantVal, 3), &
         rank=TypeFEVariableVector, &
         vartype=TypeFEVariableSpaceTime)
 
-  DO jj = 1, SIZE(val1, 3)
-    DO ii = 1, SIZE(val1, 2)
-      wantVal(:, ii, jj) = val1(:, ii, jj) OP val2(:, ii)
+  DO jj = 1, SIZE(wantVal, 3)
+    DO ii = 1, SIZE(wantVal, 2)
+      wantVal(:, ii, jj) = val1(ii, jj) OP val2(:, ii)
     END DO
   END DO
 
   want = NodalVariable( &
          wantVal, TypeFEVariableVector, TypeFEVariableSpaceTime)
 
-  CALL Multiplication_(obj1, obj2, ans)
+  CALL Multiplication_(obj2, obj1, ans)
   isok = ans .EQ. want
   CALL OK(isok, testName)
 
-  CALL DEALLOCATE (ans)
   ans = obj1 OP obj2
   isok = ans .EQ. want
   CALL OK(isok, testName)
@@ -561,40 +538,43 @@ END SUBROUTINE test12
 
 SUBROUTINE test13
   TYPE(FEVariable_) :: obj1, obj2, ans, want
-  REAL(DFP) :: val1(2, 3, 4), val2(2, 4), wantVal(2, 3, 4)
+  REAL(DFP) :: val1(2, 3), val2(1, 3), wantVal(1, 2, 3)
   INTEGER(I4B) :: ii, jj
   LOGICAL(LGT) :: isok
 
   CHARACTER(*), PARAMETER :: testName = &
-                             "test13: Vector Vector spacetime time"
+                             "test13: scalar vector spacetime time"
 
   CALL RANDOM_NUMBER(val1)
-  obj1 = NodalVariable(val1, TypeFEVariableVector, TypeFEVariableSpaceTime)
+  obj1 = NodalVariable(val1, TypeFEVariableScalar, TypeFEVariableSpaceTime)
 
   CALL RANDOM_NUMBER(val2)
   obj2 = NodalVariable(val2, TypeFEVariableVector, TypeFEVariableTime)
 
   ans = NodalVariable( &
-        dim1=SIZE(val1, 1), &
-        dim2=SIZE(val1, 2), &
-        dim3=SIZE(val1, 3), &
+        dim1=SIZE(wantVal, 1), &
+        dim2=SIZE(wantVal, 2), &
+        dim3=SIZE(wantVal, 3), &
         rank=TypeFEVariableVector, &
         vartype=TypeFEVariableSpaceTime)
 
-  DO jj = 1, SIZE(val1, 3)
-    DO ii = 1, SIZE(val1, 2)
-      wantVal(:, ii, jj) = val1(:, ii, jj) OP val2(:, jj)
+  DO jj = 1, SIZE(wantVal, 3)
+    DO ii = 1, SIZE(wantVal, 2)
+      wantVal(:, ii, jj) = val1(ii, jj) OP val2(:, jj)
     END DO
   END DO
 
   want = NodalVariable( &
          wantVal, TypeFEVariableVector, TypeFEVariableSpaceTime)
 
-  CALL Multiplication_(obj1, obj2, ans)
-
+  CALL Multiplication_(obj2, obj1, ans)
   isok = ans .EQ. want
-
   CALL OK(isok, testName)
+
+  ans = obj1 OP obj2
+  isok = ans .EQ. want
+  CALL OK(isok, testName)
+  CALL EqualLine()
 END SUBROUTINE test13
 
 !----------------------------------------------------------------------------
@@ -603,193 +583,44 @@ END SUBROUTINE test13
 
 SUBROUTINE test14
   TYPE(FEVariable_) :: obj1, obj2, ans, want
-  REAL(DFP) :: val1(2, 3, 4), val2(2, 3, 4), wantVal(2, 3, 4)
+  REAL(DFP) :: val1(2, 3), val2(1, 2, 3), wantVal(1, 2, 3)
   LOGICAL(LGT) :: isok
+  INTEGER(I4B) :: ii, jj
 
   CHARACTER(*), PARAMETER :: testName = &
-                             "test14: Vector Vector spacetime spacetime"
+                             "test14: scalar vector spacetime spacetime"
 
   CALL RANDOM_NUMBER(val1)
-  obj1 = NodalVariable(val1, TypeFEVariableVector, TypeFEVariableSpaceTime)
+  obj1 = NodalVariable(val1, TypeFEVariableScalar, TypeFEVariableSpaceTime)
 
   CALL RANDOM_NUMBER(val2)
   obj2 = NodalVariable(val2, TypeFEVariableVector, TypeFEVariableSpaceTime)
 
   ans = NodalVariable( &
-        dim1=SIZE(val1, 1), &
-        dim2=SIZE(val1, 2), &
-        dim3=SIZE(val1, 3), &
+        dim1=SIZE(wantVal, 1), &
+        dim2=SIZE(wantVal, 2), &
+        dim3=SIZE(wantVal, 3), &
         rank=TypeFEVariableVector, &
         vartype=TypeFEVariableSpaceTime)
 
-  wantVal = val1 OP val2
+  DO jj = 1, SIZE(wantVal, 3)
+    DO ii = 1, SIZE(wantVal, 2)
+      wantVal(:, ii, jj) = val1(ii, jj) OP val2(:, ii, jj)
+    END DO
+  END DO
 
   want = NodalVariable( &
          wantVal, TypeFEVariableVector, TypeFEVariableSpaceTime)
 
-  CALL Multiplication_(obj1, obj2, ans)
+  CALL Multiplication_(obj2, obj1, ans)
   isok = ans .EQ. want
   CALL OK(isok, testName)
 
-  CALL DEALLOCATE (ans)
   ans = obj1 OP obj2
   isok = ans .EQ. want
   CALL OK(isok, testName)
   CALL EqualLine()
 END SUBROUTINE test14
-
-!----------------------------------------------------------------------------
-!
-!----------------------------------------------------------------------------
-
-SUBROUTINE test15
-  TYPE(FEVariable_) :: obj1, obj2, ans, want
-  REAL(DFP) :: val1(3), val2, wantVal(3)
-  LOGICAL(LGT) :: isok
-
-  CHARACTER(*), PARAMETER :: testName = &
-                             "test15: Vector real constant"
-
-  CALL RANDOM_NUMBER(val1)
-  obj1 = NodalVariable(val1, TypeFEVariableVector, TypeFEVariableConstant)
-
-  ans = NodalVariable( &
-        tsize=SIZE(wantval, 1), &
-        rank=TypeFEVariableVector, &
-        vartype=TypeFEVariableConstant)
-
-  CALL RANDOM_NUMBER(val2)
-  wantVal = val1 OP val2
-
-  want = NodalVariable( &
-         wantVal, TypeFEVariableVector, TypeFEVariableConstant)
-
-  CALL Multiplication_(obj1, val2, ans)
-  isok = ans .EQ. want
-  CALL OK(isok, testName)
-
-  CALL DEALLOCATE (ans)
-  ans = obj1 OP val2
-  isok = ans .EQ. want
-  CALL OK(isok, testName)
-  CALL EqualLine()
-
-END SUBROUTINE test15
-
-!----------------------------------------------------------------------------
-!
-!----------------------------------------------------------------------------
-
-SUBROUTINE test16
-  TYPE(FEVariable_) :: obj1, obj2, ans, want
-  REAL(DFP) :: val1(2, 3), val2, wantVal(2, 3)
-  LOGICAL(LGT) :: isok
-
-  CHARACTER(*), PARAMETER :: testName = &
-                             "test16: Vector real space"
-
-  CALL RANDOM_NUMBER(val1)
-  obj1 = NodalVariable(val1, TypeFEVariableVector, TypeFEVariableSpace)
-
-  ans = NodalVariable( &
-        nrow=SIZE(wantval, 1), &
-        ncol=SIZE(wantval, 2), &
-        rank=TypeFEVariableVector, &
-        vartype=TypeFEVariableSpace)
-
-  CALL RANDOM_NUMBER(val2)
-  wantVal = val1 OP val2
-
-  want = NodalVariable( &
-         wantVal, TypeFEVariableVector, TypeFEVariableSpace)
-
-  CALL Multiplication_(obj1, val2, ans)
-  isok = ans .EQ. want
-  CALL OK(isok, testName)
-
-  CALL DEALLOCATE (ans)
-  ans = obj1 OP val2
-  isok = ans .EQ. want
-  CALL OK(isok, testName)
-  CALL EqualLine()
-END SUBROUTINE test16
-
-!----------------------------------------------------------------------------
-!
-!----------------------------------------------------------------------------
-
-SUBROUTINE test17
-  TYPE(FEVariable_) :: obj1, obj2, ans, want
-  REAL(DFP) :: val1(2, 3), val2, wantVal(2, 3)
-  LOGICAL(LGT) :: isok
-
-  CHARACTER(*), PARAMETER :: testName = &
-                             "test17: Vector real time"
-
-  CALL RANDOM_NUMBER(val1)
-  obj1 = NodalVariable(val1, TypeFEVariableVector, TypeFEVariableTime)
-
-  ans = NodalVariable( &
-        nrow=SIZE(wantval, 1), &
-        ncol=SIZE(wantval, 2), &
-        rank=TypeFEVariableVector, &
-        vartype=TypeFEVariableTime)
-
-  CALL RANDOM_NUMBER(val2)
-  wantVal = val1 OP val2
-
-  want = NodalVariable( &
-         wantVal, TypeFEVariableVector, TypeFEVariableTime)
-
-  CALL Multiplication_(obj1, val2, ans)
-  isok = ans .EQ. want
-  CALL OK(isok, testName)
-
-  CALL DEALLOCATE (ans)
-  ans = obj1 OP val2
-  isok = ans .EQ. want
-  CALL OK(isok, testName)
-  CALL EqualLine()
-END SUBROUTINE test17
-
-!----------------------------------------------------------------------------
-!
-!----------------------------------------------------------------------------
-
-SUBROUTINE test18
-  TYPE(FEVariable_) :: obj1, obj2, ans, want
-  REAL(DFP) :: val1(2, 3, 4), val2, wantVal(2, 3, 4)
-  LOGICAL(LGT) :: isok
-
-  CHARACTER(*), PARAMETER :: testName = &
-                             "test18: Vector real spacetime"
-
-  CALL RANDOM_NUMBER(val1)
-  obj1 = NodalVariable(val1, TypeFEVariableVector, TypeFEVariableSpaceTime)
-
-  ans = NodalVariable( &
-        dim1=SIZE(wantval, 1), &
-        dim2=SIZE(wantval, 2), &
-        dim3=SIZE(wantval, 3), &
-        rank=TypeFEVariableVector, &
-        vartype=TypeFEVariableSpaceTime)
-
-  CALL RANDOM_NUMBER(val2)
-  wantVal = val1 OP val2
-
-  want = NodalVariable( &
-         wantVal, TypeFEVariableVector, TypeFEVariableSpaceTime)
-
-  CALL Multiplication_(obj1, val2, ans)
-  isok = ans .EQ. want
-  CALL OK(isok, testName)
-
-  CALL DEALLOCATE (ans)
-  ans = obj1 OP val2
-  isok = ans .EQ. want
-  CALL OK(isok, testName)
-  CALL EqualLine()
-END SUBROUTINE test18
 
 END PROGRAM main
 

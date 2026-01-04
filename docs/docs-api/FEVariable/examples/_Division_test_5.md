@@ -1,119 +1,12 @@
----
-title: FEVariable example 42a
-author: Vikas Sharma, Ph. D.
-date: 21 Nov 2021
-update: 21 Nov 2021
-tags:
-  - FEVariable/NodalVariable
-  - FEVariable/Display
----
+This example demonstrates the DIVISION of vector and scalar FEVariables.
 
-# FEVariable example 42a
+- `obj1` is vector FEVariable
+- `obj2` is scalar FEVariable
+- The variables `obj1`, `obj2` can be `constant`, `space`, `time`, or `spaceTime`.
+- The `varType` of ans depends on the `varType` of `obj1` and `obj2`.
 
-!!! note ""
-This example tests / operator. Vector, Nodal
+import CodeBlock from '@theme/CodeBlock';
 
-## Use association
+import CodeSnippet from '!!raw-loader!./_Division_test_5.F90';
 
-- [[FEVariable_]]
-
-## Usage
-
-!!! note "Import modules and declare variable"
-
-```fortran
-PROGRAM main
-  USE easifemBase
-  IMPLICIT NONE
-  TYPE(FEVariable_) :: obj
-```
-
-!!! note "constant / constant"
-
-```fortran
-obj = NodalVariable( arange(1.0_DFP, 3.0_DFP), &
-    & typeFEVariableVector,    &
-    & typeFEVariableConstant ) &
-    / NodalVariable( arange(1.0_DFP, 3.0_DFP), &
-    & typeFEVariableVector,    &
-    & typeFEVariableConstant )
-CALL Display(obj, "constant / constant")
-```
-
-```fortran
-obj = NodalVariable( arange(1.0_DFP, 3.0_DFP), &
-    & typeFEVariableVector,    &
-    & typeFEVariableConstant ) &
-    / 1.0_DFP
-CALL Display(obj, "constant / constant")
-```
-
-!!! note "space / constant"
-
-```fortran
-call display("=================================")
-obj = NodalVariable( reshape(arange(1.0_DFP, 6.0_DFP), [3,2]), &
-    & typeFEVariableVector, &
-    & typeFEVariableSpace ) &
-    / NodalVariable( arange(1.0_DFP, 3.0_DFP), &
-    & typeFEVariableVector,    &
-    & typeFEVariableConstant )
-CALL Display(obj, "space / constant")
-```
-
-```fortran
-call display("=================================")
-obj = NodalVariable( reshape(arange(1.0_DFP, 6.0_DFP), [3,2]), &
-    & typeFEVariableVector, &
-    & typeFEVariableSpace ) &
-    / 1.0_DFP
-CALL Display(obj, "space / constant")
-```
-
-!!! note "time / constant"
-
-```fortran
-call display("=================================")
-obj = NodalVariable( reshape(arange(1.0_DFP, 6.0_DFP), [3,2]), &
-    & typeFEVariableVector, &
-    & typeFEVariableTime ) &
-    / NodalVariable( arange(1.0_DFP, 3.0_DFP), &
-    & typeFEVariableVector,    &
-    & typeFEVariableConstant )
-CALL Display(obj, "time / constant")
-```
-
-```fortran
-call display("=================================")
-obj = NodalVariable( reshape(arange(1.0_DFP, 6.0_DFP), [3,2]), &
-    & typeFEVariableVector, &
-    & typeFEVariableTime ) &
-    / 1.0_DFP
-CALL Display(obj, "time / constant")
-```
-
-!!! note "spacetime / constant"
-
-```fortran
-call display("=================================")
-obj = NodalVariable( reshape(arange(1.0_DFP, 12.0_DFP), [3,2,2]), &
-    & typeFEVariableVector, &
-    & typeFEVariableSpaceTime ) &
-    / NodalVariable( arange(1.0_DFP, 3.0_DFP), &
-    & typeFEVariableVector,    &
-    & typeFEVariableConstant )
-CALL Display(obj, "spacetime / constant")
-```
-
-```fortran
-call display("=================================")
-obj = NodalVariable( reshape(arange(1.0_DFP, 12.0_DFP), [3,2,2]), &
-    & typeFEVariableVector, &
-    & typeFEVariableSpaceTime ) &
-    / 1.0_DFP
-CALL Display(obj, "spacetime / constant")
-```
-
-```fortran
-END PROGRAM main
-```
+<CodeBlock language="fortran">{CodeSnippet}</CodeBlock>

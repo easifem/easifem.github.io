@@ -1,4 +1,4 @@
-This example demonstrates the DIVISION of scalar and matrix FEVariables.
+This example demonstrates the Subtraction of scalar and matrix FEVariables.
 
 - `obj1` is scalar FEVariable
 - `obj2` is matrix FEVariable
@@ -7,6 +7,6 @@ This example demonstrates the DIVISION of scalar and matrix FEVariables.
 
 import CodeBlock from '@theme/CodeBlock';
 
-import CodeSnippet from '!!raw-loader!./_Division_test_6.F90';
+import CodeSnippet from '!!raw-loader!./_Subtraction_test_6.F90';
 
 <CodeBlock language="fortran">{CodeSnippet}</CodeBlock>

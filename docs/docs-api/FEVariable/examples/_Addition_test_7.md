@@ -1,98 +1,12 @@
-This example tests additional (+) operator for scalar quadrature.
+This example demonstrates the Addition of matrix and scalar FEVariables.
 
-```fortran
-PROGRAM main
-  USE easifemBase
-  IMPLICIT NONE
-  TYPE(FEVariable_) :: obj
-```
+- `obj1` is matrix FEVariable
+- `obj2` is scalar FEVariable
+- The variables `obj1`, `obj2` can be `constant`, `space`, `time`, or `spaceTime`.
+- The `varType` of ans depends on the `varType` of `obj1` and `obj2`.
 
-constant+constant
+import CodeBlock from '@theme/CodeBlock';
 
-```fortran
-obj = QuadratureVariable( 1.0_DFP, &
-    & typeFEVariableScalar,    &
-    & typeFEVariableConstant ) &
-    + QuadratureVariable( 2.0_DFP, &
-    & typeFEVariableScalar,    &
-    & typeFEVariableConstant )
-CALL Display(obj, "constant+constant")
-```
+import CodeSnippet from '!!raw-loader!./_Addition_test_7.F90';
 
-```fortran
-obj = QuadratureVariable( 1.0_DFP, &
-    & typeFEVariableScalar,    &
-    & typeFEVariableConstant ) &
-    + 2.0_DFP
-CALL Display(obj, "constant+constant")
-```
-
-space+constant
-
-```fortran
-call display("=================================")
-obj = QuadratureVariable( arange(1.0_DFP, 3.0_DFP), &
-    & typeFEVariableScalar, &
-    & typeFEVariableSpace ) &
-    + QuadratureVariable( 10.0_DFP, &
-    & typeFEVariableScalar,    &
-    & typeFEVariableConstant )
-CALL Display(obj, "space + constant")
-```
-
-```fortran
-call display("=================================")
-obj = QuadratureVariable( arange(1.0_DFP, 3.0_DFP), &
-    & typeFEVariableScalar, &
-    & typeFEVariableSpace ) &
-    + 10.0_DFP
-CALL Display(obj, "space+constant")
-```
-
-time+constant
-
-```fortran
-call display("=================================")
-obj = QuadratureVariable( arange(0.0_DFP, 3.0_DFP), &
-    & typeFEVariableScalar, &
-    & typeFEVariableTime ) &
-    + QuadratureVariable( 10.0_DFP, &
-    & typeFEVariableScalar,    &
-    & typeFEVariableConstant )
-CALL Display(obj, "time+constant")
-```
-
-```fortran
-call display("=================================")
-obj = QuadratureVariable( arange(0.0_DFP, 3.0_DFP), &
-    & typeFEVariableScalar, &
-    & typeFEVariableTime ) &
-    + 10.0_DFP 
-CALL Display(obj, "time+constant")
-```
-
-spacetime+constant
-
-```fortran
-call display("=================================")
-obj = QuadratureVariable( reshape(arange(1.0_DFP, 6.0_DFP), [3,2]), &
-    & typeFEVariableScalar, &
-    & typeFEVariableSpaceTime ) &
-    + QuadratureVariable( 10.0_DFP, &
-    & typeFEVariableScalar,    &
-    & typeFEVariableConstant )
-CALL Display(obj, "spacetime + constant")
-```
-
-```fortran
-call display("=================================")
-obj = QuadratureVariable( reshape(arange(1.0_DFP, 6.0_DFP), [3,2]), &
-    & typeFEVariableScalar, &
-    & typeFEVariableSpaceTime ) &
-    + 10.0_DFP
-CALL Display(obj, "spacetime+constant")
-```
-
-```fortran
-END PROGRAM main
-```
+<CodeBlock language="fortran">{CodeSnippet}</CodeBlock>

@@ -1,7 +1,9 @@
-This example demonstrates the multiplication of two Vector FEVariables. The variables `obj1`, `obj2` can be `constant`, `space`, `time`, or `spaceTime`. The `varType` of ans depends on the `varType` of `obj1` and `obj2`.
+- This example demonstrates the multiplication of two Vector FEVariables.
+- The variables `obj1`, `obj2` can be `constant`, `space`, `time`, or `spaceTime`.
+- The `varType` of ans depends on the `varType` of `obj1` and `obj2`.
 
 import CodeBlock from '@theme/CodeBlock';
 
-import CodeSnippet from '!!raw-loader!./_Multiplication_test_1.F90';
+import CodeSnippet from '!!raw-loader!./_Multiplication_test_2.F90';
 
 <CodeBlock language="fortran">{CodeSnippet}</CodeBlock>
